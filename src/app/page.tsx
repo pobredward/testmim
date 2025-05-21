@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { db } from "@/firebase";
+import { db, analytics } from "@/firebase";
 import { doc, updateDoc, increment, getDoc } from "firebase/firestore";
 import { getAllTests } from "@/data/tests";
+import { logEvent } from "firebase/analytics";
 
 export default function Home() {
   const TESTS: unknown[] = getAllTests();
@@ -70,6 +71,9 @@ export default function Home() {
             <Link
               key={test.code}
               href={`/detail/${test.code}`}
+              onClick={() => {
+                if (analytics) logEvent(analytics, "test_enter", { test_code: test.code });
+              }}
               className="group block rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition overflow-hidden"
             >
               <div className="flex flex-col h-full">

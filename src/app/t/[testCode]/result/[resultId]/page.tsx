@@ -5,11 +5,12 @@ import { SECRETJOB_TEST } from "@/data/tests/secretjob";
 import { ANIMALPERSONALITY_TEST } from "@/data/tests/animalpersonality";
 import { PASTLIFE_TEST } from "@/data/tests/pastlife";
 import { SPEECHSTYLE_TEST } from "@/data/tests/speechstyle";
-import { db } from "@/firebase";
+import { db, analytics } from "@/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import type { TestAnswer } from "@/types/tests";
+import { logEvent } from "firebase/analytics";
 
 export default function TestResultPage() {
   const { testCode, resultId } = useParams<{ testCode: string; resultId: string }>();
@@ -93,6 +94,7 @@ export default function TestResultPage() {
           className="px-8 py-3 rounded-full text-lg font-semibold shadow bg-white border-2 mb-2"
           style={{ borderColor: TEST_DATA.mainColor, color: TEST_DATA.mainColor }}
           onClick={async () => {
+            if (analytics) logEvent(analytics, "share_result", { test_code: testCode, result_id: resultId });
             await navigator.clipboard.writeText(shareUrl);
             setCopied(true);
             setTimeout(() => setCopied(false), 1500);

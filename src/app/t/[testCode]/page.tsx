@@ -6,9 +6,10 @@ import { SECRETJOB_TEST } from "@/data/tests/secretjob";
 import { ANIMALPERSONALITY_TEST } from "@/data/tests/animalpersonality";
 import { PASTLIFE_TEST } from "@/data/tests/pastlife";
 import { SPEECHSTYLE_TEST } from "@/data/tests/speechstyle";
-import { db } from "@/firebase";
+import { db, analytics } from "@/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import type { TestAnswer } from "@/types/tests";
+import { logEvent } from "firebase/analytics";
 
 // 진행률 표시 컴포넌트
 function ProgressBar({ current, total, color }: { current: number; total: number; color: string }) {
@@ -136,7 +137,10 @@ export default function TestRunPage() {
         <button
           className="px-8 py-3 rounded-full text-lg font-semibold shadow bg-white border-2"
           style={{ borderColor: TEST_DATA.mainColor, color: TEST_DATA.mainColor }}
-          onClick={() => setStarted(true)}
+          onClick={() => {
+            if (analytics) logEvent(analytics, "test_start", { test_code: testCode });
+            setStarted(true);
+          }}
         >
           테스트 시작
         </button>
