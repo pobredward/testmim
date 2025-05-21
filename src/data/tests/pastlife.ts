@@ -10,10 +10,11 @@ export const PASTLIFE_TEST = {
   mainColor: "#6c5ce7",
   icon: "🧬",
   thumbnailUrl: "/pastlife_thumb.png",
-  tags: ["전생", "성향", "심리", "유형테스트"],
+  tags: ["전생", "성향", "심리"],
   views: 0,
   likes: 0,
   scraps: 0,
+  category: "운명",
   questions: [
     {
       question: "사람들과 있을 때 당신의 위치는?",

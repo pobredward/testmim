@@ -9,10 +9,11 @@ export const EGENTETO_TEST = {
   mainColor: "#6c5ce7",
   icon: "💧🔥",
   thumbnailUrl: "/egenteto_thumb.png",
-  tags: ["사랑", "음식", "아이돌", "심리", "유형테스트"],
+  tags: ["에겐", "테토", "연애"],
   views: 0,
   likes: 0,
   scraps: 0,
+  category: "연애",
   questions: [
     {
       question: "친구들과의 모임에서 당신의 역할은?",

@@ -9,10 +9,11 @@ export const SPEECHSTYLE_TEST = {
   mainColor: "#f9a825",
   icon: "📱",
   thumbnailUrl: "/speechstyle_thumb.png",
-  tags: ["말버릇", "언어스타일", "유행어", "심리테스트"],
+  tags: ["말투", "언어", "유행어"],
   views: 0,
   likes: 0,
   scraps: 0,
+  category: "감성",
   questions: [
     {
       question: "친구와의 대화에서 자주 사용하는 표현은?",

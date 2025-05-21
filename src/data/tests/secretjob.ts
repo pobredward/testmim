@@ -9,10 +9,11 @@ export const SECRETJOB_TEST = {
   mainColor: "#7e5bef",
   icon: "🧩",
   bgGradient: "from-purple-100 to-blue-100",
-  tags: ["직업", "성향", "심리", "비유", "테스트"],
+  tags: ["직업", "성향", "심리"],
   views: 0,
   likes: 0,
   scraps: 0,
+  category: "자아",
   questions: [
     {
       question: "가장 마음이 편한 시간은 언제인가요?",

@@ -9,10 +9,11 @@ export const ANIMALPERSONALITY_TEST = {
   mainColor: "#f9a825",
   icon: "🐾",
   thumbnailUrl: "/animalpersonality_thumb.png",
-  tags: ["동물", "성향", "심리", "유형테스트"],
+  tags: ["동물", "성향", "심리"],
   views: 0,
   likes: 0,
   scraps: 0,
+  category: "동물",
   questions: [
     {
       question: "당신은 모임에서 어떤 타입인가요?",
