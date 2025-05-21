@@ -7,6 +7,7 @@ export const SECRETJOB_TEST = {
   description: "MBTI나 성향으로 가려졌던 숨겨진 직업 본능을 밝혀드립니다! 당신의 내면을 직업군으로 비유해보세요.",
   thumbnailUrl: "", // 썸네일 이미지가 있다면 경로 입력, 없으면 빈 문자열
   mainColor: "#7e5bef",
+  icon: "🧩",
   bgGradient: "from-purple-100 to-blue-100",
   tags: ["직업", "성향", "심리", "비유", "테스트"],
   views: 0,

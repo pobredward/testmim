@@ -31,6 +31,8 @@ export default function TestDetailPage({ params }: { params: Promise<{ testCode:
     testCode === SPEECHSTYLE_TEST.code ? SPEECHSTYLE_TEST :
     null;
 
+  const TEST = TEST_DATA as typeof EGENTETO_TEST & { icon: string };
+
   const hasIncreased = useRef(false);
   useEffect(() => {
     async function fetchStats() {
@@ -94,10 +96,10 @@ export default function TestDetailPage({ params }: { params: Promise<{ testCode:
     <div className="max-w-md w-full sm:mx-auto mx-2 bg-white rounded-xl shadow p-4 sm:p-10 mt-4 mb-8 flex flex-col items-center">
       {/* 썸네일: 파일 내 경로만 사용, 없으면 아이콘, 로딩 실패 시에도 아이콘 */}
       <div className="w-full max-w-[220px] aspect-square bg-pink-100 rounded-xl flex items-center justify-center mb-6 overflow-hidden">
-        {TEST_DATA.thumbnailUrl && !isImgError ? (
-          <img src={TEST_DATA.thumbnailUrl} alt={TEST_DATA.title} className="object-contain w-full h-full" onError={() => setIsImgError(true)} />
+        {TEST.thumbnailUrl && !isImgError ? (
+          <img src={TEST.thumbnailUrl} alt={TEST.title} className="object-contain w-full h-full" onError={() => setIsImgError(true)} />
         ) : (
-          <span className="text-6xl">{TEST_DATA.icon}</span>
+          <span className="text-6xl">{TEST.icon}</span>
         )}
       </div>
       <h1 className="text-2xl font-bold mb-2 text-center break-keep" style={{ color: TEST_DATA.mainColor }}>{TEST_DATA.title}</h1>
