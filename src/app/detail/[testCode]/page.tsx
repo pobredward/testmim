@@ -97,7 +97,7 @@ export default function TestDetailPage({ params }: { params: Promise<{ testCode:
         {TEST_DATA.thumbnailUrl && !isImgError ? (
           <img src={TEST_DATA.thumbnailUrl} alt={TEST_DATA.title} className="object-contain w-full h-full" onError={() => setIsImgError(true)} />
         ) : (
-          <span className="text-6xl">💧🔥</span>
+          <span className="text-6xl">{TEST_DATA.icon}</span>
         )}
       </div>
       <h1 className="text-2xl font-bold mb-2 text-center break-keep" style={{ color: TEST_DATA.mainColor }}>{TEST_DATA.title}</h1>
