@@ -10,6 +10,7 @@ export const SPEECHSTYLE_TEST = {
   icon: "📱",
   thumbnailUrl: "/speechstyle_thumb.png",
   tags: ["말투", "언어", "유행어"],
+  seoKeywords: "말버릇 테스트, 말투 테스트",
   views: 0,
   likes: 0,
   scraps: 0,

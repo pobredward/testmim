@@ -10,6 +10,7 @@ export const MBTISNS_TEST = {
   icon: "📱",
   thumbnailUrl: "/mbtisns_thumb.png",
   tags: ["MBTI", "SNS", "심리"],
+  seoKeywords: "MBTI, SNS 분석, SNS 스타일",
   views: 0,
   likes: 0,
   scraps: 0,

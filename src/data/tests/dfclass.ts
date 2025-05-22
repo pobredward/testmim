@@ -10,6 +10,7 @@ export const DFCLASS_TEST = {
   icon: "🛡️",
   thumbnailUrl: "/dfclass_thumb.png",
   tags: ["던파", "게임", "직업테스트", "성향분석"],
+  seoKeywords: "던파 직업 테스트, 던파 유형 테스트, 던파 직업 종류",
   views: 0,
   likes: 0,
   scraps: 0,

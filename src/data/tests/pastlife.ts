@@ -11,6 +11,7 @@ export const PASTLIFE_TEST = {
   icon: "🧬",
   thumbnailUrl: "/pastlife_thumb.png",
   tags: ["전생", "성향", "심리"],
+  seoKeywords: "전생 테스트, 전생",
   views: 0,
   likes: 0,
   scraps: 0,

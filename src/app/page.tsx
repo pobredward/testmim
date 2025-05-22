@@ -5,6 +5,7 @@ import { db, analytics } from "@/firebase";
 import { doc, updateDoc, increment, getDoc } from "firebase/firestore";
 import { getAllTests } from "@/data/tests";
 import { logEvent } from "firebase/analytics";
+import Head from "next/head";
 
 export default function Home() {
   const TESTS: unknown[] = getAllTests();
@@ -148,28 +149,41 @@ export default function Home() {
   // theme: { extend: { keyframes: { float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } }, bounce-slow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-4px)' } } }, animation: { float: 'float 2.5s ease-in-out infinite', 'bounce-slow': 'bounce-slow 2.2s infinite' } } }
 
   return (
-    <div>
-      <NeonBanner />
-      <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
-      {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (
-        testsByCategory[cat]?.length > 0 && (
-          <section key={cat} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
-            <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
-            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
-              <div className="flex gap-4 md:gap-6">
-                {(testsByCategory[cat] as any[]).map((test) => (
-                  <div
-                    key={test.code}
-                    className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
-                  >
-                    <TestCard test={test} />
-                  </div>
-                ))}
+    <>
+      <Head>
+        <title>테스트밈 | 무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음</title>
+        <meta name="description" content="테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 사이트입니다. 지금 바로 나에게 맞는 테스트를 찾아보세요!" />
+        <meta name="keywords" content="테스트밈, 심리테스트, 무료테스트, 성향테스트, MBTI, 연애테스트, 동물테스트, 게임테스트, 재미있는 테스트, testmim, 성격테스트, 인기테스트" />
+        {/* Open Graph */}
+        <meta property="og:title" content="테스트밈 | 무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음" />
+        <meta property="og:description" content="테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 사이트입니다. 지금 바로 나에게 맞는 테스트를 찾아보세요!" />
+        <meta property="og:url" content="https://www.testmim.com/" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.testmim.com/" />
+      </Head>
+      <div>
+        <NeonBanner />
+        <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
+        {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (
+          testsByCategory[cat]?.length > 0 && (
+            <section key={cat} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
+              <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
+              <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
+                <div className="flex gap-4 md:gap-6">
+                  {(testsByCategory[cat] as any[]).map((test) => (
+                    <div
+                      key={test.code}
+                      className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
+                    >
+                      <TestCard test={test} />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
-        )
-      ))}
-    </div>
+            </section>
+          )
+        ))}
+      </div>
+    </>
   );
 }

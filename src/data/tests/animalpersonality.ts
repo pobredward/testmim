@@ -10,6 +10,7 @@ export const ANIMALPERSONALITY_TEST = {
   icon: "🐾",
   thumbnailUrl: "/animalpersonality_thumb.png",
   tags: ["동물", "성향", "심리"],
+  seoKeywords: "동물 테스트, 동물 심리, 동물 성향",
   views: 0,
   likes: 0,
   scraps: 0,

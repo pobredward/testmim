@@ -10,6 +10,7 @@ export const SNSLESS_TEST = {
   icon: "🧠",
   thumbnailUrl: "/snsless_thumb.png",
   tags: ["SNS", "디지털디톡스"],
+  seoKeywords: "SNS 중독, SNS 테스트, 디지털 디톡스",
   views: 0,
   likes: 0,
   scraps: 0,

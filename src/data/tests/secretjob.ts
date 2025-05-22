@@ -10,6 +10,7 @@ export const SECRETJOB_TEST = {
   icon: "🧩",
   bgGradient: "from-purple-100 to-blue-100",
   tags: ["직업", "성향", "심리"],
+  seoKeywords: "직업 테스트, 비밀 직업, 심리 테스트",
   views: 0,
   likes: 0,
   scraps: 0,

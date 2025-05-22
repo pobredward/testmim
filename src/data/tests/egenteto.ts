@@ -10,6 +10,7 @@ export const EGENTETO_TEST = {
   icon: "💧🔥",
   thumbnailUrl: "/egenteto_thumb.png",
   tags: ["에겐", "테토", "연애"],
+  seoKeywords: "에겐녀, 테토녀, 호르몬 테스트, 심리 테스트, 연애 테스트",
   views: 0,
   likes: 0,
   scraps: 0,

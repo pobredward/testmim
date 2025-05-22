@@ -10,6 +10,7 @@ export const LOLLANE_TEST = {
   icon: "🎮",
   thumbnailUrl: "/lollane_thumb.png",
   tags: ["LOL", "게임", "라인", "MBTI", "포지션테스트"],
+  seoKeywords: "롤 라인 테스트, 롤 라인 추천, LOL 라인 종류",
   views: 0,
   likes: 0,
   scraps: 0,
