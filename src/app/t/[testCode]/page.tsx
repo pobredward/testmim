@@ -1,11 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { EGENTETO_TEST } from "@/data/tests/egenteto";
-import { SECRETJOB_TEST } from "@/data/tests/secretjob";
-import { ANIMALPERSONALITY_TEST } from "@/data/tests/animalpersonality";
-import { PASTLIFE_TEST } from "@/data/tests/pastlife";
-import { SPEECHSTYLE_TEST } from "@/data/tests/speechstyle";
+import { getTestByCode } from "@/data/tests";
 import { db, analytics } from "@/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import type { TestAnswer } from "@/types/tests";
@@ -75,13 +71,7 @@ export default function TestRunPage() {
   const [error, setError] = useState<string | null>(null);
 
   // 테스트 데이터 분기
-  const TEST_DATA =
-    testCode === EGENTETO_TEST.code ? EGENTETO_TEST :
-    testCode === SECRETJOB_TEST.code ? SECRETJOB_TEST :
-    testCode === ANIMALPERSONALITY_TEST.code ? ANIMALPERSONALITY_TEST :
-    testCode === PASTLIFE_TEST.code ? PASTLIFE_TEST :
-    testCode === SPEECHSTYLE_TEST.code ? SPEECHSTYLE_TEST :
-    null;
+  const TEST_DATA = getTestByCode(testCode);
 
   if (!TEST_DATA) {
     return (

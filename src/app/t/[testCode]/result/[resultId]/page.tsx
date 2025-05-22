@@ -1,10 +1,6 @@
 "use client";
 
-import { EGENTETO_TEST } from "@/data/tests/egenteto";
-import { SECRETJOB_TEST } from "@/data/tests/secretjob";
-import { ANIMALPERSONALITY_TEST } from "@/data/tests/animalpersonality";
-import { PASTLIFE_TEST } from "@/data/tests/pastlife";
-import { SPEECHSTYLE_TEST } from "@/data/tests/speechstyle";
+import { getTestByCode } from "@/data/tests";
 import { db, analytics } from "@/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -25,13 +21,7 @@ export default function TestResultPage() {
   const isShare = searchParams.get("from") === "share";
 
   // 테스트 데이터 분기
-  const TEST_DATA =
-    testCode === EGENTETO_TEST.code ? EGENTETO_TEST :
-    testCode === SECRETJOB_TEST.code ? SECRETJOB_TEST :
-    testCode === ANIMALPERSONALITY_TEST.code ? ANIMALPERSONALITY_TEST :
-    testCode === PASTLIFE_TEST.code ? PASTLIFE_TEST :
-    testCode === SPEECHSTYLE_TEST.code ? SPEECHSTYLE_TEST :
-    null;
+  const TEST_DATA = getTestByCode(testCode);
 
   useEffect(() => {
     async function fetchResult() {
@@ -71,7 +61,7 @@ export default function TestResultPage() {
         {result.icon}
       </div>
       <h1 className="text-2xl font-bold mb-2" style={{ color: TEST_DATA.mainColor }}>{result.title}</h1>
-      {testCode === EGENTETO_TEST.code && result.tetoPercent !== undefined && result.egenPercent !== undefined && (
+      {testCode === "egenteto" && result.tetoPercent !== undefined && result.egenPercent !== undefined && (
         <div className="text-base text-gray-700 mb-2">에겐력 <span className="font-bold text-blue-700">{result.egenPercent}%</span> / 테토력 <span className="font-bold text-pink-600">{result.tetoPercent}%</span></div>
       )}
       <p className="text-gray-700 mb-4 text-center whitespace-pre-line">{result.desc}</p>
