@@ -3,7 +3,7 @@ import type { TestAnswer, TestResult } from "@/types/tests";
 export const SNSLESS_TEST = {
   code: "snsless",
   docId: "snsless",
-  title: "SNS 없이 1년을 산다면, 나는 어떤 사람일까?",
+  title: "SNS 없이 1년, 나는 어떤 사람일까?",
   description: "당신이 SNS를 끊고 1년을 산다면 어떤 자아가 드러날까요? 평소 드러나지 않았던 당신의 진짜 모습, 지금 확인해보세요.",
   bgGradient: "from-[#fce4ec] via-[#e8f5e9] to-[#e3f2fd]",
   mainColor: "#6a1b9a",

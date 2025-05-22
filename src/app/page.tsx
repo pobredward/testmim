@@ -160,7 +160,7 @@ export default function Home() {
                 {(testsByCategory[cat] as any[]).map((test) => (
                   <div
                     key={test.code}
-                    className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[180px]"
+                    className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
                   >
                     <TestCard test={test} />
                   </div>

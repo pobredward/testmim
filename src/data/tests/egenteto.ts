@@ -3,7 +3,7 @@ import type { TestAnswer, TestResult } from "@/types/tests";
 export const EGENTETO_TEST = {
   code: "egenteto",
   docId: "egenteto",
-  title: "당신의 호르몬 성향은? 에겐녀 vs 테토녀",
+  title: "당신의 호르몬 성향 에겐녀 vs 테토녀",
   description: "10가지 질문으로 알아보는 나의 성향! 에겐녀일까, 테토녀일까?",
   bgGradient: "from-[#f8fafc] via-[#e0e7ff] to-[#f0fdfa]", // 연보라~연파랑~연민트
   mainColor: "#6c5ce7",

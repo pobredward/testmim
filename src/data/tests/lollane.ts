@@ -3,7 +3,7 @@ import type { TestAnswer, TestResult } from "@/types/tests";
 export const LOLLANE_TEST = {
   code: "lollane",
   docId: "lollane",
-  title: "나는 LOL 게임에서 어떤 라인이 어울릴까?",
+  title: "LOL 어떤 라인이 어울릴까?",
   description: "플레이 스타일, 성향, 반응 방식에 따라 어울리는 LOL 라인은 다릅니다. 10가지 질문을 통해 당신의 포지션을 알아보세요!",
   bgGradient: "from-[#e3f2fd] via-[#fce4ec] to-[#fff3e0]",
   mainColor: "#3f51b5",
