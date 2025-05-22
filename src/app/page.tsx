@@ -160,6 +160,7 @@ export default function Home() {
         <meta property="og:url" content="https://www.testmim.com/" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.testmim.com/" />
+        <meta name="google-adsense-account" content="ca-pub-5100840159526765"/>
       </Head>
       <div>
         <NeonBanner />
