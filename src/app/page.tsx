@@ -160,31 +160,30 @@ export default function Home() {
         <meta property="og:url" content="https://www.testmim.com/" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.testmim.com/" />
-        <meta name="google-adsense-account" content="ca-pub-5100840159526765"/>
       </Head>
-      <div>
-        <NeonBanner />
-        <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
-        {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (
-          testsByCategory[cat]?.length > 0 && (
-            <section key={cat} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
-              <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
-              <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
-                <div className="flex gap-4 md:gap-6">
-                  {(testsByCategory[cat] as any[]).map((test) => (
-                    <div
-                      key={test.code}
-                      className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
-                    >
-                      <TestCard test={test} />
-                    </div>
-                  ))}
-                </div>
+    <div>
+      <NeonBanner />
+      <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
+      {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (
+        testsByCategory[cat]?.length > 0 && (
+          <section key={cat} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
+            <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
+            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
+              <div className="flex gap-4 md:gap-6">
+                {(testsByCategory[cat] as any[]).map((test) => (
+                  <div
+                    key={test.code}
+                    className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
+                  >
+                    <TestCard test={test} />
+                  </div>
+                ))}
               </div>
-            </section>
-          )
-        ))}
-      </div>
+            </div>
+          </section>
+        )
+      ))}
+    </div>
     </>
   );
 }

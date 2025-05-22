@@ -39,6 +39,8 @@ export default function RootLayout({
         <meta property="og:image" content="https://www.testmim.com/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://www.testmim.com/og-image.png" />
+        {/* Google Adsense */}
+        <meta name="google-adsense-account" content="ca-pub-5100840159526765" />
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
         <header className="w-full border-b bg-white sticky top-0 z-30">
