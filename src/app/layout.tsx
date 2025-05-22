@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "테스트밈",
-  description: "테스트들의 집합소, 다양한 심리테스트와 재미있는 테스트를 한 곳에서!",
+  description: "무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음",
 };
 
 export default function RootLayout({
@@ -25,6 +26,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <Head>
+        {/* favicon */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        {/* apple touch icon */}
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        {/* manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        {/* og:image, twitter */}
+        <meta property="og:image" content="https://www.testmim.com/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.testmim.com/og-image.png" />
+      </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
         <header className="w-full border-b bg-white sticky top-0 z-30">
           <nav className="max-w-2xl mx-auto flex items-center h-14 px-4">
