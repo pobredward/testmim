@@ -9,7 +9,7 @@ export const SNSLESS_TEST = {
   mainColor: "#6a1b9a",
   icon: "🧠",
   thumbnailUrl: "/snsless_thumb.png",
-  tags: ["SNS", "디지털디톡스", "관찰"],
+  tags: ["SNS", "디지털디톡스"],
   views: 0,
   likes: 0,
   scraps: 0,

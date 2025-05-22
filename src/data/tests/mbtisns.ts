@@ -9,7 +9,7 @@ export const MBTISNS_TEST = {
   mainColor: "#7b1fa2",
   icon: "📱",
   thumbnailUrl: "/mbtisns_thumb.png",
-  tags: ["MBTI", "SNS", "SNS유형", "자아", "밈테스트"],
+  tags: ["MBTI", "SNS", "심리"],
   views: 0,
   likes: 0,
   scraps: 0,
