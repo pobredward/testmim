@@ -6,6 +6,8 @@ import { SECRETJOB_TEST } from "@/data/tests/secretjob";
 import { ANIMALPERSONALITY_TEST } from "@/data/tests/animalpersonality";
 import { PASTLIFE_TEST } from "@/data/tests/pastlife";
 import { SPEECHSTYLE_TEST } from "@/data/tests/speechstyle";
+import { LOLLANE_TEST } from "@/data/tests/lollane";
+import { DFCLASS_TEST } from "@/data/tests/dfclass";
 import { useEffect, useState, useRef } from "react";
 import { db } from "@/firebase";
 import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
@@ -29,6 +31,8 @@ export default function TestDetailPage({ params }: { params: Promise<{ testCode:
     testCode === ANIMALPERSONALITY_TEST.code ? ANIMALPERSONALITY_TEST :
     testCode === PASTLIFE_TEST.code ? PASTLIFE_TEST :
     testCode === SPEECHSTYLE_TEST.code ? SPEECHSTYLE_TEST :
+    testCode === LOLLANE_TEST.code ? LOLLANE_TEST :
+    testCode === DFCLASS_TEST.code ? DFCLASS_TEST :
     null;
 
   const TEST = TEST_DATA as typeof EGENTETO_TEST & { icon: string };
