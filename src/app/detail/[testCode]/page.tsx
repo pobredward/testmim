@@ -15,6 +15,7 @@ import { db } from "@/firebase";
 import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
 import { use } from "react";
 import Head from "next/head";
+import { getTestByCode } from "@/data/tests";
 
 export default function TestDetailPage({ params }: { params: Promise<{ testCode: string }> }) {
   const [views, setViews] = useState(EGENTETO_TEST.views);
@@ -27,20 +28,10 @@ export default function TestDetailPage({ params }: { params: Promise<{ testCode:
 
   const { testCode } = use(params);
 
-  // 테스트 데이터 분기
-  const TEST_DATA =
-    testCode === EGENTETO_TEST.code ? EGENTETO_TEST :
-    testCode === SECRETJOB_TEST.code ? SECRETJOB_TEST :
-    testCode === ANIMALPERSONALITY_TEST.code ? ANIMALPERSONALITY_TEST :
-    testCode === PASTLIFE_TEST.code ? PASTLIFE_TEST :
-    testCode === SPEECHSTYLE_TEST.code ? SPEECHSTYLE_TEST :
-    testCode === LOLLANE_TEST.code ? LOLLANE_TEST :
-    testCode === DFCLASS_TEST.code ? DFCLASS_TEST :
-    testCode === SNSLESS_TEST.code ? SNSLESS_TEST :
-    testCode === MBTISNS_TEST.code ? MBTISNS_TEST :
-    null;
+  // 테스트 데이터 분기 (공통 함수로 대체)
+  const TEST_DATA = getTestByCode(testCode);
 
-  const TEST = TEST_DATA as typeof EGENTETO_TEST & { icon: string };
+  // const TEST = TEST_DATA as typeof EGENTETO_TEST & { icon: string };
 
   const hasIncreased = useRef(false);
   useEffect(() => {
