@@ -161,11 +161,6 @@ export default function Home() {
         <meta property="og:url" content="https://www.testmim.com/" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.testmim.com/" />
-        {/* Google Adsense */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5100840159526765"
-          crossOrigin="anonymous"
-        ></script>
-        <meta name="google-adsense-account" content="ca-pub-5100840159526765" />
       </Head>
     <div>
       <NeonBanner />

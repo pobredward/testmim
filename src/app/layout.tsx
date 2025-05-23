@@ -43,9 +43,6 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://www.testmim.com/og-image.png" />
         {/* Google Adsense */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5100840159526765"
-          crossOrigin="anonymous"
-        ></script>
         <meta name="google-adsense-account" content="ca-pub-5100840159526765" />
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
