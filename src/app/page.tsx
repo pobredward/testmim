@@ -7,6 +7,21 @@ import { getAllTests } from "@/data/tests";
 import { logEvent } from "firebase/analytics";
 import Head from "next/head";
 
+export const metadata = {
+  title: "테스트밈 | 무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음",
+  description: "테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 사이트입니다. 지금 바로 나에게 맞는 테스트를 찾아보세요!",
+  keywords: "테스트밈, 심리테스트, 무료테스트, 성향테스트, MBTI, 연애테스트, 동물테스트, 게임테스트, 재미있는 테스트, testmim, 성격테스트, 인기테스트",
+  openGraph: {
+    title: "테스트밈 | 무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음",
+    description: "테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 사이트입니다. 지금 바로 나에게 맞는 테스트를 찾아보세요!",
+    url: "https://www.testmim.com/",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.testmim.com/",
+  },
+};
+
 export default function Home() {
   const TESTS: unknown[] = getAllTests();
 
@@ -150,18 +165,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>테스트밈 | 무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음</title>
-        <meta name="description" content="테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 사이트입니다. 지금 바로 나에게 맞는 테스트를 찾아보세요!" />
-        <meta name="keywords" content="테스트밈, 심리테스트, 무료테스트, 성향테스트, MBTI, 연애테스트, 동물테스트, 게임테스트, 재미있는 테스트, testmim, 성격테스트, 인기테스트" />
-        {/* Open Graph */}
-        <meta property="og:title" content="테스트밈 | 무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음" />
-        <meta property="og:description" content="테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 사이트입니다. 지금 바로 나에게 맞는 테스트를 찾아보세요!" />
-        <meta property="og:url" content="https://www.testmim.com/" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.testmim.com/" />
-      </Head>
-    <div>
       <NeonBanner />
       <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
       {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (
@@ -183,7 +186,6 @@ export default function Home() {
           </section>
         )
       ))}
-    </div>
     </>
   );
 }
