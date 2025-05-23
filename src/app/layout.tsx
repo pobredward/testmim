@@ -44,8 +44,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         ></script>
         <meta name="google-adsense-account" content="ca-pub-5100840159526765" />
-        <meta name="naver-site-verification" content="b2539af8bd2d072e8459bc260725dcf6e3417e5a" />
-
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
         <header className="w-full border-b bg-white sticky top-0 z-30">
