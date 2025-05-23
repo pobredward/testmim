@@ -1,26 +1,39 @@
 'use client'
 
 import Link from "next/link";
-import { EGENTETO_TEST } from "@/data/tests/egenteto";
-import { SECRETJOB_TEST } from "@/data/tests/secretjob";
-import { ANIMALPERSONALITY_TEST } from "@/data/tests/animalpersonality";
-import { PASTLIFE_TEST } from "@/data/tests/pastlife";
-import { SPEECHSTYLE_TEST } from "@/data/tests/speechstyle";
-import { LOLLANE_TEST } from "@/data/tests/lollane";
-import { DFCLASS_TEST } from "@/data/tests/dfclass";
-import { SNSLESS_TEST } from "@/data/tests/snsless";
-import { MBTISNS_TEST } from "@/data/tests/mbtisns";
 import { useEffect, useState, useRef } from "react";
 import { db } from "@/firebase";
-import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
+import { doc, getDoc, updateDoc, increment, setDoc } from "firebase/firestore";
 import { use } from "react";
 import Head from "next/head";
 import { getTestByCode } from "@/data/tests";
+import type { TestResult, TestAnswer } from "@/types/tests";
+
+// 공통 테스트 데이터 타입 정의
+export type TestMeta = {
+  code: string;
+  docId: string;
+  title: string;
+  description: string;
+  bgGradient: string;
+  mainColor: string;
+  icon: string;
+  thumbnailUrl: string;
+  tags: string[];
+  seoKeywords?: string;
+  views: number;
+  likes: number;
+  scraps: number;
+  category: string;
+  results: TestResult[];
+  calculateResult: (answers: TestAnswer[]) => TestResult;
+  [key: string]: any;
+};
 
 export default function TestDetailPage({ params }: { params: Promise<{ testCode: string }> }) {
-  const [views, setViews] = useState(EGENTETO_TEST.views);
-  const [likes, setLikes] = useState(EGENTETO_TEST.likes);
-  const [scraps, setScraps] = useState(EGENTETO_TEST.scraps);
+  const [views, setViews] = useState(0);
+  const [likes, setLikes] = useState(0);
+  const [scraps, setScraps] = useState(0);
   const [likeClicked, setLikeClicked] = useState(false);
   const [scrapClicked, setScrapClicked] = useState(false);
   const [isImgError, setIsImgError] = useState(false);
@@ -29,9 +42,7 @@ export default function TestDetailPage({ params }: { params: Promise<{ testCode:
   const { testCode } = use(params);
 
   // 테스트 데이터 분기 (공통 함수로 대체)
-  const TEST_DATA = getTestByCode(testCode);
-
-  // const TEST = TEST_DATA as typeof EGENTETO_TEST & { icon: string };
+  const TEST_DATA = getTestByCode(testCode) as TestMeta | null;
 
   const hasIncreased = useRef(false);
   useEffect(() => {
@@ -45,6 +56,8 @@ export default function TestDetailPage({ params }: { params: Promise<{ testCode:
         setLikes(data.likes ?? 0);
         setScraps(data.scraps ?? 0);
       } else {
+        // 문서가 없으면 0,0,0으로 생성
+        await setDoc(ref, { views: 0, likes: 0, scraps: 0 });
         setViews(0);
         setLikes(0);
         setScraps(0);
@@ -116,10 +129,10 @@ export default function TestDetailPage({ params }: { params: Promise<{ testCode:
     <div className="max-w-md w-full sm:mx-auto mx-2 bg-white rounded-xl shadow p-4 sm:p-10 mt-4 mb-8 flex flex-col items-center">
       {/* 썸네일: 파일 내 경로만 사용, 없으면 아이콘, 로딩 실패 시에도 아이콘 */}
       <div className="w-full max-w-[220px] aspect-square bg-pink-100 rounded-xl flex items-center justify-center mb-6 overflow-hidden">
-        {TEST.thumbnailUrl && !isImgError ? (
-          <img src={TEST.thumbnailUrl} alt={TEST.title} className="object-contain w-full h-full" onError={() => setIsImgError(true)} />
+        {TEST_DATA.thumbnailUrl && !isImgError ? (
+          <img src={TEST_DATA.thumbnailUrl} alt={TEST_DATA.title} className="object-contain w-full h-full" onError={() => setIsImgError(true)} />
         ) : (
-          <span className="text-6xl">{TEST.icon}</span>
+          <span className="text-6xl">{TEST_DATA.icon}</span>
         )}
       </div>
       <h1 className="text-2xl font-bold mb-2 text-center break-keep" style={{ color: TEST_DATA.mainColor }}>{TEST_DATA.title}</h1>
