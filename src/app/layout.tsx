@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <Head>
+      <head>
         {/* favicon */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -44,7 +44,7 @@ export default function RootLayout({
         <meta name="twitter:image" content="https://www.testmim.com/og-image.png" />
         {/* Google Adsense */}
         <meta name="google-adsense-account" content="ca-pub-5100840159526765" />
-      </Head>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
         <Header />
         <MainLayout>{children}</MainLayout>
