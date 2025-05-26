@@ -110,7 +110,7 @@ export default function HomeClient() {
       onClick={() => {
         if (analytics) logEvent(analytics, "test_enter", { test_code: test.code });
       }}
-      className="group relative block rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-gray-100 hover:-translate-y-1 hover:scale-105 duration-200"
+      className="group relative block rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-gray-100 dark:bg-neutral-900 dark:border-neutral-800 hover:-translate-y-1 hover:scale-105 duration-200"
       style={{ minHeight: 210 }}
     >
       {getBadge(test)}
@@ -119,13 +119,13 @@ export default function HomeClient() {
           <span className="text-4xl animate-bounce-slow">{typeof test.icon === "string" ? test.icon : "🧩"}</span>
         </div>
         <div className="flex-1 flex flex-col p-3">
-          <div className="font-bold text-base mb-1 group-hover:text-pink-500 transition line-clamp-2 break-keep">{test.title}</div>
+          <div className="font-bold text-base mb-1 group-hover:text-pink-500 transition line-clamp-2 break-keep dark:text-gray-100">{test.title}</div>
           <div className="flex flex-wrap gap-1 mb-2">
             {test.tags.map((tag: string) => (
               <span key={tag} className="bg-gray-100 text-gray-500 text-[11px] px-2 py-0.5 rounded-full">#{tag}</span>
             ))}
           </div>
-          <div className="flex items-center gap-3 text-xs text-gray-400 mb-1">
+          <div className="flex items-center gap-3 text-xs text-gray-400 mb-1 dark:text-gray-300">
             <span className="flex items-center gap-1">
               <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12Z"/><circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/></svg>
               {stats[test.code]?.views?.toLocaleString() ?? test.views}
@@ -154,7 +154,7 @@ export default function HomeClient() {
       <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
       {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (
         testsByCategory[cat]?.length > 0 && (
-          <section key={cat} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
+          <section key={cat} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm dark:bg-neutral-900`}>
             <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
             <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
               <div className="flex gap-4 md:gap-6">
