@@ -45,7 +45,7 @@ export default function RootLayout({
         {/* Google Adsense */}
         <meta name="google-adsense-account" content="ca-pub-5100840159526765" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`} style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
         <Header />
         <MainLayout>{children}</MainLayout>
         <Footer />

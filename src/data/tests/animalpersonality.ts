@@ -6,7 +6,7 @@ export const ANIMALPERSONALITY_TEST = {
   title: "나는 어떤 동물의 본성을 가졌을까?",
   description: "겉으로는 비슷해 보여도, 당신의 무의식은 분명히 '동물적인 본성'을 지니고 있습니다. 이 테스트를 통해 당신 안의 본성을 동물로 밝혀보세요.",
   bgGradient: "from-[#f8fafc] via-[#fceabb] to-[#f8fafc]", // 연노랑~연베이지~연화이트
-  mainColor: "#f9a825",
+  mainColor: "#000000",
   icon: "🐾",
   thumbnailUrl: "/animalpersonality_thumb.png",
   tags: ["동물", "성향", "심리"],
