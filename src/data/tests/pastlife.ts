@@ -9,7 +9,7 @@ export const PASTLIFE_TEST = {
   bgGradient: "from-[#f8fafc] via-[#e0e7ff] to-[#f0fdfa]", // 연보라~연파랑~연민트
   mainColor: "#6c5ce7",
   icon: "🧬",
-  thumbnailUrl: "/pastlife_thumb.png",
+  thumbnailUrl: "/thumbnails/pastlife_thumb.png",
   tags: ["전생", "성향", "심리"],
   seoKeywords: "전생 테스트, 전생",
   views: 0,

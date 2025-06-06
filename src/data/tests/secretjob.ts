@@ -5,7 +5,7 @@ export const SECRETJOB_TEST = {
   docId: "secretjob",
   title: "내 안의 비밀 직업은?",
   description: "MBTI나 성향으로 가려졌던 숨겨진 직업 본능을 밝혀드립니다! 당신의 내면을 직업군으로 비유해보세요.",
-  thumbnailUrl: "", // 썸네일 이미지가 있다면 경로 입력, 없으면 빈 문자열
+  thumbnailUrl: "/thumbnails/secretjob_thumb.png",
   mainColor: "#7e5bef",
   icon: "🧩",
   bgGradient: "from-purple-100 to-blue-100",

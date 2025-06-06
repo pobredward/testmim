@@ -8,7 +8,7 @@ export const SPEECHSTYLE_TEST = {
   bgGradient: "from-[#f8fafc] via-[#fceabb] to-[#f8fafc]", // 밝은 노랑~연베이지~밝은 회색
   mainColor: "#f9a825",
   icon: "📱",
-  thumbnailUrl: "/speechstyle_thumb.png",
+  thumbnailUrl: "/thumbnails/speechstyle_thumb.png",
   tags: ["말투", "언어", "유행어"],
   seoKeywords: "말버릇 테스트, 말투 테스트",
   views: 0,

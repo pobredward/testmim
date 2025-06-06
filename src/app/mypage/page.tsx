@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ProfileEditModal from "@/app/components/ProfileEditModal";
+import TestResultCards from "@/app/components/TestResultCards";
 
 export default function MyPage() {
   const { data: session, status } = useSession();
@@ -60,9 +61,9 @@ export default function MyPage() {
       <h1 className="text-xl font-bold mb-6">마이페이지</h1>
       
       {/* 기본 프로필 정보 섹션 */}
-      <div className="bg-white rounded-lg p-6 mb-6 border border-gray-200">
+      <div className="mb-8">
         <h2 className="text-lg font-semibold mb-4 text-gray-800">프로필 정보</h2>
-        <div className="flex items-center gap-4 mb-6">
+        <div className="flex items-center gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
           {session.user?.image && (
             <img 
               src={session.user.image} 
@@ -88,7 +89,7 @@ export default function MyPage() {
       </div>
 
       {/* 상세 정보 섹션 */}
-      <div className="bg-white rounded-lg p-6 mb-6 border border-gray-200">
+      <div className="mb-8">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold text-gray-800">상세 정보</h2>
           <button 
@@ -150,30 +151,14 @@ export default function MyPage() {
         )}
       </div>
 
-      {/* 기능 섹션 */}
-      <div className="bg-white rounded-lg p-6 border border-gray-200">
-        <h2 className="text-lg font-semibold mb-4 text-gray-800">내 활동</h2>
-        <div className="grid grid-cols-1 gap-4">
-          <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-medium text-gray-800 mb-2">💝 내가 좋아한 테스트</h3>
-            <p className="text-gray-600 text-sm">좋아요를 누른 테스트들을 모아볼 수 있습니다.</p>
-            <p className="text-gray-400 text-xs mt-1">(준비 중)</p>
-          </div>
-          <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-medium text-gray-800 mb-2">📚 스크랩한 테스트</h3>
-            <p className="text-gray-600 text-sm">나중에 다시 보려고 저장한 테스트들입니다.</p>
-            <p className="text-gray-400 text-xs mt-1">(준비 중)</p>
-          </div>
-          <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-medium text-gray-800 mb-2">📊 내 테스트 결과</h3>
-            <p className="text-gray-600 text-sm">지금까지 진행한 테스트 결과들을 확인할 수 있습니다.</p>
-            <p className="text-gray-400 text-xs mt-1">(준비 중)</p>
-          </div>
-        </div>
+      {/* 테스트 결과 섹션 */}
+      <div className="mb-8">
+        <h2 className="text-lg font-semibold mb-6 text-gray-800">내 테스트 결과</h2>
+        <TestResultCards />
       </div>
 
       {/* 안내 메시지 */}
-      <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+      <div className="mt-8 p-4 bg-blue-50 rounded-lg">
         <p className="text-blue-800 text-sm">
           ℹ️ <strong>개인정보 보호</strong><br />
           테스트밈은 사용자의 개인정보를 안전하게 보호합니다. 
@@ -191,6 +176,8 @@ export default function MyPage() {
           console.log("프로필이 수정되었습니다.");
         }}
       />
+
+
     </div>
   );
 } 

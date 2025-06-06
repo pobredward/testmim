@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { getTestByCode } from "@/data/tests";
 import { db, analytics } from "@/firebase";
 import { collection, addDoc } from "firebase/firestore";
@@ -64,6 +65,7 @@ function removeUndefined(obj: Record<string, unknown>) {
 export default function TestRunPage() {
   const { testCode } = useParams<{ testCode: string }>();
   const router = useRouter();
+  const { data: session } = useSession();
   const [started, setStarted] = useState(false);
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<TestAnswer[]>([]);
@@ -98,6 +100,8 @@ export default function TestRunPage() {
           testCode,
           answers: cleanedAnswers,
           resultType: cleanedResultType,
+          userId: session?.user?.id || null,
+          userNickname: session?.user?.nickname || session?.user?.name || null,
           createdAt: new Date(),
         });
         console.log('[DEBUG] 저장 성공:', docRef.id);

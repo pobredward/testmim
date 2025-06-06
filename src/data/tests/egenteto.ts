@@ -8,7 +8,7 @@ export const EGENTETO_TEST = {
   bgGradient: "from-[#f8fafc] via-[#e0e7ff] to-[#f0fdfa]", // 연보라~연파랑~연민트
   mainColor: "#6c5ce7",
   icon: "💧🔥",
-  thumbnailUrl: "/egenteto_thumb.png",
+  thumbnailUrl: "/thumbnails/egenteto_thumb.png",
   tags: ["에겐", "테토", "연애"],
   seoKeywords: "에겐녀, 테토녀, 호르몬 테스트, 심리 테스트, 연애 테스트",
   views: 0,

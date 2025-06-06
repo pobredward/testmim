@@ -8,7 +8,7 @@ export const LOLLANE_TEST = {
   bgGradient: "from-[#e3f2fd] via-[#fce4ec] to-[#fff3e0]",
   mainColor: "#3f51b5",
   icon: "🎮",
-  thumbnailUrl: "/lollane_thumb.png",
+  thumbnailUrl: "/thumbnails/lollane_thumb.png",
   tags: ["LOL", "게임", "라인", "MBTI", "포지션테스트"],
   seoKeywords: "롤 라인 테스트, 롤 라인 추천, LOL 라인 종류",
   views: 0,

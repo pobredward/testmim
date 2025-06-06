@@ -8,7 +8,7 @@ export const ANIMALPERSONALITY_TEST = {
   bgGradient: "from-[#f8fafc] via-[#fceabb] to-[#f8fafc]", // 연노랑~연베이지~연화이트
   mainColor: "#000000",
   icon: "🐾",
-  thumbnailUrl: "/animalpersonality_thumb.png",
+  thumbnailUrl: "/thumbnails/animalpersonality_thumb.png",
   tags: ["동물", "성향", "심리"],
   seoKeywords: "동물 테스트, 동물 심리, 동물 성향",
   views: 0,

@@ -8,7 +8,7 @@ export const DFCLASS_TEST = {
   bgGradient: "from-[#f8fafc] via-[#e0e7ff] to-[#f0fdfa]",
   mainColor: "#d32f2f",
   icon: "🛡️",
-  thumbnailUrl: "/dfclass_thumb.png",
+  thumbnailUrl: "/thumbnails/dfclass_thumb.png",
   tags: ["던파", "게임", "직업테스트", "성향분석"],
   seoKeywords: "던파 직업 테스트, 던파 유형 테스트, 던파 직업 종류",
   views: 0,

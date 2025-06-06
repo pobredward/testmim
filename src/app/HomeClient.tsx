@@ -125,10 +125,24 @@ export default function HomeClient() {
     >
       {getBadge(test)}
       <div className="flex flex-col h-full">
-        <div className="w-full h-24 flex items-center justify-center bg-gradient-to-br from-pink-100 via-white to-purple-100 animate-float">
-          <span className="text-4xl animate-bounce-slow">{typeof test.icon === "string" ? test.icon : "🧩"}</span>
+        <div className="relative w-full h-24 overflow-hidden">
+          <img
+            src={test.thumbnailUrl || "/default-test-thumb.png"}
+            alt={test.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+            onError={(e) => {
+              // 이미지 로드 실패 시 아이콘으로 대체
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              const iconDiv = target.nextElementSibling as HTMLElement;
+              if (iconDiv) iconDiv.style.display = 'flex';
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-white to-purple-100 flex items-center justify-center animate-float" style={{ display: 'none' }}>
+            <span className="text-4xl animate-bounce-slow">{typeof test.icon === "string" ? test.icon : "🧩"}</span>
+          </div>
         </div>
-        <div className="flex-1 flex flex-col p-3">
+        <div className="flex-1 flex flex-col p-3 bg-gray-50">
           <div className="font-bold text-base mb-1 group-hover:text-pink-500 transition line-clamp-2 break-keep">{test.title}</div>
           <div className="flex flex-wrap gap-1 mb-2">
             {test.tags.map((tag: string) => (

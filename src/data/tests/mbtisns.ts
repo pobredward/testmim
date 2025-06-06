@@ -8,7 +8,7 @@ export const MBTISNS_TEST = {
   bgGradient: "from-[#f3e5f5] via-[#e1f5fe] to-[#fbe9e7]",
   mainColor: "#7b1fa2",
   icon: "📱",
-  thumbnailUrl: "/mbtisns_thumb.png",
+  thumbnailUrl: "/thumbnails/mbtisns_thumb.png",
   tags: ["MBTI", "SNS", "심리"],
   seoKeywords: "MBTI, SNS 분석, SNS 스타일",
   views: 0,
