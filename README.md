@@ -26,7 +26,8 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ```bash
 # NextAuth 설정
-NEXTAUTH_URL=http://localhost:3000
+# 프로덕션 환경에서 CLIENT_FETCH_ERROR 방지를 위해 127.0.0.1 사용 (Node.js 17+ IPv6 이슈 해결)
+NEXTAUTH_URL=http://127.0.0.1:3000
 NEXTAUTH_SECRET=your-secret-key-here
 
 # 소셜 로그인 제공자 설정
@@ -59,6 +60,15 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
 NEXT_PUBLIC_FIREBASE_APP_ID=your-firebase-app-id
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-firebase-measurement-id
 ```
+
+### ⚠️ 프로덕션 환경 CLIENT_FETCH_ERROR 해결
+
+Node.js 17+ 버전에서 프로덕션 모드 실행 시 `[next-auth][error][CLIENT_FETCH_ERROR]`가 발생할 수 있습니다. 이는 IPv6 도메인 확인 순서 때문입니다.
+
+**해결 방법:**
+1. `NEXTAUTH_URL`을 `http://127.0.0.1:3000`으로 설정
+2. 소셜 로그인 제공자(Google, Kakao 등)의 리디렉션 URI에 `http://127.0.0.1:3000/api/auth/callback/{provider}` 추가
+3. 로컬 접속은 여전히 `localhost:3000`으로 가능하지만, 로그인 시 IP 주소로 리디렉션됩니다
 
 ### 지원하는 소셜 로그인 제공자
 
