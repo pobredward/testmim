@@ -6,7 +6,7 @@ import KakaoProvider from "next-auth/providers/kakao";
 import AppleProvider from "next-auth/providers/apple";
 import { auth, db } from "@/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
+import { doc, setDoc, getDoc, serverTimestamp, query, where, collection, getDocs } from "firebase/firestore";
 
 const handler = NextAuth({
   providers: [
@@ -34,9 +34,9 @@ const handler = NextAuth({
   callbacks: {
     async signIn({ user, account, profile }) {
       try {
-        if (account && user.email) {
-          // Firebase에서 사용자 확인
-          const userRef = doc(db, "users", user.email);
+        if (account && user.email && user.id) {
+          // UID를 document ID로 사용
+          const userRef = doc(db, "users", user.id);
           const userDoc = await getDoc(userRef);
           
           if (!userDoc.exists()) {
@@ -48,20 +48,29 @@ const handler = NextAuth({
               image: user.image || "",
               provider: account.provider,
               providerId: account.providerAccountId,
+              // 온보딩 관련 필드 초기화
+              nickname: "",
+              birthDate: "",
+              gender: "",
+              bio: "",
+              onboardingCompleted: false,
+              // 시간 필드
               createdAt: serverTimestamp(),
               updatedAt: serverTimestamp(),
               lastLoginAt: serverTimestamp(),
             };
             
             await setDoc(userRef, userData);
-            console.log("새 사용자 생성:", user.email);
+            console.log("새 사용자 생성 (UID):", user.id, user.email);
           } else {
-            // 기존 사용자인 경우 로그인 시간 업데이트
+            // 기존 사용자인 경우 로그인 시간 및 프로필 정보 업데이트
             await setDoc(userRef, {
+              name: user.name || "",
+              image: user.image || "",
               lastLoginAt: serverTimestamp(),
               updatedAt: serverTimestamp(),
             }, { merge: true });
-            console.log("기존 사용자 로그인:", user.email);
+            console.log("기존 사용자 로그인 (UID):", user.id, user.email);
           }
         }
         return true;
@@ -71,18 +80,24 @@ const handler = NextAuth({
       }
     },
     async session({ session, token }) {
-      if (session.user?.email) {
+      if (session.user?.email && token.uid) {
         // 세션에 추가 정보 포함
         session.user.provider = token.provider as string;
+        session.user.id = token.uid as string;
         
-        // Firestore에서 사용자 정보 조회
+        // UID를 사용하여 Firestore에서 사용자 정보 조회
         try {
-          const userRef = doc(db, "users", session.user.email);
+          const userRef = doc(db, "users", token.uid as string);
           const userDoc = await getDoc(userRef);
           if (userDoc.exists()) {
             const userData = userDoc.data();
             session.user.uid = userData.uid;
             session.user.createdAt = userData.createdAt;
+            session.user.nickname = userData.nickname;
+            session.user.birthDate = userData.birthDate;
+            session.user.gender = userData.gender;
+            session.user.bio = userData.bio;
+            session.user.onboardingCompleted = userData.onboardingCompleted || false;
           }
         } catch (error) {
           console.error("세션 정보 조회 오류:", error);

@@ -11,6 +11,11 @@ declare module "next-auth" {
       provider?: string;
       uid?: string;
       createdAt?: Timestamp;
+      nickname?: string;
+      birthDate?: string;
+      gender?: string;
+      bio?: string;
+      onboardingCompleted?: boolean;
     };
   }
 
@@ -22,6 +27,11 @@ declare module "next-auth" {
     provider?: string;
     uid?: string;
     createdAt?: Timestamp;
+    nickname?: string;
+    birthDate?: string;
+    gender?: string;
+    bio?: string;
+    onboardingCompleted?: boolean;
   }
 }
 
@@ -29,5 +39,6 @@ declare module "next-auth/jwt" {
   interface JWT {
     provider?: string;
     uid?: string;
+    onboardingCompleted?: boolean;
   }
 } 

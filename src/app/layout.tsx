@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MainLayout from "./components/MainLayout";
 import AuthProvider from "./components/AuthProvider";
+import OnboardingRedirect from "./components/OnboardingRedirect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
         <AuthProvider>
+          <OnboardingRedirect />
           <Header />
           <MainLayout>{children}</MainLayout>
           <Footer />
