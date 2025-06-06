@@ -6,9 +6,11 @@ import { db, analytics } from "@/firebase";
 import { doc, updateDoc, increment, getDoc } from "firebase/firestore";
 import { getAllTests } from "@/data/tests";
 import { logEvent } from "firebase/analytics";
+import { useSession } from "next-auth/react";
 
 export default function HomeClient() {
   const TESTS: unknown[] = getAllTests();
+  const { data: session } = useSession();
 
   const [stats, setStats] = useState<{ [code: string]: { views: number; likes: number; scraps: number } }>({});
   const [likeClicked, setLikeClicked] = useState<{ [code: string]: boolean }>({});
@@ -45,6 +47,10 @@ export default function HomeClient() {
 
   const handleLike = async (e: React.MouseEvent, t: any) => {
     e.preventDefault();
+    if (!session) {
+      alert("로그인 후 이용 가능합니다.");
+      return;
+    }
     if (likeClicked[t.code]) return;
     setLikeClicked((prev) => ({ ...prev, [t.code]: true }));
     const ref = doc(db, "testStats", t.docId);
@@ -54,6 +60,10 @@ export default function HomeClient() {
 
   const handleScrap = async (e: React.MouseEvent, t: any) => {
     e.preventDefault();
+    if (!session) {
+      alert("로그인 후 이용 가능합니다.");
+      return;
+    }
     if (scrapClicked[t.code]) return;
     setScrapClicked((prev) => ({ ...prev, [t.code]: true }));
     const ref = doc(db, "testStats", t.docId);

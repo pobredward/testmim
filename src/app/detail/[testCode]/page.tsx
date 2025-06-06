@@ -8,6 +8,7 @@ import { use } from "react";
 import Head from "next/head";
 import { getTestByCode } from "@/data/tests";
 import type { TestResult, TestAnswer } from "@/types/tests";
+import { useSession } from "next-auth/react";
 
 // 공통 테스트 데이터 타입 정의
 export type TestMeta = {
@@ -37,7 +38,8 @@ export default function TestDetailPage({ params }: { params: Promise<{ testCode:
   const [likeClicked, setLikeClicked] = useState(false);
   const [scrapClicked, setScrapClicked] = useState(false);
   const [isImgError, setIsImgError] = useState(false);
-  const isLoggedIn = false;
+  const { data: session } = useSession();
+  const isLoggedIn = !!session;
 
   const { testCode } = use(params);
 

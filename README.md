@@ -20,6 +20,56 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## 소셜 로그인 설정
+
+이 프로젝트는 NextAuth.js를 사용하여 소셜 로그인을 지원합니다. 다음 환경 변수를 `.env.local` 파일에 설정해주세요:
+
+```bash
+# NextAuth 설정
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key-here
+
+# 소셜 로그인 제공자 설정
+# Google OAuth
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+# Facebook OAuth
+FACEBOOK_CLIENT_ID=your-facebook-client-id
+FACEBOOK_CLIENT_SECRET=your-facebook-client-secret
+
+# Naver OAuth
+NAVER_CLIENT_ID=your-naver-client-id
+NAVER_CLIENT_SECRET=your-naver-client-secret
+
+# Kakao OAuth
+KAKAO_CLIENT_ID=your-kakao-client-id
+KAKAO_CLIENT_SECRET=your-kakao-client-secret
+
+# Apple OAuth
+APPLE_CLIENT_ID=your-apple-client-id
+APPLE_CLIENT_SECRET=your-apple-client-secret
+
+# Firebase 설정
+NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-firebase-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=your-firebase-app-id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-firebase-measurement-id
+```
+
+### 지원하는 소셜 로그인 제공자
+
+- **카카오**: 주요 버튼으로 표시
+- **Apple**: 주요 버튼으로 표시  
+- **구글**: 아이콘으로 표시
+- **페이스북**: 아이콘으로 표시
+- **네이버**: 아이콘으로 표시
+
+소셜 로그인 설정은 `src/data/socialAuth.ts` 파일에서 중앙 관리됩니다.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

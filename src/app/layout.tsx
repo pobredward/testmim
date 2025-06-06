@@ -6,6 +6,7 @@ import Head from "next/head";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MainLayout from "./components/MainLayout";
+import AuthProvider from "./components/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,9 +47,11 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-5100840159526765" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
-        <Header />
-        <MainLayout>{children}</MainLayout>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <MainLayout>{children}</MainLayout>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
