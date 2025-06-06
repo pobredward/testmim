@@ -9,7 +9,10 @@ export default function SocialLogin() {
   const secondaryProviders = getSecondaryProviders();
 
   const handleSocialLogin = (providerId: string) => {
-    signIn(providerId, { callbackUrl: "/" });
+    signIn(providerId, { 
+      callbackUrl: "/complete-profile",
+      redirect: true 
+    });
   };
 
   return (

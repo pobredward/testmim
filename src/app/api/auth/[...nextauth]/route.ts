@@ -4,6 +4,7 @@ import FacebookProvider from "next-auth/providers/facebook";
 import NaverProvider from "next-auth/providers/naver";
 import KakaoProvider from "next-auth/providers/kakao";
 import AppleProvider from "next-auth/providers/apple";
+import { getUserById, createUser } from "@/lib/firestore";
 
 const handler = NextAuth({
   providers: [
@@ -29,12 +30,54 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
+    async signIn({ user, account, profile }) {
+      if (!account || !user.email) return false;
+      
+      try {
+        // 사용자 ID 생성 (이메일 기반)
+        const userId = user.email.replace(/[@.]/g, '_');
+        
+        // 기존 사용자 확인
+        const existingUser = await getUserById(userId);
+        
+        if (!existingUser) {
+          // 새 사용자 생성
+          await createUser({
+            id: userId,
+            email: user.email,
+            name: user.name || profile?.name || '',
+            image: user.image || profile?.image,
+            provider: account.provider,
+            providerId: account.providerAccountId,
+          });
+        }
+        
+        return true;
+      } catch (error) {
+        console.error('Error in signIn callback:', error);
+        return false;
+      }
+    },
     async session({ session, token }) {
+      if (session.user?.email) {
+        const userId = session.user.email.replace(/[@.]/g, '_');
+        const user = await getUserById(userId);
+        
+        if (user) {
+          session.user.id = user.id;
+          session.user.nickname = user.nickname;
+          session.user.gender = user.gender;
+          session.user.isProfileComplete = user.isProfileComplete;
+        }
+      }
       return session;
     },
-    async jwt({ token, account }) {
+    async jwt({ token, account, user }) {
       if (account) {
         token.provider = account.provider;
+      }
+      if (user?.email) {
+        token.userId = user.email.replace(/[@.]/g, '_');
       }
       return token;
     },
