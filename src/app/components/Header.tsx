@@ -75,9 +75,9 @@ export default function Header() {
               {session ? (
                 // 로그인된 상태
                 <>
-                  {(session.user?.nickname || session.user?.name) && (
+                  {session.user?.name && (
                     <div className="px-4 py-2 text-sm text-gray-500 border-b border-gray-100">
-                      {session.user.nickname || session.user.name}님
+                      {session.user.name}님
                     </div>
                   )}
                   <Link
