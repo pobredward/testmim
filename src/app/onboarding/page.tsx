@@ -2,9 +2,10 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/firebase";
+import { validateNickname, checkNicknameDuplicate, suggestAlternativeNicknames } from "@/utils/nickname";
 
 export default function OnboardingPage() {
   const { data: session, status, update } = useSession();
@@ -19,6 +20,11 @@ export default function OnboardingPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  
+  // 닉네임 관련 상태
+  const [isCheckingNickname, setIsCheckingNickname] = useState(false);
+  const [nicknameStatus, setNicknameStatus] = useState<'idle' | 'checking' | 'available' | 'duplicate' | 'invalid'>('idle');
+  const [nicknameSuggestions, setNicknameSuggestions] = useState<string[]>([]);
 
   useEffect(() => {
     if (status === "loading") return;
@@ -47,15 +53,70 @@ export default function OnboardingPage() {
     }
   }, [session, status, router]);
 
+  // 닉네임 중복 체크 (디바운싱)
+  const checkNickname = useCallback(async (nickname: string) => {
+    if (!nickname.trim()) {
+      setNicknameStatus('idle');
+      setNicknameSuggestions([]);
+      return;
+    }
+
+    // 기본 유효성 검사
+    const validationError = validateNickname(nickname);
+    if (validationError) {
+      setNicknameStatus('invalid');
+      setErrors(prev => ({ ...prev, nickname: validationError }));
+      setNicknameSuggestions([]);
+      return;
+    }
+
+    setIsCheckingNickname(true);
+    setNicknameStatus('checking');
+
+    try {
+      const isDuplicate = await checkNicknameDuplicate(nickname, session?.user?.id);
+      
+      if (isDuplicate) {
+        setNicknameStatus('duplicate');
+        setErrors(prev => ({ ...prev, nickname: "이미 사용 중인 닉네임입니다." }));
+        
+        // 대안 제안
+        const suggestions = suggestAlternativeNicknames(nickname);
+        setNicknameSuggestions(suggestions);
+      } else {
+        setNicknameStatus('available');
+        setErrors(prev => ({ ...prev, nickname: "" }));
+        setNicknameSuggestions([]);
+      }
+    } catch (error) {
+      console.error("닉네임 체크 오류:", error);
+      setNicknameStatus('idle');
+    } finally {
+      setIsCheckingNickname(false);
+    }
+  }, [session?.user?.id]);
+
+  // 닉네임 입력 시 디바운싱
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (formData.nickname) {
+        checkNickname(formData.nickname);
+      }
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, [formData.nickname, checkNickname]);
+
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
     
+    // 닉네임 검증
+    if (nicknameStatus === 'duplicate' || nicknameStatus === 'invalid') {
+      return false;
+    }
+    
     if (!formData.nickname.trim()) {
       newErrors.nickname = "닉네임을 입력해주세요.";
-    } else if (formData.nickname.length < 2) {
-      newErrors.nickname = "닉네임은 2글자 이상이어야 합니다.";
-    } else if (formData.nickname.length > 20) {
-      newErrors.nickname = "닉네임은 20글자 이하여야 합니다.";
     }
     
     if (!formData.birthDate) {
@@ -77,7 +138,7 @@ export default function OnboardingPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateForm() || !session?.user?.id) return;
+    if (!validateForm() || !session?.user?.id || nicknameStatus !== 'available') return;
     
     setIsSubmitting(true);
     
@@ -119,10 +180,43 @@ export default function OnboardingPage() {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    // 에러 초기화
-    if (errors[field]) {
+    
+    // 닉네임이 아닌 필드의 에러 초기화
+    if (field !== 'nickname' && errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));
     }
+  };
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setFormData(prev => ({ ...prev, nickname: suggestion }));
+    setNicknameSuggestions([]);
+  };
+
+  const getNicknameInputStyle = () => {
+    if (nicknameStatus === 'available') return "border-emerald-300 focus:border-emerald-500 bg-emerald-50/50";
+    if (nicknameStatus === 'duplicate' || nicknameStatus === 'invalid') return "border-red-300 focus:border-red-500 bg-red-50/50";
+    return "border-gray-200 focus:border-blue-500 bg-gray-50/50";
+  };
+
+  const getNicknameStatusIcon = () => {
+    if (isCheckingNickname) return (
+      <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+    );
+    if (nicknameStatus === 'available') return (
+      <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
+        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+        </svg>
+      </div>
+    );
+    if (nicknameStatus === 'duplicate' || nicknameStatus === 'invalid') return (
+      <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+        </svg>
+      </div>
+    );
+    return "";
   };
 
   if (status === "loading") {
@@ -139,34 +233,66 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="max-w-md mx-auto">
-      <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold mb-2">환영합니다! 🎉</h1>
-        <p className="text-gray-600">
+    <div className="max-w-lg mx-auto">
+      {/* 헤더 섹션 */}
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-center mb-8 shadow-xl">
+        <div className="text-6xl mb-4">🎉</div>
+        <h1 className="text-3xl font-bold text-white mb-3">환영합니다!</h1>
+        <p className="text-blue-100 text-lg">
           테스트밈에서 더 나은 경험을 위해<br />
           간단한 정보를 입력해주세요.
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* 닉네임 */}
-        <div>
-          <label htmlFor="nickname" className="block text-sm font-medium text-gray-700 mb-2">
-            닉네임 <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            id="nickname"
-            value={formData.nickname}
-            onChange={(e) => handleInputChange("nickname", e.target.value)}
-            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-              errors.nickname ? "border-red-500" : "border-gray-300"
-            }`}
-            placeholder="다른 사용자들에게 보여질 이름"
-            maxLength={20}
-          />
+      {/* 메인 폼 */}
+      <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden mb-8">
+        <div className="p-8">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {/* 닉네임 */}
+            <div className="space-y-3">
+              <label htmlFor="nickname" className="block text-sm font-bold text-gray-800">
+                닉네임 <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  id="nickname"
+                  value={formData.nickname}
+                  onChange={(e) => handleInputChange("nickname", e.target.value)}
+                  className={`w-full px-4 py-4 pr-12 border-2 rounded-xl focus:outline-none transition-all duration-200 text-lg ${getNicknameInputStyle()}`}
+                  placeholder="멋진 닉네임을 입력하세요 ✨"
+                  maxLength={20}
+                />
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                  {getNicknameStatusIcon()}
+                </div>
+              </div>
+          
           {errors.nickname && (
             <p className="text-red-500 text-xs mt-1">{errors.nickname}</p>
+          )}
+          
+          {nicknameStatus === 'available' && !errors.nickname && (
+            <p className="text-green-600 text-xs mt-1">사용 가능한 닉네임입니다!</p>
+          )}
+          
+          {/* 대안 닉네임 제안 */}
+          {nicknameSuggestions.length > 0 && (
+            <div className="mt-3 p-3 bg-gray-50 rounded-lg">
+              <p className="text-xs text-gray-600 mb-2">추천 닉네임:</p>
+              <div className="flex flex-wrap gap-2">
+                {nicknameSuggestions.map((suggestion, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => handleSuggestionClick(suggestion)}
+                    className="px-2 py-1 text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 rounded transition-colors"
+                  >
+                    {suggestion}
+                  </button>
+                ))}
+              </div>
+            </div>
           )}
         </div>
 
@@ -245,22 +371,39 @@ export default function OnboardingPage() {
           </div>
         </div>
 
-        {/* 제출 버튼 */}
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white font-medium py-3 px-4 rounded-lg transition-colors"
-        >
-          {isSubmitting ? "저장 중..." : "시작하기"}
-        </button>
-      </form>
+            {/* 제출 버튼 */}
+            <button
+              type="submit"
+              disabled={isSubmitting || nicknameStatus !== 'available' || !formData.nickname.trim()}
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-4 px-6 rounded-xl hover:from-blue-600 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-400 transition-all duration-200 shadow-lg text-lg"
+            >
+              {isSubmitting ? (
+                <div className="flex items-center justify-center gap-3">
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  저장 중...
+                </div>
+              ) : (
+                <div className="flex items-center justify-center gap-2">
+                  시작하기 ✨
+                </div>
+              )}
+            </button>
+          </form>
+        </div>
+      </div>
 
       {/* 안내 메시지 */}
-      <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-        <p className="text-xs text-gray-500 text-center">
-          입력하신 정보는 더 나은 테스트 추천과 개인화된 경험을 위해 사용됩니다.<br />
-          언제든지 마이페이지에서 수정할 수 있습니다.
-        </p>
+      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
+        <div className="flex items-start gap-3">
+          <div className="text-blue-500 text-xl">ℹ️</div>
+          <div>
+            <h3 className="font-semibold text-blue-800 mb-2">개인정보 보호</h3>
+            <p className="text-sm text-blue-700 leading-relaxed">
+              입력하신 정보는 더 나은 테스트 추천과 개인화된 경험을 위해 사용됩니다.<br />
+              언제든지 마이페이지에서 수정할 수 있으며, 안전하게 보호됩니다.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -2,11 +2,13 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ProfileEditModal from "@/app/components/ProfileEditModal";
 
 export default function MyPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   useEffect(() => {
     if (status === "loading") return; // 로딩 중이면 대기
@@ -90,7 +92,7 @@ export default function MyPage() {
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold text-gray-800">상세 정보</h2>
           <button 
-            onClick={() => router.push("/onboarding")}
+            onClick={() => setIsEditModalOpen(true)}
             className="text-blue-500 hover:text-blue-600 text-sm font-medium"
           >
             수정하기
@@ -179,6 +181,16 @@ export default function MyPage() {
           필요 이상의 개인정보는 수집하지 않습니다.
         </p>
       </div>
+
+      {/* 프로필 수정 모달 */}
+      <ProfileEditModal 
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        onSave={() => {
+          // 페이지 새로고침 없이 세션 정보가 자동으로 업데이트됨
+          console.log("프로필이 수정되었습니다.");
+        }}
+      />
     </div>
   );
 } 
