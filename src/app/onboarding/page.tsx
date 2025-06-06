@@ -29,10 +29,21 @@ export default function OnboardingPage() {
       return;
     }
     
-    // 이미 온보딩을 완료한 경우 홈으로
-    if (session.user?.onboardingCompleted) {
-      router.push("/");
-      return;
+    console.log("🎯 온보딩 페이지 - 사용자 상태:", {
+      uid: session.user?.id,
+      email: session.user?.email,
+      provider: session.user?.provider,
+      onboardingCompleted: session.user?.onboardingCompleted
+    });
+
+    // 기존 정보가 있다면 폼에 미리 채우기
+    if (session.user) {
+      setFormData({
+        nickname: session.user.nickname || "",
+        birthDate: session.user.birthDate || "",
+        gender: session.user.gender || "",
+        bio: session.user.bio || "",
+      });
     }
   }, [session, status, router]);
 

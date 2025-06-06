@@ -34,20 +34,32 @@ const handler = NextAuth({
   callbacks: {
     async signIn({ user, account, profile }) {
       try {
-        if (account && user.email && user.id) {
+        if (account && user.email) {
+          // 소셜 제공자별로 고유한 UID 생성
+          const providerId = account.providerAccountId || user.id;
+          const uniqueUID = `${account.provider}_${providerId}`;
+          
+          console.log("🔐 로그인 시도:", {
+            provider: account.provider,
+            email: user.email,
+            providerId: providerId,
+            uniqueUID: uniqueUID,
+            userId: user.id
+          });
+
           // UID를 document ID로 사용
-          const userRef = doc(db, "users", user.id);
+          const userRef = doc(db, "users", uniqueUID);
           const userDoc = await getDoc(userRef);
           
           if (!userDoc.exists()) {
             // 새 사용자인 경우 Firestore에 사용자 정보 저장
             const userData = {
-              uid: user.id,
+              uid: uniqueUID,
               email: user.email,
               name: user.name || "",
               image: user.image || "",
               provider: account.provider,
-              providerId: account.providerAccountId,
+              providerId: providerId,
               // 온보딩 관련 필드 초기화
               nickname: "",
               birthDate: "",
@@ -61,7 +73,12 @@ const handler = NextAuth({
             };
             
             await setDoc(userRef, userData);
-            console.log("새 사용자 생성 (UID):", user.id, user.email);
+            console.log("✅ 새 사용자 생성:", {
+              uid: uniqueUID,
+              email: user.email,
+              provider: account.provider,
+              onboardingCompleted: false
+            });
           } else {
             // 기존 사용자인 경우 로그인 시간 및 프로필 정보 업데이트
             await setDoc(userRef, {
@@ -70,16 +87,32 @@ const handler = NextAuth({
               lastLoginAt: serverTimestamp(),
               updatedAt: serverTimestamp(),
             }, { merge: true });
-            console.log("기존 사용자 로그인 (UID):", user.id, user.email);
+            
+            const userData = userDoc.data();
+            console.log("🔄 기존 사용자 로그인:", {
+              uid: uniqueUID,
+              email: user.email,
+              provider: account.provider,
+              onboardingCompleted: userData.onboardingCompleted
+            });
           }
+          
+          // user 객체에 고유 UID 저장 (JWT에서 사용)
+          user.id = uniqueUID;
         }
         return true;
       } catch (error) {
-        console.error("Firebase 사용자 저장 오류:", error);
+        console.error("❌ Firebase 사용자 저장 오류:", error);
         return true; // 에러가 발생해도 로그인은 계속 진행
       }
     },
     async session({ session, token }) {
+      console.log("🔍 세션 콜백:", {
+        email: session.user?.email,
+        tokenUID: token.uid,
+        provider: token.provider
+      });
+
       if (session.user?.email && token.uid) {
         // 세션에 추가 정보 포함
         session.user.provider = token.provider as string;
@@ -98,9 +131,15 @@ const handler = NextAuth({
             session.user.gender = userData.gender;
             session.user.bio = userData.bio;
             session.user.onboardingCompleted = userData.onboardingCompleted || false;
+            
+            console.log("📋 세션 정보 업데이트:", {
+              uid: userData.uid,
+              onboardingCompleted: userData.onboardingCompleted,
+              nickname: userData.nickname
+            });
           }
         } catch (error) {
-          console.error("세션 정보 조회 오류:", error);
+          console.error("❌ 세션 정보 조회 오류:", error);
         }
       }
       return session;
@@ -111,6 +150,10 @@ const handler = NextAuth({
       }
       if (user) {
         token.uid = user.id;
+        console.log("🎫 JWT 토큰 업데이트:", {
+          uid: user.id,
+          provider: account?.provider
+        });
       }
       return token;
     },
