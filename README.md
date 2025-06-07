@@ -1,8 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 테스트밈 (TestMim)
 
-## Getting Started
+무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음
 
-First, run the development server:
+## 소셜 미디어 공유 설정
+
+테스트 결과 페이지에서 다양한 소셜 미디어 플랫폼으로 공유할 수 있습니다.
+
+### 지원하는 플랫폼
+
+✅ **카카오톡** - JavaScript SDK 사용  
+✅ **트위터(X)** - Web Intent 사용  
+✅ **페이스북** - 공유 대화상자 사용  
+✅ **블루스카이** - Intent 링크 사용  
+✅ **링크 복사** - 클립보드 API 사용
+
+### 카카오톡 공유 설정 (선택사항)
+
+카카오톡 공유 기능을 사용하려면:
+
+1. [카카오 디벨로퍼스](https://developers.kakao.com/) 회원가입
+2. 애플리케이션 생성 및 JavaScript 키 발급
+3. 웹 플랫폼 도메인 등록
+4. 프로젝트 루트에 `.env.local` 파일 생성:
+   ```
+   NEXT_PUBLIC_KAKAO_JS_KEY=your_javascript_key_here
+   ```
+
+> 📝 **참고**: 카카오 키가 설정되지 않은 경우에도 링크 복사로 대체되므로, 다른 공유 기능들은 정상적으로 작동합니다.
+
+### 필요한 추가 설정
+
+#### Open Graph 메타태그 (권장)
+페이스북, 트위터 공유 시 미리보기가 제대로 표시되도록 각 테스트 결과 페이지에 Open Graph 메타태그를 설정하는 것을 권장합니다.
+
+#### 이미지 파일
+- `/public/og-image.png`: 기본 Open Graph 이미지
+- 카카오톡 공유 시 사용할 이미지 URL 설정
+
+### 사용 방법
+
+테스트 결과 페이지에서 "결과 공유하기" 섹션의 버튼들을 클릭하면:
+
+1. **카카오톡**: 카카오톡 앱이나 웹에서 공유 대화상자 열림
+2. **트위터**: 트위터 웹에서 트윗 작성 창 열림  
+3. **페이스북**: 페이스북 공유 대화상자 열림
+4. **블루스카이**: 블루스카이 웹에서 포스트 작성 창 열림
+5. **링크 복사**: 클립보드에 결과 링크 복사
+
+각 공유는 Google Analytics로 추적됩니다.
+
+## 기존 내용
+
+이 프로젝트는 [Next.js](https://nextjs.org)로 [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app)을 사용하여 부트스트랩되었습니다.
+
+## 시작하기
+
+먼저 개발 서버를 실행하세요:
 
 ```bash
 npm run dev
@@ -14,83 +67,23 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 결과를 확인하세요.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`app/page.tsx`를 수정하여 페이지 편집을 시작할 수 있습니다. 파일을 편집하면 페이지가 자동으로 업데이트됩니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+이 프로젝트는 [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)를 사용하여 Google Fonts의 커스텀 폰트인 Geist를 자동으로 최적화하고 로드합니다.
 
-## 소셜 로그인 설정
+## 더 알아보기
 
-이 프로젝트는 NextAuth.js를 사용하여 소셜 로그인을 지원합니다. 다음 환경 변수를 `.env.local` 파일에 설정해주세요:
+Next.js에 대해 더 알아보려면 다음 리소스를 확인하세요:
 
-```bash
-# NextAuth 설정
-# 프로덕션 환경에서 CLIENT_FETCH_ERROR 방지를 위해 127.0.0.1 사용 (Node.js 17+ IPv6 이슈 해결)
-NEXTAUTH_URL=http://127.0.0.1:3000
-NEXTAUTH_SECRET=your-secret-key-here
+- [Next.js 문서](https://nextjs.org/docs) - Next.js 기능과 API에 대해 알아보세요.
+- [Next.js 학습](https://nextjs.org/learn) - 대화형 Next.js 튜토리얼입니다.
 
-# 소셜 로그인 제공자 설정
-# Google OAuth
-GOOGLE_CLIENT_ID=your-google-client-id
-GOOGLE_CLIENT_SECRET=your-google-client-secret
+[Next.js GitHub 저장소](https://github.com/vercel/next.js)를 확인할 수 있습니다 - 여러분의 피드백과 기여를 환영합니다!
 
-# Facebook OAuth
-FACEBOOK_CLIENT_ID=your-facebook-client-id
-FACEBOOK_CLIENT_SECRET=your-facebook-client-secret
+## Vercel에 배포
 
-# Naver OAuth
-NAVER_CLIENT_ID=your-naver-client-id
-NAVER_CLIENT_SECRET=your-naver-client-secret
+Next.js 앱을 배포하는 가장 쉬운 방법은 Next.js 창작자들이 만든 [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)을 사용하는 것입니다.
 
-# Kakao OAuth
-KAKAO_CLIENT_ID=your-kakao-client-id
-KAKAO_CLIENT_SECRET=your-kakao-client-secret
-
-# Apple OAuth
-APPLE_CLIENT_ID=your-apple-client-id
-APPLE_CLIENT_SECRET=your-apple-client-secret
-
-# Firebase 설정
-NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-firebase-project-id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
-NEXT_PUBLIC_FIREBASE_APP_ID=your-firebase-app-id
-NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-firebase-measurement-id
-```
-
-### ⚠️ 프로덕션 환경 CLIENT_FETCH_ERROR 해결
-
-Node.js 17+ 버전에서 프로덕션 모드 실행 시 `[next-auth][error][CLIENT_FETCH_ERROR]`가 발생할 수 있습니다. 이는 IPv6 도메인 확인 순서 때문입니다.
-
-**해결 방법:**
-1. `NEXTAUTH_URL`을 `http://127.0.0.1:3000`으로 설정
-2. 소셜 로그인 제공자(Google, Kakao 등)의 리디렉션 URI에 `http://127.0.0.1:3000/api/auth/callback/{provider}` 추가
-3. 로컬 접속은 여전히 `localhost:3000`으로 가능하지만, 로그인 시 IP 주소로 리디렉션됩니다
-
-### 지원하는 소셜 로그인 제공자
-
-- **카카오**: 주요 버튼으로 표시
-- **Apple**: 주요 버튼으로 표시  
-- **구글**: 아이콘으로 표시
-- **페이스북**: 아이콘으로 표시
-- **네이버**: 아이콘으로 표시
-
-소셜 로그인 설정은 `src/data/socialAuth.ts` 파일에서 중앙 관리됩니다.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+자세한 내용은 [Next.js 배포 문서](https://nextjs.org/docs/app/building-your-application/deploying)를 확인하세요.

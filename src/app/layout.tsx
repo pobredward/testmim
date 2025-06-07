@@ -46,6 +46,8 @@ export default function RootLayout({
         <meta name="twitter:image" content="https://www.testmim.com/og-image.png" />
         {/* Google Adsense */}
         <meta name="google-adsense-account" content="ca-pub-5100840159526765" />
+        {/* Kakao SDK */}
+        <script src="//developers.kakao.com/sdk/js/kakao.min.js" async></script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
         <AuthProvider>
