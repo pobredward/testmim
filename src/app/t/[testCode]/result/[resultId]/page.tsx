@@ -60,7 +60,7 @@ export default function TestResultPage() {
     return <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">결과 정보를 찾을 수 없습니다.</div>;
 
   const result = TEST_DATA.calculateResult(answers!);
-  const shareUrl = `${typeof window !== "undefined" ? window.location.origin : ""}/t/${TEST_DATA.code}/result/${resultId}?from=share`;
+  const shareUrl = `/t/${TEST_DATA.code}/result/${resultId}?from=share`;
 
   // 소셜 미디어 공유 함수들
   const shareToKakao = async () => {
@@ -74,7 +74,7 @@ export default function TestResultPage() {
       
       if (!kakaoKey) {
         // 카카오 키가 없는 경우 링크 복사로 대체
-        await navigator.clipboard.writeText(shareUrl);
+        await navigator.clipboard.writeText(window.location.origin + shareUrl);
         alert("링크가 복사되었습니다! 카카오톡에서 직접 공유해주세요.");
         return;
       }
@@ -84,7 +84,7 @@ export default function TestResultPage() {
       }
       
       // 커스텀 템플릿 사용 (템플릿 ID: 121334)
-      const testStartUrl = window.location.origin + `/detail/${testCode}`;
+      const testStartUrl = `/detail/${testCode}`;
       const resultImageUrl = window.location.origin + TEST_DATA.thumbnailUrl; // 각 테스트별 썸네일 이미지 사용
       
       try {
@@ -150,14 +150,14 @@ export default function TestResultPage() {
           fail: function(error: any) {
             console.error('카카오톡 공유 완전 실패:', error);
             // 최종 실패 시 링크 복사로 대체
-            navigator.clipboard.writeText(shareUrl);
+            navigator.clipboard.writeText(window.location.origin + shareUrl);
             alert("카카오톡 공유에 실패했습니다. 링크가 복사되었습니다!");
           },
         });
       }
     } else {
       // 카카오 SDK가 없는 경우 링크 복사
-      await navigator.clipboard.writeText(shareUrl);
+      await navigator.clipboard.writeText(window.location.origin + shareUrl);
       alert("링크가 복사되었습니다! 카카오톡에서 직접 공유해주세요.");
     }
   };
@@ -167,21 +167,24 @@ export default function TestResultPage() {
     
     const text = `${TEST_DATA.title} 결과: ${result.title}`;
     const hashtags = "테스트,심리테스트";
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}&hashtags=${hashtags}`;
+    const fullShareUrl = window.location.origin + shareUrl;
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(fullShareUrl)}&hashtags=${hashtags}`;
     window.open(url, '_blank', 'width=550,height=420');
   };
 
   const shareToFacebook = () => {
     if (analytics) logEvent(analytics, "share_result_facebook", { test_code: testCode, result_id: resultId });
     
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+    const fullShareUrl = window.location.origin + shareUrl;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullShareUrl)}`;
     window.open(url, '_blank', 'width=580,height=400');
   };
 
   const shareToBluesky = () => {
     if (analytics) logEvent(analytics, "share_result_bluesky", { test_code: testCode, result_id: resultId });
     
-    const text = `${TEST_DATA.title} 결과: ${result.title} ${shareUrl}`;
+    const fullShareUrl = window.location.origin + shareUrl;
+    const text = `${TEST_DATA.title} 결과: ${result.title} ${fullShareUrl}`;
     const url = `https://bsky.app/intent/compose?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'width=600,height=500');
   };
@@ -189,7 +192,7 @@ export default function TestResultPage() {
   const copyLink = async () => {
     if (analytics) logEvent(analytics, "share_result_copy", { test_code: testCode, result_id: resultId });
     
-    await navigator.clipboard.writeText(shareUrl);
+    await navigator.clipboard.writeText(window.location.origin + shareUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
