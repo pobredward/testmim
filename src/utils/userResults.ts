@@ -48,7 +48,7 @@ export async function getUserTestResults(userId: string): Promise<UserTestResult
           resultDescription: testResult.description,
           resultImage: testResult.image,
           completedAt: data.createdAt,
-          shareUrl: `/t/${data.testCode}/result/${doc.id}?from=share`
+          shareUrl: `/t/${data.testCode}/result/${doc.id}`
         });
       }
     }
