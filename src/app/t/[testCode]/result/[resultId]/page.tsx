@@ -165,10 +165,21 @@ export default function TestResultPage() {
   const shareToTwitter = () => {
     if (analytics) logEvent(analytics, "share_result_twitter", { test_code: testCode, result_id: resultId });
     
-    const text = `${TEST_DATA.title} 결과: ${result.title}`;
-    const hashtags = "테스트,심리테스트";
     const fullShareUrl = window.location.origin + shareUrl;
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(fullShareUrl)}&hashtags=${hashtags}`;
+    const text = `${TEST_DATA.title}
+
+내 결과: ${result.title}
+
+👀 결과 자세히 보기
+${fullShareUrl}
+
+🔥 나도 테스트 해보기
+${window.location.origin}/detail/${testCode}
+
+`;
+
+    const hashtags = "테스트,심리테스트,재미있는테스트";
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&hashtags=${hashtags}`;
     window.open(url, '_blank', 'width=550,height=420');
   };
 
@@ -176,7 +187,19 @@ export default function TestResultPage() {
     if (analytics) logEvent(analytics, "share_result_facebook", { test_code: testCode, result_id: resultId });
     
     const fullShareUrl = window.location.origin + shareUrl;
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullShareUrl)}`;
+    const text = `${TEST_DATA.title}
+
+내 결과: ${result.title}
+
+👀 결과 자세히 보기
+${fullShareUrl}
+
+🔥 나도 테스트 해보기
+${window.location.origin}/detail/${testCode}
+
+`;
+
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullShareUrl)}&quote=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'width=580,height=400');
   };
 
@@ -184,7 +207,18 @@ export default function TestResultPage() {
     if (analytics) logEvent(analytics, "share_result_bluesky", { test_code: testCode, result_id: resultId });
     
     const fullShareUrl = window.location.origin + shareUrl;
-    const text = `${TEST_DATA.title} 결과: ${result.title} ${fullShareUrl}`;
+    const text = `${TEST_DATA.title}
+
+내 결과: ${result.title}
+
+👀 결과 자세히 보기
+${fullShareUrl}
+
+🔥 나도 테스트 해보기
+${window.location.origin}/detail/${testCode}
+
+`;
+
     const url = `https://bsky.app/intent/compose?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'width=600,height=500');
   };
@@ -222,14 +256,23 @@ export default function TestResultPage() {
       {/* 공유/테스트 해보기 버튼 분기 */}
       {!isShare ? (
         <>
-          {/* 소셜 미디어 공유 버튼들 */}
-          <div className="flex flex-col items-center gap-3 mb-4">
-            <div className="text-lg font-semibold mb-2" style={{ color: TEST_DATA.mainColor }}>
+          {/* 모든 결과 보기 버튼 */}
+          <button
+            className="px-8 py-3 rounded-full text-lg font-semibold shadow bg-gray-100 border-2 mb-6 mt-4"
+            style={{ borderColor: TEST_DATA.mainColor, color: TEST_DATA.mainColor }}
+            onClick={() => router.push(`/t/${TEST_DATA.code}/results`)}
+          >
+            모든 결과 보기
+          </button>
+
+          {/* 결과 공유하기 섹션 - 분리된 스타일 */}
+          <div className="w-full max-w-md mx-auto bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6 mt-4">
+            <div className="text-lg font-semibold mb-4 text-center" style={{ color: TEST_DATA.mainColor }}>
               결과 공유하기
             </div>
             
             {/* 첫 번째 줄: 카카오톡, 트위터 */}
-            <div className="flex gap-3">
+            <div className="flex gap-3 justify-center mb-3">
               <button
                 className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold shadow bg-yellow-400 text-gray-800 hover:bg-yellow-500 transition-colors"
                 onClick={shareToKakao}
@@ -248,7 +291,7 @@ export default function TestResultPage() {
             </div>
             
             {/* 두 번째 줄: 페이스북, 블루스카이 */}
-            <div className="flex gap-3">
+            <div className="flex gap-3 justify-center mb-3">
               <button
                 className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold shadow bg-blue-600 text-white hover:bg-blue-700 transition-colors"
                 onClick={shareToFacebook}
@@ -267,22 +310,16 @@ export default function TestResultPage() {
             </div>
             
             {/* 링크 복사 버튼 */}
-            <button
-              className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold shadow bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors"
-              onClick={copyLink}
-            >
-              <span className="text-lg">🔗</span>
-              {copied ? "복사됨!" : "링크 복사"}
-            </button>
+            <div className="flex justify-center">
+              <button
+                className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold shadow bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors"
+                onClick={copyLink}
+              >
+                <span className="text-lg">🔗</span>
+                {copied ? "복사됨!" : "링크 복사"}
+              </button>
+            </div>
           </div>
-          
-          <button
-            className="px-8 py-3 rounded-full text-lg font-semibold shadow bg-gray-100 border-2 mb-2 mt-2"
-            style={{ borderColor: TEST_DATA.mainColor, color: TEST_DATA.mainColor }}
-            onClick={() => router.push(`/t/${TEST_DATA.code}/results`)}
-          >
-            모든 결과 보기
-          </button>
         </>
       ) : (
         <button

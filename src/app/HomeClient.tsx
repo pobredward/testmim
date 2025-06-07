@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { db, analytics } from "@/firebase";
-import { doc, updateDoc, increment, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { getAllTests } from "@/data/tests";
 import { logEvent } from "firebase/analytics";
 import { useSession } from "next-auth/react";
@@ -12,13 +12,22 @@ export default function HomeClient() {
   const TESTS: unknown[] = getAllTests();
   const { data: session } = useSession();
 
-  const [stats, setStats] = useState<{ [code: string]: { views: number; likes: number; scraps: number } }>({});
-  const [likeClicked, setLikeClicked] = useState<{ [code: string]: boolean }>({});
-  const [scrapClicked, setScrapClicked] = useState<{ [code: string]: boolean }>({});
+  const [stats, setStats] = useState<{ [code: string]: { views: number } }>({});
+
+  // 숫자 포맷팅 함수
+  const formatViews = (views: number): string => {
+    if (views >= 10000) {
+      return `${(views / 10000).toFixed(1)}만명`;
+    } else if (views >= 1000) {
+      return `${(views / 1000).toFixed(1)}천명`;
+    } else {
+      return `${views}명`;
+    }
+  };
 
   useEffect(() => {
     async function fetchStats() {
-      const updates: { [code: string]: { views: number; likes: number; scraps: number } } = {};
+      const updates: { [code: string]: { views: number } } = {};
       await Promise.all(
         TESTS.map(async (t) => {
           const test = t as any;
@@ -28,14 +37,10 @@ export default function HomeClient() {
             const data = snap.data();
             updates[test.code] = {
               views: data.views ?? test.views,
-              likes: data.likes ?? test.likes,
-              scraps: data.scraps ?? test.scraps,
             };
           } else {
             updates[test.code] = {
               views: test.views,
-              likes: test.likes,
-              scraps: test.scraps,
             };
           }
         })
@@ -44,32 +49,6 @@ export default function HomeClient() {
     }
     fetchStats();
   }, [TESTS]);
-
-  const handleLike = async (e: React.MouseEvent, t: any) => {
-    e.preventDefault();
-    if (!session) {
-      alert("로그인 후 이용 가능합니다.");
-      return;
-    }
-    if (likeClicked[t.code]) return;
-    setLikeClicked((prev) => ({ ...prev, [t.code]: true }));
-    const ref = doc(db, "testStats", t.docId);
-    await updateDoc(ref, { likes: increment(1) });
-    setStats((prev) => ({ ...prev, [t.code]: { ...prev[t.code], likes: prev[t.code].likes + 1 } }));
-  };
-
-  const handleScrap = async (e: React.MouseEvent, t: any) => {
-    e.preventDefault();
-    if (!session) {
-      alert("로그인 후 이용 가능합니다.");
-      return;
-    }
-    if (scrapClicked[t.code]) return;
-    setScrapClicked((prev) => ({ ...prev, [t.code]: true }));
-    const ref = doc(db, "testStats", t.docId);
-    await updateDoc(ref, { scraps: increment(1) });
-    setStats((prev) => ({ ...prev, [t.code]: { ...prev[t.code], scraps: prev[t.code].scraps + 1 } }));
-  };
 
   // 카테고리별 배경색
   const CATEGORY_BG: Record<string, string> = {
@@ -151,17 +130,8 @@ export default function HomeClient() {
           </div>
           <div className="flex items-center gap-3 text-xs text-gray-400 mb-1">
             <span className="flex items-center gap-1">
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12Z"/><circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/></svg>
-              {stats[test.code]?.views?.toLocaleString() ?? test.views}
+              🔥 {formatViews(stats[test.code]?.views ?? test.views)}이 진행
             </span>
-            <button className="flex items-center gap-1 hover:text-pink-500" onClick={(e) => handleLike(e, test)} disabled={likeClicked[test.code]}>
-              <svg width="12" height="12" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              {stats[test.code]?.likes ?? test.likes}
-            </button>
-            <button className="flex items-center gap-1 hover:text-blue-500" onClick={(e) => handleScrap(e, test)} disabled={scrapClicked[test.code]}>
-              <svg width="12" height="12" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M6 4a2 2 0 0 0-2 2v14l8-4 8 4V6a2 2 0 0 0-2-2H6Z"/></svg>
-              {stats[test.code]?.scraps ?? test.scraps}
-            </button>
           </div>
         </div>
       </div>
