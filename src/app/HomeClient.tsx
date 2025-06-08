@@ -152,6 +152,19 @@ export default function HomeClient() {
     </div>
   );
 
+  // 카카오 애드핏 광고 컴포넌트
+  const KakaoAdBanner = () => (
+    <div className="w-full flex justify-center mb-6">
+      <div className="w-full max-w-sm">
+        <ins className="kakao_ad_area" style={{display:'none'}}
+          data-ad-unit="DAN-UqH6IJflvZbmQ5QL"
+          data-ad-width="320"
+          data-ad-height="100">
+        </ins>
+      </div>
+    </div>
+  );
+
   // 카드 뱃지
   const getBadge = (test: any) => {
     if (test.views > 50) return <span className="absolute top-2 left-2 bg-pink-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow animate-bounce">맛집 추천</span>;
@@ -228,24 +241,29 @@ export default function HomeClient() {
       
       <NeonBanner />
       <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
-      {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (
-        testsByCategory[cat]?.length > 0 && (
-          <section key={cat} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
-            <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
-            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
-              <div className="flex gap-4 md:gap-6">
-                {(testsByCategory[cat] as any[]).map((test) => (
-                  <div
-                    key={test.code}
-                    className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
-                  >
-                    <TestCard test={test} />
-                  </div>
-                ))}
+      <KakaoAdBanner />
+      {Object.entries(CATEGORY_LABELS).map(([cat, label], index) => (
+        <div key={cat}>
+          {testsByCategory[cat]?.length > 0 && (
+            <section className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
+              <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
+              <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
+                <div className="flex gap-4 md:gap-6">
+                  {(testsByCategory[cat] as any[]).map((test) => (
+                    <div
+                      key={test.code}
+                      className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
+                    >
+                      <TestCard test={test} />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
-        )
+            </section>
+          )}
+          {/* 3번째 카테고리 이후에 광고 추가 */}
+          {/* {index === 2 && <KakaoAdBanner />} */}
+        </div>
       ))}
     </>
   );

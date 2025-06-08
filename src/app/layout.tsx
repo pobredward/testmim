@@ -142,6 +142,9 @@ export default function RootLayout({
         {/* Kakao SDK */}
         <script src="//developers.kakao.com/sdk/js/kakao.min.js" async></script>
         
+        {/* Kakao AdFit */}
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+        
         {/* JSON-LD 구조화된 데이터 */}
         <script
           type="application/ld+json"
