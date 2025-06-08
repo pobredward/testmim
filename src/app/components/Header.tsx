@@ -7,6 +7,7 @@ import { useState, useRef, useEffect } from "react";
 export default function Header() {
   const { data: session, status } = useSession();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // 드롭다운 외부 클릭 시 닫기
@@ -27,6 +28,10 @@ export default function Header() {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   const handleSignOut = () => {
     signOut();
     setIsDropdownOpen(false);
@@ -35,8 +40,35 @@ export default function Header() {
   return (
     <header className="w-full border-b bg-white sticky top-0 z-30">
       <nav className="max-w-2xl mx-auto flex items-center h-14 px-4">
-        <Link href="/" className="font-bold text-lg tracking-tight text-gray-900">테스트밈</Link>
+        <Link href="/" className="font-bold text-lg tracking-tight text-gray-900" aria-label="테스트밈 홈페이지">테스트밈</Link>
+        
+        {/* 데스크톱 내비게이션 */}
+        <div className="hidden md:flex items-center space-x-6 ml-8">
+          <Link href="/" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+            전체 테스트
+          </Link>
+          <Link href="/create" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+            테스트 만들기
+          </Link>
+          {session && (
+            <Link href="/mypage" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+              내가 한 테스트
+            </Link>
+          )}
+        </div>
+        
         <div className="flex-1" />
+        
+        {/* 모바일 네비게이션 토글 */}
+        <button
+          onClick={toggleNav}
+          className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg hover:bg-gray-100 transition-colors mr-2"
+          aria-label="메뉴 열기"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-600">
+            <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+        </button>
         
         {/* 프로필 드롭다운 */}
         <div className="relative" ref={dropdownRef}>
@@ -117,6 +149,37 @@ export default function Header() {
           )}
         </div>
       </nav>
+      
+      {/* 모바일 네비게이션 메뉴 */}
+      {isNavOpen && (
+        <div className="md:hidden border-t bg-white">
+          <div className="px-4 py-2 space-y-1">
+            <Link
+              href="/"
+              className="block py-2 text-sm text-gray-600 hover:text-gray-900"
+              onClick={() => setIsNavOpen(false)}
+            >
+              🏠 전체 테스트
+            </Link>
+            <Link
+              href="/create"
+              className="block py-2 text-sm text-gray-600 hover:text-gray-900"
+              onClick={() => setIsNavOpen(false)}
+            >
+              ✨ 테스트 만들기
+            </Link>
+            {session && (
+              <Link
+                href="/mypage"
+                className="block py-2 text-sm text-gray-600 hover:text-gray-900"
+                onClick={() => setIsNavOpen(false)}
+              >
+                📊 내가 한 테스트
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
     </header>
   );
 } 

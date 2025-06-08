@@ -75,6 +75,74 @@ export default function HomeClient() {
     return acc;
   }, {} as Record<string, any[]>);
 
+  // 인기 테스트들을 위한 구조화된 데이터
+  const popularTests = (TESTS as any[])
+    .sort((a, b) => (stats[b.code]?.views ?? b.views) - (stats[a.code]?.views ?? a.views))
+    .slice(0, 10);
+
+  const testListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "테스트밈 인기 심리테스트 모음",
+    "description": "테스트밈에서 가장 인기 있는 심리테스트, 성향테스트 모음",
+    "url": "https://www.testmim.com",
+    "numberOfItems": popularTests.length,
+    "itemListElement": popularTests.map((test, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Article",
+        "@id": `https://www.testmim.com/detail/${test.code}`,
+        "name": test.title,
+        "description": test.description,
+        "url": `https://www.testmim.com/detail/${test.code}`,
+        "image": test.thumbnailUrl ? `https://www.testmim.com${test.thumbnailUrl}` : "https://www.testmim.com/og-image.png",
+        "keywords": test.tags.join(", "),
+        "genre": test.category,
+        "author": {
+          "@type": "Organization",
+          "name": "테스트밈"
+        },
+        "interactionStatistic": {
+          "@type": "InteractionCounter",
+          "interactionType": "https://schema.org/ViewAction",
+          "userInteractionCount": stats[test.code]?.views ?? test.views
+        }
+      }
+    }))
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "테스트밈은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 플랫폼입니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "테스트는 무료인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "네, 테스트밈의 모든 테스트는 완전 무료로 이용하실 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "어떤 종류의 테스트가 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "심리테스트, 성향테스트, MBTI, 연애테스트, 동물테스트, 게임테스트, 운명테스트 등 다양한 카테고리의 재미있는 테스트들이 있습니다."
+        }
+      }
+    ]
+  };
+
   // 네온사인 느낌 배너
   const NeonBanner = () => (
     <div className="w-full mb-8">
@@ -144,6 +212,20 @@ export default function HomeClient() {
 
   return (
     <>
+      {/* JSON-LD 구조화된 데이터 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(testListJsonLd),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd),
+        }}
+      />
+      
       <NeonBanner />
       <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
       {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (

@@ -1,3 +1,26 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /static/
+Host: https://www.testmim.com
+Crawl-delay: 1
+
+# 특정 검색엔진별 최적화
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Yeti
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: NaverBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
 Sitemap: https://www.testmim.com/sitemap.xml 
