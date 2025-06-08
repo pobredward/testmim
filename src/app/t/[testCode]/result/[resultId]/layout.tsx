@@ -4,13 +4,13 @@ import { getTranslatedTestData } from "@/utils/testTranslations";
 import { generateTestPageMetadata } from "@/utils/metadata";
 
 type Props = {
-  params: { testCode: string; resultId: string }
+  params: Promise<{ testCode: string; resultId: string }>
   children: React.ReactNode
 }
 
 // 동적 메타데이터 생성
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { testCode } = params;
+  const { testCode } = await params;
   
   // 일단 한국어로 기본 설정
   const language = 'ko';
