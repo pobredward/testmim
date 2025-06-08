@@ -1,51 +1,59 @@
 import { MetadataRoute } from "next";
 import { getAllTests } from "@/data/tests";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.testmim.com";
-  const currentDate = new Date().toISOString();
+  const currentDate = new Date();
   
-  const staticUrls: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/`,
-      priority: 1.0,
-      lastModified: currentDate,
-      changeFrequency: "daily",
-    },
-    {
-      url: `${baseUrl}/mypage`,
-      priority: 0.7,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-    },
-    {
-      url: `${baseUrl}/signin`,
-      priority: 0.7,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-    },
-    {
-      url: `${baseUrl}/create`,
-      priority: 0.7,
+  // 지원 언어 목록
+  const languages = ["ko", "en", "zh", "ja"];
+  
+  // 기본 페이지들
+  const staticPages: MetadataRoute.Sitemap = [];
+  
+  // 각 언어별로 메인 페이지 추가
+  languages.forEach(lang => {
+    const url = lang === "ko" ? baseUrl : `${baseUrl}/${lang}`;
+    staticPages.push({
+      url,
       lastModified: currentDate,
       changeFrequency: "weekly",
-    },
-  ];
+      priority: 1,
+    });
+  });
 
-  const testUrls: MetadataRoute.Sitemap = (await getAllTests()).map((test: any) => ({
-    url: `${baseUrl}/detail/${test.code}`,
-    priority: 0.9,
-    lastModified: currentDate,
-    changeFrequency: "weekly" as const,
-  }));
-
-  // 테스트 실행 페이지도 추가
-  const testExecuteUrls: MetadataRoute.Sitemap = (await getAllTests()).map((test: any) => ({
-    url: `${baseUrl}/t/${test.code}`,
-    priority: 0.8,
-    lastModified: currentDate,
-    changeFrequency: "monthly" as const,
-  }));
-
-  return [...staticUrls, ...testUrls, ...testExecuteUrls];
+  // 모든 테스트 가져오기
+  const allTests = getAllTests();
+  
+  // 테스트 페이지들
+  const testPages: MetadataRoute.Sitemap = [];
+  
+  allTests.forEach(test => {
+    languages.forEach(lang => {
+      const url = lang === "ko" 
+        ? `${baseUrl}/t/${test.code}`
+        : `${baseUrl}/${lang}/t/${test.code}`;
+      
+      testPages.push({
+        url,
+        lastModified: currentDate,
+        changeFrequency: "monthly",
+        priority: 0.8,
+      });
+      
+      // 테스트 상세 페이지도 추가 (legacy URL)
+      const detailUrl = lang === "ko"
+        ? `${baseUrl}/detail/${test.code}`
+        : `${baseUrl}/${lang}/detail/${test.code}`;
+      
+      testPages.push({
+        url: detailUrl,
+        lastModified: currentDate,
+        changeFrequency: "monthly",
+        priority: 0.7,
+      });
+    });
+  });
+  
+  return [...staticPages, ...testPages];
 } 

@@ -9,6 +9,7 @@ import MainLayout from "./components/MainLayout";
 import AuthProvider from "./components/AuthProvider";
 import OnboardingRedirect from "./components/OnboardingRedirect";
 import I18nProvider from "./components/I18nProvider";
+import { generateMainPageMetadata } from "@/utils/metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,72 +21,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "테스트밈 | 무료 심리테스트, 성향테스트, MBTI 테스트 모음",
-    template: "%s | 테스트밈"
-  },
-  description: "무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음. 나만의 우주, 심리테스트 플랫폼 테스트밈에서 다양한 테스트를 무료로 즐겨보세요!",
-  keywords: ["심리테스트", "성향테스트", "MBTI", "무료테스트", "테스트밈", "testmim", "심리분석", "성격테스트", "재미있는테스트", "온라인테스트"],
-  authors: [{ name: "테스트밈" }],
-  creator: "테스트밈",
-  publisher: "테스트밈",
-  applicationName: "테스트밈",
-  category: "Entertainment",
-  classification: "심리테스트 플랫폼",
-  
-  // Open Graph
-  openGraph: {
-    type: "website",
-    locale: "ko_KR",
-    url: "https://www.testmim.com",
-    siteName: "테스트밈",
-    title: "테스트밈 | 무료 심리테스트, 성향테스트, MBTI 테스트 모음",
-    description: "무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음. 나만의 우주, 심리테스트 플랫폼 테스트밈에서 다양한 테스트를 무료로 즐겨보세요!",
-    images: [
-      {
-        url: "https://www.testmim.com/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "테스트밈 - 무료 심리테스트 플랫폼",
-      },
-    ],
-  },
-  
-  // Twitter
-  twitter: {
-    card: "summary_large_image",
-    site: "@testmim",
-    creator: "@testmim",
-    title: "테스트밈 | 무료 심리테스트, 성향테스트, MBTI 테스트 모음",
-    description: "무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음. 나만의 우주, 심리테스트 플랫폼 테스트밈에서 다양한 테스트를 무료로 즐겨보세요!",
-    images: ["https://www.testmim.com/og-image.png"],
-  },
-  
-  // 기타 메타데이터
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  
-  verification: {
-    google: "google5a5d6e72faa8036f",
-    other: {
-      "naver-site-verification": "naver05bbb92c9c59b181bb207a70715c5f0e",
-    },
-  },
-  
-  alternates: {
-    canonical: "https://www.testmim.com",
-  },
-};
+// 기본 메타데이터 (한국어)
+export const metadata: Metadata = generateMainPageMetadata('ko');
 
 export default function RootLayout({
   children,
@@ -97,7 +34,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "테스트밈",
-    "alternateName": "testmim",
+    "alternateName": ["testmim", "TestMeme", "测试梦", "テストミーム"],
     "url": "https://www.testmim.com",
     "logo": "https://www.testmim.com/android-chrome-512x512.png",
     "sameAs": [
@@ -105,7 +42,8 @@ export default function RootLayout({
     ],
     "foundingDate": "2024",
     "description": "무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음을 제공하는 심리테스트 플랫폼",
-    "knowsAbout": ["심리테스트", "성향테스트", "MBTI", "성격분석", "심리분석"]
+    "knowsAbout": ["심리테스트", "성향테스트", "MBTI", "성격분석", "심리분석"],
+    "availableLanguage": ["ko", "en", "zh", "ja"]
   };
   
   const websiteJsonLd = {
@@ -114,7 +52,7 @@ export default function RootLayout({
     "name": "테스트밈",
     "url": "https://www.testmim.com",
     "description": "무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음. 나만의 우주, 심리테스트 플랫폼 테스트밈에서 다양한 테스트를 무료로 즐겨보세요!",
-    "inLanguage": "ko-KR",
+    "inLanguage": ["ko-KR", "en-US", "zh-CN", "ja-JP"],
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -136,6 +74,13 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         {/* manifest */}
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* 언어별 대체 URL */}
+        <link rel="alternate" hrefLang="ko" href="https://www.testmim.com" />
+        <link rel="alternate" hrefLang="en" href="https://www.testmim.com/en" />
+        <link rel="alternate" hrefLang="zh" href="https://www.testmim.com/zh" />
+        <link rel="alternate" hrefLang="ja" href="https://www.testmim.com/ja" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.testmim.com" />
         
         {/* Google Adsense */}
         <meta name="google-adsense-account" content="ca-pub-5100840159526765" />

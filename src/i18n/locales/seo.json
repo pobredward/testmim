@@ -1,0 +1,74 @@
+{
+  "ko": {
+    "main": {
+      "title": "테스트밈 | 무료 심리테스트, 성향테스트, MBTI 테스트 모음",
+      "description": "무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음. 나만의 우주, 심리테스트 플랫폼 테스트밈에서 다양한 테스트를 무료로 즐겨보세요!",
+      "keywords": ["심리테스트", "성향테스트", "MBTI", "무료테스트", "테스트밈", "testmim", "심리분석", "성격테스트", "재미있는테스트", "온라인테스트"],
+      "siteName": "테스트밈",
+      "ogTitle": "테스트밈 | 무료 심리테스트, 성향테스트, MBTI 테스트 모음",
+      "ogDescription": "무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음. 나만의 우주, 심리테스트 플랫폼 테스트밈에서 다양한 테스트를 무료로 즐겨보세요!",
+      "twitterTitle": "테스트밈 | 무료 심리테스트, 성향테스트, MBTI 테스트 모음",
+      "twitterDescription": "무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음. 나만의 우주, 심리테스트 플랫폼 테스트밈에서 다양한 테스트를 무료로 즐겨보세요!"
+    },
+    "test": {
+      "titleSuffix": "테스트",
+      "descriptionTemplate": "{{description}} 지금 바로 무료로 {{tags}} 테스트를 해보세요! {{siteName}}에서 제공하는 인기 심리테스트입니다.",
+      "notFoundTitle": "존재하지 않는 테스트",
+      "notFoundDescription": "요청하신 테스트를 찾을 수 없습니다."
+    }
+  },
+  "en": {
+    "main": {
+      "title": "TestMeme | Free Psychology Tests, Personality Tests, MBTI Tests Collection",
+      "description": "Free psychology tests, personality tests, MBTI, and fun test collection. Enjoy various tests for free on TestMeme, your own universe psychology test platform!",
+      "keywords": ["psychology test", "personality test", "MBTI", "free test", "TestMeme", "psychological analysis", "character test", "fun test", "online test"],
+      "siteName": "TestMeme",
+      "ogTitle": "TestMeme | Free Psychology Tests, Personality Tests, MBTI Tests Collection",
+      "ogDescription": "Free psychology tests, personality tests, MBTI, and fun test collection. Enjoy various tests for free on TestMeme, your own universe psychology test platform!",
+      "twitterTitle": "TestMeme | Free Psychology Tests, Personality Tests, MBTI Tests Collection",
+      "twitterDescription": "Free psychology tests, personality tests, MBTI, and fun test collection. Enjoy various tests for free on TestMeme, your own universe psychology test platform!"
+    },
+    "test": {
+      "titleSuffix": "Test",
+      "descriptionTemplate": "{{description}} Try the {{tags}} test for free right now! This is a popular psychology test provided by {{siteName}}.",
+      "notFoundTitle": "Test Not Found",
+      "notFoundDescription": "The test you requested could not be found."
+    }
+  },
+  "zh": {
+    "main": {
+      "title": "测试梦 | 免费心理测试、性格测试、MBTI测试合集",
+      "description": "免费心理测试、性格测试、MBTI、有趣测试合集。在测试梦，您专属的心理测试平台上免费享受各种测试！",
+      "keywords": ["心理测试", "性格测试", "MBTI", "免费测试", "测试梦", "心理分析", "性格分析", "有趣测试", "在线测试"],
+      "siteName": "测试梦",
+      "ogTitle": "测试梦 | 免费心理测试、性格测试、MBTI测试合集",
+      "ogDescription": "免费心理测试、性格测试、MBTI、有趣测试合集。在测试梦，您专属的心理测试平台上免费享受各种测试！",
+      "twitterTitle": "测试梦 | 免费心理测试、性格测试、MBTI测试合集",
+      "twitterDescription": "免费心理测试、性格测试、MBTI、有趣测试合集。在测试梦，您专属的心理测试平台上免费享受各种测试！"
+    },
+    "test": {
+      "titleSuffix": "测试",
+      "descriptionTemplate": "{{description}} 立即免费体验{{tags}}测试！这是{{siteName}}提供的热门心理测试。",
+      "notFoundTitle": "找不到测试",
+      "notFoundDescription": "无法找到您请求的测试。"
+    }
+  },
+  "ja": {
+    "main": {
+      "title": "テストミーム | 無料心理テスト、性格テスト、MBTIテストコレクション",
+      "description": "無料心理テスト、性格テスト、MBTI、楽しいテストコレクション。あなた専用の宇宙、心理テストプラットフォーム「テストミーム」で様々なテストを無料でお楽しみください！",
+      "keywords": ["心理テスト", "性格テスト", "MBTI", "無料テスト", "テストミーム", "心理分析", "性格分析", "楽しいテスト", "オンラインテスト"],
+      "siteName": "テストミーム",
+      "ogTitle": "テストミーム | 無料心理テスト、性格テスト、MBTIテストコレクション",
+      "ogDescription": "無料心理テスト、性格テスト、MBTI、楽しいテストコレクション。あなた専用の宇宙、心理テストプラットフォーム「テストミーム」で様々なテストを無料でお楽しみください！",
+      "twitterTitle": "テストミーム | 無料心理テスト、性格テスト、MBTIテストコレクション",
+      "twitterDescription": "無料心理テスト、性格テスト、MBTI、楽しいテストコレクション。あなた専用の宇宙、心理テストプラットフォーム「テストミーム」で様々なテストを無料でお楽しみください！"
+    },
+    "test": {
+      "titleSuffix": "テスト",
+      "descriptionTemplate": "{{description}} 今すぐ無料で{{tags}}テストを体験してみてください！{{siteName}}が提供する人気心理テストです。",
+      "notFoundTitle": "テストが見つかりません",
+      "notFoundDescription": "リクエストされたテストが見つかりませんでした。"
+    }
+  }
+} 
