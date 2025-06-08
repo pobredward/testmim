@@ -27,10 +27,13 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
 
   const hasIncreased = useRef(false);
   
+  // 필요한 값들을 변수로 추출
+  const docId = testData?.docId;
+  
   useEffect(() => {
     async function fetchStats() {
-      if (!testData) return;
-      const ref = doc(db, "testStats", testData.docId);
+      if (!docId) return;
+      const ref = doc(db, "testStats", docId);
       const snap = await getDoc(ref);
       if (snap.exists()) {
         const data = snap.data();
@@ -42,15 +45,15 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
       }
     }
     fetchStats();
-  }, [testData.docId]);
+  }, [docId]);
 
   // 페이지 진입 시 조회수 증가 (mount 시 1회만)
   useEffect(() => {
-    if (!testData || hasIncreased.current) return;
+    if (!docId || hasIncreased.current) return;
     hasIncreased.current = true;
-    const ref = doc(db, "testStats", testData.docId);
+    const ref = doc(db, "testStats", docId);
     updateDoc(ref, { views: increment(1) });
-  }, [testData.docId]);
+  }, [docId]);
 
   return (
     <div className="max-w-md w-full sm:mx-auto mx-2 bg-white rounded-xl shadow p-4 sm:p-10 mt-4 mb-8 flex flex-col items-center">
