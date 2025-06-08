@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import MainLayout from "./components/MainLayout";
 import AuthProvider from "./components/AuthProvider";
 import OnboardingRedirect from "./components/OnboardingRedirect";
+import I18nProvider from "./components/I18nProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -157,12 +158,14 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
-        <AuthProvider>
-          <OnboardingRedirect />
-          <Header />
-          <MainLayout>{children}</MainLayout>
-          <Footer />
-        </AuthProvider>
+        <I18nProvider>
+          <AuthProvider>
+            <OnboardingRedirect />
+            <Header />
+            <MainLayout>{children}</MainLayout>
+            <Footer />
+          </AuthProvider>
+        </I18nProvider>
       </body>
     </html>
   );

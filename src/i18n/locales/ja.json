@@ -1,0 +1,100 @@
+{
+  "common": {
+    "welcome": "TestMimへようこそ",
+    "description": "テストの集合地！様々な心理テストや面白いテストを一箇所で楽しめます。",
+    "views": "人が参加",
+    "thousand": "千人",
+    "tenThousand": "万人",
+    "loading": "読み込み中..."
+  },
+  "header": {
+    "allTests": "全てのテスト",
+    "createTest": "テスト作成",
+    "myTests": "私のテスト",
+    "login": "ログイン",
+    "signup": "サインアップ",
+    "logout": "ログアウト",
+    "mypage": "マイページ"
+  },
+  "categories": {
+    "자아": "🧠 本当の自分を見つける",
+    "연애": "💘 恋愛したい？",
+    "게임": "🎮 ゲームテスト",
+    "동물": "🐶 動物テスト",
+    "감성": "🌈 感性チャージコーナー",
+    "운명": "🔮 運命と縁をテスト！"
+  },
+  "badges": {
+    "popular": "おすすめ",
+    "new": "NEW"
+  },
+  "meta": {
+    "title": "TestMim | 無料心理テスト、性格テスト、MBTI、面白いテスト集",
+    "description": "TestMimは様々な無料心理テスト、性格テスト、MBTI、恋愛、動物、ゲームなどの面白いテストを一箇所に集めたサイトです。今すぐあなたに合ったテストを見つけてください！",
+    "keywords": "TestMim, 心理テスト, 無料テスト, 性格テスト, MBTI, 恋愛テスト, 動物テスト, ゲームテスト, 面白いテスト, testmim, 性格テスト, 人気テスト"
+  },
+  "faq": {
+    "what_is_testmim": {
+      "question": "TestMimとは何ですか？",
+      "answer": "TestMimは様々な無料心理テスト、性格テスト、MBTI、恋愛、動物、ゲームなどの面白いテストを一箇所に集めたプラットフォームです。"
+    },
+    "is_free": {
+      "question": "テストは無料ですか？",
+      "answer": "はい、TestMimのすべてのテストは完全に無料でご利用いただけます。"
+    },
+    "what_types": {
+      "question": "どのような種類のテストがありますか？",
+      "answer": "心理テスト、性格テスト、MBTI、恋愛テスト、動物テスト、ゲームテスト、運命テストなど、様々なカテゴリの面白いテストがあります。"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 TestMim (testmim.com)",
+    "company": "会社",
+    "representative": "代表者",
+    "business_number": "事業者登録番号",
+    "contact": "連絡先",
+    "address": "住所",
+    "business_type": "事業種別",
+    "business_item": "事業項目",
+    "copyright_notice": "このサイトのすべてのコンテンツは著作権で保護されており、無断複製・配布を禁じます。"
+  },
+  "test": {
+    "startTest": "テスト開始",
+    "saveError": "結果の保存中にエラーが発生しました。",
+    "testNotFound": "テストが見つかりません。"
+  },
+  "testDetail": {
+    "startTest": "テスト開始",
+    "views": "参加",
+    "notFound": "テストが見つかりません。",
+    "breadcrumb": {
+      "home": "ホーム"
+    }
+  },
+  "results": {
+    "allResults": "すべての結果を見る",
+    "recommend": "おすすめ",
+    "imageRecommend": "画像おすすめ",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました。",
+    "notFound": "結果情報が見つかりません。",
+    "shareResult": "結果をシェア",
+    "copyLink": "リンクをコピー",
+    "copied": "コピーしました！",
+    "linkCopied": "リンクがコピーされました！",
+    "tryTest": "私もテストしてみる",
+    "viewResult": "結果詳細を見る",
+    "kakaoShareFailed": "KakaoTalkシェアに失敗しました。リンクがコピーされました！",
+    "kakaoLinkCopied": "リンクがコピーされました！KakaoTalkで直接シェアしてください。",
+    "shareText": {
+      "myResult": "私の結果"
+    },
+    "social": {
+      "kakao": "KakaoTalk",
+      "twitter": "Twitter",
+      "facebook": "Facebook",
+      "bluesky": "Bluesky"
+    },
+    "hashtags": "テスト,心理テスト,面白いテスト"
+  }
+} 

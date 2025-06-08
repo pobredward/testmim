@@ -4,7 +4,10 @@ import type { TestResult, TestAnswer } from "@/types/tests";
 import type { Metadata } from "next";
 import TestDetailClient from "./TestDetailClient";
 
-// 공통 테스트 데이터 타입 정의
+// 클라이언트용 결과 타입 (condition 함수 제외)
+export type ClientTestResult = Omit<TestResult, 'condition'>;
+
+// 클라이언트로 전달할 테스트 메타데이터 타입 (함수 제외)
 export type TestMeta = {
   code: string;
   docId: string;
@@ -20,15 +23,14 @@ export type TestMeta = {
   likes: number;
   scraps: number;
   category: string;
-  results: TestResult[];
-  calculateResult: (answers: TestAnswer[]) => TestResult;
+  results: ClientTestResult[];
   [key: string]: any;
 };
 
 // 동적 메타데이터 생성
 export async function generateMetadata({ params }: { params: Promise<{ testCode: string }> }): Promise<Metadata> {
   const { testCode } = await params;
-  const TEST_DATA = getTestByCode(testCode) as TestMeta | null;
+  const TEST_DATA = getTestByCode(testCode);
   
   if (!TEST_DATA) {
     return {
@@ -84,15 +86,38 @@ export async function generateMetadata({ params }: { params: Promise<{ testCode:
 
 export default async function TestDetailPage({ params }: { params: Promise<{ testCode: string }> }) {
   const { testCode } = await params;
-  const testData = getTestByCode(testCode) as TestMeta | null;
+  const fullTestData = getTestByCode(testCode);
 
-  if (!testData) {
+  if (!fullTestData) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">
-        존재하지 않는 테스트입니다.
+        테스트를 찾을 수 없습니다.
       </div>
     );
   }
+
+  // 클라이언트로 전달할 데이터에서 모든 함수 제거
+  const testData: TestMeta = {
+    code: fullTestData.code,
+    docId: fullTestData.docId,
+    title: fullTestData.title,
+    description: fullTestData.description,
+    bgGradient: fullTestData.bgGradient,
+    mainColor: fullTestData.mainColor,
+    icon: fullTestData.icon,
+    thumbnailUrl: fullTestData.thumbnailUrl,
+    tags: fullTestData.tags,
+    seoKeywords: fullTestData.seoKeywords,
+    views: fullTestData.views,
+    likes: fullTestData.likes,
+    scraps: fullTestData.scraps,
+    category: fullTestData.category,
+    // results에서 condition 함수 제거
+    results: fullTestData.results.map((result: TestResult) => {
+      const { condition, ...resultWithoutCondition } = result;
+      return resultWithoutCondition;
+    }),
+  };
 
   // JSON-LD 구조화된 데이터
   const testJsonLd = {

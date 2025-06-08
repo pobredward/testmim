@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import type { TestAnswer } from "@/types/tests";
 import { logEvent } from "firebase/analytics";
+import { useTranslation } from "react-i18next";
 
 // 카카오 SDK 타입 선언
 declare global {
@@ -19,6 +20,7 @@ export default function TestResultPage() {
   const { testCode, resultId } = useParams<{ testCode: string; resultId: string }>();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<TestAnswer[] | null>(null);
@@ -28,7 +30,11 @@ export default function TestResultPage() {
   const isShare = searchParams.get("from") === "share";
 
   // 테스트 데이터 분기
-  const TEST_DATA = getTestByCode(testCode);
+  const [TEST_DATA, setTestData] = useState(() => getTestByCode(testCode, i18n.language));
+
+  useEffect(() => {
+    setTestData(getTestByCode(testCode, i18n.language));
+  }, [testCode, i18n.language]);
 
   useEffect(() => {
     async function fetchResult() {
@@ -37,10 +43,10 @@ export default function TestResultPage() {
       try {
         const ref = doc(db, "results", resultId);
         const snap = await getDoc(ref);
-        if (!snap.exists()) throw new Error("결과를 찾을 수 없습니다.");
+        if (!snap.exists()) throw new Error(t('results.notFound'));
         setAnswers(snap.data().answers);
       } catch {
-        setError("오류가 발생했습니다.");
+        setError(t('results.error'));
       } finally {
         setLoading(false);
       }
@@ -49,15 +55,15 @@ export default function TestResultPage() {
   }, [resultId]);
 
   if (!TEST_DATA) {
-    return <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">존재하지 않는 테스트입니다.</div>;
+    return <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">{t('test.testNotFound')}</div>;
   }
 
   if (loading)
-    return <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">불러오는 중...</div>;
+    return <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">{t('results.loading')}</div>;
   if (error)
     return <div className="flex flex-col items-center justify-center min-h-[40vh] text-red-400">{error}</div>;
   if (!answers)
-    return <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">결과 정보를 찾을 수 없습니다.</div>;
+    return <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">{t('results.notFound')}</div>;
 
   const result = TEST_DATA.calculateResult(answers!);
   const shareUrl = `/t/${TEST_DATA.code}/result/${resultId}?from=share`;
@@ -75,7 +81,7 @@ export default function TestResultPage() {
       if (!kakaoKey) {
         // 카카오 키가 없는 경우 링크 복사로 대체
         await navigator.clipboard.writeText(window.location.origin + shareUrl);
-        alert("링크가 복사되었습니다! 카카오톡에서 직접 공유해주세요.");
+        alert(t('results.kakaoLinkCopied'));
         return;
       }
       
@@ -129,14 +135,14 @@ export default function TestResultPage() {
           },
           buttons: [
             {
-              title: '친구 결과 보러가기',
+              title: t('results.viewResult'),
               link: {
                 mobileWebUrl: shareUrl,
                 webUrl: shareUrl,
               },
             },
             {
-              title: '나도 테스트 하러가기',
+              title: t('results.tryTest'),
               link: {
                 mobileWebUrl: testStartUrl,
                 webUrl: testStartUrl,
@@ -151,14 +157,14 @@ export default function TestResultPage() {
             console.error('카카오톡 공유 완전 실패:', error);
             // 최종 실패 시 링크 복사로 대체
             navigator.clipboard.writeText(window.location.origin + shareUrl);
-            alert("카카오톡 공유에 실패했습니다. 링크가 복사되었습니다!");
+            alert(t('results.kakaoShareFailed'));
           },
         });
       }
     } else {
       // 카카오 SDK가 없는 경우 링크 복사
       await navigator.clipboard.writeText(window.location.origin + shareUrl);
-      alert("링크가 복사되었습니다! 카카오톡에서 직접 공유해주세요.");
+      alert(t('results.kakaoLinkCopied'));
     }
   };
 
@@ -168,17 +174,17 @@ export default function TestResultPage() {
     const fullShareUrl = window.location.origin + shareUrl;
     const text = `${TEST_DATA.title}
 
-내 결과: ${result.title}
+${t('results.shareText.myResult')}: ${result.title}
 
-👀 결과 자세히 보기
+👀 ${t('results.viewResult')}
 ${fullShareUrl}
 
-🔥 나도 테스트 해보기
+🔥 ${t('results.tryTest')}
 ${window.location.origin}/detail/${testCode}
 
 `;
 
-    const hashtags = "테스트,심리테스트,재미있는테스트";
+    const hashtags = t('results.hashtags');
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&hashtags=${hashtags}`;
     window.open(url, '_blank', 'width=550,height=420');
   };
@@ -189,12 +195,12 @@ ${window.location.origin}/detail/${testCode}
     const fullShareUrl = window.location.origin + shareUrl;
     const text = `${TEST_DATA.title}
 
-내 결과: ${result.title}
+${t('results.shareText.myResult')}: ${result.title}
 
-👀 결과 자세히 보기
+👀 ${t('results.viewResult')}
 ${fullShareUrl}
 
-🔥 나도 테스트 해보기
+🔥 ${t('results.tryTest')}
 ${window.location.origin}/detail/${testCode}
 
 `;
@@ -209,12 +215,12 @@ ${window.location.origin}/detail/${testCode}
     const fullShareUrl = window.location.origin + shareUrl;
     const text = `${TEST_DATA.title}
 
-내 결과: ${result.title}
+${t('results.shareText.myResult')}: ${result.title}
 
-👀 결과 자세히 보기
+👀 ${t('results.viewResult')}
 ${fullShareUrl}
 
-🔥 나도 테스트 해보기
+🔥 ${t('results.tryTest')}
 ${window.location.origin}/detail/${testCode}
 
 `;
@@ -246,11 +252,11 @@ ${window.location.origin}/detail/${testCode}
       )}
       {result.recommend && result.recommend.length > 0 && (
         <div className="text-xs text-blue-700 mb-2 text-center">
-          <b>추천:</b> {result.recommend.join(", ")}
+          <b>{t('results.recommend')}:</b> {result.recommend.join(", ")}
         </div>
       )}
       {result.imageDesc && (
-        <div className="text-xs text-gray-400 mb-1 text-center">이미지 추천: {result.imageDesc}</div>
+        <div className="text-xs text-gray-400 mb-1 text-center">{t('results.imageRecommend')}: {result.imageDesc}</div>
       )}
       
       {/* 공유/테스트 해보기 버튼 분기 */}
@@ -262,13 +268,13 @@ ${window.location.origin}/detail/${testCode}
             style={{ borderColor: TEST_DATA.mainColor, color: TEST_DATA.mainColor }}
             onClick={() => router.push(`/t/${TEST_DATA.code}/results`)}
           >
-            모든 결과 보기
+            {t('results.allResults')}
           </button>
 
           {/* 결과 공유하기 섹션 - 분리된 스타일 */}
           <div className="w-full max-w-md mx-auto bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6 mt-4">
             <div className="text-lg font-semibold mb-4 text-center" style={{ color: TEST_DATA.mainColor }}>
-              결과 공유하기
+              {t('results.shareResult')}
             </div>
             
             {/* 첫 번째 줄: 카카오톡, 트위터 */}
@@ -278,7 +284,7 @@ ${window.location.origin}/detail/${testCode}
                 onClick={shareToKakao}
               >
                 <span className="text-lg">💬</span>
-                카카오톡
+                {t('results.social.kakao')}
               </button>
               
               <button
@@ -286,7 +292,7 @@ ${window.location.origin}/detail/${testCode}
                 onClick={shareToTwitter}
               >
                 <span className="text-lg">🐦</span>
-                트위터
+                {t('results.social.twitter')}
               </button>
             </div>
             
@@ -297,7 +303,7 @@ ${window.location.origin}/detail/${testCode}
                 onClick={shareToFacebook}
               >
                 <span className="text-lg">📘</span>
-                페이스북
+                {t('results.social.facebook')}
               </button>
               
               <button
@@ -305,7 +311,7 @@ ${window.location.origin}/detail/${testCode}
                 onClick={shareToBluesky}
               >
                 <span className="text-lg">🦋</span>
-                블루스카이
+                {t('results.social.bluesky')}
               </button>
             </div>
             
@@ -316,7 +322,7 @@ ${window.location.origin}/detail/${testCode}
                 onClick={copyLink}
               >
                 <span className="text-lg">🔗</span>
-                {copied ? "복사됨!" : "링크 복사"}
+                {copied ? t('results.copied') : t('results.copyLink')}
               </button>
             </div>
           </div>
@@ -327,10 +333,10 @@ ${window.location.origin}/detail/${testCode}
           onClick={() => router.push(`/detail/${TEST_DATA.code}`)}
           style={{ maxWidth: 320 }}
         >
-          나도 테스트 해보기
+          {t('results.tryTest')}
         </button>
       )}
-      {copied && <div className="text-green-600 text-sm mt-1">링크가 복사되었습니다!</div>}
+      {copied && <div className="text-green-600 text-sm mt-1">{t('results.linkCopied')}</div>}
     </div>
   );
 } 

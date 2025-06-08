@@ -7,15 +7,19 @@ import { LOLLANE_TEST } from "./lollane";
 import { DFCLASS_TEST } from "./dfclass";
 import { SNSLESS_TEST } from "./snsless";
 import { MBTISNS_TEST } from "./mbtisns";
+import { getTranslatedTestData } from "@/utils/testTranslations";
 
 export const ALL_TESTS = [EGENTETO_TEST, SECRETJOB_TEST, ANIMALPERSONALITY_TEST, PASTLIFE_TEST, SPEECHSTYLE_TEST, LOLLANE_TEST, DFCLASS_TEST, SNSLESS_TEST, MBTISNS_TEST];
 
-export function getTestByCode(code: string) {
-  return ALL_TESTS.find((t) => t.code === code) || null;
+export function getTestByCode(code: string, language: string = 'ko') {
+  const test = ALL_TESTS.find((t) => t.code === code);
+  if (!test) return null;
+  
+  return getTranslatedTestData(code, test, language);
 }
 
-export function getAllTests() {
-  return ALL_TESTS;
+export function getAllTests(language: string = 'ko') {
+  return ALL_TESTS.map(test => getTranslatedTestData(test.code, test, language));
 }
 
 export * from "./speechstyle";

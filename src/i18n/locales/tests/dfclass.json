@@ -1,0 +1,434 @@
+{
+  "ko": {
+    "title": "던파 직업 추천 테스트",
+    "description": "당신에게 맞는 던전앤파이터 직업을 찾아보세요!",
+    "questions": [
+      {
+        "question": "전투에서 선호하는 전투 방식은?",
+        "options": [
+          "근접 전투로 상대를 압도한다",
+          "원거리에서 안전하게 공격한다",
+          "마법으로 화려하게 공격한다",
+          "아군을 지원하며 싸운다"
+        ]
+      },
+      {
+        "question": "팀플레이에서 선호하는 역할은?",
+        "options": [
+          "최전선에서 적을 막아선다",
+          "뒤에서 화력 지원을 한다",
+          "팀원들을 치료하고 버프를 준다",
+          "적의 약점을 파악해 전략을 세운다"
+        ]
+      },
+      {
+        "question": "게임에서 가장 중요하게 생각하는 것은?",
+        "options": [
+          "높은 공격력과 화려한 스킬",
+          "빠른 이동속도와 민첩성",
+          "강력한 방어력과 생존력",
+          "팀원과의 협력과 전략"
+        ]
+      },
+      {
+        "question": "적을 상대할 때 선호하는 방법은?",
+        "options": [
+          "정면 승부로 당당하게",
+          "빠른 속도로 기습 공격",
+          "거리를 두고 견제하며",
+          "함정이나 도구를 활용해서"
+        ]
+      },
+      {
+        "question": "보스전에서 중요하게 생각하는 것은?",
+        "options": [
+          "높은 DPS로 빠른 처치",
+          "안전한 포지셔닝 유지",
+          "팀원들의 생존 관리",
+          "패턴 파악과 타이밍"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "FIGHTER",
+        "title": "격투가",
+        "desc": "주먹과 발을 이용한 근접 전투의 달인! 화려한 콤보와 강력한 일격으로 적을 제압하는 당신은 진정한 격투가입니다.",
+        "subDesc": "- 근접 전투에 특화된 강력한 물리 공격\n- 연속기와 콤보를 통한 화려한 전투\n- 높은 기동성과 순간 폭발력",
+        "recommend": [
+          "스트리트 파이터 - 빠른 연속기의 마스터",
+          "그래플러 - 강력한 잡기 기술의 달인",
+          "스트라이커 - 발차기의 화려한 마스터"
+        ]
+      },
+      {
+        "type": "GUNNER",
+        "title": "거너",
+        "desc": "다양한 총기를 다루는 원거리 전투의 전문가! 안전한 거리에서 정확한 사격으로 적을 제압하는 당신은 진정한 거너입니다.",
+        "subDesc": "- 원거리 공격에 특화된 다양한 화기류\n- 안전한 포지셔닝과 정확한 조준\n- 범위 공격과 지속 딜링 능력",
+        "recommend": [
+          "레인저 - 총기 사격의 기본 마스터",
+          "런처 - 중화기의 폭발적 화력",
+          "메카닉 - 로봇과 함께하는 전투"
+        ]
+      },
+      {
+        "type": "MAGE",
+        "title": "마법사",
+        "desc": "강력한 마법의 힘을 다루는 신비로운 존재! 다양한 속성 마법으로 화려하게 적을 제압하는 당신은 진정한 마법사입니다.",
+        "subDesc": "- 속성 마법을 활용한 강력한 마법 공격\n- 광범위한 범위 공격과 특수 효과\n- 높은 마법 공격력과 화려한 이펙트",
+        "recommend": [
+          "엘레멘탈 마스터 - 4대 속성의 지배자",
+          "배틀메이지 - 마법과 물리의 조화",
+          "소환사 - 정령들과 함께하는 전투"
+        ]
+      },
+      {
+        "type": "PRIEST",
+        "title": "프리스트",
+        "desc": "신성한 힘으로 아군을 지원하는 성직자! 치유와 버프로 팀을 이끄는 당신은 진정한 프리스트입니다.",
+        "subDesc": "- 치유와 회복을 통한 팀 서포트\n- 다양한 버프와 디버프 스킬\n- 신성 마법을 통한 언데드 특화",
+        "recommend": [
+          "크루세이더 - 팀을 지원하는 성기사",
+          "인파이터 - 근접 전투형 성직자",
+          "퇴마사 - 악령을 퇴치하는 전사"
+        ]
+      },
+      {
+        "type": "THIEF",
+        "title": "도적",
+        "desc": "그림자에서 나타나는 민첩한 암살자! 빠른 속도와 치명적인 공격으로 적을 제압하는 당신은 진정한 도적입니다.",
+        "subDesc": "- 높은 이동속도와 회피 능력\n- 치명타와 기습 공격에 특화\n- 다양한 디버프와 상태이상 활용",
+        "recommend": [
+          "로그 - 단검과 독을 다루는 암살자",
+          "네크로맨서 - 죽음의 마법을 다루는 마법사",
+          "쿠노이치 - 동양의 신비로운 닌자"
+        ]
+      }
+    ]
+  },
+  "en": {
+    "title": "DnF Class Recommendation Test",
+    "description": "Find the Dungeon & Fighter class that suits you!",
+    "questions": [
+      {
+        "question": "What combat style do you prefer in battle?",
+        "options": [
+          "Overwhelm enemies with close combat",
+          "Attack safely from long range",
+          "Attack flashily with magic",
+          "Fight while supporting allies"
+        ]
+      },
+      {
+        "question": "What role do you prefer in team play?",
+        "options": [
+          "Block enemies at the front line",
+          "Provide fire support from behind",
+          "Heal team members and give buffs",
+          "Identify enemy weaknesses and strategize"
+        ]
+      },
+      {
+        "question": "What do you consider most important in games?",
+        "options": [
+          "High attack power and flashy skills",
+          "Fast movement speed and agility",
+          "Strong defense and survivability",
+          "Cooperation and strategy with team members"
+        ]
+      },
+      {
+        "question": "How do you prefer to face enemies?",
+        "options": [
+          "Face-to-face combat with confidence",
+          "Surprise attacks with quick speed",
+          "Keep distance and harass",
+          "Use traps or tools"
+        ]
+      },
+      {
+        "question": "What's important to you in boss battles?",
+        "options": [
+          "High DPS for quick kills",
+          "Maintaining safe positioning",
+          "Managing team survival",
+          "Understanding patterns and timing"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "FIGHTER",
+        "title": "Fighter",
+        "desc": "Master of close combat using fists and feet! You are a true fighter who subdues enemies with flashy combos and powerful strikes.",
+        "subDesc": "- Powerful physical attacks specialized in close combat\n- Flashy battles through combos and chains\n- High mobility and burst damage",
+        "recommend": [
+          "Street Fighter - Master of quick combos",
+          "Grappler - Expert of powerful grappling techniques",
+          "Striker - Flashy master of kicks"
+        ]
+      },
+      {
+        "type": "GUNNER",
+        "title": "Gunner",
+        "desc": "Specialist in ranged combat handling various firearms! You are a true gunner who subdues enemies with accurate shots from safe distances.",
+        "subDesc": "- Various firearms specialized for ranged attacks\n- Safe positioning and accurate aiming\n- Area attacks and sustained damage ability",
+        "recommend": [
+          "Ranger - Basic master of firearms",
+          "Launcher - Explosive firepower of heavy weapons",
+          "Mechanic - Combat with robots"
+        ]
+      },
+      {
+        "type": "MAGE",
+        "title": "Mage",
+        "desc": "Mysterious being who handles powerful magical forces! You are a true mage who flashily subdues enemies with various elemental magic.",
+        "subDesc": "- Powerful magical attacks using elemental magic\n- Wide-area attacks and special effects\n- High magical attack power and flashy effects",
+        "recommend": [
+          "Elemental Master - Ruler of the four elements",
+          "Battlemage - Harmony of magic and physical",
+          "Summoner - Combat with spirits"
+        ]
+      },
+      {
+        "type": "PRIEST",
+        "title": "Priest",
+        "desc": "Cleric who supports allies with holy power! You are a true priest who leads the team with healing and buffs.",
+        "subDesc": "- Team support through healing and recovery\n- Various buff and debuff skills\n- Specialization against undead through holy magic",
+        "recommend": [
+          "Crusader - Holy knight supporting the team",
+          "Infighter - Close combat type cleric",
+          "Exorcist - Warrior who banishes evil spirits"
+        ]
+      },
+      {
+        "type": "THIEF",
+        "title": "Thief",
+        "desc": "Agile assassin appearing from shadows! You are a true thief who subdues enemies with quick speed and deadly attacks.",
+        "subDesc": "- High movement speed and evasion ability\n- Specialization in critical hits and surprise attacks\n- Utilization of various debuffs and status effects",
+        "recommend": [
+          "Rogue - Assassin handling daggers and poison",
+          "Necromancer - Mage handling death magic",
+          "Kunoichi - Mysterious oriental ninja"
+        ]
+      }
+    ]
+  },
+  "zh": {
+    "title": "地下城与勇士职业推荐测试",
+    "description": "找到适合你的地下城与勇士职业！",
+    "questions": [
+      {
+        "question": "在战斗中偏好的战斗方式是？",
+        "options": [
+          "用近战压倒对手",
+          "在远程安全地攻击", 
+          "用魔法华丽地攻击",
+          "支援队友一起战斗"
+        ]
+      },
+      {
+        "question": "在团队游戏中偏好的角色是？",
+        "options": [
+          "在最前线阻挡敌人",
+          "在后方提供火力支援",
+          "治疗队员并给予buff",
+          "掌握敌人弱点制定策略"
+        ]
+      },
+      {
+        "question": "在游戏中最重视的是？",
+        "options": [
+          "高攻击力和华丽技能",
+          "快速移动速度和敏捷性",
+          "强大防御力和生存力",
+          "与队员的合作和策略"
+        ]
+      },
+      {
+        "question": "对付敌人时偏好的方法是？",
+        "options": [
+          "正面较量堂堂正正",
+          "用快速度突袭攻击",
+          "保持距离进行牵制",
+          "利用陷阱或道具"
+        ]
+      },
+      {
+        "question": "在Boss战中重视的是？",
+        "options": [
+          "高DPS快速击杀",
+          "保持安全位置",
+          "管理队员生存",
+          "掌握模式和时机"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "FIGHTER",
+        "title": "格斗家",
+        "desc": "使用拳脚的近战达人！用华丽连击和强力一击制服敌人的你是真正的格斗家。",
+        "subDesc": "- 近战特化的强力物理攻击\n- 通过连续技和连击的华丽战斗\n- 高机动性和瞬间爆发力",
+        "recommend": [
+          "街霸 - 快速连击的大师",
+          "柔道家 - 强力抓技的达人", 
+          "散打 - 踢技的华丽大师"
+        ]
+      },
+      {
+        "type": "GUNNER",
+        "title": "神枪手",
+        "desc": "操作各种枪械的远程战斗专家！在安全距离用精确射击制服敌人的你是真正的神枪手。",
+        "subDesc": "- 远程攻击特化的各种火器\n- 安全定位和精确瞄准\n- 范围攻击和持续输出能力",
+        "recommend": [
+          "漫游枪手 - 枪械射击的基础大师",
+          "重火器 - 重武器的爆炸火力",
+          "机械师 - 与机器人一起的战斗"
+        ]
+      },
+      {
+        "type": "MAGE",
+        "title": "魔法师",
+        "desc": "操控强大魔法力量的神秘存在！用各种属性魔法华丽制服敌人的你是真正的魔法师。",
+        "subDesc": "- 利用属性魔法的强力魔法攻击\n- 广范围攻击和特殊效果\n- 高魔法攻击力和华丽特效",
+        "recommend": [
+          "元素师 - 四大属性的支配者",
+          "战斗法师 - 魔法与物理的调和",
+          "召唤师 - 与精灵一起的战斗"
+        ]
+      },
+      {
+        "type": "PRIEST",
+        "title": "圣职者",
+        "desc": "用神圣力量支援队友的圣职者！用治疗和buff引领团队的你是真正的圣职者。",
+        "subDesc": "- 通过治疗和恢复的队伍支援\n- 各种buff和debuff技能\n- 通过神圣魔法的不死族特化",
+        "recommend": [
+          "圣骑士 - 支援团队的圣骑士",
+          "蓝拳圣使 - 近战型圣职者",
+          "驱魔师 - 驱逐恶灵的战士"
+        ]
+      },
+      {
+        "type": "THIEF",
+        "title": "盗贼",
+        "desc": "从阴影中出现的敏捷刺客！用快速度和致命攻击制服敌人的你是真正的盗贼。",
+        "subDesc": "- 高移动速度和回避能力\n- 暴击和突袭攻击特化\n- 各种debuff和异常状态活用",
+        "recommend": [
+          "刺客 - 操作匕首和毒的刺客",
+          "死灵术士 - 操控死亡魔法的魔法师",
+          "忍者 - 东方神秘的忍者"
+        ]
+      }
+    ]
+  },
+  "ja": {
+    "title": "アラド戦記職業推薦テスト",
+    "description": "あなたに合うアラド戦記の職業を見つけてみましょう！",
+    "questions": [
+      {
+        "question": "戦闘で好む戦闘方式は？",
+        "options": [
+          "近接戦闘で相手を圧倒する",
+          "遠距離で安全に攻撃する",
+          "魔法で華麗に攻撃する",
+          "味方を支援しながら戦う"
+        ]
+      },
+      {
+        "question": "チームプレイで好む役割は？",
+        "options": [
+          "最前線で敵を食い止める",
+          "後ろから火力支援をする",
+          "チームメンバーを治療してバフをかける",
+          "敵の弱点を把握して戦略を立てる"
+        ]
+      },
+      {
+        "question": "ゲームで最も重要に思うことは？",
+        "options": [
+          "高い攻撃力と華麗なスキル",
+          "速い移動速度と敏捷性",
+          "強力な防御力と生存力",
+          "チームメンバーとの協力と戦略"
+        ]
+      },
+      {
+        "question": "敵と対峙する時に好む方法は？",
+        "options": [
+          "正面勝負で堂々と",
+          "素早いスピードで奇襲攻撃",
+          "距離を置いて牽制しながら",
+          "罠や道具を活用して"
+        ]
+      },
+      {
+        "question": "ボス戦で重要に思うことは？",
+        "options": [
+          "高いDPSで素早い撃破",
+          "安全なポジショニング維持",
+          "チームメンバーの生存管理",
+          "パターン把握とタイミング"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "FIGHTER",
+        "title": "格闘家",
+        "desc": "拳と足を使った近接戦闘の達人！華麗なコンボと強力な一撃で敵を制圧するあなたは真の格闘家です。",
+        "subDesc": "- 近接戦闘に特化した強力な物理攻撃\n- 連携技とコンボによる華麗な戦闘\n- 高い機動性と瞬間爆発力",
+        "recommend": [
+          "ストリートファイター - 素早い連続技のマスター",
+          "グラップラー - 強力な投げ技の達人",
+          "ストライカー - 蹴り技の華麗なマスター"
+        ]
+      },
+      {
+        "type": "GUNNER",
+        "title": "ガンナー",
+        "desc": "様々な銃器を扱う遠距離戦闘の専門家！安全な距離から正確な射撃で敵を制圧するあなたは真のガンナーです。",
+        "subDesc": "- 遠距離攻撃に特化した様々な火器類\n- 安全なポジショニングと正確な照準\n- 範囲攻撃と持続ダメージ能力",
+        "recommend": [
+          "レンジャー - 銃器射撃の基本マスター",
+          "ランチャー - 重火器の爆発的火力",
+          "メカニック - ロボットと一緒の戦闘"
+        ]
+      },
+      {
+        "type": "MAGE",
+        "title": "魔法使い",
+        "desc": "強力な魔法の力を扱う神秘的な存在！様々な属性魔法で華麗に敵を制圧するあなたは真の魔法使いです。",
+        "subDesc": "- 属性魔法を活用した強力な魔法攻撃\n- 広範囲攻撃と特殊効果\n- 高い魔法攻撃力と華麗なエフェクト",
+        "recommend": [
+          "エレメンタルマスター - 4大属性の支配者",
+          "バトルメイジ - 魔法と物理の調和",
+          "サモナー - 精霊たちと一緒の戦闘"
+        ]
+      },
+      {
+        "type": "PRIEST",
+        "title": "プリースト",
+        "desc": "神聖な力で味方を支援する聖職者！治癒とバフでチームを導くあなたは真のプリーストです。",
+        "subDesc": "- 治癒と回復によるチームサポート\n- 様々なバフとデバフスキル\n- 神聖魔法によるアンデッド特化",
+        "recommend": [
+          "クルセイダー - チームを支援する聖騎士",
+          "インファイター - 近接戦闘型聖職者",
+          "退魔師 - 悪霊を退治する戦士"
+        ]
+      },
+      {
+        "type": "THIEF",
+        "title": "シーフ",
+        "desc": "影から現れる敏捷な暗殺者！素早いスピードと致命的な攻撃で敵を制圧するあなたは真のシーフです。",
+        "subDesc": "- 高い移動速度と回避能力\n- クリティカルと奇襲攻撃に特化\n- 様々なデバフと状態異常活用",
+        "recommend": [
+          "ローグ - 短剣と毒を扱う暗殺者",
+          "ネクロマンサー - 死の魔法を扱う魔法使い",
+          "くノ一 - 東洋の神秘的な忍者"
+        ]
+      }
+    ]
+  }
+} 

@@ -1,8 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { useTranslation } from 'react-i18next';
 import { getTestByCode } from "@/data/tests";
+import { getTranslatedTestData } from "@/utils/testTranslations";
 import { db, analytics } from "@/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import type { TestAnswer } from "@/types/tests";
@@ -66,22 +68,32 @@ export default function TestRunPage() {
   const { testCode } = useParams<{ testCode: string }>();
   const router = useRouter();
   const { data: session } = useSession();
+  const { t, i18n } = useTranslation();
   const [started, setStarted] = useState(false);
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<TestAnswer[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [translatedTestData, setTranslatedTestData] = useState<any>(null);
 
-  // 테스트 데이터 분기
-  const TEST_DATA = getTestByCode(testCode);
+  // 테스트 데이터 가져오기 및 번역
+  useEffect(() => {
+    const originalData = getTestByCode(testCode);
+    if (originalData) {
+      const translated = getTranslatedTestData(testCode, originalData, i18n.language);
+      setTranslatedTestData(translated);
+    }
+  }, [testCode, i18n.language]);
 
-  if (!TEST_DATA) {
+  if (!translatedTestData) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">
-        존재하지 않는 테스트입니다.
+        {t('common.loading')}
       </div>
     );
   }
+
+  const TEST_DATA = translatedTestData;
 
   const handleSelect = async (value: string, score: number, type?: string) => {
     const nextAnswers = [...answers, { value, score, type }];
@@ -91,7 +103,11 @@ export default function TestRunPage() {
     } else {
       setSubmitting(true);
       try {
-        const result = TEST_DATA.calculateResult(nextAnswers);
+        // 원본 테스트 데이터의 calculateResult 함수 사용
+        const originalData = getTestByCode(testCode);
+        if (!originalData) throw new Error('Test data not found');
+        
+        const result = originalData.calculateResult(nextAnswers);
         console.log('[DEBUG] 저장 시도:', { testCode, nextAnswers, result });
         // undefined 필드 제거
         const cleanedAnswers = nextAnswers.map(ans => removeUndefined(ans));
@@ -108,7 +124,7 @@ export default function TestRunPage() {
         router.push(`/t/${testCode}/result/${docRef.id}`);
       } catch (e) {
         console.error('[DEBUG] 저장 에러:', e);
-        setError("결과 저장 중 오류가 발생했습니다.");
+        setError(t('test.saveError'));
       } finally {
         setSubmitting(false);
       }
@@ -136,7 +152,7 @@ export default function TestRunPage() {
             setStarted(true);
           }}
         >
-          테스트 시작
+          {t('test.startTest')}
         </button>
       </div>
     );

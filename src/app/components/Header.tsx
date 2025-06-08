@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useState, useRef, useEffect } from "react";
+import LanguageSelector from "./LanguageSelector";
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
   const { data: session, status } = useSession();
+  const { t } = useTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -45,19 +48,24 @@ export default function Header() {
         {/* 데스크톱 내비게이션 */}
         <div className="hidden md:flex items-center space-x-6 ml-8">
           <Link href="/" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-            전체 테스트
+            {t('header.allTests')}
           </Link>
           <Link href="/create" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-            테스트 만들기
+            {t('header.createTest')}
           </Link>
           {session && (
             <Link href="/mypage" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-              내가 한 테스트
+              {t('header.myTests')}
             </Link>
           )}
         </div>
         
         <div className="flex-1" />
+        
+        {/* 언어 선택기 */}
+        <div className="mr-4">
+          <LanguageSelector />
+        </div>
         
         {/* 모바일 네비게이션 토글 */}
         <button
@@ -117,13 +125,13 @@ export default function Header() {
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsDropdownOpen(false)}
                   >
-                    마이페이지
+                    {t('header.mypage')}
                   </Link>
                   <button
                     onClick={handleSignOut}
                     className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                   >
-                    로그아웃
+                    {t('header.logout')}
                   </button>
                 </>
               ) : (
@@ -134,14 +142,14 @@ export default function Header() {
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsDropdownOpen(false)}
                   >
-                    로그인
+                    {t('header.login')}
                   </Link>
                   <Link
                     href="/signin"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsDropdownOpen(false)}
                   >
-                    회원가입
+                    {t('header.signup')}
                   </Link>
                 </>
               )}
@@ -159,14 +167,14 @@ export default function Header() {
               className="block py-2 text-sm text-gray-600 hover:text-gray-900"
               onClick={() => setIsNavOpen(false)}
             >
-              🏠 전체 테스트
+              🏠 {t('header.allTests')}
             </Link>
             <Link
               href="/create"
               className="block py-2 text-sm text-gray-600 hover:text-gray-900"
               onClick={() => setIsNavOpen(false)}
             >
-              ✨ 테스트 만들기
+              ✨ {t('header.createTest')}
             </Link>
             {session && (
               <Link
@@ -174,7 +182,7 @@ export default function Header() {
                 className="block py-2 text-sm text-gray-600 hover:text-gray-900"
                 onClick={() => setIsNavOpen(false)}
               >
-                📊 내가 한 테스트
+                📊 {t('header.myTests')}
               </Link>
             )}
           </div>

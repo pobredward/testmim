@@ -7,21 +7,28 @@ import { doc, getDoc } from "firebase/firestore";
 import { getAllTests } from "@/data/tests";
 import { logEvent } from "firebase/analytics";
 import { useSession } from "next-auth/react";
+import { useTranslation } from 'react-i18next';
 
 export default function HomeClient() {
-  const TESTS: unknown[] = getAllTests();
   const { data: session } = useSession();
-
+  const { t, i18n } = useTranslation();
+  
+  const [tests, setTests] = useState<unknown[]>([]);
   const [stats, setStats] = useState<{ [code: string]: { views: number } }>({});
+
+  // 언어 변경 시 테스트 데이터 업데이트
+  useEffect(() => {
+    setTests(getAllTests(i18n.language));
+  }, [i18n.language]);
 
   // 숫자 포맷팅 함수
   const formatViews = (views: number): string => {
     if (views >= 10000) {
-      return `${(views / 10000).toFixed(1)}만명`;
+      return `${(views / 10000).toFixed(1)}${t('common.tenThousand')}`;
     } else if (views >= 1000) {
-      return `${(views / 1000).toFixed(1)}천명`;
+      return `${(views / 1000).toFixed(1)}${t('common.thousand')}`;
     } else {
-      return `${views}명`;
+      return `${views}${t('common.views')}`;
     }
   };
 
@@ -29,7 +36,7 @@ export default function HomeClient() {
     async function fetchStats() {
       const updates: { [code: string]: { views: number } } = {};
       await Promise.all(
-        TESTS.map(async (t) => {
+        tests.map(async (t: any) => {
           const test = t as any;
           const ref = doc(db, "testStats", test.docId);
           const snap = await getDoc(ref);
@@ -48,7 +55,7 @@ export default function HomeClient() {
       setStats(updates);
     }
     fetchStats();
-  }, [TESTS]);
+  }, [tests]);
 
   // 카테고리별 배경색
   const CATEGORY_BG: Record<string, string> = {
@@ -61,22 +68,22 @@ export default function HomeClient() {
   };
 
   const CATEGORY_LABELS = {
-    "자아": "🧠 진짜 나를 찾기",
-    "연애": "💘 연애 할래?",
-    "게임": "🎮 게임 테스트",
-    "동물": "🐶 동물 테스트",
-    "감성": "🌈 감성 충전 코너",
-    "운명": "🔮 운명과 인연을 테스트!",
+    "자아": t('categories.자아'),
+    "연애": t('categories.연애'),
+    "게임": t('categories.게임'),
+    "동물": t('categories.동물'),
+    "감성": t('categories.감성'),
+    "운명": t('categories.운명'),
   };
 
-  const testsByCategory = (TESTS as any[]).reduce((acc, test) => {
+  const testsByCategory = (tests as any[]).reduce((acc, test) => {
     if (!acc[test.category]) acc[test.category] = [];
     acc[test.category].push(test);
     return acc;
   }, {} as Record<string, any[]>);
 
   // 인기 테스트들을 위한 구조화된 데이터
-  const popularTests = (TESTS as any[])
+  const popularTests = (tests as any[])
     .sort((a, b) => (stats[b.code]?.views ?? b.views) - (stats[a.code]?.views ?? a.views))
     .slice(0, 10);
 
@@ -118,26 +125,26 @@ export default function HomeClient() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "테스트밈은 무엇인가요?",
+        "name": t('faq.what_is_testmim.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 플랫폼입니다."
+          "text": t('faq.what_is_testmim.answer')
         }
       },
       {
         "@type": "Question",
-        "name": "테스트는 무료인가요?",
+        "name": t('faq.is_free.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "네, 테스트밈의 모든 테스트는 완전 무료로 이용하실 수 있습니다."
+          "text": t('faq.is_free.answer')
         }
       },
       {
         "@type": "Question",
-        "name": "어떤 종류의 테스트가 있나요?",
+        "name": t('faq.what_types.question'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "심리테스트, 성향테스트, MBTI, 연애테스트, 동물테스트, 게임테스트, 운명테스트 등 다양한 카테고리의 재미있는 테스트들이 있습니다."
+          "text": t('faq.what_types.answer')
         }
       }
     ]
@@ -147,7 +154,7 @@ export default function HomeClient() {
   const NeonBanner = () => (
     <div className="w-full mb-8">
       <div className="text-center text-2xl sm:text-3xl font-extrabold py-4 rounded-2xl bg-gradient-to-r from-fuchsia-400 via-pink-400 to-amber-300 text-white shadow-lg tracking-wider animate-pulse drop-shadow-[0_0_10px_rgba(255,0,128,0.3)]">
-        ✨ 테스트밈 방문을 환영합니다 ✨
+        ✨ {t('common.welcome')} ✨
       </div>
     </div>
   );
@@ -200,8 +207,8 @@ export default function HomeClient() {
 
   // 카드 뱃지
   const getBadge = (test: any) => {
-    if (test.views > 50) return <span className="absolute top-2 left-2 bg-pink-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow animate-bounce">맛집 추천</span>;
-    if (test.isNew) return <span className="absolute top-2 left-2 bg-blue-400 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">NEW</span>;
+    if (test.views > 50) return <span className="absolute top-2 left-2 bg-pink-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow animate-bounce">{t('badges.popular')}</span>;
+    if (test.isNew) return <span className="absolute top-2 left-2 bg-blue-400 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">{t('badges.new')}</span>;
     return null;
   };
 
@@ -244,7 +251,7 @@ export default function HomeClient() {
           </div>
           <div className="flex items-center gap-3 text-xs text-gray-400 mb-1">
             <span className="flex items-center gap-1">
-              🔥 {formatViews(stats[test.code]?.views ?? test.views)}이 진행
+              🔥 {formatViews(stats[test.code]?.views ?? test.views)}
             </span>
           </div>
         </div>
@@ -273,7 +280,7 @@ export default function HomeClient() {
       />
       
       <NeonBanner />
-      <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
+      <p className="text-gray-600 mb-6 text-center text-base">{t('common.description')}</p>
       
       {/* 카카오 애드핏 모바일 배너 */}
       <AdFitBanner position="top" />

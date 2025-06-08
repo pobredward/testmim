@@ -1,0 +1,602 @@
+{
+  "ko": {
+    "title": "나만의 우주는 어떤 모습일까?",
+    "description": "당신만의 특별한 우주 세계를 만나보세요!",
+    "questions": [
+      {
+        "question": "친구들과의 모임에서 당신의 역할은?",
+        "options": [
+          "분위기를 주도하며 모두를 이끈다.",
+          "조용히 분위기를 즐기며 관찰한다."
+        ]
+      },
+      {
+        "question": "갈등 상황에서의 대처 방식은?",
+        "options": [
+          "직접적으로 문제를 해결하려 한다.",
+          "상대의 감정을 고려하며 조심스럽게 접근한다."
+        ]
+      },
+      {
+        "question": "휴일에 선호하는 활동은?",
+        "options": [
+          "액티브한 야외 활동이나 운동",
+          "독서나 영화 감상 등 조용한 실내 활동"
+        ]
+      },
+      {
+        "question": "감정을 표현하는 방식은?",
+        "options": [
+          "솔직하게 표현하며 감정을 숨기지 않는다.",
+          "감정을 내색하지 않고 내면에 간직한다."
+        ]
+      },
+      {
+        "question": "새로운 도전에 대한 태도는?",
+        "options": [
+          "주저하지 않고 도전한다.",
+          "신중하게 고민한 후 결정한다."
+        ]
+      },
+      {
+        "question": "친구가 고민을 털어놓을 때 당신의 반응은?",
+        "options": [
+          "해결책을 제시하며 조언한다.",
+          "공감하며 경청한다."
+        ]
+      },
+      {
+        "question": "자신의 외모에 대한 관심은?",
+        "options": [
+          "실용적이고 편안한 스타일을 선호한다.",
+          "섬세하고 세련된 스타일을 추구한다."
+        ]
+      },
+      {
+        "question": "리더십에 대한 생각은?",
+        "options": [
+          "리더의 역할을 자주 맡으며 주도한다.",
+          "서포터로서 팀을 돕는 것을 선호한다."
+        ]
+      },
+      {
+        "question": "스트레스 해소 방법은?",
+        "options": [
+          "운동이나 활동적인 방법으로 해소한다.",
+          "음악 감상이나 명상 등으로 해소한다."
+        ]
+      },
+      {
+        "question": "자신을 한 단어로 표현한다면?",
+        "options": [
+          "열정적",
+          "감성적"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "TETO_HIGH",
+        "title": "테토녀 상위",
+        "desc": "주도적이고 열정적인 성향으로, 어떤 상황에서도 리더십을 발휘합니다. 감정보다 이성을 중시하며, 도전적인 삶을 추구합니다.",
+        "subDesc": "- 목표를 세우고 추진하는 데 능숙해요.\n- 새로운 도전을 두려워하지 않아요.\n- 때로는 주변을 이끌며, 강한 추진력을 보여줍니다.",
+        "recommend": [
+          "감성적이고 배려심 깊은 에겐남",
+          "리더십이 필요한 직업 (기획자, 창업가 등)",
+          "액티브한 라이프스타일"
+        ],
+        "imageDesc": "Confident posture, dynamic energy, leadership stance"
+      },
+      {
+        "type": "TETO_MID",
+        "title": "테토녀 중위",
+        "desc": "상황에 따라 리더십을 발휘하며, 감정 표현에도 능숙합니다. 균형 잡힌 성향으로 다양한 사람들과 잘 어울립니다.",
+        "subDesc": "- 감정과 이성의 균형을 잘 잡아요.\n- 다양한 사람들과 소통이 원활해요.\n- 때로는 주도, 때로는 서포트 역할도 잘합니다.",
+        "recommend": [
+          "공감 능력이 뛰어난 에겐남",
+          "팀워크가 중요한 직업 (마케터, 교사 등)",
+          "밸런스 잡힌 라이프스타일"
+        ],
+        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture"
+      },
+      {
+        "type": "TETO_LOW",
+        "title": "테토녀 하위",
+        "desc": "내면에 열정과 주도성이 있지만, 때로는 감성적으로 행동합니다. 상황에 따라 성향이 달라질 수 있습니다.",
+        "subDesc": "- 감성적이지만, 필요할 땐 주도적으로 변해요.\n- 주변 분위기에 따라 성향이 달라질 수 있어요.\n- 다양한 상황에 유연하게 대처합니다.",
+        "recommend": [
+          "섬세하고 이해심 많은 에겐남",
+          "융통성이 필요한 직업 (디자이너, 상담가 등)",
+          "유연한 라이프스타일"
+        ],
+        "imageDesc": "Adaptive expression, emotional depth, flexible stance"
+      },
+      {
+        "type": "EGEN_HIGH",
+        "title": "에겐녀 상위",
+        "desc": "감성적이고 공감 능력이 뛰어나며, 타인의 감정을 잘 이해합니다. 조용하고 섬세한 성향으로 깊은 인간관계를 선호합니다.",
+        "subDesc": "- 타인의 감정에 민감하게 반응해요.\n- 깊고 진솔한 관계를 중요하게 생각해요.\n- 섬세하고 배려심이 많아요.",
+        "recommend": [
+          "열정적이고 주도적인 테토남",
+          "상담, 예술 등 감성이 중요한 직업",
+          "차분한 라이프스타일"
+        ],
+        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor"
+      },
+      {
+        "type": "EGEN_MID",
+        "title": "에겐녀 중위",
+        "desc": "감성과 이성의 균형을 잘 유지하며, 상황에 따라 유연하게 대처합니다. 다양한 사람들과 원활한 관계를 유지합니다.",
+        "subDesc": "- 상황에 따라 감성/이성을 조절해요.\n- 다양한 사람들과 잘 어울려요.\n- 유연하고 융통성 있는 성격입니다.",
+        "recommend": [
+          "주도적이면서도 배려심 있는 테토남",
+          "협업이 중요한 직업 (연구원, 기획자 등)",
+          "밸런스 잡힌 라이프스타일"
+        ],
+        "imageDesc": "Warm smile, understanding gaze, harmonious aura"
+      },
+      {
+        "type": "EGEN_LOW",
+        "title": "에겐녀 하위",
+        "desc": "내면에 감성적인 면이 있지만, 때로는 주도적으로 행동합니다. 상황에 따라 성향이 달라질 수 있습니다.",
+        "subDesc": "- 내면에 감성이 있지만, 필요할 땐 주도적으로 변해요.\n- 상황에 따라 성향이 달라질 수 있어요.\n- 다양한 경험을 추구합니다.",
+        "recommend": [
+          "열정적이고 리더십 있는 테토남",
+          "다양한 경험이 중요한 직업 (여행가, 창작자 등)",
+          "도전적인 라이프스타일"
+        ],
+        "imageDesc": "Curious expression, adventurous spirit, versatile energy"
+      }
+    ]
+  },
+  "en": {
+    "title": "What Does My Universe Look Like?",
+    "description": "Meet your own special universe world!",
+    "questions": [
+      {
+        "question": "What is your role in gatherings with friends?",
+        "options": [
+          "Lead the atmosphere and guide everyone.",
+          "Quietly enjoy the atmosphere and observe."
+        ]
+      },
+      {
+        "question": "How do you handle conflict situations?",
+        "options": [
+          "Try to solve problems directly.",
+          "Approach carefully considering the other person's feelings."
+        ]
+      },
+      {
+        "question": "What activities do you prefer on holidays?",
+        "options": [
+          "Active outdoor activities or sports",
+          "Quiet indoor activities like reading or watching movies"
+        ]
+      },
+      {
+        "question": "How do you express emotions?",
+        "options": [
+          "Express honestly without hiding emotions.",
+          "Keep emotions inside without showing them."
+        ]
+      },
+      {
+        "question": "What is your attitude toward new challenges?",
+        "options": [
+          "Take on challenges without hesitation.",
+          "Decide after careful consideration."
+        ]
+      },
+      {
+        "question": "How do you react when a friend shares their worries?",
+        "options": [
+          "Offer solutions and advice.",
+          "Listen with empathy."
+        ]
+      },
+      {
+        "question": "What is your interest in your appearance?",
+        "options": [
+          "Prefer practical and comfortable styles.",
+          "Pursue delicate and sophisticated styles."
+        ]
+      },
+      {
+        "question": "What are your thoughts on leadership?",
+        "options": [
+          "Often take leadership roles and lead.",
+          "Prefer to help the team as a supporter."
+        ]
+      },
+      {
+        "question": "How do you relieve stress?",
+        "options": [
+          "Relieve through exercise or active methods.",
+          "Relieve through music or meditation."
+        ]
+      },
+      {
+        "question": "If you had to describe yourself in one word?",
+        "options": [
+          "Passionate",
+          "Emotional"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "TETO_HIGH",
+        "title": "Teto Type - High",
+        "desc": "With a proactive and passionate nature, you demonstrate leadership in any situation. You value reason over emotion and pursue a challenging life.",
+        "subDesc": "- You're skilled at setting goals and pursuing them.\n- You're not afraid of new challenges.\n- Sometimes you lead others and show strong drive.",
+        "recommend": [
+          "Emotional and caring Egen type men",
+          "Jobs requiring leadership (planner, entrepreneur, etc.)",
+          "Active lifestyle"
+        ],
+        "imageDesc": "Confident posture, dynamic energy, leadership stance"
+      },
+      {
+        "type": "TETO_MID",
+        "title": "Teto Type - Mid",
+        "desc": "You demonstrate leadership depending on the situation and are also skilled at expressing emotions. With a balanced nature, you get along well with various people.",
+        "subDesc": "- You balance emotion and reason well.\n- You communicate smoothly with various people.\n- You're good at both leading and supporting roles.",
+        "recommend": [
+          "Empathetic Egen type men",
+          "Jobs where teamwork is important (marketer, teacher, etc.)",
+          "Balanced lifestyle"
+        ],
+        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture"
+      },
+      {
+        "type": "TETO_LOW",
+        "title": "Teto Type - Low",
+        "desc": "You have passion and leadership inside, but sometimes act emotionally. Your tendencies may vary depending on the situation.",
+        "subDesc": "- You're emotional but can become proactive when needed.\n- Your tendencies may change depending on the surrounding atmosphere.\n- You adapt flexibly to various situations.",
+        "recommend": [
+          "Delicate and understanding Egen type men",
+          "Jobs requiring flexibility (designer, counselor, etc.)",
+          "Flexible lifestyle"
+        ],
+        "imageDesc": "Adaptive expression, emotional depth, flexible stance"
+      },
+      {
+        "type": "EGEN_HIGH",
+        "title": "Egen Type - High",
+        "desc": "You are emotional with excellent empathy skills and understand others' feelings well. With a quiet and delicate nature, you prefer deep human relationships.",
+        "subDesc": "- You react sensitively to others' emotions.\n- You value deep and sincere relationships.\n- You're delicate and caring.",
+        "recommend": [
+          "Passionate and proactive Teto type men",
+          "Jobs where emotion is important like counseling, arts",
+          "Calm lifestyle"
+        ],
+        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor"
+      },
+      {
+        "type": "EGEN_MID",
+        "title": "Egen Type - Mid",
+        "desc": "You maintain a good balance between emotion and reason, dealing flexibly with situations. You maintain smooth relationships with various people.",
+        "subDesc": "- You adjust emotion/reason according to situations.\n- You get along well with various people.\n- You have a flexible and accommodating personality.",
+        "recommend": [
+          "Proactive yet caring Teto type men",
+          "Jobs where collaboration is important (researcher, planner, etc.)",
+          "Balanced lifestyle"
+        ],
+        "imageDesc": "Warm smile, understanding gaze, harmonious aura"
+      },
+      {
+        "type": "EGEN_LOW",
+        "title": "Egen Type - Low",
+        "desc": "You have emotional aspects inside but sometimes act proactively. Your tendencies may vary depending on the situation.",
+        "subDesc": "- You have emotion inside but can become proactive when needed.\n- Your tendencies may change depending on the situation.\n- You pursue various experiences.",
+        "recommend": [
+          "Passionate and leadership-oriented Teto type men",
+          "Jobs where diverse experiences are important (traveler, creator, etc.)",
+          "Challenging lifestyle"
+        ],
+        "imageDesc": "Curious expression, adventurous spirit, versatile energy"
+      }
+    ]
+  },
+  "zh": {
+    "title": "我的宇宙是什么样子的？",
+    "description": "来见见你专属的特殊宇宙世界吧！",
+    "questions": [
+      {
+        "question": "在朋友聚会中你的角色是？",
+        "options": [
+          "主导气氛并引导大家。",
+          "安静地享受气氛并观察。"
+        ]
+      },
+      {
+        "question": "在冲突情况下的处理方式是？",
+        "options": [
+          "直接解决问题。",
+          "考虑对方感受谨慎接近。"
+        ]
+      },
+      {
+        "question": "假期偏好的活动是？",
+        "options": [
+          "积极的户外活动或运动",
+          "读书或看电影等安静的室内活动"
+        ]
+      },
+      {
+        "question": "表达情感的方式是？",
+        "options": [
+          "坦率表达，不隐藏情感。",
+          "不表露情感，藏在内心。"
+        ]
+      },
+      {
+        "question": "对新挑战的态度是？",
+        "options": [
+          "毫不犹豫地挑战。",
+          "慎重考虑后决定。"
+        ]
+      },
+      {
+        "question": "朋友倾诉烦恼时你的反应是？",
+        "options": [
+          "提出解决方案并建议。",
+          "共情并倾听。"
+        ]
+      },
+      {
+        "question": "对自己外貌的关注是？",
+        "options": [
+          "偏好实用舒适的风格。",
+          "追求精致优雅的风格。"
+        ]
+      },
+      {
+        "question": "对领导力的想法是？",
+        "options": [
+          "经常担任领导角色并主导。",
+          "偏好作为支持者帮助团队。"
+        ]
+      },
+      {
+        "question": "缓解压力的方法是？",
+        "options": [
+          "通过运动或积极的方法缓解。",
+          "通过音乐欣赏或冥想等缓解。"
+        ]
+      },
+      {
+        "question": "用一个词形容自己的话？",
+        "options": [
+          "热情的",
+          "感性的"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "TETO_HIGH",
+        "title": "Teto型 - 上位",
+        "desc": "具有主导和热情的性格，在任何情况下都能发挥领导力。重视理性胜过情感，追求挑战性的生活。",
+        "subDesc": "- 擅长制定目标并推进。\n- 不害怕新的挑战。\n- 有时会引领周围，展现强大的推动力。",
+        "recommend": [
+          "感性且体贴的Egen型男性",
+          "需要领导力的职业（策划者、创业家等）",
+          "积极的生活方式"
+        ],
+        "imageDesc": "Confident posture, dynamic energy, leadership stance"
+      },
+      {
+        "type": "TETO_MID",
+        "title": "Teto型 - 中位",
+        "desc": "根据情况发挥领导力，在情感表达方面也很熟练。性格均衡，与各种人都能很好相处。",
+        "subDesc": "- 很好地平衡情感和理性。\n- 与各种人沟通顺畅。\n- 既能主导也能很好地担任支持角色。",
+        "recommend": [
+          "共情能力出色的Egen型男性",
+          "团队合作重要的职业（营销者、教师等）",
+          "平衡的生活方式"
+        ],
+        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture"
+      },
+      {
+        "type": "TETO_LOW",
+        "title": "Teto型 - 下位",
+        "desc": "内心有热情和主导性，但有时会感性行动。根据情况性格可能有所不同。",
+        "subDesc": "- 虽然感性，但需要时会变得主导。\n- 根据周围气氛性格可能会改变。\n- 灵活地应对各种情况。",
+        "recommend": [
+          "细腻且理解力强的Egen型男性",
+          "需要灵活性的职业（设计师、咨询师等）",
+          "灵活的生活方式"
+        ],
+        "imageDesc": "Adaptive expression, emotional depth, flexible stance"
+      },
+      {
+        "type": "EGEN_HIGH",
+        "title": "Egen型 - 上位",
+        "desc": "感性且共情能力出色，很好地理解他人情感。性格安静细腻，偏好深层的人际关系。",
+        "subDesc": "- 对他人情感敏感反应。\n- 重视深层真诚的关系。\n- 细腻且体贴。",
+        "recommend": [
+          "热情且主导的Teto型男性",
+          "咨询、艺术等情感重要的职业",
+          "平静的生活方式"
+        ],
+        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor"
+      },
+      {
+        "type": "EGEN_MID",
+        "title": "Egen型 - 中位",
+        "desc": "很好地保持情感和理性的平衡，根据情况灵活应对。与各种人保持顺畅的关系。",
+        "subDesc": "- 根据情况调节情感/理性。\n- 与各种人都能很好相处。\n- 性格灵活且融通。",
+        "recommend": [
+          "主导且体贴的Teto型男性",
+          "协作重要的职业（研究员、策划者等）",
+          "平衡的生活方式"
+        ],
+        "imageDesc": "Warm smile, understanding gaze, harmonious aura"
+      },
+      {
+        "type": "EGEN_LOW",
+        "title": "Egen型 - 下位",
+        "desc": "内心有感性的一面，但有时会主导行动。根据情况性格可能有所不同。",
+        "subDesc": "- 内心有感性，但需要时会变得主导。\n- 根据情况性格可能会改变。\n- 追求各种经验。",
+        "recommend": [
+          "热情且有领导力的Teto型男性",
+          "各种经验重要的职业（旅行家、创作者等）",
+          "挑战性的生活方式"
+        ],
+        "imageDesc": "Curious expression, adventurous spirit, versatile energy"
+      }
+    ]
+  },
+  "ja": {
+    "title": "私だけの宇宙はどんな姿？",
+    "description": "あなただけの特別な宇宙世界に出会ってみましょう！",
+    "questions": [
+      {
+        "question": "友達との集まりでのあなたの役割は？",
+        "options": [
+          "雰囲気を主導してみんなを引っ張る。",
+          "静かに雰囲気を楽しみながら観察する。"
+        ]
+      },
+      {
+        "question": "葛藤状況での対処方式は？",
+        "options": [
+          "直接的に問題を解決しようとする。",
+          "相手の感情を考慮して慎重にアプローチする。"
+        ]
+      },
+      {
+        "question": "休日に好む活動は？",
+        "options": [
+          "アクティブな屋外活動や運動",
+          "読書や映画鑑賞など静かな屋内活動"
+        ]
+      },
+      {
+        "question": "感情を表現する方式は？",
+        "options": [
+          "率直に表現して感情を隠さない。",
+          "感情を表に出さず内面に秘める。"
+        ]
+      },
+      {
+        "question": "新しい挑戦に対する態度は？",
+        "options": [
+          "躊躇せずに挑戦する。",
+          "慎重に考えた後に決定する。"
+        ]
+      },
+      {
+        "question": "友達が悩みを打ち明ける時のあなたの反応は？",
+        "options": [
+          "解決策を提示してアドバイスする。",
+          "共感して傾聴する。"
+        ]
+      },
+      {
+        "question": "自分の外見に対する関心は？",
+        "options": [
+          "実用的で快適なスタイルを好む。",
+          "繊細で洗練されたスタイルを追求する。"
+        ]
+      },
+      {
+        "question": "リーダーシップに対する考えは？",
+        "options": [
+          "リーダーの役割をよく引き受けて主導する。",
+          "サポーターとしてチームを助けることを好む。"
+        ]
+      },
+      {
+        "question": "ストレス解消方法は？",
+        "options": [
+          "運動や活動的な方法で解消する。",
+          "音楽鑑賞や瞑想などで解消する。"
+        ]
+      },
+      {
+        "question": "自分を一言で表現するなら？",
+        "options": [
+          "情熱的",
+          "感性的"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "TETO_HIGH",
+        "title": "テト型 - 上位",
+        "desc": "主導的で情熱的な性格で、どんな状況でもリーダーシップを発揮します。感情より理性を重視し、挑戦的な人生を追求します。",
+        "subDesc": "- 目標を立てて推進するのが得意です。\n- 新しい挑戦を恐れません。\n- 時には周りを引っ張り、強い推進力を見せます。",
+        "recommend": [
+          "感性的で思いやり深いエーゲン男性",
+          "リーダーシップが必要な職業（企画者、起業家など）",
+          "アクティブなライフスタイル"
+        ],
+        "imageDesc": "Confident posture, dynamic energy, leadership stance"
+      },
+      {
+        "type": "TETO_MID",
+        "title": "テト型 - 中位",
+        "desc": "状況によってリーダーシップを発揮し、感情表現にも長けています。バランスの取れた性格で様々な人とよく合います。",
+        "subDesc": "- 感情と理性のバランスをよく取ります。\n- 様々な人とのコミュニケーションが円滑です。\n- 時には主導、時にはサポート役もよくこなします。",
+        "recommend": [
+          "共感能力に優れたエーゲン男性",
+          "チームワークが重要な職業（マーケター、教師など）",
+          "バランスの取れたライフスタイル"
+        ],
+        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture"
+      },
+      {
+        "type": "TETO_LOW",
+        "title": "テト型 - 下位",
+        "desc": "内面に情熱と主導性がありますが、時には感性的に行動します。状況によって性格が変わることがあります。",
+        "subDesc": "- 感性的ですが、必要な時は主導的に変わります。\n- 周りの雰囲気によって性格が変わることがあります。\n- 様々な状況に柔軟に対処します。",
+        "recommend": [
+          "繊細で理解力のあるエーゲン男性",
+          "融通性が必要な職業（デザイナー、カウンセラーなど）",
+          "柔軟なライフスタイル"
+        ],
+        "imageDesc": "Adaptive expression, emotional depth, flexible stance"
+      },
+      {
+        "type": "EGEN_HIGH",
+        "title": "エーゲン型 - 上位",
+        "desc": "感性的で共感能力に優れ、他人の感情をよく理解します。静かで繊細な性格で深い人間関係を好みます。",
+        "subDesc": "- 他人の感情に敏感に反応します。\n- 深く真摯な関係を大切に思います。\n- 繊細で思いやりがあります。",
+        "recommend": [
+          "情熱的で主導的なテト男性",
+          "カウンセリング、芸術など感性が重要な職業",
+          "落ち着いたライフスタイル"
+        ],
+        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor"
+      },
+      {
+        "type": "EGEN_MID",
+        "title": "エーゲン型 - 中位",
+        "desc": "感性と理性のバランスをよく保ち、状況に応じて柔軟に対処します。様々な人と円滑な関係を維持します。",
+        "subDesc": "- 状況に応じて感性/理性を調節します。\n- 様々な人とよく合います。\n- 柔軟で融通の利く性格です。",
+        "recommend": [
+          "主導的でありながら思いやりのあるテト男性",
+          "協働が重要な職業（研究者、企画者など）",
+          "バランスの取れたライフスタイル"
+        ],
+        "imageDesc": "Warm smile, understanding gaze, harmonious aura"
+      },
+      {
+        "type": "EGEN_LOW",
+        "title": "エーゲン型 - 下位",
+        "desc": "内面に感性的な面がありますが、時には主導的に行動します。状況によって性格が変わることがあります。",
+        "subDesc": "- 内面に感性がありますが、必要な時は主導的に変わります。\n- 状況によって性格が変わることがあります。\n- 様々な経験を追求します。",
+        "recommend": [
+          "情熱的でリーダーシップのあるテト男性",
+          "様々な経験が重要な職業（旅行家、クリエイターなど）",
+          "挑戦的なライフスタイル"
+        ],
+        "imageDesc": "Curious expression, adventurous spirit, versatile energy"
+      }
+    ]
+  }
+} 

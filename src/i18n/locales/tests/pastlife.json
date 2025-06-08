@@ -1,0 +1,434 @@
+{
+  "ko": {
+    "title": "나의 전생은 무엇이었을까?",
+    "description": "당신의 성향과 선호를 통해 전생에 어떤 존재였는지 알아보세요!",
+    "questions": [
+      {
+        "question": "자연에서 가장 끌리는 장소는?",
+        "options": [
+          "깊은 숲 속의 고요한 공간",
+          "넓은 바다와 해변",
+          "높은 산 정상",
+          "평화로운 호수나 강"
+        ]
+      },
+      {
+        "question": "가장 선호하는 시간대는?",
+        "options": [
+          "새벽의 고요한 시간",
+          "활기찬 정오",
+          "낭만적인 황혼",
+          "신비로운 밤"
+        ]
+      },
+      {
+        "question": "직감적으로 끌리는 색깔은?",
+        "options": [
+          "깊은 녹색",
+          "푸른 바다색",
+          "따뜻한 금색",
+          "신비로운 보라색"
+        ]
+      },
+      {
+        "question": "어떤 동물에게 가장 친근감을 느끼나요?",
+        "options": [
+          "지혜로운 올빼미",
+          "자유로운 돌고래",
+          "당당한 독수리",
+          "신비로운 고양이"
+        ]
+      },
+      {
+        "question": "스트레스를 받을 때 하고 싶은 일은?",
+        "options": [
+          "조용한 곳에서 명상하기",
+          "바다나 강에서 수영하기",
+          "높은 곳에 올라가 전망 보기",
+          "달빛 아래 산책하기"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "FOREST_SPIRIT",
+        "title": "숲의 정령",
+        "desc": "당신의 전생은 자연과 하나가 된 숲의 정령이었습니다. 생명을 보호하고 자연의 균형을 지키는 역할을 했던 당신은 깊은 지혜와 치유의 힘을 가지고 있었습니다.",
+        "subDesc": "- 자연을 사랑하고 생명을 소중히 여김\n- 뛰어난 직감과 치유 능력\n- 조용하고 평화로운 환경을 선호\n- 깊은 내면의 지혜를 보유",
+        "recommend": [
+          "자연과 함께하는 직업 (원예사, 환경운동가)",
+          "치유와 관련된 일 (상담사, 의료진)",
+          "창작 활동을 통한 내면 표현"
+        ]
+      },
+      {
+        "type": "OCEAN_GUARDIAN",
+        "title": "바다의 수호자",
+        "desc": "당신의 전생은 바다를 지키는 수호자였습니다. 자유롭고 역동적인 에너지로 바다 생물들을 보호하고 항해자들을 안전하게 인도하는 역할을 했습니다.",
+        "subDesc": "- 자유로운 영혼과 모험심\n- 강한 보호 본능과 정의감\n- 감정의 흐름을 잘 이해함\n- 다른 이들을 돕고 인도하는 능력",
+        "recommend": [
+          "여행과 모험이 있는 직업 (여행가이드, 탐험가)",
+          "사람들을 돕는 일 (구조대, 교육자)",
+          "예술적 표현 활동"
+        ]
+      },
+      {
+        "type": "SKY_MESSENGER",
+        "title": "하늘의 전령",
+        "desc": "당신의 전생은 하늘과 땅을 연결하는 전령이었습니다. 높은 곳에서 세상을 내려다보며 중요한 메시지를 전달하고 길을 잃은 이들에게 방향을 제시했습니다.",
+        "subDesc": "- 넓은 시야와 통찰력\n- 리더십과 안내 능력\n- 높은 이상과 목표 추구\n- 중요한 결정을 내리는 능력",
+        "recommend": [
+          "리더십이 필요한 직업 (관리자, 정치가)",
+          "교육과 지도 관련 일 (교사, 멘토)",
+          "전략적 사고가 필요한 분야"
+        ]
+      },
+      {
+        "type": "MOON_MYSTIC",
+        "title": "달의 신비주의자",
+        "desc": "당신의 전생은 달의 힘을 다루는 신비주의자였습니다. 밤의 에너지와 연결되어 꿈과 무의식의 세계를 탐험하며 숨겨진 진실을 밝혀내는 역할을 했습니다.",
+        "subDesc": "- 뛰어난 직감과 영적 감수성\n- 숨겨진 것들을 발견하는 능력\n- 신비로운 것에 대한 깊은 이해\n- 꿈과 상징에 대한 해석 능력",
+        "recommend": [
+          "창작과 예술 분야 (작가, 예술가)",
+          "심리학과 상담 관련 일",
+          "연구와 탐구 활동"
+        ]
+      },
+      {
+        "type": "HARMONIOUS_SOUL",
+        "title": "조화로운 영혼",
+        "desc": "당신의 전생은 모든 요소들 사이의 균형과 조화를 이루는 특별한 존재였습니다. 서로 다른 세계들을 연결하고 평화를 가져다주는 역할을 했습니다.",
+        "subDesc": "- 뛰어난 균형감각과 조화 능력\n- 다양한 관점을 이해하고 수용\n- 갈등을 해결하는 뛰어난 능력\n- 모든 것을 아우르는 포용력",
+        "recommend": [
+          "중재와 조정이 필요한 직업 (중재자, 외교관)",
+          "다양한 분야를 아우르는 일",
+          "팀워크가 중요한 분야"
+        ]
+      }
+    ]
+  },
+  "en": {
+    "title": "What Was My Past Life?",
+    "description": "Find out what you were in your past life through your tendencies and preferences!",
+    "questions": [
+      {
+        "question": "What place in nature attracts you most?",
+        "options": [
+          "Quiet space deep in the forest",
+          "Wide ocean and beach",
+          "High mountain peak",
+          "Peaceful lake or river"
+        ]
+      },
+      {
+        "question": "What time of day do you prefer most?",
+        "options": [
+          "Quiet dawn hours",
+          "Vibrant noon",
+          "Romantic twilight",
+          "Mysterious night"
+        ]
+      },
+      {
+        "question": "What color are you intuitively drawn to?",
+        "options": [
+          "Deep green",
+          "Blue ocean color",
+          "Warm golden color",
+          "Mysterious purple"
+        ]
+      },
+      {
+        "question": "Which animal do you feel most connected to?",
+        "options": [
+          "Wise owl",
+          "Free dolphin",
+          "Majestic eagle",
+          "Mysterious cat"
+        ]
+      },
+      {
+        "question": "What do you want to do when stressed?",
+        "options": [
+          "Meditate in a quiet place",
+          "Swim in the sea or river",
+          "Climb high and see the view",
+          "Walk under the moonlight"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "FOREST_SPIRIT",
+        "title": "Forest Spirit",
+        "desc": "Your past life was as a forest spirit united with nature. You had the role of protecting life and maintaining nature's balance, possessing deep wisdom and healing powers.",
+        "subDesc": "- Loves nature and cherishes life\n- Excellent intuition and healing abilities\n- Prefers quiet and peaceful environments\n- Possesses deep inner wisdom",
+        "recommend": [
+          "Jobs working with nature (gardener, environmental activist)",
+          "Healing-related work (counselor, medical staff)",
+          "Expressing inner self through creative activities"
+        ]
+      },
+      {
+        "type": "OCEAN_GUARDIAN",
+        "title": "Ocean Guardian",
+        "desc": "Your past life was as a guardian protecting the ocean. With free and dynamic energy, you protected sea creatures and safely guided navigators.",
+        "subDesc": "- Free spirit and adventurous nature\n- Strong protective instinct and sense of justice\n- Good understanding of emotional flow\n- Ability to help and guide others",
+        "recommend": [
+          "Jobs with travel and adventure (travel guide, explorer)",
+          "Work helping people (rescue team, educator)",
+          "Artistic expression activities"
+        ]
+      },
+      {
+        "type": "SKY_MESSENGER",
+        "title": "Sky Messenger",
+        "desc": "Your past life was as a messenger connecting sky and earth. You looked down at the world from high places, delivering important messages and providing direction to the lost.",
+        "subDesc": "- Broad vision and insight\n- Leadership and guidance abilities\n- Pursuing high ideals and goals\n- Ability to make important decisions",
+        "recommend": [
+          "Jobs requiring leadership (manager, politician)",
+          "Education and guidance work (teacher, mentor)",
+          "Fields requiring strategic thinking"
+        ]
+      },
+      {
+        "type": "MOON_MYSTIC",
+        "title": "Moon Mystic",
+        "desc": "Your past life was as a mystic wielding the power of the moon. Connected to night energy, you explored the world of dreams and unconscious, revealing hidden truths.",
+        "subDesc": "- Excellent intuition and spiritual sensitivity\n- Ability to discover hidden things\n- Deep understanding of mysterious things\n- Interpretation ability for dreams and symbols",
+        "recommend": [
+          "Creative and artistic fields (writer, artist)",
+          "Psychology and counseling work",
+          "Research and exploration activities"
+        ]
+      },
+      {
+        "type": "HARMONIOUS_SOUL",
+        "title": "Harmonious Soul",
+        "desc": "Your past life was as a special being achieving balance and harmony between all elements. You connected different worlds and brought peace.",
+        "subDesc": "- Excellent sense of balance and harmony\n- Understanding and accepting diverse perspectives\n- Excellent ability to resolve conflicts\n- Embracing capacity encompassing everything",
+        "recommend": [
+          "Jobs requiring mediation and coordination (mediator, diplomat)",
+          "Work encompassing various fields",
+          "Fields where teamwork is important"
+        ]
+      }
+    ]
+  },
+  "zh": {
+    "title": "我的前世是什么？",
+    "description": "通过你的性向和喜好了解前世是什么样的存在！",
+    "questions": [
+      {
+        "question": "在自然中最吸引你的地方是？",
+        "options": [
+          "深林中的宁静空间",
+          "广阔的大海和海滩",
+          "高山顶峰",
+          "平静的湖泊或河流"
+        ]
+      },
+      {
+        "question": "最偏好的时间段是？",
+        "options": [
+          "黎明的宁静时光",
+          "活力十足的正午",
+          "浪漫的黄昏",
+          "神秘的夜晚"
+        ]
+      },
+      {
+        "question": "直觉上被吸引的颜色是？",
+        "options": [
+          "深绿色",
+          "蓝色海洋色",
+          "温暖的金色",
+          "神秘的紫色"
+        ]
+      },
+      {
+        "question": "对哪种动物感到最亲近？",
+        "options": [
+          "智慧的猫头鹰",
+          "自由的海豚",
+          "威严的老鹰",
+          "神秘的猫"
+        ]
+      },
+      {
+        "question": "感到压力时想做的事是？",
+        "options": [
+          "在安静的地方冥想",
+          "在海里或河里游泳",
+          "爬到高处看风景",
+          "在月光下散步"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "FOREST_SPIRIT",
+        "title": "森林精灵",
+        "desc": "你的前世是与自然合一的森林精灵。你担任保护生命、维护自然平衡的角色，拥有深邃的智慧和治愈的力量。",
+        "subDesc": "- 热爱自然，珍视生命\n- 卓越的直觉和治愈能力\n- 偏好安静平和的环境\n- 拥有深邃的内在智慧",
+        "recommend": [
+          "与自然相关的职业（园艺师、环保活动家）",
+          "与治愈相关的工作（咨询师、医务人员）",
+          "通过创作活动表达内心"
+        ]
+      },
+      {
+        "type": "OCEAN_GUARDIAN",
+        "title": "海洋守护者",
+        "desc": "你的前世是守护海洋的守护者。以自由而充满活力的能量保护海洋生物，安全引导航海者。",
+        "subDesc": "- 自由的灵魂和冒险精神\n- 强烈的保护本能和正义感\n- 很好地理解情感的流动\n- 帮助和引导他人的能力",
+        "recommend": [
+          "有旅行和冒险的职业（旅行向导、探险家）",
+          "帮助人们的工作（救援队、教育者）",
+          "艺术表达活动"
+        ]
+      },
+      {
+        "type": "SKY_MESSENGER",
+        "title": "天空信使",
+        "desc": "你的前世是连接天空和大地的信使。从高处俯瞰世界，传递重要信息，为迷路的人指明方向。",
+        "subDesc": "- 广阔的视野和洞察力\n- 领导能力和指导能力\n- 追求崇高的理想和目标\n- 做出重要决定的能力",
+        "recommend": [
+          "需要领导力的职业（管理者、政治家）",
+          "教育和指导相关工作（教师、导师）",
+          "需要战略思维的领域"
+        ]
+      },
+      {
+        "type": "MOON_MYSTIC",
+        "title": "月亮神秘主义者",
+        "desc": "你的前世是运用月亮力量的神秘主义者。与夜晚的能量连接，探索梦境和无意识世界，揭示隐藏的真相。",
+        "subDesc": "- 卓越的直觉和精神敏感性\n- 发现隐藏事物的能力\n- 对神秘事物的深刻理解\n- 对梦境和象征的解释能力",
+        "recommend": [
+          "创作和艺术领域（作家、艺术家）",
+          "心理学和咨询相关工作",
+          "研究和探索活动"
+        ]
+      },
+      {
+        "type": "HARMONIOUS_SOUL",
+        "title": "和谐的灵魂",
+        "desc": "你的前世是在所有元素之间实现平衡与和谐的特殊存在。连接不同的世界，带来和平。",
+        "subDesc": "- 卓越的平衡感和和谐能力\n- 理解和接纳多样的观点\n- 卓越的冲突解决能力\n- 包容一切的胸怀",
+        "recommend": [
+          "需要调解和协调的职业（调解员、外交官）",
+          "涵盖多个领域的工作",
+          "团队合作重要的领域"
+        ]
+      }
+    ]
+  },
+  "ja": {
+    "title": "私の前世は何だったのか？",
+    "description": "あなたの性向と好みを通じて前世でどんな存在だったかを調べてみましょう！",
+    "questions": [
+      {
+        "question": "自然で最も惹かれる場所は？",
+        "options": [
+          "深い森の中の静かな空間",
+          "広い海と海岸",
+          "高い山の頂上",
+          "平和な湖や川"
+        ]
+      },
+      {
+        "question": "最も好む時間帯は？",
+        "options": [
+          "夜明けの静かな時間",
+          "活気ある正午",
+          "ロマンチックな夕暮れ",
+          "神秘的な夜"
+        ]
+      },
+      {
+        "question": "直感的に惹かれる色は？",
+        "options": [
+          "深い緑色",
+          "青い海の色",
+          "温かい金色",
+          "神秘的な紫色"
+        ]
+      },
+      {
+        "question": "どの動物に最も親しみを感じますか？",
+        "options": [
+          "賢いフクロウ",
+          "自由なイルカ",
+          "堂々とした鷲",
+          "神秘的な猫"
+        ]
+      },
+      {
+        "question": "ストレスを感じた時にしたいことは？",
+        "options": [
+          "静かな場所で瞑想する",
+          "海や川で泳ぐ",
+          "高い所に登って景色を見る",
+          "月光の下を散歩する"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "type": "FOREST_SPIRIT",
+        "title": "森の精霊",
+        "desc": "あなたの前世は自然と一体となった森の精霊でした。生命を保護し自然のバランスを守る役割を果たしていたあなたは、深い知恵と癒しの力を持っていました。",
+        "subDesc": "- 自然を愛し生命を大切にする\n- 優れた直感と癒し能力\n- 静かで平和な環境を好む\n- 深い内なる知恵を保有",
+        "recommend": [
+          "自然と共にする職業（園芸家、環境運動家）",
+          "癒しに関わる仕事（カウンセラー、医療従事者）",
+          "創作活動を通じた内面表現"
+        ]
+      },
+      {
+        "type": "OCEAN_GUARDIAN",
+        "title": "海の守護者",
+        "desc": "あなたの前世は海を守る守護者でした。自由で動的なエネルギーで海の生物たちを保護し、航海者たちを安全に導く役割を果たしました。",
+        "subDesc": "- 自由な魂と冒険心\n- 強い保護本能と正義感\n- 感情の流れをよく理解する\n- 他者を助け導く能力",
+        "recommend": [
+          "旅行と冒険がある職業（旅行ガイド、探検家）",
+          "人々を助ける仕事（救助隊、教育者）",
+          "芸術的表現活動"
+        ]
+      },
+      {
+        "type": "SKY_MESSENGER",
+        "title": "空の使者",
+        "desc": "あなたの前世は空と地を繋ぐ使者でした。高い所から世界を見下ろし、重要なメッセージを伝え、道に迷った者たちに方向を示しました。",
+        "subDesc": "- 広い視野と洞察力\n- リーダーシップと案内能力\n- 高い理想と目標の追求\n- 重要な決定を下す能力",
+        "recommend": [
+          "リーダーシップが必要な職業（管理者、政治家）",
+          "教育と指導関連の仕事（教師、メンター）",
+          "戦略的思考が必要な分野"
+        ]
+      },
+      {
+        "type": "MOON_MYSTIC",
+        "title": "月の神秘主義者",
+        "desc": "あなたの前世は月の力を扱う神秘主義者でした。夜のエネルギーと繋がり、夢と無意識の世界を探検し、隠された真実を明らかにする役割を果たしました。",
+        "subDesc": "- 優れた直感と霊的感受性\n- 隠されたものを発見する能力\n- 神秘的なものへの深い理解\n- 夢と象徴への解釈能力",
+        "recommend": [
+          "創作と芸術分野（作家、芸術家）",
+          "心理学とカウンセリング関連の仕事",
+          "研究と探求活動"
+        ]
+      },
+      {
+        "type": "HARMONIOUS_SOUL",
+        "title": "調和ある魂",
+        "desc": "あなたの前世は全ての要素間のバランスと調和を成す特別な存在でした。異なる世界を繋ぎ、平和をもたらす役割を果たしました。",
+        "subDesc": "- 優れたバランス感覚と調和能力\n- 多様な観点を理解し受容\n- 葛藤を解決する優れた能力\n- 全てを包み込む包容力",
+        "recommend": [
+          "仲裁と調整が必要な職業（仲裁者、外交官）",
+          "様々な分野を包括する仕事",
+          "チームワークが重要な分野"
+        ]
+      }
+    ]
+  }
+} 

@@ -4,6 +4,8 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { db } from "@/firebase";
 import { doc, getDoc, updateDoc, increment, setDoc } from "firebase/firestore";
+import { useTranslation } from 'react-i18next';
+import { getTranslatedTestData } from '@/utils/testTranslations';
 import type { TestMeta } from "./page";
 
 interface TestDetailClientProps {
@@ -11,19 +13,28 @@ interface TestDetailClientProps {
 }
 
 export default function TestDetailClient({ testData }: TestDetailClientProps) {
+  const { t, i18n } = useTranslation();
   const [views, setViews] = useState(0);
   const [isImgError, setIsImgError] = useState(false);
+  const [translatedData, setTranslatedData] = useState(testData);
+
+  // 현재 언어에 맞는 번역된 데이터 업데이트
+  useEffect(() => {
+    const currentLang = i18n.language;
+    const translated = getTranslatedTestData(testData.code, testData, currentLang);
+    setTranslatedData(translated);
+  }, [i18n.language, testData]);
 
   // 숫자 포맷팅 함수
   const formatViews = useCallback((views: number): string => {
     if (views >= 10000) {
-      return `${(views / 10000).toFixed(1)}만명`;
+      return `${(views / 10000).toFixed(1)}${t('common.tenThousand')}`;
     } else if (views >= 1000) {
-      return `${(views / 1000).toFixed(1)}천명`;
+      return `${(views / 1000).toFixed(1)}${t('common.thousand')}`;
     } else {
-      return `${views}명`;
+      return `${views}${t('common.views')}`;
     }
-  }, []);
+  }, [t]);
 
   const hasIncreased = useRef(false);
   
@@ -60,19 +71,21 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
       {/* 썸네일: 파일 내 경로만 사용, 없으면 아이콘, 로딩 실패 시에도 아이콘 */}
       <div className="w-full max-w-[220px] aspect-square bg-pink-100 rounded-xl flex items-center justify-center mb-6 overflow-hidden">
         {testData.thumbnailUrl && !isImgError ? (
-          <img src={testData.thumbnailUrl} alt={testData.title} className="object-contain w-full h-full" onError={() => setIsImgError(true)} />
+          <img src={testData.thumbnailUrl} alt={translatedData.title} className="object-contain w-full h-full" onError={() => setIsImgError(true)} />
         ) : (
           <span className="text-6xl">{testData.icon}</span>
         )}
       </div>
-      <h1 className="text-2xl font-bold mb-2 text-center break-keep" style={{ color: testData.mainColor }}>{testData.title}</h1>
+      <h1 className="text-2xl font-bold mb-2 text-center break-keep" style={{ color: testData.mainColor }}>
+        {translatedData.title}
+      </h1>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-500 mb-2 justify-center w-full">
         <span className="flex items-center gap-1">
-          🔥 {formatViews(views)}이 진행
+          🔥 {formatViews(views)}{t('testDetail.views')}
         </span>
       </div>
       <p className="text-gray-700 mb-4 text-center whitespace-pre-line break-keep text-base sm:text-base text-sm w-full">
-        {testData.description}
+        {translatedData.description}
       </p>
       <div className="flex flex-wrap gap-2 mb-6 justify-center w-full">
         {testData.tags.map((tag) => (
@@ -84,7 +97,7 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
         className="w-full block text-center px-8 py-3 rounded-full text-lg font-semibold shadow bg-blue-500 text-white hover:bg-blue-600 transition border-2 border-blue-500"
         style={{ maxWidth: 320 }}
       >
-        테스트 시작
+        {t('testDetail.startTest')}
       </Link>
     </div>
   );

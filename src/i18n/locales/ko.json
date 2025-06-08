@@ -1,0 +1,100 @@
+{
+  "common": {
+    "welcome": "테스트밈 방문을 환영합니다",
+    "description": "테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.",
+    "views": "명이 진행",
+    "thousand": "천명",
+    "tenThousand": "만명",
+    "loading": "로딩 중..."
+  },
+  "header": {
+    "allTests": "전체 테스트",
+    "createTest": "테스트 만들기",
+    "myTests": "내가 한 테스트",
+    "login": "로그인",
+    "signup": "회원가입",
+    "logout": "로그아웃",
+    "mypage": "마이페이지"
+  },
+  "categories": {
+    "자아": "🧠 진짜 나를 찾기",
+    "연애": "💘 연애 할래?", 
+    "게임": "🎮 게임 테스트",
+    "동물": "🐶 동물 테스트",
+    "감성": "🌈 감성 충전 코너",
+    "운명": "🔮 운명과 인연을 테스트!"
+  },
+  "badges": {
+    "popular": "맛집 추천",
+    "new": "NEW"
+  },
+  "meta": {
+    "title": "테스트밈 | 무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음",
+    "description": "테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 사이트입니다. 지금 바로 나에게 맞는 테스트를 찾아보세요!",
+    "keywords": "테스트밈, 심리테스트, 무료테스트, 성향테스트, MBTI, 연애테스트, 동물테스트, 게임테스트, 재미있는 테스트, testmim, 성격테스트, 인기테스트"
+  },
+  "faq": {
+    "what_is_testmim": {
+      "question": "테스트밈은 무엇인가요?",
+      "answer": "테스트밈은 다양한 무료 심리테스트, 성향테스트, MBTI, 연애, 동물, 게임 등 재미있는 테스트를 한 곳에 모아둔 플랫폼입니다."
+    },
+    "is_free": {
+      "question": "테스트는 무료인가요?",
+      "answer": "네, 테스트밈의 모든 테스트는 완전 무료로 이용하실 수 있습니다."
+    },
+    "what_types": {
+      "question": "어떤 종류의 테스트가 있나요?",
+      "answer": "심리테스트, 성향테스트, MBTI, 연애테스트, 동물테스트, 게임테스트, 운명테스트 등 다양한 카테고리의 재미있는 테스트들이 있습니다."
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 테스트밈 (testmim.com)",
+    "company": "상호",
+    "representative": "대표자",
+    "business_number": "사업자등록번호",
+    "contact": "연락처",
+    "address": "주소",
+    "business_type": "업태",
+    "business_item": "종목",
+    "copyright_notice": "본 사이트의 모든 콘텐츠는 저작권의 보호를 받으며, 무단 복제 및 배포를 금지합니다."
+  },
+  "test": {
+    "startTest": "테스트 시작",
+    "saveError": "결과 저장 중 오류가 발생했습니다.",
+    "testNotFound": "존재하지 않는 테스트입니다."
+  },
+  "testDetail": {
+    "startTest": "테스트 시작",
+    "views": "이 진행",
+    "notFound": "존재하지 않는 테스트입니다.",
+    "breadcrumb": {
+      "home": "홈"
+    }
+  },
+  "results": {
+    "allResults": "모든 결과 보기",
+    "recommend": "추천",
+    "imageRecommend": "이미지 추천",
+    "loading": "불러오는 중...",
+    "error": "오류가 발생했습니다.",
+    "notFound": "결과 정보를 찾을 수 없습니다.",
+    "shareResult": "결과 공유하기",
+    "copyLink": "링크 복사",
+    "copied": "복사됨!",
+    "linkCopied": "링크가 복사되었습니다!",
+    "tryTest": "나도 테스트 해보기",
+    "viewResult": "결과 자세히 보기",
+    "kakaoShareFailed": "카카오톡 공유에 실패했습니다. 링크가 복사되었습니다!",
+    "kakaoLinkCopied": "링크가 복사되었습니다! 카카오톡에서 직접 공유해주세요.",
+    "shareText": {
+      "myResult": "내 결과"
+    },
+    "social": {
+      "kakao": "카카오톡",
+      "twitter": "트위터", 
+      "facebook": "페이스북",
+      "bluesky": "블루스카이"
+    },
+    "hashtags": "테스트,심리테스트,재미있는테스트"
+  }
+} 

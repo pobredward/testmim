@@ -1,0 +1,490 @@
+{
+  "ko": {
+    "title": "당신의 말버릇은 몇 년도 스타일일까?",
+    "description": "당신의 말투와 표현은 어느 시대의 스타일일까요?\n일상 속에서 사용하는 말버릇을 통해 당신의 언어 스타일을 알아보세요.",
+    "questions": [
+      {
+        "question": "친구와의 대화에서 자주 사용하는 표현은?",
+        "options": [
+          "\"ㅇㅋ~\"",
+          "\"ㄹㅇㅋㅋ\"",
+          "\"그냥 그렇다구요~\"",
+          "\"그건 좀 아닌 것 같아.\""
+        ]
+      },
+      {
+        "question": "감탄할 때 주로 사용하는 말은?",
+        "options": [
+          "\"헐 대박\"",
+          "\"와우~\"",
+          "\"미쳤다 진짜\"",
+          "\"정말 놀랍군요.\""
+        ]
+      },
+      {
+        "question": "슬플 때 자주 하는 말은?",
+        "options": [
+          "\"ㅠㅠ\"",
+          "\"슬프다 진짜\"",
+          "\"이게 나라냐\"",
+          "\"참 안타깝네요.\""
+        ]
+      },
+      {
+        "question": "기뻐할 때 주로 사용하는 표현은?",
+        "options": [
+          "\"행복해~\"",
+          "\"개좋아\"",
+          "\"찐행복\"",
+          "\"기쁘네요.\""
+        ]
+      },
+      {
+        "question": "친구에게 칭찬할 때 자주 하는 말은?",
+        "options": [
+          "\"짱이야\"",
+          "\"갓\"",
+          "\"레전드\"",
+          "\"대단하네요.\""
+        ]
+      },
+      {
+        "question": "화났을 때 주로 사용하는 표현은?",
+        "options": [
+          "\"열받아\"",
+          "\"빡쳐\"",
+          "\"화나서 손 떨림\"",
+          "\"화가 납니다.\""
+        ]
+      },
+      {
+        "question": "놀랐을 때 자주 하는 말은?",
+        "options": [
+          "\"헉\"",
+          "\"어이없네\"",
+          "\"실화냐\"",
+          "\"정말요?\""
+        ]
+      },
+      {
+        "question": "친구와 헤어질 때 주로 사용하는 표현은?",
+        "options": [
+          "\"잘가~\"",
+          "\"ㅂㅂ\"",
+          "\"안녕히 계세요 여러분~\"",
+          "\"안녕히 가세요.\""
+        ]
+      },
+      {
+        "question": "자신을 소개할 때 자주 사용하는 말은?",
+        "options": [
+          "\"나야 나~\"",
+          "\"ㅇㅇ임\"",
+          "\"저는 OOO입니다~\"",
+          "\"제 이름은 OOO입니다.\""
+        ]
+      },
+      {
+        "question": "감사할 때 주로 사용하는 표현은?",
+        "options": [
+          "\"고마워~\"",
+          "\"ㄳ\"",
+          "\"감사합니당~\"",
+          "\"감사합니다.\""
+        ]
+      }
+    ],
+    "results": [
+      {
+        "title": "🕺 1990년대 후반 스타일",
+        "desc": "정중하고 격식을 중시하는 말투\n\n\"감사합니다.\", \"안녕히 가세요.\" 등 공손한 표현 사용"
+      },
+      {
+        "title": "💃 2000년대 초반 스타일",
+        "desc": "밝고 경쾌한 말투\n\n\"헐 대박\", \"짱이야\" 등 감탄사와 유행어 사용"
+      },
+      {
+        "title": "🕶️ 2010년대 초반 스타일",
+        "desc": "인터넷 신조어와 이모티콘 활용\n\n\"ㄳ\", \"ㅇㅋ~\" 등 축약어 사용"
+      },
+      {
+        "title": "🎧 2010년대 중반 스타일",
+        "desc": "감정을 직설적으로 표현\n\n\"빡쳐\", \"개좋아\" 등 강한 어휘 사용"
+      },
+      {
+        "title": "📱 2020년대 초반 스타일",
+        "desc": "유행하는 밈과 표현 사용\n\n\"찐행복\", \"실화냐\" 등 인터넷 밈 활용"
+      },
+      {
+        "title": "🤖 혼합형 스타일",
+        "desc": "다양한 시대의 표현을 혼합하여 사용\n\n상황에 따라 말투를 유연하게 조절"
+      }
+    ]
+  },
+  "en": {
+    "title": "What Year Is Your Speech Style?",
+    "description": "What era does your speech style belong to?\nDiscover your language style through the speech patterns you use in daily life.",
+    "questions": [
+      {
+        "question": "What expression do you often use when talking with friends?",
+        "options": [
+          "\"OK~\"",
+          "\"LOL\"",
+          "\"Just saying~\"",
+          "\"I don't think that's right.\""
+        ]
+      },
+      {
+        "question": "What do you usually say when amazed?",
+        "options": [
+          "\"OMG awesome\"",
+          "\"Wow~\"",
+          "\"That's crazy\"",
+          "\"That's really surprising.\""
+        ]
+      },
+      {
+        "question": "What do you often say when sad?",
+        "options": [
+          "\":(\"",
+          "\"So sad really\"",
+          "\"What is this world\"",
+          "\"That's unfortunate.\""
+        ]
+      },
+      {
+        "question": "What expression do you mainly use when happy?",
+        "options": [
+          "\"Happy~\"",
+          "\"So good\"",
+          "\"Real happiness\"",
+          "\"I'm glad.\""
+        ]
+      },
+      {
+        "question": "What do you often say when praising a friend?",
+        "options": [
+          "\"Awesome\"",
+          "\"God\"",
+          "\"Legend\"",
+          "\"That's amazing.\""
+        ]
+      },
+      {
+        "question": "What expression do you mainly use when angry?",
+        "options": [
+          "\"So mad\"",
+          "\"Pissed\"",
+          "\"Hands shaking from anger\"",
+          "\"I'm angry.\""
+        ]
+      },
+      {
+        "question": "What do you often say when surprised?",
+        "options": [
+          "\"Huh\"",
+          "\"Ridiculous\"",
+          "\"Is this real\"",
+          "\"Really?\""
+        ]
+      },
+      {
+        "question": "What expression do you mainly use when saying goodbye to friends?",
+        "options": [
+          "\"Bye~\"",
+          "\"BB\"",
+          "\"Goodbye everyone~\"",
+          "\"Goodbye.\""
+        ]
+      },
+      {
+        "question": "What do you often say when introducing yourself?",
+        "options": [
+          "\"It's me~\"",
+          "\"I'm OOO\"",
+          "\"I am OOO~\"",
+          "\"My name is OOO.\""
+        ]
+      },
+      {
+        "question": "What expression do you mainly use when thanking?",
+        "options": [
+          "\"Thanks~\"",
+          "\"Thx\"",
+          "\"Thank you~\"",
+          "\"Thank you.\""
+        ]
+      }
+    ],
+    "results": [
+      {
+        "title": "🕺 Late 1990s Style",
+        "desc": "Polite and formal speech style\n\nUses courteous expressions like \"Thank you\", \"Goodbye\""
+      },
+      {
+        "title": "💃 Early 2000s Style",
+        "desc": "Bright and cheerful speech style\n\nUses exclamations and trendy words like \"OMG awesome\", \"Awesome\""
+      },
+      {
+        "title": "🕶️ Early 2010s Style",
+        "desc": "Uses internet slang and emoticons\n\nUses abbreviations like \"Thx\", \"OK~\""
+      },
+      {
+        "title": "🎧 Mid 2010s Style",
+        "desc": "Direct emotional expression\n\nUses strong vocabulary like \"Pissed\", \"So good\""
+      },
+      {
+        "title": "📱 Early 2020s Style",
+        "desc": "Uses trending memes and expressions\n\nUtilizes internet memes like \"Real happiness\", \"Is this real\""
+      },
+      {
+        "title": "🤖 Mixed Style",
+        "desc": "Mixes expressions from various eras\n\nFlexibly adjusts speech style according to situations"
+      }
+    ]
+  },
+  "zh": {
+    "title": "你的说话习惯是哪个年代的风格？",
+    "description": "你的说话方式和表达属于哪个时代的风格呢？\n通过日常生活中使用的说话习惯来了解你的语言风格。",
+    "questions": [
+      {
+        "question": "和朋友聊天时经常使用的表达是？",
+        "options": [
+          "\"好的~\"",
+          "\"哈哈哈\"",
+          "\"就是这样说的~\"",
+          "\"我觉得那不太对。\""
+        ]
+      },
+      {
+        "question": "惊叹时主要使用的话是？",
+        "options": [
+          "\"哇塞 厉害\"",
+          "\"哇~\"",
+          "\"疯了真的\"",
+          "\"真令人惊讶。\""
+        ]
+      },
+      {
+        "question": "难过时经常说的话是？",
+        "options": [
+          "\"T_T\"",
+          "\"好难过真的\"",
+          "\"这是什么世界\"",
+          "\"真遗憾。\""
+        ]
+      },
+      {
+        "question": "开心时主要使用的表达是？",
+        "options": [
+          "\"好开心~\"",
+          "\"超好\"",
+          "\"真开心\"",
+          "\"很高兴。\""
+        ]
+      },
+      {
+        "question": "夸奖朋友时经常说的话是？",
+        "options": [
+          "\"太棒了\"",
+          "\"神\"",
+          "\"传说\"",
+          "\"很厉害。\""
+        ]
+      },
+      {
+        "question": "生气时主要使用的表达是？",
+        "options": [
+          "\"气死了\"",
+          "\"超气\"",
+          "\"气得手发抖\"",
+          "\"我很生气。\""
+        ]
+      },
+      {
+        "question": "惊讶时经常说的话是？",
+        "options": [
+          "\"啊\"",
+          "\"无语\"",
+          "\"这是真的吗\"",
+          "\"真的吗？\""
+        ]
+      },
+      {
+        "question": "和朋友告别时主要使用的表达是？",
+        "options": [
+          "\"拜拜~\"",
+          "\"BB\"",
+          "\"大家再见~\"",
+          "\"再见。\""
+        ]
+      },
+      {
+        "question": "自我介绍时经常使用的话是？",
+        "options": [
+          "\"是我~\"",
+          "\"我是OOO\"",
+          "\"我是OOO~\"",
+          "\"我的名字是OOO。\""
+        ]
+      },
+      {
+        "question": "感谢时主要使用的表达是？",
+        "options": [
+          "\"谢谢~\"",
+          "\"谢\"",
+          "\"谢谢~\"",
+          "\"谢谢。\""
+        ]
+      }
+    ],
+    "results": [
+      {
+        "title": "🕺 1990年代后期风格",
+        "desc": "礼貌和重视礼仪的说话方式\n\n使用\"谢谢\"、\"再见\"等礼貌表达"
+      },
+      {
+        "title": "💃 2000年代初期风格",
+        "desc": "明亮活泼的说话方式\n\n使用\"哇塞厉害\"、\"太棒了\"等感叹词和流行语"
+      },
+      {
+        "title": "🕶️ 2010年代初期风格",
+        "desc": "使用网络新词和表情符号\n\n使用\"谢\"、\"好的~\"等缩略语"
+      },
+      {
+        "title": "🎧 2010年代中期风格",
+        "desc": "直接表达情感\n\n使用\"超气\"、\"超好\"等强烈词汇"
+      },
+      {
+        "title": "📱 2020年代初期风格",
+        "desc": "使用流行的梗和表达\n\n活用\"真开心\"、\"这是真的吗\"等网络梗"
+      },
+      {
+        "title": "🤖 混合型风格",
+        "desc": "混合使用各个时代的表达\n\n根据情况灵活调节说话方式"
+      }
+    ]
+  },
+  "ja": {
+    "title": "あなたの話し方は何年代のスタイル？",
+    "description": "あなたの話し方や表現はどの時代のスタイルでしょうか？\n日常で使う話し癖を通じてあなたの言語スタイルを調べてみましょう。",
+    "questions": [
+      {
+        "question": "友達との会話でよく使う表現は？",
+        "options": [
+          "\"オッケー~\"",
+          "\"マジで\"",
+          "\"そうですよ~\"",
+          "\"それはちょっと違うと思う。\""
+        ]
+      },
+      {
+        "question": "感嘆する時によく使う言葉は？",
+        "options": [
+          "\"うわー すごい\"",
+          "\"ワオ~\"",
+          "\"やばい マジで\"",
+          "\"本当に驚きです。\""
+        ]
+      },
+      {
+        "question": "悲しい時によく言う言葉は？",
+        "options": [
+          "\"T_T\"",
+          "\"悲しいマジで\"",
+          "\"何これ\"",
+          "\"残念ですね。\""
+        ]
+      },
+      {
+        "question": "嬉しい時によく使う表現は？",
+        "options": [
+          "\"嬉しい~\"",
+          "\"めっちゃいい\"",
+          "\"ガチで嬉しい\"",
+          "\"嬉しいです。\""
+        ]
+      },
+      {
+        "question": "友達を褒める時によく言う言葉は？",
+        "options": [
+          "\"最高\"",
+          "\"神\"",
+          "\"レジェンド\"",
+          "\"すごいですね。\""
+        ]
+      },
+      {
+        "question": "怒った時によく使う表現は？",
+        "options": [
+          "\"むかつく\"",
+          "\"キレる\"",
+          "\"怒りで手が震える\"",
+          "\"腹が立ちます。\""
+        ]
+      },
+      {
+        "question": "驚いた時によく言う言葉は？",
+        "options": [
+          "\"え\"",
+          "\"ありえない\"",
+          "\"マジか\"",
+          "\"本当ですか？\""
+        ]
+      },
+      {
+        "question": "友達と別れる時によく使う表現は？",
+        "options": [
+          "\"バイバイ~\"",
+          "\"またね\"",
+          "\"皆さんさようなら~\"",
+          "\"さようなら。\""
+        ]
+      },
+      {
+        "question": "自己紹介する時によく使う言葉は？",
+        "options": [
+          "\"私だよ~\"",
+          "\"OOOです\"",
+          "\"私はOOOです~\"",
+          "\"私の名前はOOOです。\""
+        ]
+      },
+      {
+        "question": "感謝する時によく使う表現は？",
+        "options": [
+          "\"ありがと~\"",
+          "\"サンクス\"",
+          "\"ありがとうございます~\"",
+          "\"ありがとうございます。\""
+        ]
+      }
+    ],
+    "results": [
+      {
+        "title": "🕺 1990年代後半スタイル",
+        "desc": "丁寧で礼儀を重視する話し方\n\n\"ありがとうございます\"、\"さようなら\"など丁寧な表現を使用"
+      },
+      {
+        "title": "💃 2000年代前半スタイル",
+        "desc": "明るく軽快な話し方\n\n\"うわーすごい\"、\"最高\"など感嘆詞と流行語を使用"
+      },
+      {
+        "title": "🕶️ 2010年代前半スタイル",
+        "desc": "インターネット新語と絵文字を活用\n\n\"サンクス\"、\"オッケー~\"など省略語を使用"
+      },
+      {
+        "title": "🎧 2010年代中頃スタイル",
+        "desc": "感情を直接的に表現\n\n\"キレる\"、\"めっちゃいい\"など強い語彙を使用"
+      },
+      {
+        "title": "📱 2020年代前半スタイル",
+        "desc": "流行するミームと表現を使用\n\n\"ガチで嬉しい\"、\"マジか\"などインターネットミームを活用"
+      },
+      {
+        "title": "🤖 混合型スタイル",
+        "desc": "様々な時代の表現を混合して使用\n\n状況に応じて話し方を柔軟に調節"
+      }
+    ]
+  }
+} 

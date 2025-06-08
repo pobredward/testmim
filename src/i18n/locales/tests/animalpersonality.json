@@ -1,0 +1,586 @@
+{
+  "ko": {
+    "title": "나는 어떤 동물의 본성을 가졌을까?",
+    "description": "겉으로는 비슷해 보여도, 당신의 무의식은 분명히 '동물적인 본성'을 지니고 있습니다. 이 테스트를 통해 당신 안의 본성을 동물로 밝혀보세요.",
+    "questions": [
+      {
+        "question": "당신은 모임에서 어떤 타입인가요?",
+        "options": [
+          "리더가 되어 전체를 이끈다.",
+          "조용히 있다가 분위기를 맞춘다.",
+          "모두에게 말을 걸고 친해진다.",
+          "모임 자체가 힘들다. 집 가고 싶다."
+        ]
+      },
+      {
+        "question": "스트레스를 받을 때 당신의 반응은?",
+        "options": [
+          "운동을 하거나 나가서 활동한다.",
+          "혼자 있고 싶고, 침묵 모드에 들어간다.",
+          "평소처럼 태연한 척 하지만 속으로 불편하다.",
+          "분석하고 상황을 정리한다."
+        ]
+      },
+      {
+        "question": "자신을 한 단어로 표현한다면?",
+        "options": [
+          "유쾌한",
+          "날카로운",
+          "신중한",
+          "냉정한"
+        ]
+      },
+      {
+        "question": "친구가 고민을 털어놓았을 때 당신은?",
+        "options": [
+          "\"그건 이렇게 해보면 어때?\" 해결책 제시",
+          "\"어… 그랬구나…\" 조용히 들어줌",
+          "\"와 진짜? 개어이없다ㅋㅋ\" 함께 감정표출",
+          "\"왜 그렇게 느꼈을까?\" 원인 분석"
+        ]
+      },
+      {
+        "question": "사람이 많은 장소에서 당신은?",
+        "options": [
+          "피곤하지만 사람들 눈치를 살핀다.",
+          "적응은 잘 되지만 오래 있고 싶진 않음",
+          "분위기 주도하고 리드한다.",
+          "사람 관찰하다 재밌는 포인트 찾음"
+        ]
+      },
+      {
+        "question": "SNS 사용 패턴은?",
+        "options": [
+          "피드 관리 철저 + 센스 있는 댓글러",
+          "감정글/짤 저장소로 씀",
+          "조용히 보기만 함",
+          "알고리즘 분석해서 활용함"
+        ]
+      },
+      {
+        "question": "어릴 적 당신은 어떤 아이였나요?",
+        "options": [
+          "친구를 끌고 다니는 리더형",
+          "나서는 것보다 혼자 노는 게 좋았음",
+          "장난 많고 시끌벅적한 아이",
+          "어른들이 '조숙하다' 했음"
+        ]
+      },
+      {
+        "question": "내가 좋아하는 공간은?",
+        "options": [
+          "혼자서 정리된 서재 느낌",
+          "따뜻한 사람냄새 나는 카페",
+          "햇살 드는 조용한 창가",
+          "비 오는 날 조용한 침대 속"
+        ]
+      },
+      {
+        "question": "내가 싫어하는 사람은?",
+        "options": [
+          "거짓말하는 사람",
+          "분위기 파악 못 하는 사람",
+          "감정 없는 사람",
+          "나서서 분위기 흐리는 사람"
+        ]
+      },
+      {
+        "question": "결정의 순간, 당신은?",
+        "options": [
+          "분석하고 장단점 비교 후 결정",
+          "감정에 따라 직감적으로 결정",
+          "주변 사람의 생각도 듣고 정함",
+          "혼자 조용히 고민 후 결론 내림"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "title": "🐯 호랑이 – 외유내강 리더형",
+        "desc": "겉은 차분하지만 안에는 결단력과 추진력을 가진 성격.\n상황을 리드하고 무리에서 중심 역할을 맡는 경우가 많다.\n당신은 조용한 카리스마, 판단력의 상징.",
+        "subDesc": "- 결단력과 추진력을 가진 성격\n- 상황을 리드하고 무리에서 중심 역할을 맡는 경우가 많다\n- 조용한 카리스마, 판단력의 상징",
+        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"]
+      },
+      {
+        "title": "🐶 강아지 – 따뜻한 관계 중심형",
+        "desc": "에너지 넘치고, 사람들과 있을 때 가장 행복한 타입.\n표현력과 친화력이 좋아 주변에 늘 사람이 많음.\n당신은 누군가의 '정서적 버팀목'.",
+        "subDesc": "- 에너지 넘치고, 사람들과 있을 때 가장 행복한 타입\n- 표현력과 친화력이 좋아 주변에 늘 사람이 많음\n- 누군가의 '정서적 버팀목'",
+        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"]
+      },
+      {
+        "title": "🐱 고양이 – 감성적 예민 관찰자형",
+        "desc": "감정에 민감하며, 사람 기분에 금방 반응하는 센서 보유자.\n겉으로는 조용하지만 정서가 풍부함.\n당신은 조용한 위로를 건네는 존재.",
+        "subDesc": "- 감정에 민감하며, 사람 기분에 금방 반응하는 센서 보유자\n- 겉으로는 조용하지만 정서가 풍부함\n- 조용한 위로를 건네는 존재",
+        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"]
+      },
+      {
+        "title": "🐙 문어 – 철학적 은둔 지성형",
+        "desc": "외부보다 내부 세계에 집중하는 사람.\n혼자서 사고 정리, 창작, 분석하는 걸 즐김.\n당신은 침묵 속에 깊이를 담는 사색가.",
+        "subDesc": "- 외부보다 내부 세계에 집중하는 사람\n- 혼자서 사고 정리, 창작, 분석하는 걸 즐김\n- 침묵 속에 깊이를 담는 사색가",
+        "recommend": ["Personal time", "Creative activities", "Analytical thinking"]
+      },
+      {
+        "title": "🦉 부엉이 – 이성 중심 전략가형",
+        "desc": "어떤 상황이든 감정보다 판단이 우선됨.\n이성적이고 분석적인 사고를 바탕으로 리더 역할도 무난히 수행.\n당신은 상황을 구조적으로 읽는 전략가.",
+        "subDesc": "- 어떤 상황이든 감정보다 판단이 우선됨\n- 이성적이고 분석적인 사고를 바탕으로 리더 역할도 무난히 수행\n- 상황을 구조적으로 읽는 전략가",
+        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"]
+      },
+      {
+        "title": "🦊 여우 – 영리한 현실주의자형",
+        "desc": "센스 있고 빠르며, 변화에 잘 적응하는 타입.\n처세에 능하고 위험 감지에 민감함.\n당신은 상황을 즐기며 통제하는 '현실 파이터'.",
+        "subDesc": "- 센스 있고 빠르며, 변화에 잘 적응하는 타입\n- 처세에 능하고 위험 감지에 민감함\n- 상황을 즐기며 통제하는 '현실 파이터'",
+        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"]
+      },
+      {
+        "title": "🐻 곰 – 조용한 안정 수호자형",
+        "desc": "말은 없지만 신뢰감 있고 든든함.\n깊고 넓은 인내심으로 주변 사람을 지지해줌.\n당신은 말없는 힘, 포근한 단단함.",
+        "subDesc": "- 말은 없지만 신뢰감 있고 든든함\n- 깊고 넓은 인내심으로 주변 사람을 지지해줌\n- 말없는 힘, 포근한 단단함",
+        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"]
+      },
+      {
+        "title": "🐬 돌고래 – 감성+사교 하이브리드형",
+        "desc": "공감력도 좋고 에너지도 밝음.\n모두의 분위기를 부드럽게 이어주는 유쾌한 존재.\n당신은 인간관계의 윤활유, 감성의 조율자.",
+        "subDesc": "- 공감력도 좋고 에너지도 밝음\n- 모두의 분위기를 부드럽게 이어주는 유쾌한 존재\n- 인간관계의 윤활유, 감성의 조율자",
+        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"]
+      }
+    ]
+  },
+  "en": {
+    "title": "What Animal Nature Do I Have?",
+    "description": "Though we may seem similar on the surface, your unconscious mind definitely possesses an 'animal nature'. Through this test, discover what animal represents your inner nature.",
+    "questions": [
+      {
+        "question": "What type are you in gatherings?",
+        "options": [
+          "Become a leader and guide everyone.",
+          "Stay quiet then match the atmosphere.",
+          "Talk to everyone and become friends.",
+          "Gatherings are hard. Want to go home."
+        ]
+      },
+      {
+        "question": "Your reaction when stressed?",
+        "options": [
+          "Exercise or go out and be active.",
+          "Want to be alone and enter silent mode.",
+          "Act calm as usual but feel uncomfortable inside.",
+          "Analyze and organize the situation."
+        ]
+      },
+      {
+        "question": "If you describe yourself in one word?",
+        "options": [
+          "Cheerful",
+          "Sharp",
+          "Cautious",
+          "Cool-headed"
+        ]
+      },
+      {
+        "question": "When a friend shares their worries, you:",
+        "options": [
+          "\"How about trying this?\" Offer solutions",
+          "\"Oh... I see...\" Listen quietly",
+          "\"Wow really? That's ridiculous!\" Express emotions together",
+          "\"Why did you feel that way?\" Analyze the cause"
+        ]
+      },
+      {
+        "question": "In crowded places, you:",
+        "options": [
+          "Feel tired but watch others' reactions.",
+          "Adapt well but don't want to stay long",
+          "Lead the atmosphere and take charge.",
+          "Observe people and find interesting points"
+        ]
+      },
+      {
+        "question": "Your SNS usage pattern?",
+        "options": [
+          "Manage feed thoroughly + witty commenter",
+          "Use as emotional posts/meme storage",
+          "Just quietly browse",
+          "Analyze algorithms and utilize them"
+        ]
+      },
+      {
+        "question": "What kind of child were you?",
+        "options": [
+          "Leader type who led friends around",
+          "Preferred playing alone over standing out",
+          "Mischievous and noisy child",
+          "Adults said I was 'precocious'"
+        ]
+      },
+      {
+        "question": "What space do you like?",
+        "options": [
+          "Organized study room feeling alone",
+          "Warm cafe with human presence",
+          "Quiet window seat with sunlight",
+          "Quiet bed on rainy days"
+        ]
+      },
+      {
+        "question": "What type of person do you dislike?",
+        "options": [
+          "People who lie",
+          "People who can't read the room",
+          "People without emotions",
+          "People who stand out and ruin the mood"
+        ]
+      },
+      {
+        "question": "In moments of decision, you:",
+        "options": [
+          "Analyze and compare pros/cons before deciding",
+          "Decide intuitively based on emotions",
+          "Listen to others' thoughts and decide",
+          "Think quietly alone then conclude"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "title": "🐯 Tiger – Gentle Outside, Strong Inside Leader",
+        "desc": "Calm on the outside but has determination and drive inside.\nOften leads situations and plays central roles in groups.\nYou are quiet charisma, a symbol of judgment.",
+        "subDesc": "- Excellent determination and drive\n- Often takes central roles in groups\n- Possesses quiet charisma",
+        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"]
+      },
+      {
+        "title": "🐶 Dog – Warm Relationship-Centered Type",
+        "desc": "Energetic type who's happiest when with people.\nGood expression and affinity, always surrounded by people.\nYou are someone's 'emotional support'.",
+        "subDesc": "- Bright affinity and energy\n- Always surrounded by people\n- Emotional supporter role",
+        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"]
+      },
+      {
+        "title": "🐱 Cat – Sensitive Emotional Observer",
+        "desc": "Sensitive to emotions, has sensors that quickly react to people's moods.\nQuiet on the outside but emotionally rich inside.\nYou are one who offers quiet comfort.",
+        "subDesc": "- Sensitive emotional sensors\n- Quiet but emotionally rich\n- Delicate observer",
+        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"]
+      },
+      {
+        "title": "🐙 Octopus – Philosophical Reclusive Intellectual",
+        "desc": "Person who focuses on inner world rather than external.\nEnjoys organizing thoughts, creating, and analyzing alone.\nYou are a contemplator who holds depth in silence.",
+        "subDesc": "- Focuses on inner world\n- Prefers alone time\n- Deep thinking",
+        "recommend": ["Personal time", "Creative activities", "Analytical thinking"]
+      },
+      {
+        "title": "🦉 Owl – Rational Strategic Thinker",
+        "desc": "In any situation, judgment comes before emotions.\nPerforms leadership roles well based on rational and analytical thinking.\nYou are a strategist who reads situations structurally.",
+        "subDesc": "- Rational, analytical thinking\n- Strong in strategic judgment\n- Prefers structural thinking",
+        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"]
+      },
+      {
+        "title": "🦊 Fox – Smart Realist Type",
+        "desc": "Sensible, quick, and adapts well to change.\nGood at social skills and sensitive to danger detection.\nYou are a 'reality fighter' who enjoys and controls situations.",
+        "subDesc": "- Excellent sense and adaptability\n- Sensitive to danger detection\n- Possesses realistic social skills",
+        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"]
+      },
+      {
+        "title": "🐻 Bear – Quiet Stability Guardian",
+        "desc": "Doesn't talk much but trustworthy and reliable.\nSupports people around with deep and broad patience.\nYou are silent strength, warm solidity.",
+        "subDesc": "- Trustworthiness and patience\n- Quiet strength\n- Reliable supporter",
+        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"]
+      },
+      {
+        "title": "🐬 Dolphin – Emotional + Social Hybrid",
+        "desc": "Good empathy and bright energy.\nCheerful being who smoothly connects everyone's mood.\nYou are the lubricant of human relationships, an emotional coordinator.",
+        "subDesc": "- Bright and cheerful energy\n- Excellent empathy\n- Mood coordinator",
+        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"]
+      }
+    ]
+  },
+  "zh": {
+    "title": "我拥有什么动物的本性？",
+    "description": "虽然表面上看起来相似，但你的潜意识中肯定拥有'动物般的本性'。通过这个测试，发现代表你内在本性的动物吧。",
+    "questions": [
+      {
+        "question": "你在聚会中是什么类型？",
+        "options": [
+          "成为领导者引导大家。",
+          "安静待着然后配合气氛。",
+          "和所有人聊天成为朋友。",
+          "聚会本身就很累。想回家。"
+        ]
+      },
+      {
+        "question": "压力大时你的反应是？",
+        "options": [
+          "运动或出去活动。",
+          "想要独处，进入沉默模式。",
+          "表面装作平常但内心不舒服。",
+          "分析并整理情况。"
+        ]
+      },
+      {
+        "question": "用一个词形容自己？",
+        "options": [
+          "愉快的",
+          "敏锐的",
+          "慎重的",
+          "冷静的"
+        ]
+      },
+      {
+        "question": "朋友倾诉烦恼时，你会？",
+        "options": [
+          "\"要不试试这样？\" 提供解决方案",
+          "\"嗯...是这样啊...\" 安静倾听",
+          "\"哇真的？太离谱了！\" 一起表达情感",
+          "\"为什么会有那种感觉？\" 分析原因"
+        ]
+      },
+      {
+        "question": "在人多的地方，你会？",
+        "options": [
+          "虽然累但会观察别人的反应。",
+          "适应得不错但不想待太久",
+          "主导气氛并带头。",
+          "观察人群找到有趣的点"
+        ]
+      },
+      {
+        "question": "你的社交媒体使用模式？",
+        "options": [
+          "严格管理动态 + 机智评论者",
+          "用作情感文章/表情包存储",
+          "只是安静浏览",
+          "分析算法并加以利用"
+        ]
+      },
+      {
+        "question": "小时候你是什么样的孩子？",
+        "options": [
+          "带领朋友的领导型",
+          "比起出风头更喜欢独自玩耍",
+          "调皮爱闹的孩子",
+          "大人们说'很早熟'"
+        ]
+      },
+      {
+        "question": "你喜欢什么样的空间？",
+        "options": [
+          "独自一人整理好的书房感觉",
+          "有人情味的温暖咖啡厅",
+          "阳光洒进的安静窗边",
+          "下雨天安静的床上"
+        ]
+      },
+      {
+        "question": "你讨厌什么样的人？",
+        "options": [
+          "说谎的人",
+          "不会察言观色的人",
+          "没有感情的人",
+          "爱出风头破坏气氛的人"
+        ]
+      },
+      {
+        "question": "决定的时刻，你会？",
+        "options": [
+          "分析并比较利弊后决定",
+          "根据情感直觉决定",
+          "听取周围人的想法后决定",
+          "独自安静思考后得出结论"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "title": "🐯 老虎 – 外柔内刚领导型",
+        "desc": "外表平静但内心拥有决断力和推进力的性格。\n经常引导局面并在群体中担任中心角色。\n你是安静的魅力，判断力的象征。",
+        "subDesc": "- 外表平静但内心拥有决断力和推进力的性格\n- 经常引导局面并在群体中担任中心角色\n- 你是安静的魅力，判断力的象征",
+        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"]
+      },
+      {
+        "title": "🐶 小狗 – 温暖关系中心型",
+        "desc": "充满活力，与人在一起时最幸福的类型。\n表达力和亲和力好，周围总是有很多人。\n你是某人的'情感支柱'。",
+        "subDesc": "- 充满活力，与人在一起时最幸福的类型\n- 表达力和亲和力好，周围总是有很多人\n- 你是某人的'情感支柱'",
+        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"]
+      },
+      {
+        "title": "🐱 猫咪 – 感性敏感观察者型",
+        "desc": "对情感敏感，拥有能快速反应他人心情的感应器。\n外表安静但内心情感丰富。\n你是给予安静慰藉的存在。",
+        "subDesc": "- 对情感敏感，拥有能快速反应他人心情的感应器\n- 外表安静但内心情感丰富\n- 你是给予安静慰藉的存在",
+        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"]
+      },
+      {
+        "title": "🐙 章鱼 – 哲学隐居知性型",
+        "desc": "专注于内心世界而非外部的人。\n喜欢独自整理思考、创作、分析。\n你是在沉默中蕴含深度的思考者。",
+        "subDesc": "- 专注于内心世界而非外部的人\n- 喜欢独自整理思考、创作、分析\n- 你是在沉默中蕴含深度的思考者",
+        "recommend": ["Personal time", "Creative activities", "Analytical thinking"]
+      },
+      {
+        "title": "🦉 猫头鹰 – 理性中心战略家型",
+        "desc": "无论什么情况都是判断优先于情感。\n基于理性和分析思维，也能很好地胜任领导角色。\n你是结构性解读情况的战略家。",
+        "subDesc": "- 无论什么情况都是判断优先于情感\n- 基于理性和分析思维，也能很好地胜任领导角色\n- 你是结构性解读情况的战略家",
+        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"]
+      },
+      {
+        "title": "🦊 狐狸 – 聪明现实主义者型",
+        "desc": "有品味且敏捷，很好适应变化的类型。\n善于处世，对危险感知敏感。\n你是享受并控制情况的'现实斗士'。",
+        "subDesc": "- 有品味且敏捷，很好适应变化的类型\n- 善于处世，对危险感知敏感\n- 你是享受并控制情况的'现实斗士'",
+        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"]
+      },
+      {
+        "title": "🐻 熊 – 安静稳定守护者型",
+        "desc": "话不多但有信赖感且可靠。\n用深厚宽广的耐心支持周围的人。\n你是无言的力量，温暖的坚实。",
+        "subDesc": "- 话不多但有信赖感且可靠\n- 用深厚宽广的耐心支持周围的人\n- 你是无言的力量，温暖的坚实",
+        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"]
+      },
+      {
+        "title": "🐬 海豚 – 感性+社交混合型",
+        "desc": "共情能力好，能量也很明亮。\n柔和连接大家情绪的愉快存在。\n你是人际关系的润滑剂，情感的协调者。",
+        "subDesc": "- 共情能力好，能量也很明亮\n- 柔和连接大家情绪的愉快存在\n- 你是人际关系的润滑剂，情感的协调者",
+        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"]
+      }
+    ]
+  },
+  "ja": {
+    "title": "私はどんな動物の本性を持っているか？",
+    "description": "表面的には似て見えても、あなたの無意識は確実に「動物的な本性」を持っています。このテストを通じて、あなたの中の本性を動物で明かしてみてください。",
+    "questions": [
+      {
+        "question": "あなたは集まりではどんなタイプ？",
+        "options": [
+          "リーダーになって全体を導く。",
+          "静かにいて雰囲気に合わせる。",
+          "みんなに話しかけて仲良くなる。",
+          "集まり自体がしんどい。家に帰りたい。"
+        ]
+      },
+      {
+        "question": "ストレスを受けた時のあなたの反応は？",
+        "options": [
+          "運動をしたり外に出て活動する。",
+          "一人でいたくて、沈黙モードに入る。",
+          "普段通り平然と装うが内心は不快。",
+          "分析して状況を整理する。"
+        ]
+      },
+      {
+        "question": "自分を一言で表現するなら？",
+        "options": [
+          "愉快な",
+          "鋭い",
+          "慎重な",
+          "冷静な"
+        ]
+      },
+      {
+        "question": "友人が悩みを打ち明けた時、あなたは？",
+        "options": [
+          "「それはこうしてみたらどう？」解決策提示",
+          "「ええ...そうだったんだ...」静かに聞く",
+          "「えー本当？めっちゃひどいねｗ」一緒に感情表出",
+          "「なぜそう感じたのかな？」原因分析"
+        ]
+      },
+      {
+        "question": "人が多い場所であなたは？",
+        "options": [
+          "疲れるが人々の様子を伺う。",
+          "適応はできるが長くいたくない",
+          "雰囲気を主導してリードする。",
+          "人を観察して面白いポイントを見つける"
+        ]
+      },
+      {
+        "question": "SNS使用パターンは？",
+        "options": [
+          "フィード管理徹底 + センスあるコメンター",
+          "感情文/ネタ保存庫として使用",
+          "静かに見るだけ",
+          "アルゴリズム分析して活用"
+        ]
+      },
+      {
+        "question": "子供の頃のあなたはどんな子でしたか？",
+        "options": [
+          "友達を引っ張っていくリーダー型",
+          "目立つより一人で遊ぶのが好きだった",
+          "いたずら好きで騒がしい子",
+          "大人たちが「ませている」と言った"
+        ]
+      },
+      {
+        "question": "私が好きな空間は？",
+        "options": [
+          "一人で整理された書斎の感じ",
+          "温かい人の匂いがするカフェ",
+          "日差しの入る静かな窓際",
+          "雨の日の静かなベッドの中"
+        ]
+      },
+      {
+        "question": "私が嫌いな人は？",
+        "options": [
+          "嘘をつく人",
+          "雰囲気を読めない人",
+          "感情のない人",
+          "出しゃばって雰囲気を悪くする人"
+        ]
+      },
+      {
+        "question": "決断の瞬間、あなたは？",
+        "options": [
+          "分析して長短を比較してから決定",
+          "感情に従って直感的に決定",
+          "周りの人の考えも聞いて決める",
+          "一人で静かに悩んでから結論を出す"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "title": "🐯 トラ – 外柔内剛リーダー型",
+        "desc": "外は落ち着いているが中には決断力と推進力を持つ性格。\n状況をリードし群れで中心的役割を担うことが多い。\nあなたは静かなカリスマ、判断力の象徴。",
+        "subDesc": "- 外は落ち着いているが中には決断力と推進力を持つ性格\n- 状況をリードし群れで中心的役割を担うことが多い\n- あなたは静かなカリスマ、判断力の象徴",
+        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"]
+      },
+      {
+        "title": "🐶 犬 – 温かい関係中心型",
+        "desc": "エネルギーあふれ、人々といる時が最も幸せなタイプ。\n表現力と親和力が良く周りにいつも人が多い。\nあなたは誰かの「感情的な支え」。",
+        "subDesc": "- エネルギーあふれ、人々といる時が最も幸せなタイプ\n- 表現力と親和力が良く周りにいつも人が多い\n- あなたは誰かの「感情的な支え」",
+        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"]
+      },
+      {
+        "title": "🐱 猫 – 感性的敏感観察者型",
+        "desc": "感情に敏感で、人の気分にすぐ反応するセンサー保有者。\n外見は静かだが情緒が豊か。\nあなたは静かな慰めを差し出す存在。",
+        "subDesc": "- 感情に敏感で、人の気分にすぐ反応するセンサー保有者\n- 外見は静かだが情緒が豊か\n- あなたは静かな慰めを差し出す存在",
+        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"]
+      },
+      {
+        "title": "🐙 タコ – 哲学的隠遁知性型",
+        "desc": "外部より内部世界に集中する人。\n一人で思考整理、創作、分析することを楽しむ。\nあなたは沈黙の中に深さを込める思索家。",
+        "subDesc": "- 外部より内部世界に集中する人\n- 一人で思考整理、創作、分析することを楽しむ\n- あなたは沈黙の中に深さを込める思索家",
+        "recommend": ["Personal time", "Creative activities", "Analytical thinking"]
+      },
+      {
+        "title": "🦉 フクロウ – 理性中心戦略家型",
+        "desc": "どんな状況でも感情より判断が優先される。\n理性的で分析的な思考を基にリーダー役も無難にこなす。\nあなたは状況を構造的に読む戦略家。",
+        "subDesc": "- どんな状況でも感情より判断が優先される\n- 理性的で分析的な思考を基にリーダー役も無難にこなす\n- あなたは状況を構造的に読む戦略家",
+        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"]
+      },
+      {
+        "title": "🦊 キツネ – 賢い現実主義者型",
+        "desc": "センスがあり速く、変化によく適応するタイプ。\n処世に長け危険感知に敏感。\nあなたは状況を楽しみながらコントロールする「現実ファイター」。",
+        "subDesc": "- センスがあり速く、変化によく適応するタイプ\n- 処世に長け危険感知に敏感\n- あなたは状況を楽しみながらコントロールする「現実ファイター」",
+        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"]
+      },
+      {
+        "title": "🐻 クマ – 静かな安定守護者型",
+        "desc": "言葉は少ないが信頼感があり頼もしい。\n深く広い忍耐力で周りの人を支えてくれる。\nあなたは無言の力、暖かい堅実さ。",
+        "subDesc": "- 言葉は少ないが信頼感があり頼もしい\n- 深く広い忍耐力で周りの人を支えてくれる\n- あなたは無言の力、暖かい堅実さ",
+        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"]
+      },
+      {
+        "title": "🐬 イルカ – 感性+社交ハイブリッド型",
+        "desc": "共感力も良くエネルギーも明るい。\nみんなの雰囲気を柔らかくつなぐ愉快な存在。\nあなたは人間関係の潤滑油、感性の調律者。",
+        "subDesc": "- 共感力も良くエネルギーも明るい\n- みんなの雰囲気を柔らかくつなぐ愉快な存在\n- あなたは人間関係の潤滑油、感性の調律者",
+        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"]
+      }
+    ]
+  }
+} 
