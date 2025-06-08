@@ -152,18 +152,51 @@ export default function HomeClient() {
     </div>
   );
 
-  // 카카오 애드핏 광고 컴포넌트
-  const KakaoAdBanner = () => (
-    <div className="w-full flex justify-center mb-6">
-      <div className="w-full max-w-sm">
-        <ins className="kakao_ad_area" style={{display:'none'}}
-          data-ad-unit="DAN-UqH6IJflvZbmQ5QL"
-          data-ad-width="320"
-          data-ad-height="100">
-        </ins>
+  // 카카오 애드핏 모바일 배너 컴포넌트
+  const AdFitBanner = ({ position = "top" }: { position?: "top" | "bottom" }) => {
+    useEffect(() => {
+      // AdFit 스크립트가 이미 로드되었는지 확인
+      if (!document.querySelector('script[src*="ba.min.js"]')) {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://t1.daumcdn.net/kas/static/ba.min.js';
+        script.async = true;
+        document.head.appendChild(script);
+      }
+
+      // NO-AD 콜백 함수를 전역에 등록
+      (window as any)[`adFailCallback_${position}`] = (element: HTMLElement) => {
+        // 광고가 없을 때 대체 콘텐츠 표시
+        const fallbackContent = `
+          <div style="width: 320px; height: 100px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                      display: flex; align-items: center; justify-content: center; 
+                      border-radius: 8px; color: white; font-size: 14px; text-align: center;">
+            <div>
+              <div style="font-weight: bold; margin-bottom: 4px;">✨ 테스트밈 ✨</div>
+              <div style="font-size: 12px; opacity: 0.9;">다양한 심리테스트를 즐겨보세요!</div>
+            </div>
+          </div>
+        `;
+        element.innerHTML = fallbackContent;
+        element.style.display = 'block';
+      };
+    }, [position]);
+
+    return (
+      <div className="w-full mb-8 flex justify-center">
+        <div className="max-w-[320px] w-full">
+          <ins 
+            className="kakao_ad_area" 
+            style={{ display: 'none', width: '100%' }}
+            data-ad-unit="DAN-UqH6IJflvZbmQ5QL"
+            data-ad-width="320"
+            data-ad-height="100"
+            data-ad-onfail={`adFailCallback_${position}`}
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   // 카드 뱃지
   const getBadge = (test: any) => {
@@ -241,30 +274,32 @@ export default function HomeClient() {
       
       <NeonBanner />
       <p className="text-gray-600 mb-6 text-center text-base">테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.</p>
-      <KakaoAdBanner />
-      {Object.entries(CATEGORY_LABELS).map(([cat, label], index) => (
-        <div key={cat}>
-          {testsByCategory[cat]?.length > 0 && (
-            <section className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
-              <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
-              <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
-                <div className="flex gap-4 md:gap-6">
-                  {(testsByCategory[cat] as any[]).map((test) => (
-                    <div
-                      key={test.code}
-                      className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
-                    >
-                      <TestCard test={test} />
-                    </div>
-                  ))}
-                </div>
+      
+      {/* 카카오 애드핏 모바일 배너 */}
+      <AdFitBanner position="top" />
+      
+      {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (
+        testsByCategory[cat]?.length > 0 && (
+          <section key={cat} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
+            <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
+            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
+              <div className="flex gap-4 md:gap-6">
+                {(testsByCategory[cat] as any[]).map((test) => (
+                  <div
+                    key={test.code}
+                    className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
+                  >
+                    <TestCard test={test} />
+                  </div>
+                ))}
               </div>
-            </section>
-          )}
-          {/* 3번째 카테고리 이후에 광고 추가 */}
-          {/* {index === 2 && <KakaoAdBanner />} */}
-        </div>
+            </div>
+          </section>
+        )
       ))}
+      
+      {/* 페이지 하단 광고 배너 */}
+      <AdFitBanner position="bottom" />
     </>
   );
 } 
