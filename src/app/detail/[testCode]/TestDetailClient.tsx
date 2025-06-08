@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { db } from "@/firebase";
 import { doc, getDoc, updateDoc, increment, setDoc } from "firebase/firestore";
@@ -15,7 +15,7 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
   const [isImgError, setIsImgError] = useState(false);
 
   // 숫자 포맷팅 함수
-  const formatViews = (views: number): string => {
+  const formatViews = useCallback((views: number): string => {
     if (views >= 10000) {
       return `${(views / 10000).toFixed(1)}만명`;
     } else if (views >= 1000) {
@@ -23,7 +23,7 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
     } else {
       return `${views}명`;
     }
-  };
+  }, []);
 
   const hasIncreased = useRef(false);
   
@@ -42,7 +42,7 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
       }
     }
     fetchStats();
-  }, [testData]);
+  }, [testData.docId]);
 
   // 페이지 진입 시 조회수 증가 (mount 시 1회만)
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
     hasIncreased.current = true;
     const ref = doc(db, "testStats", testData.docId);
     updateDoc(ref, { views: increment(1) });
-  }, [testData?.code]);
+  }, [testData.docId]);
 
   return (
     <div className="max-w-md w-full sm:mx-auto mx-2 bg-white rounded-xl shadow p-4 sm:p-10 mt-4 mb-8 flex flex-col items-center">
