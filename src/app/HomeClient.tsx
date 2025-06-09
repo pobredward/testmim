@@ -163,19 +163,51 @@ export default function HomeClient() {
   // 카카오 애드핏 모바일 배너 컴포넌트
   const AdFitBanner = ({ position = "top" }: { position?: "top" | "bottom" }) => {
     useEffect(() => {
-      // AdFit 스크립트가 이미 로드되었는지 확인
-      if (!document.querySelector('script[src*="ba.min.js"]')) {
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = 'https://t1.daumcdn.net/kas/static/ba.min.js';
-        script.async = true;
-        document.head.appendChild(script);
-      }
-
       // NO-AD 콜백 함수를 전역에 등록
       (window as any)[`adFailCallback_${position}`] = (element: HTMLElement) => {
         // 광고가 없을 때 영역을 숨김
         element.style.display = 'none';
+      };
+
+      // AdFit 스크립트 로드 및 초기화
+      const loadAdFit = () => {
+        if (typeof (window as any).adfit === 'undefined') {
+          const script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = 'https://t1.daumcdn.net/kas/static/ba.min.js';
+          script.async = true;
+          script.onload = () => {
+            // 스크립트 로드 후 광고 초기화
+            try {
+              (window as any).adfit?.cmd?.push(() => {
+                (window as any).adfit.display('DAN-UqH6IJflvZbmQ5QL');
+              });
+            } catch (e) {
+              console.log('AdFit 초기화 오류:', e);
+            }
+          };
+          document.head.appendChild(script);
+        } else {
+          // 이미 스크립트가 로드된 경우 바로 초기화
+          try {
+            (window as any).adfit?.cmd?.push(() => {
+              (window as any).adfit.display('DAN-UqH6IJflvZbmQ5QL');
+            });
+          } catch (e) {
+            console.log('AdFit 초기화 오류:', e);
+          }
+        }
+      };
+
+      // DOM이 준비되면 로드
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadAdFit);
+      } else {
+        loadAdFit();
+      }
+
+      return () => {
+        document.removeEventListener('DOMContentLoaded', loadAdFit);
       };
     }, [position]);
 
