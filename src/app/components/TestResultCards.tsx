@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 import { getUserTestResults, UserTestResult, deleteTestResult } from "@/utils/userResults";
 import { getTestByCode } from "@/data/tests";
 
@@ -13,13 +14,7 @@ export default function TestResultCards() {
   const [showAll, setShowAll] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (session?.user?.id) {
-      loadUserResults();
-    }
-  }, [session?.user?.id]);
-
-  const loadUserResults = async () => {
+  const loadUserResults = useCallback(async () => {
     if (!session?.user?.id) return;
     
     setLoading(true);
@@ -31,7 +26,13 @@ export default function TestResultCards() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [session?.user?.id]);
+
+  useEffect(() => {
+    if (session?.user?.id) {
+      loadUserResults();
+    }
+  }, [session?.user?.id, loadUserResults]);
 
   const handleDeleteResult = async (resultId: string) => {
     if (!session?.user?.id) return;
@@ -102,10 +103,11 @@ export default function TestResultCards() {
             <div key={result.id} className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200 group">
               {/* 테스트 썸네일 헤더 */}
               <div className="relative h-20 overflow-hidden">
-                <img
+                <Image
                   src={testData?.thumbnailUrl || "/default-test-thumb.png"}
                   alt={result.testTitle}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-200"
                   onError={(e) => {
                     // 이미지 로드 실패 시 아이콘으로 대체
                     const target = e.target as HTMLImageElement;

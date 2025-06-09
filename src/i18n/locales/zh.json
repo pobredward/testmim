@@ -14,7 +14,10 @@
     "login": "登录",
     "signup": "注册",
     "logout": "退出",
-    "mypage": "我的页面"
+    "mypage": "我的页面",
+    "siteName": "Testmim",
+    "logoAlt": "Testmim 标志",
+    "homePageTitle": "Testmim 主页"
   },
   "categories": {
     "자아": "🧠 寻找真正的自己",

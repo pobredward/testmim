@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import ProfileEditModal from "@/app/components/ProfileEditModal";
 import TestResultCards from "@/app/components/TestResultCards";
 
@@ -65,11 +66,14 @@ export default function MyPage() {
         <h2 className="text-lg font-semibold mb-4 text-gray-800">프로필 정보</h2>
         <div className="flex items-center gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
           {session.user?.image && (
-            <img 
-              src={session.user.image} 
-              alt="프로필 이미지" 
-              className="w-16 h-16 rounded-full object-cover border border-gray-200"
-            />
+            <div className="relative w-16 h-16">
+              <Image 
+                src={session.user.image} 
+                alt="프로필 이미지" 
+                fill
+                className="rounded-full object-cover border border-gray-200"
+              />
+            </div>
           )}
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-1">

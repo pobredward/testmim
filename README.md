@@ -2,6 +2,15 @@
 
 무료 심리테스트, 성향테스트, MBTI, 재미있는 테스트 모음
 
+## 🌟 주요 기능
+
+- 🌍 **다국어 지원**: 한국어, 영어, 중국어, 일본어 지원
+- 📱 **반응형 디자인**: 모바일, 태블릿, 데스크톱 최적화
+- 🔐 **소셜 로그인**: 카카오, 네이버, 구글, 페이스북, 애플 로그인
+- 📊 **테스트 결과 관리**: 개인별 테스트 결과 저장 및 관리
+- 🚀 **성능 최적화**: Next.js 15, Image 최적화, 코드 분할
+- 🎨 **모던 UI/UX**: Tailwind CSS, 애니메이션, 그라데이션
+
 ## 소셜 미디어 공유 설정
 
 테스트 결과 페이지에서 다양한 소셜 미디어 플랫폼으로 공유할 수 있습니다.
@@ -53,25 +62,61 @@
 
 이 프로젝트는 [Next.js](https://nextjs.org)로 [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app)을 사용하여 부트스트랩되었습니다.
 
-## 시작하기
+## 🚀 시작하기
 
-먼저 개발 서버를 실행하세요:
+### 1. 의존성 설치
+```bash
+npm install
+```
 
+### 2. 환경 변수 설정
+`.env.local` 파일을 생성하고 필요한 환경 변수를 설정하세요:
+```env
+# Firebase 설정
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+# NextAuth 설정
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+
+# 소셜 로그인 설정 (선택사항)
+NEXT_PUBLIC_KAKAO_JS_KEY=your_kakao_js_key
+```
+
+### 3. 개발 서버 실행
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 결과를 확인하세요.
 
-`app/page.tsx`를 수정하여 페이지 편집을 시작할 수 있습니다. 파일을 편집하면 페이지가 자동으로 업데이트됩니다.
+## 🛠️ 개발 스크립트
 
-이 프로젝트는 [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)를 사용하여 Google Fonts의 커스텀 폰트인 Geist를 자동으로 최적화하고 로드합니다.
+```bash
+npm run dev          # 개발 서버 실행 (Turbopack 사용)
+npm run build        # 프로덕션 빌드
+npm run start        # 프로덕션 서버 실행
+npm run lint         # ESLint 검사
+npm run lint:fix     # ESLint 자동 수정
+npm run type-check   # TypeScript 타입 검사
+npm run clean        # 빌드 파일 정리
+npm run analyze      # 번들 분석
+```
+
+## 🏗️ 기술 스택
+
+- **프레임워크**: Next.js 15 (App Router)
+- **언어**: TypeScript
+- **스타일링**: Tailwind CSS 4
+- **인증**: NextAuth.js
+- **데이터베이스**: Firebase Firestore
+- **다국어**: react-i18next
+- **배포**: Vercel (권장)
 
 ## 더 알아보기
 

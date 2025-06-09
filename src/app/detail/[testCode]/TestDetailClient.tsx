@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { db } from "@/firebase";
 import { doc, getDoc, updateDoc, increment, setDoc } from "firebase/firestore";
 import { useTranslation } from 'react-i18next';
@@ -69,9 +70,9 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
   return (
     <div className="max-w-md w-full sm:mx-auto mx-2 bg-white rounded-xl shadow p-4 sm:p-10 mt-4 mb-8 flex flex-col items-center">
       {/* 썸네일: 파일 내 경로만 사용, 없으면 아이콘, 로딩 실패 시에도 아이콘 */}
-      <div className="w-full max-w-[220px] aspect-square bg-pink-100 rounded-xl flex items-center justify-center mb-6 overflow-hidden">
+      <div className="w-full max-w-[220px] aspect-square bg-pink-100 rounded-xl flex items-center justify-center mb-6 overflow-hidden relative">
         {testData.thumbnailUrl && !isImgError ? (
-          <img src={testData.thumbnailUrl} alt={translatedData.title} className="object-contain w-full h-full" onError={() => setIsImgError(true)} />
+          <Image src={testData.thumbnailUrl} alt={translatedData.title} fill className="object-contain" onError={() => setIsImgError(true)} />
         ) : (
           <span className="text-6xl">{testData.icon}</span>
         )}

@@ -14,7 +14,10 @@
     "login": "Login",
     "signup": "Sign Up",
     "logout": "Logout",
-    "mypage": "My Page"
+    "mypage": "My Page",
+    "siteName": "Testmim",
+    "logoAlt": "Testmim Logo",
+    "homePageTitle": "Testmim Homepage"
   },
   "categories": {
     "자아": "🧠 Finding the Real Me",

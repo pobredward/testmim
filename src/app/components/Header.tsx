@@ -5,6 +5,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useState, useRef, useEffect } from "react";
 import LanguageSelector from "./LanguageSelector";
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
 
 export default function Header() {
   const { data: session, status } = useSession();
@@ -43,10 +44,19 @@ export default function Header() {
   return (
     <header className="w-full border-b bg-white sticky top-0 z-30">
       <nav className="max-w-2xl mx-auto flex items-center h-14 px-4">
-        <Link href="/" className="font-bold text-lg tracking-tight text-gray-900" aria-label="테스트밈 홈페이지">테스트밈</Link>
+        <Link href="/" className="flex items-center space-x-2 font-bold text-lg tracking-tight text-gray-900" aria-label={t('header.homePageTitle')}>
+          <Image 
+            src="/favicon-32x32.png" 
+            alt={t('header.logoAlt')} 
+            width={28} 
+            height={28}
+            className="flex-shrink-0"
+          />
+          <span>{t('header.siteName')}</span>
+        </Link>
         
         {/* 데스크톱 내비게이션 */}
-        <div className="hidden md:flex items-center space-x-6 ml-8">
+        {/* <div className="hidden md:flex items-center space-x-6 ml-8">
           <Link href="/" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
             {t('header.allTests')}
           </Link>
@@ -58,7 +68,7 @@ export default function Header() {
               {t('header.myTests')}
             </Link>
           )}
-        </div>
+        </div> */}
         
         <div className="flex-1" />
         
@@ -88,9 +98,11 @@ export default function Header() {
             {status === "loading" ? (
               <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
             ) : session?.user?.image ? (
-              <img 
+              <Image 
                 src={session.user.image} 
                 alt="프로필" 
+                width={32}
+                height={32}
                 className="w-8 h-8 rounded-full object-cover"
               />
             ) : (

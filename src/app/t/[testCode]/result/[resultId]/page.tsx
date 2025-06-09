@@ -52,7 +52,7 @@ export default function TestResultPage() {
       }
     }
     if (resultId) fetchResult();
-  }, [resultId]);
+  }, [resultId, t]);
 
   if (!TEST_DATA) {
     return <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">{t('test.testNotFound')}</div>;

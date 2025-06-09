@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 import { getUserTestResults, getUserTestStats, UserTestResult } from "@/utils/userResults";
 
 interface UserTestResultsProps {
@@ -17,13 +18,7 @@ export default function UserTestResults({ isOpen, onClose }: UserTestResultsProp
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'list' | 'stats'>('list');
 
-  useEffect(() => {
-    if (isOpen && session?.user?.id) {
-      loadUserResults();
-    }
-  }, [isOpen, session?.user?.id]);
-
-  const loadUserResults = async () => {
+  const loadUserResults = useCallback(async () => {
     if (!session?.user?.id) return;
     
     setLoading(true);
@@ -40,7 +35,13 @@ export default function UserTestResults({ isOpen, onClose }: UserTestResultsProp
     } finally {
       setLoading(false);
     }
-  };
+  }, [session?.user?.id]);
+
+  useEffect(() => {
+    if (isOpen && session?.user?.id) {
+      loadUserResults();
+    }
+  }, [isOpen, session?.user?.id, loadUserResults]);
 
   const formatDate = (timestamp: any) => {
     if (!timestamp) return "";
@@ -152,11 +153,12 @@ export default function UserTestResults({ isOpen, onClose }: UserTestResultsProp
                           <div key={result.id} className="bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-all duration-200">
                             <div className="flex items-start gap-4">
                               {/* 테스트 썸네일 */}
-                              <div className="flex-shrink-0">
-                                <img
+                              <div className="flex-shrink-0 relative w-16 h-16">
+                                <Image
                                   src={result.testThumbnail}
                                   alt={result.testTitle}
-                                  className="w-16 h-16 rounded-lg object-cover border border-gray-200"
+                                  fill
+                                  className="rounded-lg object-cover border border-gray-200"
                                 />
                               </div>
 
@@ -245,11 +247,14 @@ export default function UserTestResults({ isOpen, onClose }: UserTestResultsProp
                             {stats.recentTests.map((result: UserTestResult) => (
                               <div key={result.id} className="flex items-center justify-between py-2">
                                 <div className="flex items-center gap-3">
-                                  <img
-                                    src={result.testThumbnail}
-                                    alt={result.testTitle}
-                                    className="w-10 h-10 rounded-lg object-cover"
-                                  />
+                                  <div className="relative w-10 h-10">
+                                    <Image
+                                      src={result.testThumbnail}
+                                      alt={result.testTitle}
+                                      fill
+                                      className="rounded-lg object-cover"
+                                    />
+                                  </div>
                                   <div>
                                     <p className="font-medium text-gray-800">{result.testTitle}</p>
                                     <p className="text-sm text-gray-500">{formatDate(result.completedAt)}</p>

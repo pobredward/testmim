@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { signIn } from "next-auth/react";
 import { getPrimaryProviders, getSecondaryProviders } from "@/data/socialAuth";
 
@@ -31,10 +32,12 @@ export default function SocialLogin() {
             style={{ minHeight: 48 }}
             aria-label={provider.label}
           >
-            <img 
+            <Image 
               src={`/btn_${provider.key}.svg`} 
               alt={provider.name + " 로고"} 
-              className="w-6 h-6 mr-2" 
+              width={24}
+              height={24}
+              className="mr-2" 
             />
             <span className="flex-1 text-center">{provider.label}</span>
           </button>
@@ -57,10 +60,11 @@ export default function SocialLogin() {
             className="w-12 h-12 rounded-full flex items-center justify-center bg-white border border-gray-200 shadow hover:shadow-md transition"
             aria-label={provider.label}
           >
-            <img 
+            <Image 
               src={`/btn_${provider.key}.svg`} 
               alt={provider.name + " 로고"} 
-              className="w-7 h-7" 
+              width={28}
+              height={28}
             />
           </button>
         ))}

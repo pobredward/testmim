@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { db, analytics } from "@/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { getAllTests } from "@/data/tests";
@@ -226,10 +227,11 @@ export default function HomeClient() {
       {getBadge(test)}
       <div className="flex flex-col h-full">
         <div className="relative w-full h-24 overflow-hidden">
-          <img
+          <Image
             src={test.thumbnailUrl || "/default-test-thumb.png"}
             alt={test.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-300"
             onError={(e) => {
               // 이미지 로드 실패 시 아이콘으로 대체
               const target = e.target as HTMLImageElement;

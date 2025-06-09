@@ -14,7 +14,10 @@
     "login": "로그인",
     "signup": "회원가입",
     "logout": "로그아웃",
-    "mypage": "마이페이지"
+    "mypage": "마이페이지",
+    "siteName": "테스트밈",
+    "logoAlt": "테스트밈 로고",
+    "homePageTitle": "테스트밈 홈페이지"
   },
   "categories": {
     "자아": "🧠 진짜 나를 찾기",
