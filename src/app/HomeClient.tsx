@@ -306,9 +306,6 @@ export default function HomeClient() {
           </section>
         )
       ))}
-      
-      {/* 페이지 하단 광고 배너 */}
-      <AdFitBanner position="bottom" />
     </>
   );
 } 
