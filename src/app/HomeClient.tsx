@@ -174,19 +174,8 @@ export default function HomeClient() {
 
       // NO-AD 콜백 함수를 전역에 등록
       (window as any)[`adFailCallback_${position}`] = (element: HTMLElement) => {
-        // 광고가 없을 때 대체 콘텐츠 표시
-        const fallbackContent = `
-          <div style="width: 320px; height: 100px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                      display: flex; align-items: center; justify-content: center; 
-                      border-radius: 8px; color: white; font-size: 14px; text-align: center;">
-            <div>
-              <div style="font-weight: bold; margin-bottom: 4px;">✨ 테스트밈 ✨</div>
-              <div style="font-size: 12px; opacity: 0.9;">다양한 심리테스트를 즐겨보세요!</div>
-            </div>
-          </div>
-        `;
-        element.innerHTML = fallbackContent;
-        element.style.display = 'block';
+        // 광고가 없을 때 영역을 숨김
+        element.style.display = 'none';
       };
     }, [position]);
 
@@ -195,7 +184,7 @@ export default function HomeClient() {
         <div className="max-w-[320px] w-full">
           <ins 
             className="kakao_ad_area" 
-            style={{ display: 'none', width: '100%' }}
+            style={{ display: 'block', width: '100%' }}
             data-ad-unit="DAN-UqH6IJflvZbmQ5QL"
             data-ad-width="320"
             data-ad-height="100"
