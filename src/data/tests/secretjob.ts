@@ -105,7 +105,8 @@ export const SECRETJOB_TEST = {
       subDesc: "대화를 듣기보단 '해석'하며, 타인의 숨은 감정도 잘 읽어냅니다.",
       recommend: ["감성적인 평화 유지군", "통찰력 있는 기획자"],
       imageDesc: "검은 후드, 조용한 눈빛, 책상에 분석 노트",
-      icon: "🔍"
+      icon: "🔍",
+      hashtags: ["#관찰력", "#분석가", "#내면탐구"],
     },
     {
       type: "데이터 마법사",
@@ -114,7 +115,8 @@ export const SECRETJOB_TEST = {
       subDesc: "무엇이든 '이게 왜 그런지를 먼저 묻는 사람'.",
       recommend: ["감각적 연출가", "논리적 기획자"],
       imageDesc: "엑셀 창 열어둔 노트북, 코드 같은 수첩",
-      icon: "📊"
+      icon: "📊",
+      hashtags: ["#데이터분석", "#논리적사고", "#패턴인식"],
     },
     {
       type: "감정 연출가",
@@ -123,7 +125,8 @@ export const SECRETJOB_TEST = {
       subDesc: "대화에 생기를 불어넣고, 무거운 자리를 유쾌하게 만드는 감정 연출의 마스터입니다.",
       recommend: ["조용한 분석가", "전략적 기획자"],
       imageDesc: "마이크, 환한 웃음, 핑크 조명",
-      icon: "🎭"
+      icon: "🎭",
+      hashtags: ["#분위기메이커", "#감정조율", "#에너지충전"],
     },
     {
       type: "전투 조율가",
@@ -132,7 +135,8 @@ export const SECRETJOB_TEST = {
       subDesc: "리더십이 자연스럽게 발휘되며, 위기 상황에서도 평정을 잃지 않습니다.",
       recommend: ["데이터 마법사", "연출가"],
       imageDesc: "지도 위 핀 꽂는 모습, 디지털 워치",
-      icon: "🧭"
+      icon: "🧭",
+      hashtags: ["#리더십", "#냉정함", "#전략가"],
     },
     {
       type: "평화 유지군",
@@ -141,7 +145,8 @@ export const SECRETJOB_TEST = {
       subDesc: "갈등 회피가 아니라, '조율'을 선택하는 지혜로운 사람입니다.",
       recommend: ["리더형 조율가", "에너지 연출가"],
       imageDesc: "향 피우는 명상 공간, 평온한 표정",
-      icon: "🧘"
+      icon: "🧘",
+      hashtags: ["#평화주의", "#중재자", "#조화추구"],
     },
     {
       type: "기획자",
@@ -150,7 +155,8 @@ export const SECRETJOB_TEST = {
       subDesc: "당신은 현실보단 '그럴듯한 청사진'을 먼저 그리는 타입입니다.",
       recommend: ["데이터 마법사", "전투 조율가"],
       imageDesc: "화이트보드 + 낙서 가득한 다이어리",
-      icon: "🧩"
+      icon: "🧩",
+      hashtags: ["#기획력", "#창조적사고", "#미래지향"],
     }
   ] as TestResult[],
   calculateResult(answers: TestAnswer[]): TestResult {

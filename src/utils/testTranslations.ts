@@ -70,6 +70,7 @@ export function getTranslatedTestData(testCode: string, originalData: any, langu
       subDesc: langData.results?.[index]?.subDesc || result.subDesc,
       recommend: langData.results?.[index]?.recommend || result.recommend,
       imageDesc: langData.results?.[index]?.imageDesc || result.imageDesc,
+      hashtags: langData.results?.[index]?.hashtags || result.hashtags,
     })) || originalData.results,
   };
 } 

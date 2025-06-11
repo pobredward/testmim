@@ -100,6 +100,7 @@ export const EGENTETO_TEST = {
       ],
       imageDesc: undefined,
       icon: "🔥",
+      hashtags: ["#테토녀", "#리더십", "#열정적"],
       condition: (teto: number, egen: number) => teto >= 16,
     },
     {
@@ -114,6 +115,7 @@ export const EGENTETO_TEST = {
       ],
       imageDesc: undefined,
       icon: "🌟",
+      hashtags: ["#테토녀중위", "#밸런스", "#유연성"],
       condition: (teto: number, egen: number) => teto >= 12 && teto <= 14,
     },
     {
@@ -128,6 +130,7 @@ export const EGENTETO_TEST = {
       ],
       imageDesc: undefined,
       icon: "🌬️",
+      hashtags: ["#테토녀하위", "#감성적", "#유연함"],
       condition: (teto: number, egen: number) => teto >= 8 && teto <= 10,
     },
     {
@@ -142,6 +145,7 @@ export const EGENTETO_TEST = {
       ],
       imageDesc: undefined,
       icon: "💧",
+      hashtags: ["#에겐녀", "#감성적", "#공감력"],
       condition: (teto: number, egen: number) => egen >= 16,
     },
     {
@@ -156,6 +160,7 @@ export const EGENTETO_TEST = {
       ],
       imageDesc: undefined,
       icon: "🌈",
+      hashtags: ["#에겐녀중위", "#균형감", "#협력적"],
       condition: (teto: number, egen: number) => egen >= 12 && egen <= 14,
     },
     {
@@ -170,6 +175,7 @@ export const EGENTETO_TEST = {
       ],
       imageDesc: undefined,
       icon: "🌙",
+      hashtags: ["#에겐녀하위", "#다양성", "#경험추구"],
       condition: (teto: number, egen: number) => egen >= 8 && egen <= 10,
     },
   ] as TestResult[],

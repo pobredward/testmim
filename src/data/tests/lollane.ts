@@ -58,7 +58,7 @@ export const LOLLANE_TEST = {
         { text: "1:1 솔킬 땄을 때", value: "TOP", score: 2 },
         { text: "로밍으로 킬 만들어냈을 때", value: "MID", score: 2 },
         { text: "내가 캐리해서 역전했을 때", value: "ADC", score: 2 },
-        { text: "팀원이 ‘고마워’ 했을 때", value: "SUP", score: 2 }
+        { text: "팀원이 '고마워' 했을 때", value: "SUP", score: 2 }
       ]
     },
     {
@@ -115,7 +115,6 @@ export const LOLLANE_TEST = {
       subDesc: "상대의 압박 속에서도 꿋꿋하게 라인을 유지하는 타입",
       icon: "🛡️",
       hashtags: ["#1인분", "#탑솔", "#강한멘탈"],
-      condition: (scores: Record<string, number>, highest: string[]) => scores.TOP >= 12 && highest.includes("TOP")
     },
     {
       type: "MID",
@@ -124,7 +123,6 @@ export const LOLLANE_TEST = {
       subDesc: "판을 읽고 움직이는 리더 타입",
       icon: "⚔️",
       hashtags: ["#중심", "#로밍", "#미드라이너"],
-      condition: (scores: Record<string, number>, highest: string[]) => scores.MID >= 12 && highest.includes("MID")
     },
     {
       type: "ADC",
@@ -133,7 +131,6 @@ export const LOLLANE_TEST = {
       subDesc: "한타에선 당신의 딜량이 곧 희망",
       icon: "🎯",
       hashtags: ["#원딜", "#포지셔닝", "#캐리력"],
-      condition: (scores: Record<string, number>, highest: string[]) => scores.ADC >= 12 && highest.includes("ADC")
     },
     {
       type: "SUP",
@@ -142,7 +139,6 @@ export const LOLLANE_TEST = {
       subDesc: "당신은 팀워크의 핵심",
       icon: "💉",
       hashtags: ["#서폿", "#시야장인", "#팀플"],
-      condition: (scores: Record<string, number>, highest: string[]) => scores.SUP >= 12 && highest.includes("SUP")
     },
     {
       type: "JUNGLE",
@@ -151,7 +147,6 @@ export const LOLLANE_TEST = {
       subDesc: "초반 설계부터 오브젝트 컨트롤까지, 다 당신 손에 달렸다",
       icon: "🌲",
       hashtags: ["#정글러", "#갱킹", "#설계자"],
-      condition: (scores: Record<string, number>, highest: string[]) => scores.JUNGLE >= 12 && highest.includes("JUNGLE")
     },
     {
       type: "ALL",
@@ -160,7 +155,6 @@ export const LOLLANE_TEST = {
       subDesc: "팀의 상황에 따라 언제든 역할을 바꿀 수 있는 당신",
       icon: "🌀",
       hashtags: ["#올라운더", "#전천후", "#유연함"],
-      condition: () => true
     }
   ] as TestResult[],
   calculateResult(answers: TestAnswer[]): TestResult {
@@ -169,17 +163,19 @@ export const LOLLANE_TEST = {
     answers.forEach((a) => {
       if (scores[a.value] !== undefined) scores[a.value] += a.score;
     });
+    
     // 최고 점수 라인 찾기
     const maxScore = Math.max(...Object.values(scores));
-    const highest = Object.entries(scores)
-      .filter(([, score]) => score === maxScore && score > 0)
+    const candidates = Object.entries(scores)
+      .filter(([, score]) => score === maxScore)
       .map(([type]) => type);
-    // 결과 조건에 따라 반환
-    for (const result of this.results) {
-      if (result.condition && result.condition(scores, highest)) {
-        return { ...result, scores };
-      }
+    
+    // 12점 이상이고 동점이 아니면 해당 라인, 그렇지 않으면 올라운더
+    if (maxScore >= 12 && candidates.length === 1) {
+      return this.results.find(r => r.type === candidates[0]) || this.results[this.results.length - 1];
     }
-    return { ...this.results[this.results.length - 1], scores };
+    
+    // 동점이거나 12점 미만이면 올라운더
+    return this.results.find(r => r.type === "ALL") || this.results[this.results.length - 1];
   }
 }; 

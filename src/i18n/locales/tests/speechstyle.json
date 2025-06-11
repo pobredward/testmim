@@ -97,27 +97,33 @@
     "results": [
       {
         "title": "🕺 1990년대 후반 스타일",
-        "desc": "정중하고 격식을 중시하는 말투\n\n\"감사합니다.\", \"안녕히 가세요.\" 등 공손한 표현 사용"
+        "desc": "정중하고 격식을 중시하는 말투\n\n\"감사합니다.\", \"안녕히 가세요.\" 등 공손한 표현 사용",
+        "hashtags": ["#정중한말투", "#격식중시", "#공손한표현"]
       },
       {
         "title": "💃 2000년대 초반 스타일",
-        "desc": "밝고 경쾌한 말투\n\n\"헐 대박\", \"짱이야\" 등 감탄사와 유행어 사용"
+        "desc": "밝고 경쾌한 말투\n\n\"헐 대박\", \"짱이야\" 등 감탄사와 유행어 사용",
+        "hashtags": ["#밝은말투", "#경쾌함", "#감탄사"]
       },
       {
         "title": "🕶️ 2010년대 초반 스타일",
-        "desc": "인터넷 신조어와 이모티콘 활용\n\n\"ㄳ\", \"ㅇㅋ~\" 등 축약어 사용"
+        "desc": "인터넷 신조어와 이모티콘 활용\n\n\"ㄳ\", \"ㅇㅋ~\" 등 축약어 사용",
+        "hashtags": ["#신조어", "#축약어", "#이모티콘"]
       },
       {
         "title": "🎧 2010년대 중반 스타일",
-        "desc": "감정을 직설적으로 표현\n\n\"빡쳐\", \"개좋아\" 등 강한 어휘 사용"
+        "desc": "감정을 직설적으로 표현\n\n\"빡쳐\", \"개좋아\" 등 강한 어휘 사용",
+        "hashtags": ["#직설적표현", "#강한어휘", "#솔직함"]
       },
       {
         "title": "📱 2020년대 초반 스타일",
-        "desc": "유행하는 밈과 표현 사용\n\n\"찐행복\", \"실화냐\" 등 인터넷 밈 활용"
+        "desc": "유행하는 밈과 표현 사용\n\n\"찐행복\", \"실화냐\" 등 인터넷 밈 활용",
+        "hashtags": ["#밈활용", "#트렌드", "#인터넷언어"]
       },
       {
         "title": "🤖 혼합형 스타일",
-        "desc": "다양한 시대의 표현을 혼합하여 사용\n\n상황에 따라 말투를 유연하게 조절"
+        "desc": "다양한 시대의 표현을 혼합하여 사용\n\n상황에 따라 말투를 유연하게 조절",
+        "hashtags": ["#혼합형", "#유연한말투", "#상황적응"]
       }
     ]
   },
@@ -219,27 +225,33 @@
     "results": [
       {
         "title": "🕺 Late 1990s Style",
-        "desc": "Polite and formal speech style\n\nUses courteous expressions like \"Thank you\", \"Goodbye\""
+        "desc": "Polite and formal speech style\n\nUses courteous expressions like \"Thank you\", \"Goodbye\"",
+        "hashtags": ["#PoliteSpeech", "#Formal", "#Courteous"]
       },
       {
         "title": "💃 Early 2000s Style",
-        "desc": "Bright and cheerful speech style\n\nUses exclamations and trendy words like \"OMG awesome\", \"Awesome\""
+        "desc": "Bright and cheerful speech style\n\nUses exclamations and trendy words like \"OMG awesome\", \"Awesome\"",
+        "hashtags": ["#BrightSpeech", "#Cheerful", "#Exclamations"]
       },
       {
         "title": "🕶️ Early 2010s Style",
-        "desc": "Uses internet slang and emoticons\n\nUses abbreviations like \"Thx\", \"OK~\""
+        "desc": "Uses internet slang and emoticons\n\nUses abbreviations like \"Thx\", \"OK~\"",
+        "hashtags": ["#InternetSlang", "#Abbreviations", "#Emoticons"]
       },
       {
         "title": "🎧 Mid 2010s Style",
-        "desc": "Direct emotional expression\n\nUses strong vocabulary like \"Pissed\", \"So good\""
+        "desc": "Direct emotional expression\n\nUses strong vocabulary like \"Pissed\", \"So good\"",
+        "hashtags": ["#DirectExpression", "#StrongWords", "#Honest"]
       },
       {
         "title": "📱 Early 2020s Style",
-        "desc": "Uses trending memes and expressions\n\nUtilizes internet memes like \"Real happiness\", \"Is this real\""
+        "desc": "Uses trending memes and expressions\n\nUtilizes internet memes like \"Real happiness\", \"Is this real\"",
+        "hashtags": ["#Memes", "#Trending", "#InternetLanguage"]
       },
       {
         "title": "🤖 Mixed Style",
-        "desc": "Mixes expressions from various eras\n\nFlexibly adjusts speech style according to situations"
+        "desc": "Mixes expressions from various eras\n\nFlexibly adjusts speech style according to situations",
+        "hashtags": ["#Mixed", "#Flexible", "#Adaptive"]
       }
     ]
   },
@@ -341,27 +353,33 @@
     "results": [
       {
         "title": "🕺 1990年代后期风格",
-        "desc": "礼貌和重视礼仪的说话方式\n\n使用\"谢谢\"、\"再见\"等礼貌表达"
+        "desc": "礼貌和重视礼仪的说话方式\n\n使用\"谢谢\"、\"再见\"等礼貌表达",
+        "hashtags": ["#礼貌说话", "#重视礼仪", "#礼貌表达"]
       },
       {
         "title": "💃 2000年代初期风格",
-        "desc": "明亮活泼的说话方式\n\n使用\"哇塞厉害\"、\"太棒了\"等感叹词和流行语"
+        "desc": "明亮活泼的说话方式\n\n使用\"哇塞厉害\"、\"太棒了\"等感叹词和流行语",
+        "hashtags": ["#明亮说话", "#活泼", "#感叹词"]
       },
       {
         "title": "🕶️ 2010年代初期风格",
-        "desc": "使用网络新词和表情符号\n\n使用\"谢\"、\"好的~\"等缩略语"
+        "desc": "使用网络新词和表情符号\n\n使用\"谢\"、\"好的~\"等缩略语",
+        "hashtags": ["#网络新词", "#缩略语", "#表情符号"]
       },
       {
         "title": "🎧 2010年代中期风格",
-        "desc": "直接表达情感\n\n使用\"超气\"、\"超好\"等强烈词汇"
+        "desc": "直接表达情感\n\n使用\"超气\"、\"超好\"等强烈词汇",
+        "hashtags": ["#直接表达", "#强烈词汇", "#坦率"]
       },
       {
         "title": "📱 2020年代初期风格",
-        "desc": "使用流行的梗和表达\n\n活用\"真开心\"、\"这是真的吗\"等网络梗"
+        "desc": "使用流行的梗和表达\n\n活用\"真开心\"、\"这是真的吗\"等网络梗",
+        "hashtags": ["#网络梗", "#流行", "#网络语言"]
       },
       {
         "title": "🤖 混合型风格",
-        "desc": "混合使用各个时代的表达\n\n根据情况灵活调节说话方式"
+        "desc": "混合使用各个时代的表达\n\n根据情况灵活调节说话方式",
+        "hashtags": ["#混合型", "#灵活说话", "#情况适应"]
       }
     ]
   },
@@ -463,27 +481,33 @@
     "results": [
       {
         "title": "🕺 1990年代後半スタイル",
-        "desc": "丁寧で礼儀を重視する話し方\n\n\"ありがとうございます\"、\"さようなら\"など丁寧な表現を使用"
+        "desc": "丁寧で礼儀を重視する話し方\n\n\"ありがとうございます\"、\"さようなら\"など丁寧な表現を使用",
+        "hashtags": ["#丁寧な話し方", "#礼儀重視", "#丁寧な表現"]
       },
       {
         "title": "💃 2000年代前半スタイル",
-        "desc": "明るく軽快な話し方\n\n\"うわーすごい\"、\"最高\"など感嘆詞と流行語を使用"
+        "desc": "明るく軽快な話し方\n\n\"うわーすごい\"、\"最高\"など感嘆詞と流行語を使用",
+        "hashtags": ["#明るい話し方", "#軽快", "#感嘆詞"]
       },
       {
         "title": "🕶️ 2010年代前半スタイル",
-        "desc": "インターネット新語と絵文字を活用\n\n\"サンクス\"、\"オッケー~\"など省略語を使用"
+        "desc": "インターネット新語と絵文字を活用\n\n\"サンクス\"、\"オッケー~\"など省略語を使用",
+        "hashtags": ["#ネット新語", "#省略語", "#絵文字"]
       },
       {
         "title": "🎧 2010年代中頃スタイル",
-        "desc": "感情を直接的に表現\n\n\"キレる\"、\"めっちゃいい\"など強い語彙を使用"
+        "desc": "感情を直接的に表現\n\n\"キレる\"、\"めっちゃいい\"など強い語彙を使用",
+        "hashtags": ["#直接的表現", "#強い語彙", "#素直"]
       },
       {
         "title": "📱 2020年代前半スタイル",
-        "desc": "流行するミームと表現を使用\n\n\"ガチで嬉しい\"、\"マジか\"などインターネットミームを活用"
+        "desc": "流行するミームと表現を使用\n\n\"ガチで嬉しい\"、\"マジか\"などインターネットミームを活用",
+        "hashtags": ["#ミーム活用", "#流行", "#ネット言語"]
       },
       {
         "title": "🤖 混合型スタイル",
-        "desc": "様々な時代の表現を混合して使用\n\n状況に応じて話し方を柔軟に調節"
+        "desc": "様々な時代の表現を混合して使用\n\n状況に応じて話し方を柔軟に調節",
+        "hashtags": ["#混合型", "#柔軟な話し方", "#状況適応"]
       }
     ]
   }

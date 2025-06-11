@@ -116,6 +116,7 @@ export const PASTLIFE_TEST = {
       subDesc: "- 구조와 본질을 중시\n- 논리적이고 분석적\n- 깊은 사색가",
       recommend: ["사색, 토론, 연구"],
       icon: "🏛",
+      hashtags: ["#철학자", "#진리탐구", "#사색가"],
     },
     {
       type: "alchemist",
@@ -124,6 +125,7 @@ export const PASTLIFE_TEST = {
       subDesc: "- 실험과 탐구를 즐김\n- 원리와 구조에 집착\n- 현실 적용에 강점",
       recommend: ["실험, 연구, 창작"],
       icon: "🧪",
+      hashtags: ["#연금술사", "#실험정신", "#탐구욕"],
     },
     {
       type: "poet",
@@ -132,6 +134,7 @@ export const PASTLIFE_TEST = {
       subDesc: "- 감성적, 자유분방\n- 예술적 표현에 강점\n- 낭만적 유목민",
       recommend: ["예술, 여행, 창작"],
       icon: "🎻",
+      hashtags: ["#시인", "#자유로운영혼", "#감성충만"],
     },
     {
       type: "lord",
@@ -140,6 +143,7 @@ export const PASTLIFE_TEST = {
       subDesc: "- 리더십, 결단력\n- 책임감 강함\n- 통제와 전략에 능함",
       recommend: ["리더십, 전략, 조직"],
       icon: "👑",
+      hashtags: ["#군주", "#리더십", "#결단력"],
     },
     {
       type: "maid",
@@ -148,6 +152,7 @@ export const PASTLIFE_TEST = {
       subDesc: "- 섬세하고 배려심 깊음\n- 정서적 공감력\n- 케어와 지원에 강점",
       recommend: ["상담, 케어, 서비스"],
       icon: "💌",
+      hashtags: ["#궁중시녀", "#배려심", "#섬세함"],
     },
     {
       type: "librarian",
@@ -156,6 +161,7 @@ export const PASTLIFE_TEST = {
       subDesc: "- 관찰력, 기억력\n- 정리와 기록에 강점\n- 조용한 환경 선호",
       recommend: ["기록, 정리, 연구"],
       icon: "📜",
+      hashtags: ["#사서", "#기록보관", "#지식수집"],
     },
     {
       type: "councilor",
@@ -164,6 +170,7 @@ export const PASTLIFE_TEST = {
       subDesc: "- 전략적 사고\n- 설계와 조율에 강점\n- 배후에서 움직임",
       recommend: ["전략, 설계, 기획"],
       icon: "🧠",
+      hashtags: ["#조정관", "#전략가", "#설계자"],
     },
     {
       type: "artist",
@@ -172,6 +179,7 @@ export const PASTLIFE_TEST = {
       subDesc: "- 감정 조율, 표현력\n- 다양한 역할 수행\n- 예술적 감각",
       recommend: ["연기, 예술, 소통"],
       icon: "🎭",
+      hashtags: ["#예술가", "#가면극", "#표현력"],
     },
   ] as TestResult[],
   calculateResult(answers: TestAnswer[]): TestResult {

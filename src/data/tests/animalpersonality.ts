@@ -115,6 +115,7 @@ export const ANIMALPERSONALITY_TEST = {
       subDesc: "- 결단력과 추진력이 뛰어남\n- 무리의 중심 역할을 자주 맡음\n- 조용한 카리스마 보유",
       recommend: ["분위기 주도자", "리더십이 필요한 상황", "판단력 요구되는 일"],
       icon: "🐯",
+      hashtags: ["#리더형", "#카리스마", "#결단력"],
     },
     {
       type: "dog",
@@ -123,6 +124,7 @@ export const ANIMALPERSONALITY_TEST = {
       subDesc: "- 친화력과 에너지가 밝음\n- 주변에 사람이 많음\n- 정서적 지지자 역할",
       recommend: ["정서적 교류", "사람 중심 환경", "분위기 메이커"],
       icon: "🐶",
+      hashtags: ["#친화력", "#에너지", "#사교적"],
     },
     {
       type: "cat",
@@ -131,6 +133,7 @@ export const ANIMALPERSONALITY_TEST = {
       subDesc: "- 감정 센서가 예민함\n- 조용하지만 정서가 풍부함\n- 섬세한 관찰자",
       recommend: ["감정적 공감", "관찰과 분석", "조용한 위로"],
       icon: "🐱",
+      hashtags: ["#감성적", "#예민함", "#관찰자"],
     },
     {
       type: "octopus",
@@ -139,6 +142,7 @@ export const ANIMALPERSONALITY_TEST = {
       subDesc: "- 내면 세계에 집중\n- 혼자 있는 시간 선호\n- 깊이 있는 사고",
       recommend: ["혼자만의 시간", "창작 활동", "분석적 사고"],
       icon: "🐙",
+      hashtags: ["#은둔형", "#사색가", "#철학적"],
     },
     {
       type: "owl",
@@ -147,6 +151,7 @@ export const ANIMALPERSONALITY_TEST = {
       subDesc: "- 이성적, 분석적 사고\n- 전략적 판단에 강함\n- 구조적 사고 선호",
       recommend: ["전략 수립", "분석적 환경", "리더십 역할"],
       icon: "🦉",
+      hashtags: ["#이성적", "#전략가", "#분석가"],
     },
     {
       type: "fox",
@@ -155,6 +160,7 @@ export const ANIMALPERSONALITY_TEST = {
       subDesc: "- 센스와 적응력 뛰어남\n- 위험 감지에 민감\n- 현실적 처세술 보유",
       recommend: ["빠른 판단", "변화 적응", "현실적 문제 해결"],
       icon: "🦊",
+      hashtags: ["#영리함", "#적응력", "#현실주의"],
     },
     {
       type: "bear",
@@ -163,6 +169,7 @@ export const ANIMALPERSONALITY_TEST = {
       subDesc: "- 신뢰감과 인내심\n- 조용한 힘\n- 든든한 지지자",
       recommend: ["신뢰와 안정", "지지자 역할", "인내심 요구 환경"],
       icon: "🐻",
+      hashtags: ["#안정감", "#인내심", "#든든함"],
     },
     {
       type: "dolphin",
@@ -171,6 +178,7 @@ export const ANIMALPERSONALITY_TEST = {
       subDesc: "- 밝고 유쾌한 에너지\n- 공감력 뛰어남\n- 분위기 조율자",
       recommend: ["분위기 메이커", "공감과 소통", "밝은 에너지"],
       icon: "🐬",
+      hashtags: ["#공감력", "#유쾌함", "#조율자"],
     },
   ] as TestResult[],
   calculateResult(answers: TestAnswer[]): TestResult {

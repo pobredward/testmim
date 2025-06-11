@@ -28,11 +28,46 @@ export const SNSLESS_TEST = {
     { question: "10. SNS가 없는 세상에서 당신은?", options: [ { text: "오히려 더 잘 살 수 있을 듯", value: "독립형", score: 2 }, { text: "불안하고 외로울 듯", value: "불안형", score: 2 }, { text: "관찰과 해석의 재미가 더 커질 듯", value: "관찰자형", score: 2 }, { text: "창작 의욕은 더 강해질 듯", value: "창작자형", score: 2 } ] }
   ],
   results: [
-    { type: "독립형", title: "🌿 독립형 – 디지털 속 고요한 섬", desc: "혼자만의 시간에서 진짜 자아를 찾는 유형!", subDesc: "외부 자극이 사라질수록 오히려 빛나는 당신의 내면.", icon: "🌿", hashtags: ["#혼자잘삼", "#내면집중", "#조용한힘"], condition: (scores: Record<string, number>, highest: string[]) => scores["독립형"] >= 12 && highest.includes("독립형") },
-    { type: "관찰자형", title: "🔍 관찰자형 – 세상과 나 사이의 기록자", desc: "소음이 사라질수록, 더 깊게 세상을 읽는 눈!", subDesc: "당신은 늘 주변을 관찰하고 해석하는 성향입니다.", icon: "🔍", hashtags: ["#관찰력", "#일기체질", "#해석자"], condition: (scores: Record<string, number>, highest: string[]) => scores["관찰자형"] >= 12 && highest.includes("관찰자형") },
-    { type: "창작자형", title: "🎨 창작자형 – 표현 없이 못 사는 감성기계", desc: "SNS 없이도 끊임없이 무언가를 만들어내는 당신!", subDesc: "내면에서 우러나는 아이디어를 콘텐츠로 풀어내는 예술형", icon: "🎨", hashtags: ["#예술적자아", "#감성충만", "#창조본능"], condition: (scores: Record<string, number>, highest: string[]) => scores["창작자형"] >= 12 && highest.includes("창작자형") },
-    { type: "불안형", title: "📱 불안형 – 연결이 끊기면 흔들리는 마음", desc: "SNS가 단절되면 허전함이 먼저 다가오는 당신", subDesc: "외부와의 연결감이 중요한 정서형 인간", icon: "📱", hashtags: ["#FOMO", "#연결중독", "#정서의존"], condition: (scores: Record<string, number>, highest: string[]) => scores["불안형"] >= 12 && highest.includes("불안형") },
-    { type: "유연형", title: "🌀 유연형 – 모든 자아를 넘나드는 당신", desc: "어떤 환경에서도 나름대로 적응해내는 유연한 플레이어", subDesc: "혼자서도, 함께서도 괜찮은 균형 잡힌 당신", icon: "🌀", hashtags: ["#밸런스", "#적응력", "#디지털중립"], condition: () => true }
+    { 
+      type: "독립형", 
+      title: "🌿 독립형 – 디지털 속 고요한 섬", 
+      desc: "혼자만의 시간에서 진짜 자아를 찾는 유형!", 
+      subDesc: "외부 자극이 사라질수록 오히려 빛나는 당신의 내면.", 
+      icon: "🌿",
+      hashtags: ["#혼자잘삼", "#내면집중", "#조용한힘"],
+    },
+    { 
+      type: "관찰자형", 
+      title: "🔍 관찰자형 – 세상과 나 사이의 기록자", 
+      desc: "소음이 사라질수록, 더 깊게 세상을 읽는 눈!", 
+      subDesc: "당신은 늘 주변을 관찰하고 해석하는 성향입니다.", 
+      icon: "🔍",
+      hashtags: ["#관찰력", "#일기체질", "#해석자"],
+    },
+    { 
+      type: "창작자형", 
+      title: "🎨 창작자형 – 표현 없이 못 사는 감성기계", 
+      desc: "SNS 없이도 끊임없이 무언가를 만들어내는 당신!", 
+      subDesc: "내면에서 우러나는 아이디어를 콘텐츠로 풀어내는 예술형", 
+      icon: "🎨",
+      hashtags: ["#예술적자아", "#감성충만", "#창조본능"],
+    },
+    { 
+      type: "불안형", 
+      title: "📱 불안형 – 연결이 끊기면 흔들리는 마음", 
+      desc: "SNS가 단절되면 허전함이 먼저 다가오는 당신", 
+      subDesc: "외부와의 연결감이 중요한 정서형 인간", 
+      icon: "📱",
+      hashtags: ["#FOMO", "#연결중독", "#정서의존"],
+    },
+    { 
+      type: "유연형", 
+      title: "🌀 유연형 – 모든 자아를 넘나드는 당신", 
+      desc: "어떤 환경에서도 나름대로 적응해내는 유연한 플레이어", 
+      subDesc: "혼자서도, 함께서도 괜찮은 균형 잡힌 당신", 
+      icon: "🌀",
+      hashtags: ["#밸런스", "#적응력", "#디지털중립"],
+    }
   ],
   calculateResult(answers: TestAnswer[]): TestResult {
     // 유형별 점수 집계
@@ -41,17 +76,19 @@ export const SNSLESS_TEST = {
     answers.forEach((a) => {
       if (scores[a.value] !== undefined) scores[a.value] += a.score;
     });
+    
     // 최고 점수 유형 찾기
     const maxScore = Math.max(...Object.values(scores));
-    const highest = Object.entries(scores)
-      .filter(([, score]) => score === maxScore && score > 0)
+    const candidates = Object.entries(scores)
+      .filter(([, score]) => score === maxScore)
       .map(([type]) => type);
-    // 동점일 경우 유연형
-    for (const result of this.results) {
-      if (result.condition && result.condition(scores, highest)) {
-        return { ...result, scores };
-      }
+    
+    // 12점 이상이고 동점이 아니면 해당 유형, 그렇지 않으면 유연형
+    if (maxScore >= 12 && candidates.length === 1) {
+      return this.results.find(r => r.type === candidates[0]) || this.results[this.results.length - 1];
     }
-    return { ...this.results[this.results.length - 1], scores };
+    
+    // 동점이거나 12점 미만이면 유연형
+    return this.results.find(r => r.type === "유연형") || this.results[this.results.length - 1];
   }
 }; 
