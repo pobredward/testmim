@@ -85,7 +85,8 @@
           "리더십이 필요한 직업 (기획자, 창업가 등)",
           "액티브한 라이프스타일"
         ],
-        "imageDesc": "Confident posture, dynamic energy, leadership stance"
+        "imageDesc": "Confident posture, dynamic energy, leadership stance",
+        "hashtags": ["#주도적리더", "#열정추진력", "#도전정신"]
       },
       {
         "type": "TETO_MID",
@@ -97,7 +98,8 @@
           "팀워크가 중요한 직업 (마케터, 교사 등)",
           "밸런스 잡힌 라이프스타일"
         ],
-        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture"
+        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture",
+        "hashtags": ["#균형감각", "#소통능력", "#유연한리더십"]
       },
       {
         "type": "TETO_LOW",
@@ -109,7 +111,8 @@
           "융통성이 필요한 직업 (디자이너, 상담가 등)",
           "유연한 라이프스타일"
         ],
-        "imageDesc": "Adaptive expression, emotional depth, flexible stance"
+        "imageDesc": "Adaptive expression, emotional depth, flexible stance",
+        "hashtags": ["#감성과이성", "#유연적응", "#상황대응"]
       },
       {
         "type": "EGEN_HIGH",
@@ -121,7 +124,8 @@
           "상담, 예술 등 감성이 중요한 직업",
           "차분한 라이프스타일"
         ],
-        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor"
+        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor",
+        "hashtags": ["#깊은공감", "#섬세한감성", "#진솔한관계"]
       },
       {
         "type": "EGEN_MID",
@@ -133,7 +137,8 @@
           "협업이 중요한 직업 (연구원, 기획자 등)",
           "밸런스 잡힌 라이프스타일"
         ],
-        "imageDesc": "Warm smile, understanding gaze, harmonious aura"
+        "imageDesc": "Warm smile, understanding gaze, harmonious aura",
+        "hashtags": ["#조화로운균형", "#원활한소통", "#융통성"]
       },
       {
         "type": "EGEN_LOW",
@@ -145,7 +150,8 @@
           "다양한 경험이 중요한 직업 (여행가, 창작자 등)",
           "도전적인 라이프스타일"
         ],
-        "imageDesc": "Curious expression, adventurous spirit, versatile energy"
+        "imageDesc": "Curious expression, adventurous spirit, versatile energy",
+        "hashtags": ["#내면감성", "#다양경험", "#도전추구"]
       }
     ]
   },
@@ -235,7 +241,8 @@
           "Jobs requiring leadership (planner, entrepreneur, etc.)",
           "Active lifestyle"
         ],
-        "imageDesc": "Confident posture, dynamic energy, leadership stance"
+        "imageDesc": "Confident posture, dynamic energy, leadership stance",
+        "hashtags": ["#proactiveleader", "#passionatedrive", "#challengespirit"]
       },
       {
         "type": "TETO_MID",
@@ -247,7 +254,8 @@
           "Jobs where teamwork is important (marketer, teacher, etc.)",
           "Balanced lifestyle"
         ],
-        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture"
+        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture",
+        "hashtags": ["#balancedsense", "#communicationskills", "#flexibleleadership"]
       },
       {
         "type": "TETO_LOW",
@@ -259,7 +267,8 @@
           "Jobs requiring flexibility (designer, counselor, etc.)",
           "Flexible lifestyle"
         ],
-        "imageDesc": "Adaptive expression, emotional depth, flexible stance"
+        "imageDesc": "Adaptive expression, emotional depth, flexible stance",
+        "hashtags": ["#emotionandreason", "#flexibleadaptation", "#situationalresponse"]
       },
       {
         "type": "EGEN_HIGH",
@@ -271,7 +280,8 @@
           "Jobs where emotion is important like counseling, arts",
           "Calm lifestyle"
         ],
-        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor"
+        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor",
+        "hashtags": ["#deepempathy", "#delicateemotion", "#sincererelationship"]
       },
       {
         "type": "EGEN_MID",
@@ -283,7 +293,8 @@
           "Jobs where collaboration is important (researcher, planner, etc.)",
           "Balanced lifestyle"
         ],
-        "imageDesc": "Warm smile, understanding gaze, harmonious aura"
+        "imageDesc": "Warm smile, understanding gaze, harmonious aura",
+        "hashtags": ["#harmoniousbalance", "#smoothcommunication", "#flexibility"]
       },
       {
         "type": "EGEN_LOW",
@@ -295,7 +306,8 @@
           "Jobs where diverse experiences are important (traveler, creator, etc.)",
           "Challenging lifestyle"
         ],
-        "imageDesc": "Curious expression, adventurous spirit, versatile energy"
+        "imageDesc": "Curious expression, adventurous spirit, versatile energy",
+        "hashtags": ["#inneremotion", "#diverseexperience", "#challengepursuit"]
       }
     ]
   },
@@ -385,7 +397,8 @@
           "需要领导力的职业（策划者、创业家等）",
           "积极的生活方式"
         ],
-        "imageDesc": "Confident posture, dynamic energy, leadership stance"
+        "imageDesc": "Confident posture, dynamic energy, leadership stance",
+        "hashtags": ["#主导性领导", "#热情推动力", "#挑战精神"]
       },
       {
         "type": "TETO_MID",
@@ -397,7 +410,8 @@
           "团队合作重要的职业（营销者、教师等）",
           "平衡的生活方式"
         ],
-        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture"
+        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture",
+        "hashtags": ["#平衡感觉", "#沟通能力", "#灵活领导力"]
       },
       {
         "type": "TETO_LOW",
@@ -409,7 +423,8 @@
           "需要灵活性的职业（设计师、咨询师等）",
           "灵活的生活方式"
         ],
-        "imageDesc": "Adaptive expression, emotional depth, flexible stance"
+        "imageDesc": "Adaptive expression, emotional depth, flexible stance",
+        "hashtags": ["#感性与理性", "#灵活适应", "#情况应对"]
       },
       {
         "type": "EGEN_HIGH",
@@ -421,7 +436,8 @@
           "咨询、艺术等情感重要的职业",
           "平静的生活方式"
         ],
-        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor"
+        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor",
+        "hashtags": ["#深度共情", "#细腻感性", "#真诚关系"]
       },
       {
         "type": "EGEN_MID",
@@ -433,7 +449,8 @@
           "协作重要的职业（研究员、策划者等）",
           "平衡的生活方式"
         ],
-        "imageDesc": "Warm smile, understanding gaze, harmonious aura"
+        "imageDesc": "Warm smile, understanding gaze, harmonious aura",
+        "hashtags": ["#和谐平衡", "#顺畅沟通", "#融通性"]
       },
       {
         "type": "EGEN_LOW",
@@ -445,7 +462,8 @@
           "各种经验重要的职业（旅行家、创作者等）",
           "挑战性的生活方式"
         ],
-        "imageDesc": "Curious expression, adventurous spirit, versatile energy"
+        "imageDesc": "Curious expression, adventurous spirit, versatile energy",
+        "hashtags": ["#内在感性", "#多样经验", "#挑战追求"]
       }
     ]
   },
@@ -535,7 +553,8 @@
           "リーダーシップが必要な職業（企画者、起業家など）",
           "アクティブなライフスタイル"
         ],
-        "imageDesc": "Confident posture, dynamic energy, leadership stance"
+        "imageDesc": "Confident posture, dynamic energy, leadership stance",
+        "hashtags": ["#主導的リーダー", "#情熱推進力", "#挑戦精神"]
       },
       {
         "type": "TETO_MID",
@@ -547,7 +566,8 @@
           "チームワークが重要な職業（マーケター、教師など）",
           "バランスの取れたライフスタイル"
         ],
-        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture"
+        "imageDesc": "Balanced expression, harmonious atmosphere, cooperative gesture",
+        "hashtags": ["#バランス感覚", "#コミュニケーション能力", "#柔軟なリーダーシップ"]
       },
       {
         "type": "TETO_LOW",
@@ -559,7 +579,8 @@
           "融通性が必要な職業（デザイナー、カウンセラーなど）",
           "柔軟なライフスタイル"
         ],
-        "imageDesc": "Adaptive expression, emotional depth, flexible stance"
+        "imageDesc": "Adaptive expression, emotional depth, flexible stance",
+        "hashtags": ["#感性と理性", "#柔軟適応", "#状況対応"]
       },
       {
         "type": "EGEN_HIGH",
@@ -571,7 +592,8 @@
           "カウンセリング、芸術など感性が重要な職業",
           "落ち着いたライフスタイル"
         ],
-        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor"
+        "imageDesc": "Gentle eyes, caring expression, peaceful demeanor",
+        "hashtags": ["#深い共感", "#繊細な感性", "#真摯な関係"]
       },
       {
         "type": "EGEN_MID",
@@ -583,7 +605,8 @@
           "協働が重要な職業（研究者、企画者など）",
           "バランスの取れたライフスタイル"
         ],
-        "imageDesc": "Warm smile, understanding gaze, harmonious aura"
+        "imageDesc": "Warm smile, understanding gaze, harmonious aura",
+        "hashtags": ["#調和バランス", "#円滑コミュニケーション", "#融通性"]
       },
       {
         "type": "EGEN_LOW",
@@ -595,7 +618,8 @@
           "様々な経験が重要な職業（旅行家、クリエイターなど）",
           "挑戦的なライフスタイル"
         ],
-        "imageDesc": "Curious expression, adventurous spirit, versatile energy"
+        "imageDesc": "Curious expression, adventurous spirit, versatile energy",
+        "hashtags": ["#内面感性", "#多様経験", "#挑戦追求"]
       }
     ]
   }

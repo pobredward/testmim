@@ -97,55 +97,65 @@
     "results": [
       {
         "title": "🌿 독립형 – 디지털 속 고요한 섬",
-        "desc": "혼자만의 시간에서 진짜 자아를 찾는 유형!\n\n외부 자극이 사라질수록 오히려 빛나는 당신의 내면."
+        "desc": "혼자만의 시간에서 진짜 자아를 찾는 유형!",
+        "subDesc": "외부 자극이 사라질수록 오히려 빛나는 당신의 내면.",
+        "hashtags": ["#혼자잘삼", "#내면집중", "#조용한힘"]
       },
       {
         "title": "🔍 관찰자형 – 세상과 나 사이의 기록자",
-        "desc": "소음이 사라질수록, 더 깊게 세상을 읽는 눈!\n\n당신은 늘 주변을 관찰하고 해석하는 성향입니다."
+        "desc": "소음이 사라질수록, 더 깊게 세상을 읽는 눈!",
+        "subDesc": "당신은 늘 주변을 관찰하고 해석하는 성향입니다.",
+        "hashtags": ["#관찰력", "#일기체질", "#해석자"]
       },
       {
         "title": "🎨 창작자형 – 표현 없이 못 사는 감성기계",
-        "desc": "SNS 없이도 끊임없이 무언가를 만들어내는 당신!\n\n내면에서 우러나는 아이디어를 콘텐츠로 풀어내는 예술형"
+        "desc": "SNS 없이도 끊임없이 무언가를 만들어내는 당신!",
+        "subDesc": "내면에서 우러나는 아이디어를 콘텐츠로 풀어내는 예술형",
+        "hashtags": ["#예술적자아", "#감성충만", "#창조본능"]
       },
       {
         "title": "📱 불안형 – 연결이 끊기면 흔들리는 마음",
-        "desc": "SNS가 단절되면 허전함이 먼저 다가오는 당신\n\n외부와의 연결감이 중요한 정서형 인간"
+        "desc": "SNS가 단절되면 허전함이 먼저 다가오는 당신",
+        "subDesc": "외부와의 연결감이 중요한 정서형 인간",
+        "hashtags": ["#FOMO", "#연결중독", "#정서의존"]
       },
       {
         "title": "🌀 유연형 – 모든 자아를 넘나드는 당신",
-        "desc": "어떤 환경에서도 나름대로 적응해내는 유연한 플레이어\n\n혼자서도, 함께서도 괜찮은 균형 잡힌 당신"
+        "desc": "어떤 환경에서도 나름대로 적응해내는 유연한 플레이어",
+        "subDesc": "혼자서도, 함께서도 괜찮은 균형 잡힌 당신",
+        "hashtags": ["#밸런스", "#적응력", "#디지털중립"]
       }
     ]
   },
   "en": {
-    "title": "Living Without SNS for a Year, What Kind of Person Am I?",
-    "description": "If you quit SNS and live for a year, what kind of self would emerge? Discover your true self that hasn't been revealed before.",
+    "title": "What Kind of Person Am I Without SNS for a Year?",
+    "description": "If you quit SNS and lived for a year, what kind of self would emerge? Check out your true self that wasn't revealed before.",
     "questions": [
       {
-        "question": "1. In the first week after quitting SNS, you:",
+        "question": "1. In the first week of quitting SNS, you:",
         "options": [
-          "Finally have some quiet time.",
-          "Wonder what others are doing.",
-          "Decide to write an observation diary.",
-          "Think about making a video."
+          "Finally got some quiet time.",
+          "Wondering what others are doing.",
+          "Decided to write an observation diary.",
+          "Thought about making a video."
         ]
       },
       {
         "question": "2. How do you spend your personal time?",
         "options": [
-          "Taking walks or reading books",
+          "Walking or reading books",
           "Looking up what others are doing",
           "Quietly observing surroundings and drawing",
           "Creating content like music, videos, writing"
         ]
       },
       {
-        "question": "3. When SNS topics come up in conversations with friends, you:",
+        "question": "3. When SNS topics come up in conversation with friends, I:",
         "options": [
-          "Don't know much but aren't interested",
+          "Don't know much but not interested",
           "Feel left out for no reason",
-          "Take it as an observation point",
-          "Use it as inspiration for new content ideas"
+          "Use it as an observation point",
+          "Get new content ideas from it"
         ]
       },
       {
@@ -161,42 +171,42 @@
         "question": "5. If you were to use SNS again?",
         "options": [
           "Don't really need it",
-          "Missed it so much",
+          "Missed it too much",
           "Want to share observation results",
-          "Want to show what I've made"
+          "Want to show what I made"
         ]
       },
       {
-        "question": "6. When worried someone might forget you:",
+        "question": "6. When worried someone might forget me:",
         "options": [
           "Don't really care",
-          "Feel sad about being ignored",
-          "Find the situation itself interesting",
-          "Channel this emotion into creation"
+          "Feel upset like being ignored",
+          "The situation itself is interesting",
+          "Put this emotion into creation"
         ]
       },
       {
         "question": "7. What's your most comfortable space?",
         "options": [
-          "Your room or places where you're alone",
+          "My room or alone places",
           "Places where conversation is possible",
           "Quiet public places (library, cafe, etc.)",
-          "Spaces suitable for creative activities"
+          "Spaces where creative activities are possible"
         ]
       },
       {
-        "question": "8. What's the first thing you do when you have free time?",
+        "question": "8. When you have free time, what do you do first?",
         "options": [
           "Enjoy being alone",
           "Wonder who to talk to",
           "Look around carefully",
-          "Create something new"
+          "Make something new"
         ]
       },
       {
         "question": "9. Where do you mainly get information?",
         "options": [
-          "Books, documentaries - offline focused",
+          "Books, documentaries, offline-centered",
           "SNS timeline and feedback",
           "Field observation and recording",
           "Creator content and production process"
@@ -206,7 +216,7 @@
         "question": "10. In a world without SNS, you would:",
         "options": [
           "Actually live better",
-          "Feel anxious and lonely",
+          "Be anxious and lonely",
           "Find observation and interpretation more fun",
           "Have stronger creative motivation"
         ]
@@ -214,116 +224,111 @@
     ],
     "results": [
       {
-        "title": "🌿 Independent Type – A Quiet Island in the Digital World",
-        "desc": "The type who finds their true self in solitude!\n\nYour inner self shines brighter as external stimuli disappear.",
+        "title": "🌿 Independent Type – Quiet Island in Digital World",
+        "desc": "The type who finds their true self in alone time!",
         "subDesc": "Your inner self shines brighter as external stimuli disappear.",
-        "recommend": ["Digital minimalist lifestyle", "Meditation and mindfulness", "Creative solitary activities"],
-        "imageDesc": "Green nature, peaceful solitude, book and tea"
+        "hashtags": ["#IndependentLife", "#InnerFocus", "#QuietStrength"]
       },
       {
-        "title": "🔍 Observer Type – The Recorder Between the World and Me",
-        "desc": "As noise disappears, your eyes read the world more deeply!\n\nYou always tend to observe and interpret your surroundings.",
+        "title": "🔍 Observer Type – Recorder Between World and Self",
+        "desc": "The more noise disappears, the deeper eyes that read the world!",
         "subDesc": "You always tend to observe and interpret your surroundings.",
-        "recommend": ["Research and analysis work", "Documentary maker", "Social phenomena observer"],
-        "imageDesc": "Magnifying glass, notebook, quiet cafe"
+        "hashtags": ["#ObservationSkills", "#DiaryNature", "#Interpreter"]
       },
       {
-        "title": "🎨 Creator Type – An Emotional Machine That Can't Live Without Expression",
-        "desc": "You constantly create something even without SNS!\n\nAn artistic type who expresses inner ideas through content",
-        "subDesc": "An artistic type who expresses inner ideas through content",
-        "recommend": ["Independent creative work", "Content creation", "Artistic expression"],
-        "imageDesc": "Art supplies, creative workspace, colorful palette"
+        "title": "🎨 Creator Type – Emotional Machine That Can't Live Without Expression",
+        "desc": "You who constantly creates something even without SNS!",
+        "subDesc": "Artistic type who expresses inner ideas as content",
+        "hashtags": ["#ArtisticSelf", "#EmotionallyRich", "#CreativeInstinct"]
       },
       {
-        "title": "📱 Anxious Type – A Heart That Shakes When Connection is Lost",
-        "desc": "When SNS is cut off, emptiness comes first\n\nAn emotional type for whom external connection is important",
-        "subDesc": "An emotional type for whom external connection is important",
-        "recommend": ["Gradual digital detox", "Building offline relationships", "Mindfulness practices"],
-        "imageDesc": "Phone notification, anxious expression, connection symbols"
+        "title": "📱 Anxious Type – Heart That Shakes When Connection is Cut",
+        "desc": "You who feels emptiness first when SNS is disconnected",
+        "subDesc": "Emotional human who values connection with outside",
+        "hashtags": ["#FOMO", "#ConnectionAddiction", "#EmotionalDependence"]
       },
       {
-        "title": "🌀 Flexible Type – You Who Navigate All Selves",
-        "desc": "A flexible player who adapts in any environment\n\nA well-balanced you who's fine alone or with others",
-        "subDesc": "A well-balanced you who's fine alone or with others",
-        "recommend": ["Balanced lifestyle", "Adaptability skills", "Versatile activities"],
-        "imageDesc": "Balance scales, flexible posture, harmony symbols"
+        "title": "🌀 Flexible Type – You Who Cross All Selves",
+        "desc": "Flexible player who adapts in any environment",
+        "subDesc": "Balanced you who's okay alone or together",
+        "hashtags": ["#Balance", "#Adaptability", "#DigitalNeutral"]
       }
     ]
   },
   "zh": {
-    "title": "没有社交媒体生活一年，我是什么样的人？",
-    "description": "如果你戒掉社交媒体生活一年，会展现出什么样的自我？现在就来发现平时没有展现的真实自我吧。",
+    "title": "没有社交媒体的一年，我是什么样的人？",
+    "description": "如果你戒掉社交媒体生活一年，会显露出什么样的自我？现在确认一下平时没有显露的你的真实面貌。",
     "questions": [
       {
-        "question": "1. 戒掉社交媒体的第一周，你会？",
+        "question": "1. 戒掉社交媒体的第一周，你：",
         "options": [
           "终于有了安静的时间。",
-          "好奇别人在做什么。",
+          "莫名好奇别人在做什么。",
           "决定写观察日记。",
-          "想着拍个视频吧。"
+          "趁机拍个视频吧？"
         ]
       },
       {
-        "question": "2. 你如何度过个人时间？",
+        "question": "2. 度过个人时间的方法是？",
         "options": [
-          "散步或看书",
-          "查看别人在做什么",
+          "散步或读书",
+          "看看别人在做什么",
           "安静地观察周围并画画",
           "制作音乐、视频、文章等内容"
         ]
       },
       {
-        "question": "3. 与朋友聊天时提到社交媒体话题时，你会？",
+        "question": "3. 和朋友聊天时提到社交媒体话题时，我：",
         "options": [
-          "不太了解但也不感兴趣",
-          "莫名感到被排斥",
-          "当作观察要点",
-          "以此为契机想出新的内容创意"
+          "不太了解但没兴趣",
+          "莫名觉得只有我被排除",
+          "当作观察点",
+          "以此为契机想到新的内容创意"
         ]
       },
       {
-        "question": "4. 一天结束时你会想什么？",
+        "question": "4. 一天结束时的想法是？",
         "options": [
-          "独处的时间很充实",
-          "感觉缺了什么，很空虚",
-          "分析自己的行为并反思",
-          "回想今天创作了什么"
+          "独处时间很充实",
+          "感觉缺少什么，很空虚",
+          "分析自己的行为并反省",
+          "想起今天创作了什么"
         ]
       },
       {
         "question": "5. 如果再次使用社交媒体？",
         "options": [
-          "并不是必需的",
+          "没必要",
           "太想念了",
-          "想要分享观察结果",
-          "想要展示我的作品"
+          "想分享观察结果",
+          "想展示我做的东西"
         ]
       },
       {
-        "question": "6. 担心别人可能忘记你时？",
+        "question": "6. 担心有人可能忘记我时：",
         "options": [
           "不太在意",
-          "感到被忽视很难过",
-          "觉得这种情况本身很有趣",
-          "把这种情感融入创作中"
+          "感觉被忽视，很难过",
+          "这种情况本身很有趣",
+          "把这种情感融入创作"
         ]
       },
       {
         "question": "7. 最舒适的空间是？",
         "options": [
-          "自己的房间或独处的地方",
+          "自己房间或独处的地方",
           "可以对话的场所",
           "安静的公共场所（图书馆、咖啡厅等）",
           "可以进行创作活动的空间"
         ]
       },
       {
-        "question": "8. 有空闲时间时首先做什么？",
+        "question": "8. 有空闲时间时最先做的事是？",
         "options": [
           "享受独处",
-          "想着和谁聊天",
+          "考虑和谁聊天",
           "仔细观察周围",
-          "创作新东西"
+          "创造新东西"
         ]
       },
       {
@@ -336,10 +341,10 @@
         ]
       },
       {
-        "question": "10. 在没有社交媒体的世界里，你会？",
+        "question": "10. 在没有社交媒体的世界里，你：",
         "options": [
           "反而能生活得更好",
-          "会感到不安和孤独",
+          "会焦虑和孤独",
           "观察和解释的乐趣会更大",
           "创作欲望会更强"
         ]
@@ -348,79 +353,74 @@
     "results": [
       {
         "title": "🌿 独立型 – 数字世界中的宁静岛屿",
-        "desc": "在独处时间中找到真实自我的类型！\n\n外部刺激消失时，你的内心反而更加闪耀。",
-        "subDesc": "外部刺激消失时，你的内心反而更加闪耀。",
-        "recommend": ["数字极简主义生活方式", "冥想和正念", "创意独处活动"],
-        "imageDesc": "绿色自然，宁静独处，书本和茶"
+        "desc": "在独处时间中找到真正自我的类型！",
+        "subDesc": "外部刺激消失时反而闪闪发光的你的内心。",
+        "hashtags": ["#独立生活", "#内心专注", "#安静力量"]
       },
       {
-        "title": "🔍 观察者型 – 世界与我之间的记录者",
-        "desc": "噪音消失时，更深入地观察世界的眼睛！\n\n你总是倾向于观察和解释周围环境。",
+        "title": "🔍 观察者型 – 世界与自我之间的记录者",
+        "desc": "噪音消失得越多，越深入地读懂世界的眼睛！",
         "subDesc": "你总是倾向于观察和解释周围环境。",
-        "recommend": ["研究和分析工作", "纪录片制作者", "社会现象观察者"],
-        "imageDesc": "放大镜，笔记本，安静咖啡厅"
+        "hashtags": ["#观察力", "#日记体质", "#解释者"]
       },
       {
         "title": "🎨 创作者型 – 没有表达就活不下去的感性机器",
-        "desc": "即使没有社交媒体也不断创作的你！\n\n将内心想法通过内容表达的艺术型",
-        "subDesc": "将内心想法通过内容表达的艺术型",
-        "recommend": ["独立创意工作", "内容创作", "艺术表达"],
-        "imageDesc": "艺术用品，创作工作空间，多彩调色板"
+        "desc": "即使没有社交媒体也不断创造东西的你！",
+        "subDesc": "将内心涌现的想法转化为内容的艺术型",
+        "hashtags": ["#艺术自我", "#感性丰富", "#创造本能"]
       },
       {
         "title": "📱 焦虑型 – 连接断开就摇摆的心",
-        "desc": "社交媒体断开时首先感到空虚的你\n\n外部连接感很重要的情感型人类",
-        "subDesc": "外部连接感很重要的情感型人类",
-        "recommend": ["渐进式数字戒毒", "建立线下关系", "正念练习"],
-        "imageDesc": "手机通知，焦虑表情，连接符号"
+        "desc": "社交媒体断联时首先感到空虚的你",
+        "subDesc": "重视与外界连接感的情感型人类",
+        "hashtags": ["#错失恐惧", "#连接成瘾", "#情感依赖"]
       },
       {
-        "title": "🌀 灵活型 – 穿梭于所有自我的你",
-        "desc": "在任何环境中都能适应的灵活玩家\n\n独处或与他人在一起都很好的均衡的你",
-        "subDesc": "独处或与他人在一起都很好的均衡的你",
-        "recommend": ["平衡的生活方式", "适应能力技巧", "多样化活动"],
-        "imageDesc": "天平，灵活姿态，和谐符号"
+        "title": "🌀 灵活型 – 穿越所有自我的你",
+        "desc": "在任何环境中都能适应的灵活玩家",
+        "subDesc": "独处或在一起都很好的平衡型你",
+        "hashtags": ["#平衡", "#适应力", "#数字中立"]
       }
     ]
   },
   "ja": {
     "title": "SNSなしで1年、私はどんな人？",
-    "description": "SNSを断って1年過ごしたら、どんな自分が現れるでしょうか？普段現れなかった本当のあなたの姿を今確認してみてください。",
+    "description": "あなたがSNSを断って1年を過ごしたら、どんな自我が現れるでしょうか？普段現れなかったあなたの本当の姿、今確認してみてください。",
     "questions": [
       {
         "question": "1. SNSを断った最初の週、あなたは？",
         "options": [
           "ついに静かな時間ができた。",
-          "他の人は何をしているのか気になる。",
-          "観察日記を書いてみることにする。",
-          "この機会に動画でも撮ってみようかな？"
+          "他の人は何をしているのか気になってしまう。",
+          "観察日記を書いてみることにした。",
+          "この機会に動画を一つ撮ってみようか？"
         ]
       },
       {
-        "question": "2. 一人の時間の過ごし方は？",
+        "question": "2. 自分だけの時間を過ごす方法は？",
         "options": [
           "散歩や読書",
-          "他の人が何をしているか調べる",
+          "他の人たちは何をしているか調べる",
           "静かに周りを観察しながら絵を描く",
           "音楽、動画、文章などコンテンツ作り"
         ]
       },
       {
-        "question": "3. 友人との会話でSNSの話が出た時、私は？",
+        "question": "3. 友達との会話でSNSの話が出た時、私は？",
         "options": [
-          "よく分からないが興味ない",
-          "なんとなく取り残された気分",
-          "観察ポイントとして捉える",
-          "それをきっかけに新しいコンテンツアイデアを思いつく"
+          "よく分からないけど興味なし",
+          "なんとなく自分だけ取り残された気分",
+          "観察ポイントにする",
+          "それをきっかけに新しいコンテンツアイデアを思い浮かべる"
         ]
       },
       {
-        "question": "4. 一日の終わりに思うことは？",
+        "question": "4. 一日が終わった時に思うことは？",
         "options": [
-          "一人の時間が充実していた",
-          "何か足りない感じで物足りない",
+          "一人だけの時間が充実していた",
+          "何か欠けているような気がして虚しい",
           "自分の行動を分析して反省する",
-          "今日何を作ったか思い出す"
+          "今日何を作ったか思い浮かべる"
         ]
       },
       {
@@ -433,7 +433,7 @@
         ]
       },
       {
-        "question": "6. 誰かに忘れられるのではと心配になった時は？",
+        "question": "6. 誰かに忘れられているかもしれないと心配な時は？",
         "options": [
           "あまり気にしない",
           "無視されているようで悲しい",
@@ -445,16 +445,16 @@
         "question": "7. 最も快適な空間は？",
         "options": [
           "自分の部屋や一人でいる場所",
-          "会話ができる場所",
+          "会話が可能な場所",
           "静かな公共場所（図書館、カフェなど）",
-          "創作活動ができる空間"
+          "創作活動が可能なスペース"
         ]
       },
       {
         "question": "8. 時間に余裕ができた時、最初にする行動は？",
         "options": [
           "一人でいることを楽しむ",
-          "誰と話そうか考える",
+          "誰と話そうか悩む",
           "周りをじっくり観察する",
           "何か新しいものを作る"
         ]
@@ -472,7 +472,7 @@
         "question": "10. SNSがない世界であなたは？",
         "options": [
           "むしろもっとよく生きられそう",
-          "不安で寂しそう",
+          "不安で孤独そう",
           "観察と解釈の楽しさがもっと大きくなりそう",
           "創作意欲はもっと強くなりそう"
         ]
@@ -480,39 +480,34 @@
     ],
     "results": [
       {
-        "title": "🌿 独立型 – デジタル世界の静かな島",
-        "desc": "一人の時間で本当の自分を見つけるタイプ！\n\n外部刺激が消えるほど、あなたの内面が輝きます。",
-        "subDesc": "外部刺激が消えるほど、あなたの内面が輝きます。",
-        "recommend": ["デジタルミニマリストライフスタイル", "瞑想とマインドフルネス", "創造的な一人の活動"],
-        "imageDesc": "緑の自然、平和な孤独、本とお茶"
+        "title": "🌿 独立型 – デジタルの中の静かな島",
+        "desc": "一人だけの時間で本当の自我を見つけるタイプ！",
+        "subDesc": "外部刺激が消えるほどむしろ輝くあなたの内面。",
+        "hashtags": ["#一人上手", "#内面集中", "#静かな力"]
       },
       {
         "title": "🔍 観察者型 – 世界と私の間の記録者",
-        "desc": "騒音が消えるほど、より深く世界を読む目！\n\nあなたはいつも周りを観察し解釈する傾向があります。",
-        "subDesc": "あなたはいつも周りを観察し解釈する傾向があります。",
-        "recommend": ["研究と分析の仕事", "ドキュメンタリー制作者", "社会現象観察者"],
-        "imageDesc": "虫眼鏡、ノート、静かなカフェ"
+        "desc": "騒音が消えるほど、より深く世界を読む目！",
+        "subDesc": "あなたはいつも周りを観察して解釈する性向です。",
+        "hashtags": ["#観察力", "#日記気質", "#解釈者"]
       },
       {
-        "title": "🎨 創作者型 – 表現なしでは生きられない感性マシン",
-        "desc": "SNSなしでも絶えず何かを作り出すあなた！\n\n内面から湧き出るアイデアをコンテンツで表現する芸術型",
-        "subDesc": "内面から湧き出るアイデアをコンテンツで表現する芸術型",
-        "recommend": ["独立創作活動", "コンテンツ制作", "芸術的表現"],
-        "imageDesc": "画材、創作ワークスペース、カラフルなパレット"
+        "title": "🎨 創作者型 – 表現なしでは生きられない感性機械",
+        "desc": "SNSなしでも絶えず何かを作り出すあなた！",
+        "subDesc": "内面から湧き出るアイデアをコンテンツに表現する芸術型",
+        "hashtags": ["#芸術的自我", "#感性充満", "#創造本能"]
       },
       {
-        "title": "📱 不安型 – つながりが切れると揺れる心",
-        "desc": "SNSが断たれると空虚感が先に来るあなた\n\n外部とのつながりが重要な情緒型人間",
-        "subDesc": "外部とのつながりが重要な情緒型人間",
-        "recommend": ["段階的デジタルデトックス", "オフライン関係構築", "マインドフルネス実践"],
-        "imageDesc": "スマホの通知、不安な表情、つながりのシンボル"
+        "title": "📱 不安型 – 繋がりが切れると揺れる心",
+        "desc": "SNSが断絶されると虚しさが先に訪れるあなた",
+        "subDesc": "外部との繋がり感が重要な情緒型人間",
+        "hashtags": ["#取り残される恐怖", "#繋がり中毒", "#情緒依存"]
       },
       {
-        "title": "🌀 柔軟型 – すべての自分を行き来するあなた",
-        "desc": "どんな環境でもそれなりに適応する柔軟なプレイヤー\n\n一人でも一緒でも大丈夫なバランスの取れたあなた",
-        "subDesc": "一人でも一緒でも大丈夫なバランスの取れたあなた",
-        "recommend": ["バランスのとれたライフスタイル", "適応能力スキル", "多様な活動"],
-        "imageDesc": "天秤、柔軟な姿勢、調和のシンボル"
+        "title": "🌀 柔軟型 – すべての自我を行き来するあなた",
+        "desc": "どんな環境でもそれなりに適応するフレキシブルプレイヤー",
+        "subDesc": "一人でも、一緒でも大丈夫なバランスの取れたあなた",
+        "hashtags": ["#バランス", "#適応力", "#デジタル中立"]
       }
     ]
   }

@@ -115,83 +115,99 @@
     "results": [
       {
         "title": "🌙 감성 기록러 INFP",
-        "desc": "감정과 생각을 조용히 기록하는 몽환적 감성 SNS러!\n\n혼자서 피드를 가꾸고, 긴 글에 내면을 담는 스타일입니다.",
-        "subDesc": "You tend to cultivate your feed alone and express your inner self through long posts."
+        "desc": "감정과 생각을 조용히 기록하는 몽환적 감성 SNS러!",
+        "subDesc": "혼자서 피드를 가꾸고, 긴 글에 내면을 담는 스타일입니다.",
+        "hashtags": ["#감성글귀", "#혼잣말계정", "#몽환피드"]
       },
       {
         "title": "🔥 밈 장인 ENTP",
-        "desc": "이야깃거리와 밈으로 세상을 흔드는 SNS 개척자!\n\n댓글에 댓글을 달고, 매번 화제를 일으키는 밈 크리에이터입니다.",
-        "subDesc": "You comment on comments and are a meme creator who always creates topics."
+        "desc": "이야깃거리와 밈으로 세상을 흔드는 SNS 개척자!",
+        "subDesc": "댓글에 댓글을 달고, 매번 화제를 일으키는 밈 크리에이터입니다.",
+        "hashtags": ["#밈러", "#반응속도 1등", "#SNS유머"]
       },
       {
         "title": "🎉 에너지 뿜뿜 ENFP",
-        "desc": "밝고 긍정적인 에너지로 피드를 가득 채우는 SNS 인싸!\n\n다양한 챌린지와 이벤트에 적극적으로 참여합니다.",
-        "subDesc": "You actively participate in various challenges and events."
+        "desc": "밝고 긍정적인 에너지로 피드를 가득 채우는 SNS 인싸!",
+        "subDesc": "다양한 챌린지와 이벤트에 적극적으로 참여합니다.",
+        "hashtags": ["#인싸", "#챌린지왕", "#긍정에너지"]
       },
       {
         "title": "🦄 영감 수집가 INFJ",
-        "desc": "깊은 통찰과 영감을 SNS에 담아내는 조용한 크리에이터!\n\n감성적이면서도 의미 있는 콘텐츠를 선호합니다.",
-        "subDesc": "You prefer emotional yet meaningful content."
+        "desc": "깊은 통찰과 영감을 SNS에 담아내는 조용한 크리에이터!",
+        "subDesc": "감성적이면서도 의미 있는 콘텐츠를 선호합니다.",
+        "hashtags": ["#영감수집", "#의미추구", "#조용한SNS"]
       },
       {
         "title": "🧠 전략가 INTJ",
-        "desc": "분석과 전략으로 피드를 설계하는 SNS 마스터!\n\n계획적이고 체계적인 SNS 운영을 즐깁니다.",
-        "subDesc": "You enjoy planned and systematic SNS management."
+        "desc": "분석과 전략으로 피드를 설계하는 SNS 마스터!",
+        "subDesc": "계획적이고 체계적인 SNS 운영을 즐깁니다.",
+        "hashtags": ["#전략적", "#분석러", "#계획형"]
       },
       {
         "title": "👑 SNS 리더 ENTJ",
-        "desc": "SNS에서도 리더십을 발휘하는 추진력 갑!\n\n이슈를 주도하고, 팔로워를 이끄는 스타일입니다.",
-        "subDesc": "You lead issues and guide followers."
+        "desc": "SNS에서도 리더십을 발휘하는 추진력 갑!",
+        "subDesc": "이슈를 주도하고, 팔로워를 이끄는 스타일입니다.",
+        "hashtags": ["#리더십", "#이슈메이커", "#추진력"]
       },
       {
         "title": "🍀 따뜻한 기록자 ISFJ",
-        "desc": "소소한 일상과 따뜻한 순간을 기록하는 힐링 SNS러!\n\n친구와 가족, 소중한 사람들과의 추억을 중시합니다.",
-        "subDesc": "You value memories with friends, family, and precious people."
+        "desc": "소소한 일상과 따뜻한 순간을 기록하는 힐링 SNS러!",
+        "subDesc": "친구와 가족, 소중한 사람들과의 추억을 중시합니다.",
+        "hashtags": ["#힐링피드", "#추억저장", "#따뜻함"]
       },
       {
         "title": "💬 소통왕 ESFJ",
-        "desc": "댓글, DM, 좋아요로 소통을 즐기는 SNS 커뮤니케이터!\n\n팔로워와의 관계를 소중히 여기며, 활발한 피드백을 남깁니다.",
-        "subDesc": "You value relationships with followers and leave active feedback."
+        "desc": "댓글, DM, 좋아요로 소통을 즐기는 SNS 커뮤니케이터!",
+        "subDesc": "팔로워와의 관계를 소중히 여기며, 활발한 피드백을 남깁니다.",
+        "hashtags": ["#소통왕", "#피드백장인", "#관계중시"]
       },
       {
         "title": "📚 정석러 ISTJ",
-        "desc": "정직하고 신중하게 피드를 관리하는 SNS 정석러!\n\n규칙적이고 일관된 콘텐츠를 선호합니다.",
-        "subDesc": "You prefer regular and consistent content."
+        "desc": "정직하고 신중하게 피드를 관리하는 SNS 정석러!",
+        "subDesc": "규칙적이고 일관된 콘텐츠를 선호합니다.",
+        "hashtags": ["#정석운영", "#신중함", "#일관성"]
       },
       {
         "title": "🗂️ 운영자 ESTJ",
-        "desc": "SNS를 체계적으로 관리하는 운영자형!\n\n계획과 실행, 효율을 중시하는 스타일입니다.",
-        "subDesc": "You emphasize planning, execution, and efficiency."
+        "desc": "SNS를 체계적으로 관리하는 운영자형!",
+        "subDesc": "계획과 실행, 효율을 중시하는 스타일입니다.",
+        "hashtags": ["#운영자", "#효율중시", "#계획실행"]
       },
       {
         "title": "🌸 감성 아티스트 ISFP",
-        "desc": "감각적이고 자유로운 피드를 꾸미는 예술가형!\n\n사진, 음악, 영상 등 다양한 감성 콘텐츠를 즐깁니다.",
-        "subDesc": "You enjoy various emotional content like photos, music, and videos."
+        "desc": "감각적이고 자유로운 피드를 꾸미는 예술가형!",
+        "subDesc": "사진, 음악, 영상 등 다양한 감성 콘텐츠를 즐깁니다.",
+        "hashtags": ["#감성아트", "#자유로운피드", "#예술가"]
       },
       {
         "title": "🎈 피드의 분위기메이커 ESFP",
-        "desc": "밝고 유쾌한 분위기로 피드를 채우는 SNS 엔터테이너!\n\n이벤트, 밈, 챌린지에 적극적으로 참여합니다.",
-        "subDesc": "You actively participate in events, memes, and challenges."
+        "desc": "밝고 유쾌한 분위기로 피드를 채우는 SNS 엔터테이너!",
+        "subDesc": "이벤트, 밈, 챌린지에 적극적으로 참여합니다.",
+        "hashtags": ["#분위기메이커", "#이벤트참여", "#유쾌함"]
       },
       {
         "title": "🔧 실험가 ISTP",
-        "desc": "새로운 기능, 다양한 포맷을 실험하는 SNS 탐구가!\n\n기술, 도구, 트렌드에 관심이 많습니다.",
-        "subDesc": "You're interested in technology, tools, and trends."
+        "desc": "새로운 기능, 다양한 포맷을 실험하는 SNS 탐구가!",
+        "subDesc": "기술, 도구, 트렌드에 관심이 많습니다.",
+        "hashtags": ["#실험정신", "#도구덕후", "#트렌드체크"]
       },
       {
         "title": "🚀 액션러 ESTP",
-        "desc": "즉흥적이고 에너지 넘치는 SNS 액션러!\n\n새로운 시도와 도전을 즐깁니다.",
-        "subDesc": "You enjoy new attempts and challenges."
+        "desc": "즉흥적이고 에너지 넘치는 SNS 액션러!",
+        "subDesc": "새로운 시도와 도전을 즐깁니다.",
+        "hashtags": ["#즉흥참여", "#도전정신", "#에너지"]
       },
       {
         "title": "🧩 분석가 INTP",
-        "desc": "호기심과 분석력으로 SNS를 탐구하는 지적 유형!\n\n정보, 밈, 트렌드의 원리를 파헤치는 것을 즐깁니다.",
-        "subDesc": "You enjoy digging into the principles of information, memes, and trends."
+        "desc": "호기심과 분석력으로 SNS를 탐구하는 지적 유형!",
+        "subDesc": "정보, 밈, 트렌드의 원리를 파헤치는 것을 즐깁니다.",
+        "hashtags": ["#분석러", "#지적호기심", "#트렌드탐구"]
       },
       {
         "title": "🌟 영감 리더 ENFJ",
-        "desc": "팔로워에게 긍정적 영향과 영감을 주는 SNS 리더!\n\n공감과 소통, 의미 있는 콘텐츠를 추구합니다.",
-        "subDesc": "You pursue empathy, communication, and meaningful content."
+        "desc": "팔로워에게 긍정적 영향과 영감을 주는 SNS 리더!",
+        "subDesc": "공감과 소통, 의미 있는 콘텐츠를 추구합니다.",
+        "hashtags": ["#영감리더", "#공감소통", "#의미추구"]
       }
     ]
   },
@@ -272,7 +288,7 @@
         ]
       },
       {
-        "question": "9. Your criteria for adding friends on SNS:",
+        "question": "9. SNS에서 친구를 추가할 때 기준은?",
         "options": [
           "People who communicate well with each other",
           "Similar interests/tastes",
@@ -281,7 +297,7 @@
         ]
       },
       {
-        "question": "10. Your feedback style on SNS is:",
+        "question": "10. SNS에서 내 피드백 스타일은?",
         "options": [
           "Short and direct feedback",
           "Empathy/comfort-focused feedback",
@@ -290,7 +306,7 @@
         ]
       },
       {
-        "question": "11. SNS event/challenge participation:",
+        "question": "11. SNS에서 이벤트/챌린지 참여는?",
         "options": [
           "Plan and prepare in advance",
           "Participate spontaneously",
@@ -311,83 +327,99 @@
     "results": [
       {
         "title": "🌙 Emotional Recorder INFP",
-        "desc": "A dreamy emotional SNS user who quietly records emotions and thoughts!\n\nYou tend to cultivate your feed alone and express your inner self through long posts.",
-        "subDesc": "You tend to cultivate your feed alone and express your inner self through long posts."
+        "desc": "Dreamy emotional SNS user who quietly records feelings and thoughts!",
+        "subDesc": "Style that tends to their feed alone and puts inner thoughts in long posts.",
+        "hashtags": ["#EmotionalQuotes", "#PersonalAccount", "#DreamyFeed"]
       },
       {
         "title": "🔥 Meme Master ENTP",
-        "desc": "A SNS pioneer who shakes the world with stories and memes!\n\nYou comment on comments and are a meme creator who always creates topics.",
-        "subDesc": "You comment on comments and are a meme creator who always creates topics."
+        "desc": "SNS pioneer who shakes the world with stories and memes!",
+        "subDesc": "Meme creator who comments on comments and creates topics every time.",
+        "hashtags": ["#MemeExpert", "#QuickResponse", "#SNSHumor"]
       },
       {
         "title": "🎉 Energy Burst ENFP",
-        "desc": "SNS insider who fills the feed with bright and positive energy!\n\nYou actively participate in various challenges and events.",
-        "subDesc": "You actively participate in various challenges and events."
+        "desc": "SNS insider who fills feed with bright and positive energy!",
+        "subDesc": "Actively participates in various challenges and events.",
+        "hashtags": ["#Popular", "#ChallengeKing", "#PositiveEnergy"]
       },
       {
         "title": "🦄 Inspiration Collector INFJ",
-        "desc": "A quiet creator who captures deep insights and inspiration on SNS!\n\nYou prefer emotional yet meaningful content.",
-        "subDesc": "You prefer emotional yet meaningful content."
+        "desc": "Quiet creator who captures deep insights and inspiration on SNS!",
+        "subDesc": "Prefers emotional yet meaningful content.",
+        "hashtags": ["#InspirationCollector", "#MeaningSeeker", "#QuietSNS"]
       },
       {
         "title": "🧠 Strategist INTJ",
-        "desc": "SNS master who designs feeds with analysis and strategy!\n\nYou enjoy planned and systematic SNS management.",
-        "subDesc": "You enjoy planned and systematic SNS management."
+        "desc": "SNS master who designs feeds with analysis and strategy!",
+        "subDesc": "Enjoys planned and systematic SNS management.",
+        "hashtags": ["#Strategic", "#Analyzer", "#Planner"]
       },
       {
         "title": "👑 SNS Leader ENTJ",
-        "desc": "The one with great drive who demonstrates leadership even on SNS!\n\nYou lead issues and guide followers.",
-        "subDesc": "You lead issues and guide followers."
+        "desc": "Ultimate drive who demonstrates leadership even on SNS!",
+        "subDesc": "Style that leads issues and guides followers.",
+        "hashtags": ["#Leadership", "#IssueMaker", "#Drive"]
       },
       {
         "title": "🍀 Warm Recorder ISFJ",
-        "desc": "Healing SNS user who records small daily life and warm moments!\n\nYou value memories with friends, family, and precious people.",
-        "subDesc": "You value memories with friends, family, and precious people."
+        "desc": "Healing SNS user who records small daily life and warm moments!",
+        "subDesc": "Values memories with friends, family, and precious people.",
+        "hashtags": ["#HealingFeed", "#MemorySaver", "#Warmth"]
       },
       {
         "title": "💬 Communication King ESFJ",
-        "desc": "SNS communicator who enjoys communication through comments, DMs, and likes!\n\nYou value relationships with followers and leave active feedback.",
-        "subDesc": "You value relationships with followers and leave active feedback."
+        "desc": "SNS communicator who enjoys communication through comments, DMs, and likes!",
+        "subDesc": "Values relationships with followers and leaves active feedback.",
+        "hashtags": ["#CommunicationKing", "#FeedbackMaster", "#RelationshipFocused"]
       },
       {
-        "title": "📚 Standard User ISTJ",
-        "desc": "SNS standard user who manages feed honestly and carefully!\n\nYou prefer regular and consistent content.",
-        "subDesc": "You prefer regular and consistent content."
+        "title": "📚 Orthodox User ISTJ",
+        "desc": "Orthodox SNS user who manages feed honestly and carefully!",
+        "subDesc": "Prefers regular and consistent content.",
+        "hashtags": ["#OrthodoxManagement", "#Careful", "#Consistent"]
       },
       {
-        "title": "🗂️ Operator ESTJ",
-        "desc": "Operator type who systematically manages SNS!\n\nYou emphasize planning, execution, and efficiency.",
-        "subDesc": "You emphasize planning, execution, and efficiency."
+        "title": "🗂️ Manager ESTJ",
+        "desc": "Manager type who systematically manages SNS!",
+        "subDesc": "Style that values planning, execution, and efficiency.",
+        "hashtags": ["#Manager", "#EfficiencyFocused", "#PlanExecution"]
       },
       {
         "title": "🌸 Emotional Artist ISFP",
-        "desc": "Artist type who decorates sensual and free feeds!\n\nYou enjoy various emotional content like photos, music, and videos.",
-        "subDesc": "You enjoy various emotional content like photos, music, and videos."
+        "desc": "Artist type who decorates sensual and free feeds!",
+        "subDesc": "Enjoys various emotional content like photos, music, and videos.",
+        "hashtags": ["#EmotionalArt", "#FreeFeed", "#Artist"]
       },
       {
         "title": "🎈 Feed Mood Maker ESFP",
-        "desc": "SNS entertainer who fills the feed with bright and cheerful atmosphere!\n\nYou actively participate in events, memes, and challenges.",
-        "subDesc": "You actively participate in events, memes, and challenges."
+        "desc": "SNS entertainer who fills feed with bright and cheerful atmosphere!",
+        "subDesc": "Actively participates in events, memes, and challenges.",
+        "hashtags": ["#MoodMaker", "#EventParticipation", "#Cheerful"]
       },
       {
         "title": "🔧 Experimenter ISTP",
-        "desc": "SNS explorer who experiments with new features and various formats!\n\nYou're interested in technology, tools, and trends.",
-        "subDesc": "You're interested in technology, tools, and trends."
+        "desc": "SNS explorer who experiments with new features and various formats!",
+        "subDesc": "Very interested in technology, tools, and trends.",
+        "hashtags": ["#ExperimentalSpirit", "#ToolEnthusiast", "#TrendChecker"]
       },
       {
         "title": "🚀 Action User ESTP",
-        "desc": "Spontaneous and energetic SNS action user!\n\nYou enjoy new attempts and challenges.",
-        "subDesc": "You enjoy new attempts and challenges."
+        "desc": "Spontaneous and energetic SNS action user!",
+        "subDesc": "Enjoys new attempts and challenges.",
+        "hashtags": ["#SpontaneousParticipation", "#ChallengeSpirit", "#Energy"]
       },
       {
         "title": "🧩 Analyst INTP",
-        "desc": "Intellectual type who explores SNS with curiosity and analytical skills!\n\nYou enjoy digging into the principles of information, memes, and trends.",
-        "subDesc": "You enjoy digging into the principles of information, memes, and trends."
+        "desc": "Intellectual type who explores SNS with curiosity and analytical skills!",
+        "subDesc": "Enjoys digging into the principles of information, memes, and trends.",
+        "hashtags": ["#Analyzer", "#IntellectualCuriosity", "#TrendExplorer"]
       },
       {
         "title": "🌟 Inspiration Leader ENFJ",
-        "desc": "SNS leader who gives positive influence and inspiration to followers!\n\nYou pursue empathy, communication, and meaningful content.",
-        "subDesc": "You pursue empathy, communication, and meaningful content."
+        "desc": "SNS leader who gives positive influence and inspiration to followers!",
+        "subDesc": "Pursues empathy, communication, and meaningful content.",
+        "hashtags": ["#InspirationLeader", "#EmpathyCommunication", "#MeaningPursuit"]
       }
     ]
   },
@@ -507,83 +539,99 @@
     "results": [
       {
         "title": "🌙 感性记录者 INFP",
-        "desc": "安静记录情感和想法的梦幻感性社交媒体用户！\n\n你倾向于独自经营动态，在长文中表达内心。",
-        "subDesc": "You tend to cultivate your feed alone and express your inner self through long posts."
+        "desc": "安静记录情感和想法的梦幻感性SNS用户！",
+        "subDesc": "独自经营动态，在长文中融入内心的风格。",
+        "hashtags": ["#感性文案", "#自言自语账号", "#梦幻动态"]
       },
       {
         "title": "🔥 表情包大师 ENTP",
-        "desc": "用故事和表情包震撼世界的社交媒体开拓者！\n\n你会在评论上评论，是总能制造话题的表情包创作者。",
-        "subDesc": "You comment on comments and are a meme creator who always creates topics."
+        "desc": "用话题和表情包撼动世界的SNS开拓者！",
+        "subDesc": "在评论上评论，每次都制造话题的表情包创作者。",
+        "hashtags": ["#表情包达人", "#反应速度第一", "#SNS幽默"]
       },
       {
         "title": "🎉 能量爆棚 ENFP",
-        "desc": "用明亮积极的能量填满动态的社交媒体红人！\n\n你积极参与各种挑战和活动。",
-        "subDesc": "You actively participate in various challenges and events."
+        "desc": "用明亮积极的能量填满动态的SNS人气王！",
+        "subDesc": "积极参与各种挑战和活动。",
+        "hashtags": ["#人气王", "#挑战之王", "#正能量"]
       },
       {
         "title": "🦄 灵感收集者 INFJ",
-        "desc": "在社交媒体中展现深刻洞察和灵感的安静创作者！\n\n你偏好感性而有意义的内容。",
-        "subDesc": "You prefer emotional yet meaningful content."
+        "desc": "将深刻洞察和灵感融入SNS的安静创作者！",
+        "subDesc": "偏好感性而有意义的内容。",
+        "hashtags": ["#灵感收集", "#意义追求", "#安静SNS"]
       },
       {
         "title": "🧠 战略家 INTJ",
-        "desc": "用分析和策略设计动态的社交媒体大师！\n\n你享受有计划和系统性的社交媒体运营。",
-        "subDesc": "You enjoy planned and systematic SNS management."
+        "desc": "用分析和战略设计动态的SNS大师！",
+        "subDesc": "享受有计划和系统化的SNS运营。",
+        "hashtags": ["#战略性", "#分析师", "#计划型"]
       },
       {
-        "title": "👑 社交媒体领袖 ENTJ",
-        "desc": "即使在社交媒体上也发挥领导力的推动力超强者！\n\n你主导议题，引导粉丝。",
-        "subDesc": "You lead issues and guide followers."
+        "title": "👑 SNS领导者 ENTJ",
+        "desc": "在SNS中也发挥领导力的推动力第一！",
+        "subDesc": "主导议题，引领粉丝的风格。",
+        "hashtags": ["#领导力", "#议题制造者", "#推动力"]
       },
       {
         "title": "🍀 温暖记录者 ISFJ",
-        "desc": "记录日常小事和温暖瞬间的治愈系社交媒体用户！\n\n你重视与朋友、家人、珍贵的人的回忆。",
-        "subDesc": "You value memories with friends, family, and precious people."
+        "desc": "记录平凡日常和温暖瞬间的治愈系SNS用户！",
+        "subDesc": "重视与朋友、家人、珍贵的人的回忆。",
+        "hashtags": ["#治愈动态", "#回忆保存", "#温暖"]
       },
       {
         "title": "💬 沟通王 ESFJ",
-        "desc": "通过评论、私信、点赞享受沟通的社交媒体交流者！\n\n你珍视与粉丝的关系，留下积极的反馈。",
-        "subDesc": "You value relationships with followers and leave active feedback."
+        "desc": "通过评论、私信、点赞享受沟通的SNS交流者！",
+        "subDesc": "重视与粉丝的关系，留下积极的反馈。",
+        "hashtags": ["#沟通王", "#反馈大师", "#重视关系"]
       },
       {
-        "title": "📚 标准用户 ISTJ",
-        "desc": "诚实谨慎管理动态的社交媒体标准用户！\n\n你偏好规律一致的内容。",
-        "subDesc": "You prefer regular and consistent content."
+        "title": "📚 正统派 ISTJ",
+        "desc": "诚实谨慎管理动态的SNS正统派！",
+        "subDesc": "偏好规律一致的内容。",
+        "hashtags": ["#正统运营", "#谨慎", "#一致性"]
       },
       {
         "title": "🗂️ 运营者 ESTJ",
-        "desc": "系统性管理社交媒体的运营者型！\n\n你重视计划、执行和效率。",
-        "subDesc": "You emphasize planning, execution, and efficiency."
+        "desc": "系统化管理SNS的运营者型！",
+        "subDesc": "重视计划、执行、效率的风格。",
+        "hashtags": ["#运营者", "#重视效率", "#计划执行"]
       },
       {
         "title": "🌸 感性艺术家 ISFP",
-        "desc": "装饰感性自由动态的艺术家型！\n\n你享受照片、音乐、视频等各种感性内容。",
-        "subDesc": "You enjoy various emotional content like photos, music, and videos."
+        "desc": "装饰感性自由动态的艺术家型！",
+        "subDesc": "享受照片、音乐、视频等各种感性内容。",
+        "hashtags": ["#感性艺术", "#自由动态", "#艺术家"]
       },
       {
         "title": "🎈 动态氛围制造者 ESFP",
-        "desc": "用明亮愉快的氛围填充动态的社交媒体娱乐者！\n\n你积极参与活动、表情包、挑战。",
-        "subDesc": "You actively participate in events, memes, and challenges."
+        "desc": "用明亮愉快的氛围填充动态的SNS娱乐者！",
+        "subDesc": "积极参与活动、表情包、挑战。",
+        "hashtags": ["#氛围制造者", "#活动参与", "#愉快"]
       },
       {
         "title": "🔧 实验家 ISTP",
-        "desc": "实验新功能、各种格式的社交媒体探索者！\n\n你对技术、工具、趋势很感兴趣。",
-        "subDesc": "You're interested in technology, tools, and trends."
+        "desc": "实验新功能、各种格式的SNS探索者！",
+        "subDesc": "对技术、工具、趋势很有兴趣。",
+        "hashtags": ["#实验精神", "#工具达人", "#趋势检查"]
       },
       {
         "title": "🚀 行动派 ESTP",
-        "desc": "即兴且充满活力的社交媒体行动派！\n\n你享受新尝试和挑战。",
-        "subDesc": "You enjoy new attempts and challenges."
+        "desc": "即兴且充满活力的SNS行动派！",
+        "subDesc": "享受新尝试和挑战。",
+        "hashtags": ["#即兴参与", "#挑战精神", "#活力"]
       },
       {
         "title": "🧩 分析家 INTP",
-        "desc": "用好奇心和分析力探索社交媒体的知识型！\n\n你享受深挖信息、表情包、趋势的原理。",
-        "subDesc": "You enjoy digging into the principles of information, memes, and trends."
+        "desc": "用好奇心和分析力探索SNS的知识型！",
+        "subDesc": "享受挖掘信息、表情包、趋势的原理。",
+        "hashtags": ["#分析师", "#知识好奇心", "#趋势探索"]
       },
       {
-        "title": "🌟 灵感领袖 ENFJ",
-        "desc": "给粉丝积极影响和灵感的社交媒体领袖！\n\n你追求共情、沟通和有意义的内容。",
-        "subDesc": "You pursue empathy, communication, and meaningful content."
+        "title": "🌟 灵感领导者 ENFJ",
+        "desc": "给粉丝积极影响和灵感的SNS领导者！",
+        "subDesc": "追求共情、沟通、有意义的内容。",
+        "hashtags": ["#灵感领导者", "#共情沟通", "#意义追求"]
       }
     ]
   },
@@ -703,83 +751,99 @@
     "results": [
       {
         "title": "🌙 感性記録者 INFP",
-        "desc": "感情と思考を静かに記録する夢幻的感性SNSユーザー！\n\n一人でフィードを育て、長い文章に内面を込めるスタイルです。",
-        "subDesc": "You tend to cultivate your feed alone and express your inner self through long posts."
+        "desc": "感情と思考を静かに記録する幻想的感性SNSユーザー！",
+        "subDesc": "一人でフィードを育て、長文に内面を込めるスタイルです。",
+        "hashtags": ["#感性文句", "#独り言アカウント", "#幻想フィード"]
       },
       {
         "title": "🔥 ミーム職人 ENTP",
-        "desc": "話題とミームで世界を揺るがすSNS開拓者！\n\nコメントにコメントをつけ、毎回話題を起こすミームクリエイターです。",
-        "subDesc": "You comment on comments and are a meme creator who always creates topics."
+        "desc": "話題とミームで世界を揺らすSNS開拓者！",
+        "subDesc": "コメントにコメントを付け、毎回話題を起こすミームクリエイター。",
+        "hashtags": ["#ミーマー", "#反応速度1位", "#SNSユーモア"]
       },
       {
         "title": "🎉 エネルギー爆発 ENFP",
-        "desc": "明るく前向きなエネルギーでフィードを満たすSNSインサイダー！\n\n様々なチャレンジやイベントに積極的に参加します。",
-        "subDesc": "You actively participate in various challenges and events."
+        "desc": "明るく積極的なエネルギーでフィードを満たすSNS人気者！",
+        "subDesc": "様々なチャレンジやイベントに積極的に参加します。",
+        "hashtags": ["#人気者", "#チャレンジ王", "#ポジティブエネルギー"]
       },
       {
         "title": "🦄 インスピレーション収集家 INFJ",
-        "desc": "深い洞察とインスピレーションをSNSに込める静かなクリエイター！\n\n感性的でありながら意味のあるコンテンツを好みます。",
-        "subDesc": "You prefer emotional yet meaningful content."
+        "desc": "深い洞察とインスピレーションをSNSに込める静かなクリエイター！",
+        "subDesc": "感性的でありながら意味のあるコンテンツを好みます。",
+        "hashtags": ["#インスピレーション収集", "#意味追求", "#静かなSNS"]
       },
       {
         "title": "🧠 戦略家 INTJ",
-        "desc": "分析と戦略でフィードを設計するSNSマスター！\n\n計画的で体系的なSNS運営を楽しみます。",
-        "subDesc": "You enjoy planned and systematic SNS management."
+        "desc": "分析と戦略でフィードを設計するSNSマスター！",
+        "subDesc": "計画的で体系的なSNS運営を楽しみます。",
+        "hashtags": ["#戦略的", "#分析者", "#計画型"]
       },
       {
         "title": "👑 SNSリーダー ENTJ",
-        "desc": "SNSでもリーダーシップを発揮する推進力すごい人！\n\nイシューを主導し、フォロワーを導くスタイルです。",
-        "subDesc": "You lead issues and guide followers."
+        "desc": "SNSでもリーダーシップを発揮する推進力抜群！",
+        "subDesc": "イシューを主導し、フォロワーを導くスタイルです。",
+        "hashtags": ["#リーダーシップ", "#イシューメーカー", "#推進力"]
       },
       {
-        "title": "🍀 暖かい記録者 ISFJ",
-        "desc": "些細な日常と暖かい瞬間を記録するヒーリングSNSユーザー！\n\n友達や家族、大切な人との思い出を重視します。",
-        "subDesc": "You value memories with friends, family, and precious people."
+        "title": "🍀 温かい記録者 ISFJ",
+        "desc": "些細な日常と温かい瞬間を記録するヒーリングSNSユーザー！",
+        "subDesc": "友達や家族、大切な人たちとの思い出を重視します。",
+        "hashtags": ["#ヒーリングフィード", "#思い出保存", "#温かさ"]
       },
       {
         "title": "💬 コミュニケーション王 ESFJ",
-        "desc": "コメント、DM、いいねでコミュニケーションを楽しむSNSコミュニケーター！\n\nフォロワーとの関係を大切にし、活発なフィードバックを残します。",
-        "subDesc": "You value relationships with followers and leave active feedback."
+        "desc": "コメント、DM、いいねでコミュニケーションを楽しむSNSコミュニケーター！",
+        "subDesc": "フォロワーとの関係を大切にし、活発なフィードバックを残します。",
+        "hashtags": ["#コミュニケーション王", "#フィードバック職人", "#関係重視"]
       },
       {
         "title": "📚 正統派 ISTJ",
-        "desc": "正直で慎重にフィードを管理するSNS正統派！\n\n規則的で一貫したコンテンツを好みます。",
-        "subDesc": "You prefer regular and consistent content."
+        "desc": "正直で慎重にフィードを管理するSNS正統派！",
+        "subDesc": "規則的で一貫したコンテンツを好みます。",
+        "hashtags": ["#正統運営", "#慎重さ", "#一貫性"]
       },
       {
         "title": "🗂️ 運営者 ESTJ",
-        "desc": "SNSを体系的に管理する運営者型！\n\n計画と実行、効率を重視するスタイルです。",
-        "subDesc": "You emphasize planning, execution, and efficiency."
+        "desc": "SNSを体系的に管理する運営者型！",
+        "subDesc": "計画と實行、効率を重視するスタイルです。",
+        "hashtags": ["#運営者", "#効率重視", "#計画実行"]
       },
       {
         "title": "🌸 感性アーティスト ISFP",
-        "desc": "感覚的で自由なフィードを飾るアーティスト型！\n\n写真、音楽、映像など様々な感性コンテンツを楽しみます。",
-        "subDesc": "You enjoy various emotional content like photos, music, and videos."
+        "desc": "感覚的で自由なフィードを飾るアーティスト型！",
+        "subDesc": "写真、音楽、映像など様々な感性コンテンツを楽しみます。",
+        "hashtags": ["#感性アート", "#自由なフィード", "#アーティスト"]
       },
       {
-        "title": "🎈 フィードのムードメーカー ESFP",
-        "desc": "明るく愉快な雰囲気でフィードを満たすSNSエンターテイナー！\n\nイベント、ミーム、チャレンジに積極的に参加します。",
-        "subDesc": "You actively participate in events, memes, and challenges."
+        "title": "🎈 フィードの雰囲気メーカー ESFP",
+        "desc": "明るく愉快な雰囲気でフィードを満たすSNSエンターテイナー！",
+        "subDesc": "イベント、ミーム、チャレンジに積極的に参加します。",
+        "hashtags": ["#雰囲気メーカー", "#イベント参加", "#愉快さ"]
       },
       {
         "title": "🔧 実験家 ISTP",
-        "desc": "新しい機能、様々なフォーマットを実験するSNS探求者！\n\n技術、ツール、トレンドに興味が多いです。",
-        "subDesc": "You're interested in technology, tools, and trends."
+        "desc": "新機能、様々なフォーマットを実験するSNS探求家！",
+        "subDesc": "技術、ツール、トレンドに興味が多いです。",
+        "hashtags": ["#実験精神", "#ツールオタク", "#トレンドチェック"]
       },
       {
         "title": "🚀 アクション派 ESTP",
-        "desc": "即興的でエネルギーあふれるSNSアクション派！\n\n新しい試みと挑戦を楽しみます。",
-        "subDesc": "You enjoy new attempts and challenges."
+        "desc": "即興的でエネルギー溢れるSNSアクション派！",
+        "subDesc": "新しい試みと挑戦を楽しみます。",
+        "hashtags": ["#即興参加", "#挑戦精神", "#エネルギー"]
       },
       {
         "title": "🧩 分析家 INTP",
-        "desc": "好奇心と分析力でSNSを探求する知的タイプ！\n\n情報、ミーム、トレンドの原理を掘り下げることを楽しみます。",
-        "subDesc": "You enjoy digging into the principles of information, memes, and trends."
+        "desc": "好奇心と分析力でSNSを探求する知的タイプ！",
+        "subDesc": "情報、ミーム、トレンドの原理を掘り下げることを楽しみます。",
+        "hashtags": ["#分析者", "#知的好奇心", "#トレンド探求"]
       },
       {
         "title": "🌟 インスピレーションリーダー ENFJ",
-        "desc": "フォロワーに前向きな影響とインスピレーションを与えるSNSリーダー！\n\n共感とコミュニケーション、意味のあるコンテンツを追求します。",
-        "subDesc": "You pursue empathy, communication, and meaningful content."
+        "desc": "フォロワーに積極的影響とインスピレーションを与えるSNSリーダー！",
+        "subDesc": "共感とコミュニケーション、意味のあるコンテンツを追求します。",
+        "hashtags": ["#インスピレーションリーダー", "#共感コミュニケーション", "#意味追求"]
       }
     ]
   }

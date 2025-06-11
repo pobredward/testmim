@@ -59,7 +59,8 @@
           "자연과 함께하는 직업 (원예사, 환경운동가)",
           "치유와 관련된 일 (상담사, 의료진)",
           "창작 활동을 통한 내면 표현"
-        ]
+        ],
+        "hashtags": ["#숲의정령", "#자연치유", "#생명보호"]
       },
       {
         "type": "OCEAN_GUARDIAN",
@@ -70,7 +71,8 @@
           "여행과 모험이 있는 직업 (여행가이드, 탐험가)",
           "사람들을 돕는 일 (구조대, 교육자)",
           "예술적 표현 활동"
-        ]
+        ],
+        "hashtags": ["#바다수호자", "#자유영혼", "#모험정신"]
       },
       {
         "type": "SKY_MESSENGER",
@@ -81,7 +83,8 @@
           "리더십이 필요한 직업 (관리자, 정치가)",
           "교육과 지도 관련 일 (교사, 멘토)",
           "전략적 사고가 필요한 분야"
-        ]
+        ],
+        "hashtags": ["#하늘전령", "#통찰력", "#리더십"]
       },
       {
         "type": "MOON_MYSTIC",
@@ -92,7 +95,8 @@
           "창작과 예술 분야 (작가, 예술가)",
           "심리학과 상담 관련 일",
           "연구와 탐구 활동"
-        ]
+        ],
+        "hashtags": ["#달의신비", "#직감력", "#꿈해석"]
       },
       {
         "type": "HARMONIOUS_SOUL",
@@ -103,7 +107,8 @@
           "중재와 조정이 필요한 직업 (중재자, 외교관)",
           "다양한 분야를 아우르는 일",
           "팀워크가 중요한 분야"
-        ]
+        ],
+        "hashtags": ["#조화영혼", "#균형감각", "#평화중재"]
       }
     ]
   },
@@ -167,7 +172,8 @@
           "Jobs working with nature (gardener, environmental activist)",
           "Healing-related work (counselor, medical staff)",
           "Expressing inner self through creative activities"
-        ]
+        ],
+        "hashtags": ["#ForestSpirit", "#NatureHealing", "#LifeProtection"]
       },
       {
         "type": "OCEAN_GUARDIAN",
@@ -178,7 +184,8 @@
           "Jobs with travel and adventure (travel guide, explorer)",
           "Work helping people (rescue team, educator)",
           "Artistic expression activities"
-        ]
+        ],
+        "hashtags": ["#OceanGuardian", "#FreeSpirit", "#AdventureSpirit"]
       },
       {
         "type": "SKY_MESSENGER",
@@ -189,7 +196,8 @@
           "Jobs requiring leadership (manager, politician)",
           "Education and guidance work (teacher, mentor)",
           "Fields requiring strategic thinking"
-        ]
+        ],
+        "hashtags": ["#SkyMessenger", "#Insight", "#Leadership"]
       },
       {
         "type": "MOON_MYSTIC",
@@ -200,7 +208,8 @@
           "Creative and artistic fields (writer, artist)",
           "Psychology and counseling work",
           "Research and exploration activities"
-        ]
+        ],
+        "hashtags": ["#MoonMystic", "#Intuition", "#DreamInterpretation"]
       },
       {
         "type": "HARMONIOUS_SOUL",
@@ -211,7 +220,8 @@
           "Jobs requiring mediation and coordination (mediator, diplomat)",
           "Work encompassing various fields",
           "Fields where teamwork is important"
-        ]
+        ],
+        "hashtags": ["#HarmoniousSoul", "#Balance", "#PeaceMediation"]
       }
     ]
   },
@@ -275,7 +285,8 @@
           "与自然相关的职业（园艺师、环保活动家）",
           "与治愈相关的工作（咨询师、医务人员）",
           "通过创作活动表达内心"
-        ]
+        ],
+        "hashtags": ["#森林精灵", "#自然治愈", "#生命保护"]
       },
       {
         "type": "OCEAN_GUARDIAN",
@@ -286,7 +297,8 @@
           "有旅行和冒险的职业（旅行向导、探险家）",
           "帮助人们的工作（救援队、教育者）",
           "艺术表达活动"
-        ]
+        ],
+        "hashtags": ["#海洋守护者", "#自由灵魂", "#冒险精神"]
       },
       {
         "type": "SKY_MESSENGER",
@@ -297,7 +309,8 @@
           "需要领导力的职业（管理者、政治家）",
           "教育和指导相关工作（教师、导师）",
           "需要战略思维的领域"
-        ]
+        ],
+        "hashtags": ["#天空信使", "#洞察力", "#领导力"]
       },
       {
         "type": "MOON_MYSTIC",
@@ -308,7 +321,8 @@
           "创作和艺术领域（作家、艺术家）",
           "心理学和咨询相关工作",
           "研究和探索活动"
-        ]
+        ],
+        "hashtags": ["#月亮神秘主义者", "#直觉力", "#梦境解释"]
       },
       {
         "type": "HARMONIOUS_SOUL",
@@ -319,7 +333,8 @@
           "需要调解和协调的职业（调解员、外交官）",
           "涵盖多个领域的工作",
           "团队合作重要的领域"
-        ]
+        ],
+        "hashtags": ["#和谐灵魂", "#平衡感", "#和平调解"]
       }
     ]
   },
@@ -383,7 +398,8 @@
           "自然と共にする職業（園芸家、環境運動家）",
           "癒しに関わる仕事（カウンセラー、医療従事者）",
           "創作活動を通じた内面表現"
-        ]
+        ],
+        "hashtags": ["#森の精霊", "#自然癒し", "#生命保護"]
       },
       {
         "type": "OCEAN_GUARDIAN",
@@ -394,7 +410,8 @@
           "旅行と冒険がある職業（旅行ガイド、探検家）",
           "人々を助ける仕事（救助隊、教育者）",
           "芸術的表現活動"
-        ]
+        ],
+        "hashtags": ["#海の守護者", "#自由な魂", "#冒険心"]
       },
       {
         "type": "SKY_MESSENGER",
@@ -405,7 +422,8 @@
           "リーダーシップが必要な職業（管理者、政治家）",
           "教育と指導関連の仕事（教師、メンター）",
           "戦略的思考が必要な分野"
-        ]
+        ],
+        "hashtags": ["#空の使者", "#洞察力", "#リーダーシップ"]
       },
       {
         "type": "MOON_MYSTIC",
@@ -416,7 +434,8 @@
           "創作と芸術分野（作家、芸術家）",
           "心理学とカウンセリング関連の仕事",
           "研究と探求活動"
-        ]
+        ],
+        "hashtags": ["#月の神秘主義者", "#直感力", "#夢解釈"]
       },
       {
         "type": "HARMONIOUS_SOUL",
@@ -427,7 +446,8 @@
           "仲裁と調整が必要な職業（仲裁者、外交官）",
           "様々な分野を包括する仕事",
           "チームワークが重要な分野"
-        ]
+        ],
+        "hashtags": ["#調和ある魂", "#バランス感覚", "#平和仲裁"]
       }
     ]
   }

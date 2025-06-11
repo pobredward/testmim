@@ -59,7 +59,8 @@
           "스트리트 파이터 - 빠른 연속기의 마스터",
           "그래플러 - 강력한 잡기 기술의 달인",
           "스트라이커 - 발차기의 화려한 마스터"
-        ]
+        ],
+        "hashtags": ["#근접전투", "#콤보마스터", "#격투달인"]
       },
       {
         "type": "GUNNER",
@@ -70,7 +71,8 @@
           "레인저 - 총기 사격의 기본 마스터",
           "런처 - 중화기의 폭발적 화력",
           "메카닉 - 로봇과 함께하는 전투"
-        ]
+        ],
+        "hashtags": ["#원거리사격", "#정확한조준", "#총기달인"]
       },
       {
         "type": "MAGE",
@@ -81,7 +83,8 @@
           "엘레멘탈 마스터 - 4대 속성의 지배자",
           "배틀메이지 - 마법과 물리의 조화",
           "소환사 - 정령들과 함께하는 전투"
-        ]
+        ],
+        "hashtags": ["#마법공격", "#속성조작", "#신비한힘"]
       },
       {
         "type": "PRIEST",
@@ -92,7 +95,8 @@
           "크루세이더 - 팀을 지원하는 성기사",
           "인파이터 - 근접 전투형 성직자",
           "퇴마사 - 악령을 퇴치하는 전사"
-        ]
+        ],
+        "hashtags": ["#신성한힘", "#팀지원", "#치유마법"]
       },
       {
         "type": "THIEF",
@@ -103,7 +107,8 @@
           "로그 - 단검과 독을 다루는 암살자",
           "네크로맨서 - 죽음의 마법을 다루는 마법사",
           "쿠노이치 - 동양의 신비로운 닌자"
-        ]
+        ],
+        "hashtags": ["#그림자암살", "#치명타공격", "#기습전문"]
       }
     ]
   },
@@ -167,7 +172,8 @@
           "Street Fighter - Master of quick combos",
           "Grappler - Expert of powerful grappling techniques",
           "Striker - Flashy master of kicks"
-        ]
+        ],
+        "hashtags": ["#CloseCombat", "#ComboMaster", "#FightingExpert"]
       },
       {
         "type": "GUNNER",
@@ -178,7 +184,8 @@
           "Ranger - Basic master of firearms",
           "Launcher - Explosive firepower of heavy weapons",
           "Mechanic - Combat with robots"
-        ]
+        ],
+        "hashtags": ["#RangedShooting", "#AccurateAiming", "#FirearmsExpert"]
       },
       {
         "type": "MAGE",
@@ -189,7 +196,8 @@
           "Elemental Master - Ruler of the four elements",
           "Battlemage - Harmony of magic and physical",
           "Summoner - Combat with spirits"
-        ]
+        ],
+        "hashtags": ["#MagicalAttack", "#ElementalControl", "#MysticalPower"]
       },
       {
         "type": "PRIEST",
@@ -200,7 +208,8 @@
           "Crusader - Holy knight supporting the team",
           "Infighter - Close combat type cleric",
           "Exorcist - Warrior who banishes evil spirits"
-        ]
+        ],
+        "hashtags": ["#HolyPower", "#TeamSupport", "#HealingMagic"]
       },
       {
         "type": "THIEF",
@@ -211,7 +220,8 @@
           "Rogue - Assassin handling daggers and poison",
           "Necromancer - Mage handling death magic",
           "Kunoichi - Mysterious oriental ninja"
-        ]
+        ],
+        "hashtags": ["#ShadowAssassin", "#CriticalAttack", "#AmbushSpecialist"]
       }
     ]
   },
@@ -275,7 +285,8 @@
           "街霸 - 快速连击的大师",
           "柔道家 - 强力抓技的达人", 
           "散打 - 踢技的华丽大师"
-        ]
+        ],
+        "hashtags": ["#近战战斗", "#连击大师", "#格斗达人"]
       },
       {
         "type": "GUNNER",
@@ -286,7 +297,8 @@
           "漫游枪手 - 枪械射击的基础大师",
           "重火器 - 重武器的爆炸火力",
           "机械师 - 与机器人一起的战斗"
-        ]
+        ],
+        "hashtags": ["#远程射击", "#精确瞄准", "#枪械达人"]
       },
       {
         "type": "MAGE",
@@ -297,7 +309,8 @@
           "元素师 - 四大属性的支配者",
           "战斗法师 - 魔法与物理的调和",
           "召唤师 - 与精灵一起的战斗"
-        ]
+        ],
+        "hashtags": ["#魔法攻击", "#属性操控", "#神秘力量"]
       },
       {
         "type": "PRIEST",
@@ -308,7 +321,8 @@
           "圣骑士 - 支援团队的圣骑士",
           "蓝拳圣使 - 近战型圣职者",
           "驱魔师 - 驱逐恶灵的战士"
-        ]
+        ],
+        "hashtags": ["#神圣力量", "#团队支援", "#治疗魔法"]
       },
       {
         "type": "THIEF",
@@ -319,7 +333,8 @@
           "刺客 - 操作匕首和毒的刺客",
           "死灵术士 - 操控死亡魔法的魔法师",
           "忍者 - 东方神秘的忍者"
-        ]
+        ],
+        "hashtags": ["#阴影刺杀", "#暴击攻击", "#突袭专家"]
       }
     ]
   },
@@ -383,7 +398,8 @@
           "ストリートファイター - 素早い連続技のマスター",
           "グラップラー - 強力な投げ技の達人",
           "ストライカー - 蹴り技の華麗なマスター"
-        ]
+        ],
+        "hashtags": ["#近接戦闘", "#コンボマスター", "#格闘達人"]
       },
       {
         "type": "GUNNER",
@@ -394,7 +410,8 @@
           "レンジャー - 銃器射撃の基本マスター",
           "ランチャー - 重火器の爆発的火力",
           "メカニック - ロボットと一緒の戦闘"
-        ]
+        ],
+        "hashtags": ["#遠距離射撃", "#正確照準", "#銃器達人"]
       },
       {
         "type": "MAGE",
@@ -405,7 +422,8 @@
           "エレメンタルマスター - 4大属性の支配者",
           "バトルメイジ - 魔法と物理の調和",
           "サモナー - 精霊たちと一緒の戦闘"
-        ]
+        ],
+        "hashtags": ["#魔法攻撃", "#属性操作", "#神秘力量"]
       },
       {
         "type": "PRIEST",
@@ -416,7 +434,8 @@
           "クルセイダー - チームを支援する聖騎士",
           "インファイター - 近接戦闘型聖職者",
           "退魔師 - 悪霊を退治する戦士"
-        ]
+        ],
+        "hashtags": ["#神聖力量", "#チームサポート", "#治癒魔法"]
       },
       {
         "type": "THIEF",
@@ -427,7 +446,8 @@
           "ローグ - 短剣と毒を扱う暗殺者",
           "ネクロマンサー - 死の魔法を扱う魔法使い",
           "くノ一 - 東洋の神秘的な忍者"
-        ]
+        ],
+        "hashtags": ["#影暗殺", "#クリティカル攻撃", "#奇襲専門"]
       }
     ]
   }

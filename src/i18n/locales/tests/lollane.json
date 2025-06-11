@@ -52,9 +52,10 @@
     "results": [
       {
         "type": "TOP",
-        "title": "탑 라인",
-        "desc": "1:1 대결의 고수! 독립적이고 강인한 성격으로 혼자서도 충분히 강력한 존재입니다. 안정적인 성장과 후반 캐리력을 갖춘 탑라이너입니다.",
-        "subDesc": "- 라인전 숙련도가 높고 1:1 대결을 선호\n- 독립적이고 자립심이 강함\n- 후반 한타에서 강력한 존재감",
+        "title": "🛡️ 탑라인 – 단단한 외로운 전사",
+        "desc": "자신만의 길을 묵묵히 가는 강인한 당신!",
+        "subDesc": "상대의 압박 속에서도 꿋꿋하게 라인을 유지하는 타입",
+        "hashtags": ["#1인분", "#탑솔", "#강한멘탈"],
         "recommend": [
           "탱커 챔피언 - 팀을 보호하는 든든한 벽",
           "브루저 챔피언 - 딜과 탱을 겸비한 만능형",
@@ -63,9 +64,10 @@
       },
       {
         "type": "JUNGLE",
-        "title": "정글",
-        "desc": "맵 전체를 조율하는 지휘관! 뛰어난 판단력과 상황 인식 능력으로 게임의 흐름을 주도하는 정글러입니다.",
-        "subDesc": "- 맵 전체를 보는 시야와 판단력\n- 타이밍과 오브젝트 관리 능력\n- 팀원들과의 소통과 협력 중시",
+        "title": "🌲 정글 – 설계자이자 판을 흔드는 자",
+        "desc": "맵 전체를 움직이는 전략가!",
+        "subDesc": "초반 설계부터 오브젝트 컨트롤까지, 다 당신 손에 달렸다",
+        "hashtags": ["#정글러", "#갱킹", "#설계자"],
         "recommend": [
           "탱커 정글러 - 팀을 위한 이니시에이팅",
           "캐리 정글러 - 직접 게임을 캐리",
@@ -74,9 +76,10 @@
       },
       {
         "type": "MID",
-        "title": "미드 라인",
-        "desc": "게임의 중심에서 영향력을 발휘하는 에이스! 높은 스킬과 빠른 판단력으로 팀을 승리로 이끄는 미드라이너입니다.",
-        "subDesc": "- 높은 개인 스킬과 메커니컬\n- 로밍과 팀파이트에서의 역할 수행\n- 게임 전반에 걸친 강력한 영향력",
+        "title": "⚔️ 미드라인 – 전략의 중심",
+        "desc": "맵을 관통하는 존재감, 로밍과 화력 모두를 책임지는 중심축!",
+        "subDesc": "판을 읽고 움직이는 리더 타입",
+        "hashtags": ["#중심", "#로밍", "#미드라이너"],
         "recommend": [
           "암살자 챔피언 - 적 캐리를 제거하는 역할",
           "메이지 챔피언 - 강력한 마법 딜러",
@@ -85,9 +88,10 @@
       },
       {
         "type": "ADC",
-        "title": "원거리 딜러",
-        "desc": "팀의 화력 담당! 정확한 포지셔닝과 꾸준한 딜링으로 후반 캐리를 책임지는 원거리 딜러입니다.",
-        "subDesc": "- 뛰어난 포지셔닝과 생존 능력\n- 꾸준하고 강력한 지속 딜링\n- 후반 한타에서의 캐리 포텐셜",
+        "title": "🎯 원딜 – 후반 캐리의 아이콘",
+        "desc": "포지셔닝 하나로 게임을 뒤집는 딜링 머신!",
+        "subDesc": "한타에선 당신의 딜량이 곧 희망",
+        "hashtags": ["#원딜", "#포지셔닝", "#캐리력"],
         "recommend": [
           "크리티컬 ADC - 후반 강력한 화력",
           "유틸리티 ADC - 팀을 위한 서포팅",
@@ -96,9 +100,10 @@
       },
       {
         "type": "SUPPORT",
-        "title": "서포터",
-        "desc": "팀의 든든한 지원군! 뛰어난 팀워크와 배려심으로 아군을 지켜주는 진정한 서포터입니다.",
-        "subDesc": "- 팀원에 대한 배려와 희생정신\n- 뛰어난 시야 관리와 정보 제공\n- 팀파이트에서의 핵심 역할 수행",
+        "title": "💉 서포터 – 팀의 숨은 MVP",
+        "desc": "시야와 힐, CC로 팀을 완성시키는 헌신형 플레이어!",
+        "subDesc": "당신은 팀워크의 핵심",
+        "hashtags": ["#서폿", "#시야장인", "#팀플"],
         "recommend": [
           "탱커 서포터 - 아군을 보호하는 방패",
           "힐러 서포터 - 지속적인 회복 지원",
@@ -160,9 +165,10 @@
     "results": [
       {
         "type": "TOP",
-        "title": "Top Lane",
-        "desc": "Master of 1v1 duels! With an independent and strong personality, you're powerful enough on your own. You're a top laner with stable growth and late-game carry potential.",
-        "subDesc": "- High laning proficiency and prefers 1v1 duels\n- Independent with strong self-reliance\n- Powerful presence in late-game team fights",
+        "title": "🛡️ Top Lane – The Solid Lonely Warrior",
+        "desc": "Strong you who silently walks your own path!",
+        "subDesc": "Type that steadfastly maintains the lane even under opponent's pressure",
+        "hashtags": ["#SelfSufficient", "#TopSolo", "#StrongMentality"],
         "recommend": [
           "Tank Champions - Reliable wall protecting the team",
           "Bruiser Champions - Versatile type with both damage and tankiness", 
@@ -171,9 +177,10 @@
       },
       {
         "type": "JUNGLE",
-        "title": "Jungle",
-        "desc": "Commander coordinating the entire map! You're a jungler who leads the game flow with excellent judgment and situational awareness.",
-        "subDesc": "- Vision and judgment covering the entire map\n- Timing and objective management abilities\n- Values communication and cooperation with teammates",
+        "title": "🌲 Jungle – Designer and Game Changer",
+        "desc": "Strategist who moves the entire map!",
+        "subDesc": "From early game planning to objective control, it's all in your hands",
+        "hashtags": ["#Jungler", "#Ganking", "#Designer"],
         "recommend": [
           "Tank Junglers - Initiating for the team",
           "Carry Junglers - Directly carrying the game",
@@ -182,9 +189,10 @@
       },
       {
         "type": "MID",
-        "title": "Mid Lane", 
-        "desc": "Ace exerting influence from the center of the game! You're a mid laner who leads the team to victory with high skill and quick judgment.",
-        "subDesc": "- High individual skill and mechanics\n- Performing roles in roaming and team fights\n- Powerful influence throughout the game",
+        "title": "⚔️ Mid Lane – Center of Strategy",
+        "desc": "Presence that penetrates the map, the central axis responsible for both roaming and firepower!",
+        "subDesc": "Leader type who reads and moves the board",
+        "hashtags": ["#Center", "#Roaming", "#Midlaner"],
         "recommend": [
           "Assassin Champions - Role of eliminating enemy carries",
           "Mage Champions - Powerful magical dealers",
@@ -193,9 +201,10 @@
       },
       {
         "type": "ADC",
-        "title": "ADC",
-        "desc": "Team's firepower! You're an ADC responsible for late-game carry through accurate positioning and consistent dealing.",
-        "subDesc": "- Excellent positioning and survival abilities\n- Consistent and powerful sustained dealing\n- Carry potential in late-game team fights",
+        "title": "🎯 ADC – Icon of Late Game Carry",
+        "desc": "Dealing machine that flips the game with positioning alone!",
+        "subDesc": "In team fights, your damage output is hope itself",
+        "hashtags": ["#ADC", "#Positioning", "#CarryPower"],
         "recommend": [
           "Critical ADC - Powerful late-game firepower",
           "Utility ADC - Supporting for the team",
@@ -204,9 +213,10 @@
       },
       {
         "type": "SUPPORT",
-        "title": "Support",
-        "desc": "Team's reliable support! You're a true supporter who protects allies with excellent teamwork and consideration.",
-        "subDesc": "- Consideration and sacrifice for teammates\n- Excellent vision management and information provision\n- Performing key roles in team fights",
+        "title": "💉 Support – Team's Hidden MVP",
+        "desc": "Dedicated player who completes the team with vision, heals, and CC!",
+        "subDesc": "You are the core of teamwork",
+        "hashtags": ["#Support", "#VisionMaster", "#Teamplay"],
         "recommend": [
           "Tank Supports - Shield protecting allies",
           "Healer Supports - Continuous recovery support",
@@ -268,9 +278,10 @@
     "results": [
       {
         "type": "TOP",
-        "title": "上路",
-        "desc": "1v1对决的高手！独立且坚强的性格，一个人也足够强大。是具有稳定成长和后期carry能力的上路选手。",
-        "subDesc": "- 对线熟练度高，偏好1v1对决\n- 独立且自立心强\n- 后期团战中的强大存在感",
+        "title": "🛡️ 上路 – 坚固的孤独战士",
+        "desc": "默默走着自己道路的坚强的你！",
+        "subDesc": "即使在对手的压迫下也坚定地维持线路的类型",
+        "hashtags": ["#一人份", "#上路独行", "#强大心态"],
         "recommend": [
           "坦克英雄 - 保护团队的可靠屏障",
           "战士英雄 - 兼具输出和坦度的万能型",
@@ -279,9 +290,10 @@
       },
       {
         "type": "JUNGLE",
-        "title": "打野",
-        "desc": "调控整个地图的指挥官！凭借卓越的判断力和情况认知能力主导游戏流程的打野选手。",
-        "subDesc": "- 覆盖整个地图的视野和判断力\n- 时机和目标管理能力\n- 重视与队友的沟通和协作",
+        "title": "🌲 打野 – 设计师兼搅动局势者",
+        "desc": "移动整个地图的战略家！",
+        "subDesc": "从前期设计到目标控制，一切都在你手中",
+        "hashtags": ["#打野", "#抓人", "#设计师"],
         "recommend": [
           "坦克打野 - 为团队开团",
           "输出打野 - 直接carry游戏",
@@ -290,9 +302,10 @@
       },
       {
         "type": "MID",
-        "title": "中路",
-        "desc": "在游戏中心发挥影响力的王牌！凭借高超技巧和快速判断力引领团队走向胜利的中路选手。",
-        "subDesc": "- 高超的个人技巧和操作\n- 在游走和团战中发挥作用\n- 贯穿整个游戏的强大影响力",
+        "title": "⚔️ 中路 – 战略中心",
+        "desc": "穿透地图的存在感，承担游走和火力的中心轴！",
+        "subDesc": "读懂局势并行动的领导者类型",
+        "hashtags": ["#中心", "#游走", "#中路玩家"],
         "recommend": [
           "刺客英雄 - 消除敌方核心的角色",
           "法师英雄 - 强大的魔法输出",
@@ -301,9 +314,10 @@
       },
       {
         "type": "ADC",
-        "title": "ADC",
-        "desc": "团队的火力担当！通过精确定位和稳定输出负责后期carry的ADC选手。",
-        "subDesc": "- 卓越的定位和生存能力\n- 稳定且强大的持续输出\n- 后期团战中的carry潜力",
+        "title": "🎯 射手 – 后期carry的图标",
+        "desc": "仅凭走位就能翻转游戏的输出机器！",
+        "subDesc": "团战中你的伤害量就是希望",
+        "hashtags": ["#射手", "#走位", "#carry能力"],
         "recommend": [
           "暴击ADC - 后期强大的火力",
           "功能性ADC - 为团队提供支援",
@@ -312,9 +326,10 @@
       },
       {
         "type": "SUPPORT",
-        "title": "辅助",
-        "desc": "团队可靠的支援军！凭借卓越的团队合作和体贴精神保护队友的真正辅助。",
-        "subDesc": "- 对队友的体贴和牺牲精神\n- 卓越的视野管理和信息提供\n- 在团战中发挥核心作用",
+        "title": "💉 辅助 – 团队的隐藏MVP",
+        "desc": "用视野、治疗、控制完善团队的奉献型玩家！",
+        "subDesc": "你是团队合作的核心",
+        "hashtags": ["#辅助", "#视野大师", "#团队配合"],
         "recommend": [
           "坦克辅助 - 保护队友的盾牌",
           "治疗辅助 - 持续的恢复支援",
@@ -376,9 +391,10 @@
     "results": [
       {
         "type": "TOP",
-        "title": "トップレーン",
-        "desc": "1対1対決の達人！独立的で強靭な性格で一人でも十分強力な存在です。安定した成長と後半キャリー力を備えたトップレーナーです。",
-        "subDesc": "- レーン戦の熟練度が高く1対1対決を好む\n- 独立的で自立心が強い\n- 後半チームファイトで強力な存在感",
+        "title": "🛡️ トップレーン – 堅固な孤独な戦士",
+        "desc": "自分の道を黙々と歩む強靭なあなた！",
+        "subDesc": "相手のプレッシャーの中でも頑固にレーンを維持するタイプ",
+        "hashtags": ["#一人前", "#トップソロ", "#強いメンタル"],
         "recommend": [
           "タンクチャンピオン - チームを守る頼もしい壁",
           "ブルーザーチャンピオン - ダメージとタンクを兼備した万能型",
@@ -387,9 +403,10 @@
       },
       {
         "type": "JUNGLE",
-        "title": "ジャングル",
-        "desc": "マップ全体を調整する指揮官！優れた判断力と状況認識能力でゲームの流れを主導するジャングラーです。",
-        "subDesc": "- マップ全体を見る視野と判断力\n- タイミングとオブジェクト管理能力\n- チームメンバーとのコミュニケーションと協力を重視",
+        "title": "🌲 ジャングル – 設計者かつ盤面を揺らす者",
+        "desc": "マップ全体を動かす戦略家！",
+        "subDesc": "序盤設計からオブジェクトコントロールまで、すべてあなたの手にかかっている",
+        "hashtags": ["#ジャングラー", "#ガンク", "#設計者"],
         "recommend": [
           "タンクジャングラー - チームのためのイニシエート",
           "キャリージャングラー - 直接ゲームをキャリー",
@@ -398,9 +415,10 @@
       },
       {
         "type": "MID",
-        "title": "ミッドレーン",
-        "desc": "ゲームの中心で影響力を発揮するエース！高いスキルと素早い判断力でチームを勝利に導くミッドレーナーです。",
-        "subDesc": "- 高い個人スキルとメカニック\n- ローミングとチームファイトでの役割遂行\n- ゲーム全般にわたる強力な影響力",
+        "title": "⚔️ ミッドレーン – 戦略の中心",
+        "desc": "マップを貫通する存在感、ローミングと火力両方を担う中心軸！",
+        "subDesc": "盤面を読んで動くリーダータイプ",
+        "hashtags": ["#中心", "#ローミング", "#ミッドレーナー"],
         "recommend": [
           "アサシンチャンピオン - 敵キャリーを除去する役割",
           "メイジチャンピオン - 強力な魔法ディーラー",
@@ -409,9 +427,10 @@
       },
       {
         "type": "ADC",
-        "title": "ADC",
-        "desc": "チームの火力担当！正確なポジショニングと継続的なディーリングで後半キャリーを担うADCです。",
-        "subDesc": "- 優れたポジショニングと生存能力\n- 継続的で強力な持続ダメージ\n- 後半チームファイトでのキャリーポテンシャル",
+        "title": "🎯 ADC – 後半キャリーのアイコン",
+        "desc": "ポジショニング一つでゲームをひっくり返すディーリングマシン！",
+        "subDesc": "チームファイトではあなたのダメージ量が希望そのもの",
+        "hashtags": ["#ADC", "#ポジショニング", "#キャリー力"],
         "recommend": [
           "クリティカルADC - 後半強力な火力",
           "ユーティリティADC - チームのためのサポート",
@@ -420,9 +439,10 @@
       },
       {
         "type": "SUPPORT",
-        "title": "サポート",
-        "desc": "チームの頼もしいサポート軍！優れたチームワークと思いやりで味方を守る真のサポーターです。",
-        "subDesc": "- チームメンバーへの思いやりと犠牲精神\n- 優れた視野管理と情報提供\n- チームファイトでの核心的役割遂行",
+        "title": "💉 サポート – チームの隠れたMVP",
+        "desc": "視界とヒール、CCでチームを完成させる献身型プレイヤー！",
+        "subDesc": "あなたはチームワークの核心",
+        "hashtags": ["#サポート", "#視界職人", "#チームプレイ"],
         "recommend": [
           "タンクサポート - 味方を守る盾",
           "ヒーラーサポート - 継続的な回復サポート",

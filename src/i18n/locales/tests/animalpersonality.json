@@ -99,49 +99,57 @@
         "title": "🐯 호랑이 – 외유내강 리더형",
         "desc": "겉은 차분하지만 안에는 결단력과 추진력을 가진 성격.\n상황을 리드하고 무리에서 중심 역할을 맡는 경우가 많다.\n당신은 조용한 카리스마, 판단력의 상징.",
         "subDesc": "- 결단력과 추진력을 가진 성격\n- 상황을 리드하고 무리에서 중심 역할을 맡는 경우가 많다\n- 조용한 카리스마, 판단력의 상징",
-        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"]
+        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"],
+        "hashtags": ["#조용한카리스마", "#리더십", "#결단력"]
       },
       {
         "title": "🐶 강아지 – 따뜻한 관계 중심형",
         "desc": "에너지 넘치고, 사람들과 있을 때 가장 행복한 타입.\n표현력과 친화력이 좋아 주변에 늘 사람이 많음.\n당신은 누군가의 '정서적 버팀목'.",
         "subDesc": "- 에너지 넘치고, 사람들과 있을 때 가장 행복한 타입\n- 표현력과 친화력이 좋아 주변에 늘 사람이 많음\n- 누군가의 '정서적 버팀목'",
-        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"]
+        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"],
+        "hashtags": ["#따뜻한관계", "#친화력", "#정서적지지"]
       },
       {
         "title": "🐱 고양이 – 감성적 예민 관찰자형",
         "desc": "감정에 민감하며, 사람 기분에 금방 반응하는 센서 보유자.\n겉으로는 조용하지만 정서가 풍부함.\n당신은 조용한 위로를 건네는 존재.",
         "subDesc": "- 감정에 민감하며, 사람 기분에 금방 반응하는 센서 보유자\n- 겉으로는 조용하지만 정서가 풍부함\n- 조용한 위로를 건네는 존재",
-        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"]
+        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"],
+        "hashtags": ["#감성적민감", "#조용한위로", "#감정센서"]
       },
       {
         "title": "🐙 문어 – 철학적 은둔 지성형",
         "desc": "외부보다 내부 세계에 집중하는 사람.\n혼자서 사고 정리, 창작, 분석하는 걸 즐김.\n당신은 침묵 속에 깊이를 담는 사색가.",
         "subDesc": "- 외부보다 내부 세계에 집중하는 사람\n- 혼자서 사고 정리, 창작, 분석하는 걸 즐김\n- 침묵 속에 깊이를 담는 사색가",
-        "recommend": ["Personal time", "Creative activities", "Analytical thinking"]
+        "recommend": ["Personal time", "Creative activities", "Analytical thinking"],
+        "hashtags": ["#철학적사고", "#혼자시간", "#깊은사색"]
       },
       {
         "title": "🦉 부엉이 – 이성 중심 전략가형",
         "desc": "어떤 상황이든 감정보다 판단이 우선됨.\n이성적이고 분석적인 사고를 바탕으로 리더 역할도 무난히 수행.\n당신은 상황을 구조적으로 읽는 전략가.",
         "subDesc": "- 어떤 상황이든 감정보다 판단이 우선됨\n- 이성적이고 분석적인 사고를 바탕으로 리더 역할도 무난히 수행\n- 상황을 구조적으로 읽는 전략가",
-        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"]
+        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"],
+        "hashtags": ["#이성적판단", "#전략적사고", "#분석력"]
       },
       {
         "title": "🦊 여우 – 영리한 현실주의자형",
         "desc": "센스 있고 빠르며, 변화에 잘 적응하는 타입.\n처세에 능하고 위험 감지에 민감함.\n당신은 상황을 즐기며 통제하는 '현실 파이터'.",
         "subDesc": "- 센스 있고 빠르며, 변화에 잘 적응하는 타입\n- 처세에 능하고 위험 감지에 민감함\n- 상황을 즐기며 통제하는 '현실 파이터'",
-        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"]
+        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"],
+        "hashtags": ["#영리한적응", "#현실감각", "#빠른판단"]
       },
       {
         "title": "🐻 곰 – 조용한 안정 수호자형",
         "desc": "말은 없지만 신뢰감 있고 든든함.\n깊고 넓은 인내심으로 주변 사람을 지지해줌.\n당신은 말없는 힘, 포근한 단단함.",
         "subDesc": "- 말은 없지만 신뢰감 있고 든든함\n- 깊고 넓은 인내심으로 주변 사람을 지지해줌\n- 말없는 힘, 포근한 단단함",
-        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"]
+        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"],
+        "hashtags": ["#든든한지지", "#깊은인내", "#안정감"]
       },
       {
         "title": "🐬 돌고래 – 감성+사교 하이브리드형",
         "desc": "공감력도 좋고 에너지도 밝음.\n모두의 분위기를 부드럽게 이어주는 유쾌한 존재.\n당신은 인간관계의 윤활유, 감성의 조율자.",
         "subDesc": "- 공감력도 좋고 에너지도 밝음\n- 모두의 분위기를 부드럽게 이어주는 유쾌한 존재\n- 인간관계의 윤활유, 감성의 조율자",
-        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"]
+        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"],
+        "hashtags": ["#공감능력", "#밝은에너지", "#관계조율"]
       }
     ]
   },
@@ -245,49 +253,57 @@
         "title": "🐯 Tiger – Gentle Outside, Strong Inside Leader",
         "desc": "Calm on the outside but has determination and drive inside.\nOften leads situations and plays central roles in groups.\nYou are quiet charisma, a symbol of judgment.",
         "subDesc": "- Excellent determination and drive\n- Often takes central roles in groups\n- Possesses quiet charisma",
-        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"]
+        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"],
+        "hashtags": ["#QuietCharisma", "#Leadership", "#Determination"]
       },
       {
         "title": "🐶 Dog – Warm Relationship-Centered Type",
         "desc": "Energetic type who's happiest when with people.\nGood expression and affinity, always surrounded by people.\nYou are someone's 'emotional support'.",
         "subDesc": "- Bright affinity and energy\n- Always surrounded by people\n- Emotional supporter role",
-        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"]
+        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"],
+        "hashtags": ["#WarmRelationship", "#Affinity", "#EmotionalSupport"]
       },
       {
         "title": "🐱 Cat – Sensitive Emotional Observer",
         "desc": "Sensitive to emotions, has sensors that quickly react to people's moods.\nQuiet on the outside but emotionally rich inside.\nYou are one who offers quiet comfort.",
         "subDesc": "- Sensitive emotional sensors\n- Quiet but emotionally rich\n- Delicate observer",
-        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"]
+        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"],
+        "hashtags": ["#EmotionalSensitive", "#QuietComfort", "#EmotionalSensor"]
       },
       {
         "title": "🐙 Octopus – Philosophical Reclusive Intellectual",
         "desc": "Person who focuses on inner world rather than external.\nEnjoys organizing thoughts, creating, and analyzing alone.\nYou are a contemplator who holds depth in silence.",
         "subDesc": "- Focuses on inner world\n- Prefers alone time\n- Deep thinking",
-        "recommend": ["Personal time", "Creative activities", "Analytical thinking"]
+        "recommend": ["Personal time", "Creative activities", "Analytical thinking"],
+        "hashtags": ["#PhilosophicalThinking", "#AloneTime", "#DeepContemplation"]
       },
       {
         "title": "🦉 Owl – Rational Strategic Thinker",
         "desc": "In any situation, judgment comes before emotions.\nPerforms leadership roles well based on rational and analytical thinking.\nYou are a strategist who reads situations structurally.",
         "subDesc": "- Rational, analytical thinking\n- Strong in strategic judgment\n- Prefers structural thinking",
-        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"]
+        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"],
+        "hashtags": ["#RationalJudgment", "#StrategicThinking", "#AnalyticalMind"]
       },
       {
         "title": "🦊 Fox – Smart Realist Type",
         "desc": "Sensible, quick, and adapts well to change.\nGood at social skills and sensitive to danger detection.\nYou are a 'reality fighter' who enjoys and controls situations.",
         "subDesc": "- Excellent sense and adaptability\n- Sensitive to danger detection\n- Possesses realistic social skills",
-        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"]
+        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"],
+        "hashtags": ["#SmartAdaptation", "#RealitySense", "#QuickJudgment"]
       },
       {
         "title": "🐻 Bear – Quiet Stability Guardian",
         "desc": "Doesn't talk much but trustworthy and reliable.\nSupports people around with deep and broad patience.\nYou are silent strength, warm solidity.",
         "subDesc": "- Trustworthiness and patience\n- Quiet strength\n- Reliable supporter",
-        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"]
+        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"],
+        "hashtags": ["#ReliableSupport", "#DeepPatience", "#Stability"]
       },
       {
         "title": "🐬 Dolphin – Emotional + Social Hybrid",
         "desc": "Good empathy and bright energy.\nCheerful being who smoothly connects everyone's mood.\nYou are the lubricant of human relationships, an emotional coordinator.",
         "subDesc": "- Bright and cheerful energy\n- Excellent empathy\n- Mood coordinator",
-        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"]
+        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"],
+        "hashtags": ["#EmpathyAbility", "#BrightEnergy", "#RelationshipCoordinator"]
       }
     ]
   },
@@ -391,49 +407,57 @@
         "title": "🐯 老虎 – 外柔内刚领导型",
         "desc": "外表平静但内心拥有决断力和推进力的性格。\n经常引导局面并在群体中担任中心角色。\n你是安静的魅力，判断力的象征。",
         "subDesc": "- 外表平静但内心拥有决断力和推进力的性格\n- 经常引导局面并在群体中担任中心角色\n- 你是安静的魅力，判断力的象征",
-        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"]
+        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"],
+        "hashtags": ["#安静魅力", "#领导力", "#决断力"]
       },
       {
         "title": "🐶 小狗 – 温暖关系中心型",
         "desc": "充满活力，与人在一起时最幸福的类型。\n表达力和亲和力好，周围总是有很多人。\n你是某人的'情感支柱'。",
         "subDesc": "- 充满活力，与人在一起时最幸福的类型\n- 表达力和亲和力好，周围总是有很多人\n- 你是某人的'情感支柱'",
-        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"]
+        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"],
+        "hashtags": ["#温暖关系", "#亲和力", "#情感支柱"]
       },
       {
         "title": "🐱 猫咪 – 感性敏感观察者型",
         "desc": "对情感敏感，拥有能快速反应他人心情的感应器。\n外表安静但内心情感丰富。\n你是给予安静慰藉的存在。",
         "subDesc": "- 对情感敏感，拥有能快速反应他人心情的感应器\n- 外表安静但内心情感丰富\n- 你是给予安静慰藉的存在",
-        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"]
+        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"],
+        "hashtags": ["#感性敏感", "#安静慰藉", "#情感感应"]
       },
       {
         "title": "🐙 章鱼 – 哲学隐居知性型",
         "desc": "专注于内心世界而非外部的人。\n喜欢独自整理思考、创作、分析。\n你是在沉默中蕴含深度的思考者。",
         "subDesc": "- 专注于内心世界而非外部的人\n- 喜欢独自整理思考、创作、分析\n- 你是在沉默中蕴含深度的思考者",
-        "recommend": ["Personal time", "Creative activities", "Analytical thinking"]
+        "recommend": ["Personal time", "Creative activities", "Analytical thinking"],
+        "hashtags": ["#哲学思考", "#独处时光", "#深度思考"]
       },
       {
         "title": "🦉 猫头鹰 – 理性中心战略家型",
         "desc": "无论什么情况都是判断优先于情感。\n基于理性和分析思维，也能很好地胜任领导角色。\n你是结构性解读情况的战略家。",
         "subDesc": "- 无论什么情况都是判断优先于情感\n- 基于理性和分析思维，也能很好地胜任领导角色\n- 你是结构性解读情况的战略家",
-        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"]
+        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"],
+        "hashtags": ["#理性判断", "#战略思维", "#分析能力"]
       },
       {
         "title": "🦊 狐狸 – 聪明现实主义者型",
         "desc": "有品味且敏捷，很好适应变化的类型。\n善于处世，对危险感知敏感。\n你是享受并控制情况的'现实斗士'。",
         "subDesc": "- 有品味且敏捷，很好适应变化的类型\n- 善于处世，对危险感知敏感\n- 你是享受并控制情况的'现实斗士'",
-        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"]
+        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"],
+        "hashtags": ["#聪明适应", "#现实感知", "#敏捷判断"]
       },
       {
         "title": "🐻 熊 – 安静稳定守护者型",
         "desc": "话不多但有信赖感且可靠。\n用深厚宽广的耐心支持周围的人。\n你是无言的力量，温暖的坚实。",
         "subDesc": "- 话不多但有信赖感且可靠\n- 用深厚宽广的耐心支持周围的人\n- 你是无言的力量，温暖的坚实",
-        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"]
+        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"],
+        "hashtags": ["#可靠支持", "#深厚耐心", "#稳定感"]
       },
       {
         "title": "🐬 海豚 – 感性+社交混合型",
         "desc": "共情能力好，能量也很明亮。\n柔和连接大家情绪的愉快存在。\n你是人际关系的润滑剂，情感的协调者。",
         "subDesc": "- 共情能力好，能量也很明亮\n- 柔和连接大家情绪的愉快存在\n- 你是人际关系的润滑剂，情感的协调者",
-        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"]
+        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"],
+        "hashtags": ["#共情能力", "#明亮能量", "#关系协调"]
       }
     ]
   },
@@ -537,49 +561,57 @@
         "title": "🐯 トラ – 外柔内剛リーダー型",
         "desc": "外は落ち着いているが中には決断力と推進力を持つ性格。\n状況をリードし群れで中心的役割を担うことが多い。\nあなたは静かなカリスマ、判断力の象徴。",
         "subDesc": "- 外は落ち着いているが中には決断力と推進力を持つ性格\n- 状況をリードし群れで中心的役割を担うことが多い\n- あなたは静かなカリスマ、判断力の象徴",
-        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"]
+        "recommend": ["Atmosphere leader", "Situations requiring leadership", "Work requiring judgment"],
+        "hashtags": ["#静かなカリスマ", "#リーダーシップ", "#決断力"]
       },
       {
         "title": "🐶 犬 – 温かい関係中心型",
         "desc": "エネルギーあふれ、人々といる時が最も幸せなタイプ。\n表現力と親和力が良く周りにいつも人が多い。\nあなたは誰かの「感情的な支え」。",
         "subDesc": "- エネルギーあふれ、人々といる時が最も幸せなタイプ\n- 表現力と親和力が良く周りにいつも人が多い\n- あなたは誰かの「感情的な支え」",
-        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"]
+        "recommend": ["Emotional exchange", "People-centered environment", "Mood maker"],
+        "hashtags": ["#温かい関係", "#親和力", "#感情的支え"]
       },
       {
         "title": "🐱 猫 – 感性的敏感観察者型",
         "desc": "感情に敏感で、人の気分にすぐ反応するセンサー保有者。\n外見は静かだが情緒が豊か。\nあなたは静かな慰めを差し出す存在。",
         "subDesc": "- 感情に敏感で、人の気分にすぐ反応するセンサー保有者\n- 外見は静かだが情緒が豊か\n- あなたは静かな慰めを差し出す存在",
-        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"]
+        "recommend": ["Emotional empathy", "Observation and analysis", "Quiet comfort"],
+        "hashtags": ["#感性的敏感", "#静かな慰め", "#感情センサー"]
       },
       {
         "title": "🐙 タコ – 哲学的隠遁知性型",
         "desc": "外部より内部世界に集中する人。\n一人で思考整理、創作、分析することを楽しむ。\nあなたは沈黙の中に深さを込める思索家。",
         "subDesc": "- 外部より内部世界に集中する人\n- 一人で思考整理、創作、分析することを楽しむ\n- あなたは沈黙の中に深さを込める思索家",
-        "recommend": ["Personal time", "Creative activities", "Analytical thinking"]
+        "recommend": ["Personal time", "Creative activities", "Analytical thinking"],
+        "hashtags": ["#哲学的思考", "#一人時間", "#深い思索"]
       },
       {
         "title": "🦉 フクロウ – 理性中心戦略家型",
         "desc": "どんな状況でも感情より判断が優先される。\n理性的で分析的な思考を基にリーダー役も無難にこなす。\nあなたは状況を構造的に読む戦略家。",
         "subDesc": "- どんな状況でも感情より判断が優先される\n- 理性的で分析的な思考を基にリーダー役も無難にこなす\n- あなたは状況を構造的に読む戦略家",
-        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"]
+        "recommend": ["Strategy development", "Analytical environment", "Leadership roles"],
+        "hashtags": ["#理性的判断", "#戦略的思考", "#分析力"]
       },
       {
         "title": "🦊 キツネ – 賢い現実主義者型",
         "desc": "センスがあり速く、変化によく適応するタイプ。\n処世に長け危険感知に敏感。\nあなたは状況を楽しみながらコントロールする「現実ファイター」。",
         "subDesc": "- センスがあり速く、変化によく適応するタイプ\n- 処世に長け危険感知に敏感\n- あなたは状況を楽しみながらコントロールする「現実ファイター」",
-        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"]
+        "recommend": ["Quick judgment", "Change adaptation", "Realistic problem solving"],
+        "hashtags": ["#賢い適応", "#現実感覚", "#素早判断"]
       },
       {
         "title": "🐻 クマ – 静かな安定守護者型",
         "desc": "言葉は少ないが信頼感があり頼もしい。\n深く広い忍耐力で周りの人を支えてくれる。\nあなたは無言の力、暖かい堅実さ。",
         "subDesc": "- 言葉は少ないが信頼感があり頼もしい\n- 深く広い忍耐力で周りの人を支えてくれる\n- あなたは無言の力、暖かい堅実さ",
-        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"]
+        "recommend": ["Trust and stability", "Supporter role", "Environments requiring patience"],
+        "hashtags": ["#頼もしい支え", "#深い忍耐", "#安定感"]
       },
       {
         "title": "🐬 イルカ – 感性+社交ハイブリッド型",
         "desc": "共感力も良くエネルギーも明るい。\nみんなの雰囲気を柔らかくつなぐ愉快な存在。\nあなたは人間関係の潤滑油、感性の調律者。",
         "subDesc": "- 共感力も良くエネルギーも明るい\n- みんなの雰囲気を柔らかくつなぐ愉快な存在\n- あなたは人間関係の潤滑油、感性の調律者",
-        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"]
+        "recommend": ["Mood maker", "Empathy and communication", "Bright energy"],
+        "hashtags": ["#共感力", "#明るいエネルギー", "#関係調律"]
       }
     ]
   }
