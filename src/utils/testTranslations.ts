@@ -46,8 +46,15 @@ export function getTestTranslation(testCode: string, path: string, language: str
 
 // 테스트 데이터를 언어에 맞게 번역하여 반환 (순수 함수)
 export function getTranslatedTestData(testCode: string, originalData: any, language: string) {
+  // 한국어인 경우 원본 데이터 반환
+  if (language === 'ko') {
+    return originalData;
+  }
+
   const translation = testTranslations[testCode];
+  // 번역이 없거나 해당 언어 번역이 없는 경우 원본 데이터 반환
   if (!translation || !translation[language]) {
+    console.warn(`No translation found for test: ${testCode}, language: ${language}. Using original data.`);
     return originalData;
   }
 

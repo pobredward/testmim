@@ -115,6 +115,7 @@
   "en": {
     "title": "DnF Class Recommendation Test",
     "description": "Find the Dungeon & Fighter class that suits you!",
+    "category": "게임",
     "questions": [
       {
         "question": "What combat style do you prefer in battle?",
@@ -228,6 +229,7 @@
   "zh": {
     "title": "地下城与勇士职业推荐测试",
     "description": "找到适合你的地下城与勇士职业！",
+    "category": "게임",
     "questions": [
       {
         "question": "在战斗中偏好的战斗方式是？",
@@ -341,6 +343,7 @@
   "ja": {
     "title": "アラド戦記職業推薦テスト",
     "description": "あなたに合うアラド戦記の職業を見つけてみましょう！",
+    "category": "게임",
     "questions": [
       {
         "question": "戦闘で好む戦闘方式は？",

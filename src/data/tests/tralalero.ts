@@ -3,15 +3,15 @@ import type { TestAnswer, TestResult } from "@/types/tests";
 export const TRALALERO_TEST = {
   code: "tralalero",
   docId: "tralalero",
-  title: "당신은 어떤 Italian Brainrot 진화 단계에 있을까?",
+  title: "트랄랄레로 트랄랄라",
   description:
-    "AI 밈의 세계로 빠져든 당신! Tralalero Tralala부터 Ballerina Cappuccina까지, 당신의 브레인롯 진화 레벨을 측정해보세요. 당신은 과연 어떤 단계의 밈 존재로 진화할 운명일까요? 🧠🔥",
+    "AI 밈의 세계로 빠져든 당신! 당신의 밈력은 어느정도인가요? 🧠🔥",
   bgGradient: "from-[#ff6b6b] via-[#4ecdc4] to-[#45b7d1]", // Italian 브레인롯 컬러
   mainColor: "#ff6b6b",
   icon: "🦈",
   thumbnailUrl: "/thumbnails/tralalero_thumb.png",
-  tags: ["브레인롯", "밈", "AI", "재미"],
-  seoKeywords: "Italian Brainrot, Tralalero, 브레인롯 테스트, 밈 테스트",
+  tags: ["트랄랄레로", "AI", "브레인롯"],
+  seoKeywords: "트랄랄레로 트랄랄라, Italian Brainrot, Tralalero",
   views: 0,
   likes: 0,
   scraps: 0,

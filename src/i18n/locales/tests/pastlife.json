@@ -120,7 +120,7 @@
     "description": "Find out what you were in your past life through your tendencies and preferences!",
     "tags": ["Past Life", "Personality", "Psychology"],
     "seoKeywords": "past life test, past life",
-    "category": "Destiny",
+    "category": "운명",
     "questions": [
       {
         "question": "What place in nature attracts you most?",
@@ -236,7 +236,7 @@
     "description": "通过你的性向和喜好了解前世是什么样的存在！",
     "tags": ["前世", "性向", "心理"],
     "seoKeywords": "前世测试, 前世",
-    "category": "命运",
+    "category": "운명",
     "questions": [
       {
         "question": "在自然中最吸引你的地方是？",

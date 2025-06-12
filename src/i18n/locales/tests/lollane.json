@@ -120,7 +120,7 @@
     "description": "Find the League of Legends lane that matches your personality!",
     "tags": ["LOL", "Game", "Lane", "MBTI", "Position Test"],
     "seoKeywords": "LoL lane test, LoL lane recommendation, LOL lane types",
-    "category": "Game",
+    "category": "게임",
     "questions": [
       {
         "question": "What play style do you prefer in games?",

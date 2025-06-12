@@ -19,7 +19,10 @@ export default function HomeClient() {
 
   // 언어 변경 시 테스트 데이터 업데이트
   useEffect(() => {
-    setTests(getAllTests(i18n.language));
+    console.log('Language changed to:', i18n.language);
+    const allTests = getAllTests(i18n.language);
+    console.log('Loaded tests:', allTests.length, allTests.map((t: any) => ({ code: t.code, title: t.title, category: t.category })));
+    setTests(allTests);
   }, [i18n.language]);
 
   // 숫자 포맷팅 함수
@@ -61,29 +64,52 @@ export default function HomeClient() {
   // 카테고리별 배경색
   const CATEGORY_BG: Record<string, string> = {
     "자아": "bg-gradient-to-br from-pink-50 via-purple-50 to-white",
+    "밈": "bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50",
     "연애": "bg-gradient-to-br from-pink-100 via-orange-50 to-white",
     "게임": "bg-gradient-to-br from-blue-50 via-indigo-50 to-white",
     "동물": "bg-gradient-to-br from-yellow-50 via-green-50 to-white",
     "감성": "bg-gradient-to-br from-pink-50 via-yellow-50 to-white",
     "운명": "bg-gradient-to-br from-purple-50 via-blue-50 to-white",
-    "밈": "bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50",
   };
 
-  const CATEGORY_LABELS = {
-    "자아": t('categories.자아'),
-    "연애": t('categories.연애'),
-    "게임": t('categories.게임'),
-    "동물": t('categories.동물'),
-    "감성": t('categories.감성'),
-    "운명": t('categories.운명'),
-    "밈": t('categories.밈'),
+  // 안전한 카테고리 레이블 가져오기
+  const getCategoryLabel = (category: string) => {
+    try {
+      const translated = t(`categories.${category}`);
+      // 번역이 키 그대로 반환되면 (번역이 없으면) 기본값 사용
+      if (translated === `categories.${category}`) {
+        const fallbackLabels: Record<string, string> = {
+          "자아": "🧠 자아 탐구",
+          "밈": "🤪 밈 테스트",
+          "연애": "💘 연애 테스트",
+          "게임": "🎮 게임 테스트",
+          "동물": "🐶 동물 테스트",
+          "감성": "🌈 감성 테스트",
+          "운명": "🔮 운명 테스트",
+        };
+        return fallbackLabels[category] || category;
+      }
+      return translated;
+    } catch (error) {
+      console.warn(`Error getting category label for ${category}:`, error);
+      return category;
+    }
   };
 
   const testsByCategory = (tests as any[]).reduce((acc, test) => {
+    if (!test.category) {
+      console.warn('Test without category:', test);
+      return acc;
+    }
     if (!acc[test.category]) acc[test.category] = [];
     acc[test.category].push(test);
     return acc;
   }, {} as Record<string, any[]>);
+
+  console.log('Tests by category:', testsByCategory);
+
+  // 카테고리 순서 정의 (밈을 제일 위에)
+  const CATEGORY_ORDER = ["밈", "자아", "연애", "게임", "동물", "감성", "운명"];
 
   // 인기 테스트들을 위한 구조화된 데이터
   const popularTests = (tests as any[])
@@ -277,13 +303,15 @@ export default function HomeClient() {
       {/* 카카오 애드핏 모바일 배너 */}
       <AdFitBanner />
       
-      {Object.entries(CATEGORY_LABELS).map(([cat, label]) => (
-        testsByCategory[cat]?.length > 0 && (
-          <section key={cat} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[cat] || ''} shadow-sm`}>
-            <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">{label}</h2>
+      {CATEGORY_ORDER.map(category => 
+        testsByCategory[category]?.length > 0 && (
+          <section key={category} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[category] || ''} shadow-sm`}>
+            <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">
+              {getCategoryLabel(category)}
+            </h2>
             <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
               <div className="flex gap-4 md:gap-6">
-                {(testsByCategory[cat] as any[]).map((test) => (
+                {(testsByCategory[category] as any[]).map((test) => (
                   <div
                     key={test.code}
                     className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
@@ -295,7 +323,7 @@ export default function HomeClient() {
             </div>
           </section>
         )
-      ))}
+      )}
     </>
   );
 } 

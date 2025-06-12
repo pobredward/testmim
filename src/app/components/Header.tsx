@@ -43,9 +43,9 @@ export default function Header() {
 
   return (
     <header className="w-full border-b bg-white sticky top-0 z-30">
-      <div className="w-full flex items-center h-14">
+      <div className="max-w-2xl mx-auto flex items-center justify-between h-14 px-4 md:px-4">
         {/* 왼쪽 영역: 메뉴(모바일) + 로고 */}
-        <div className="max-w-2xl mx-auto flex items-center flex-1 px-4 md:px-4">
+        <div className="flex items-center md:flex-1">
           {/* 모바일: 메뉴바를 왼쪽으로 */}
           <button
             onClick={toggleNav}
@@ -57,8 +57,22 @@ export default function Header() {
             </svg>
           </button>
 
-          {/* 로고와 제목 - 모바일에서는 가운데 정렬을 위해 flex-1 사용 */}
-          <div className="flex-1 md:flex-none flex justify-center md:justify-start">
+          {/* 로고와 제목 - 모바일에서는 절대 중앙 정렬 */}
+          <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
+            <Link href="/" className="flex items-center space-x-2 font-bold text-lg tracking-tight text-gray-900" aria-label={t('header.homePageTitle')}>
+              <Image 
+                src="/favicon-32x32.png" 
+                alt={t('header.logoAlt')} 
+                width={28} 
+                height={28}
+                className="flex-shrink-0"
+              />
+              <span>{t('header.siteName')}</span>
+            </Link>
+          </div>
+
+          {/* 데스크톱용 로고 */}
+          <div className="hidden md:block">
             <Link href="/" className="flex items-center space-x-2 font-bold text-lg tracking-tight text-gray-900" aria-label={t('header.homePageTitle')}>
               <Image 
                 src="/favicon-32x32.png" 
@@ -72,8 +86,8 @@ export default function Header() {
           </div>
         </div>
 
-        {/* 오른쪽 영역: 언어 선택기 + 프로필 - 데스크톱에서 화면 끝에 붙게 */}
-        <div className="flex items-center gap-2 pr-4">
+        {/* 오른쪽 영역: 언어 선택기 + 프로필 */}
+        <div className="flex items-center gap-2">
           {/* 언어 선택기 */}
           <LanguageSelector />
           
