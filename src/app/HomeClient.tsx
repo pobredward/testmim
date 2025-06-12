@@ -66,6 +66,7 @@ export default function HomeClient() {
     "동물": "bg-gradient-to-br from-yellow-50 via-green-50 to-white",
     "감성": "bg-gradient-to-br from-pink-50 via-yellow-50 to-white",
     "운명": "bg-gradient-to-br from-purple-50 via-blue-50 to-white",
+    "밈": "bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50",
   };
 
   const CATEGORY_LABELS = {
@@ -75,6 +76,7 @@ export default function HomeClient() {
     "동물": t('categories.동물'),
     "감성": t('categories.감성'),
     "운명": t('categories.운명'),
+    "밈": t('categories.밈'),
   };
 
   const testsByCategory = (tests as any[]).reduce((acc, test) => {

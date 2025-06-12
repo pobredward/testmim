@@ -7,9 +7,10 @@ import { LOLLANE_TEST } from "./lollane";
 import { DFCLASS_TEST } from "./dfclass";
 import { SNSLESS_TEST } from "./snsless";
 import { MBTISNS_TEST } from "./mbtisns";
+import { TRALALERO_TEST } from "./tralalero";
 import { getTranslatedTestData } from "@/utils/testTranslations";
 
-export const ALL_TESTS = [EGENTETO_TEST, SECRETJOB_TEST, ANIMALPERSONALITY_TEST, PASTLIFE_TEST, SPEECHSTYLE_TEST, LOLLANE_TEST, DFCLASS_TEST, SNSLESS_TEST, MBTISNS_TEST];
+export const ALL_TESTS = [EGENTETO_TEST, SECRETJOB_TEST, ANIMALPERSONALITY_TEST, PASTLIFE_TEST, SPEECHSTYLE_TEST, LOLLANE_TEST, DFCLASS_TEST, SNSLESS_TEST, MBTISNS_TEST, TRALALERO_TEST];
 
 export function getTestByCode(code: string, language: string = 'ko') {
   const test = ALL_TESTS.find((t) => t.code === code);
@@ -31,3 +32,4 @@ export * from "./egenteto";
 export * from "./secretjob";
 export * from "./animalpersonality";
 export * from "./pastlife";
+export * from "./tralalero";

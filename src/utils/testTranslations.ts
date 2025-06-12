@@ -8,6 +8,7 @@ import dfclassTranslations from '@/i18n/locales/tests/dfclass.json';
 import snslessTranslations from '@/i18n/locales/tests/snsless.json';
 import mbtisnsTranslations from '@/i18n/locales/tests/mbtisns.json';
 import egentetoTranslations from '@/i18n/locales/tests/egenteto.json';
+import tralaleroTranslations from '@/i18n/locales/tests/tralalero.json';
 
 const testTranslations: Record<string, any> = {
   speechstyle: speechstyleTranslations,
@@ -19,6 +20,7 @@ const testTranslations: Record<string, any> = {
   snsless: snslessTranslations,
   mbtisns: mbtisnsTranslations,
   egenteto: egentetoTranslations,
+  tralalero: tralaleroTranslations,
 };
 
 // 특정 테스트의 특정 경로에서 번역 텍스트 가져오기 (순수 함수)
