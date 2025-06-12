@@ -1,7 +1,7 @@
 {
   "ko": {
-    "title": "나만의 우주는 어떤 모습일까?",
-    "description": "당신만의 특별한 우주 세계를 만나보세요!",
+    "title": "당신은 에겐녀? 테토녀?",
+    "description": "당신의 연애 성향과 성격 유형을 알아보는 에겐테토 테스트!",
     "tags": ["에겐", "테토", "연애"],
     "seoKeywords": "에겐녀, 테토녀, 호르몬 테스트, 심리 테스트, 연애 테스트",
     "category": "연애",
@@ -159,8 +159,8 @@
     ]
   },
   "en": {
-    "title": "What Does My Universe Look Like?",
-    "description": "Meet your own special universe world!",
+    "title": "Are You an Egen Girl or Teto Girl?",
+    "description": "Discover your romantic tendencies and personality type with the Egen-Teto test!",
     "tags": ["Egen", "Teto", "Romance"],
     "seoKeywords": "Egen girl, Teto girl, hormone test, psychology test, romance test",
     "category": "Romance",
@@ -318,8 +318,8 @@
     ]
   },
   "zh": {
-    "title": "我的宇宙是什么样子的？",
-    "description": "来见见你专属的特殊宇宙世界吧！",
+    "title": "你是Egen型女生还是Teto型女生？",
+    "description": "通过Egen-Teto测试了解你的恋爱倾向和性格类型！",
     "tags": ["Egen型", "Teto型", "恋爱"],
     "seoKeywords": "Egen型女生, Teto型女生, 荷尔蒙测试, 心理测试, 恋爱测试",
     "category": "恋爱",
@@ -477,8 +477,8 @@
     ]
   },
   "ja": {
-    "title": "私だけの宇宙はどんな姿？",
-    "description": "あなただけの特別な宇宙世界に出会ってみましょう！",
+    "title": "あなたはエーゲン女子？テト女子？",
+    "description": "エーゲン・テトテストであなたの恋愛傾向と性格タイプを知ろう！",
     "tags": ["エーゲン", "テト", "恋愛"],
     "seoKeywords": "エーゲン女子, テト女子, ホルモンテスト, 心理テスト, 恋愛テスト",
     "category": "恋愛",
