@@ -2,6 +2,9 @@
   "ko": {
     "title": "당신의 말버릇은 몇 년도 스타일일까?",
     "description": "당신의 말투와 표현은 어느 시대의 스타일일까요?\n일상 속에서 사용하는 말버릇을 통해 당신의 언어 스타일을 알아보세요.",
+    "tags": ["말투", "언어", "유행어"],
+    "seoKeywords": "말버릇 테스트, 말투 테스트",
+    "category": "감성",
     "questions": [
       {
         "question": "친구와의 대화에서 자주 사용하는 표현은?",
@@ -130,6 +133,9 @@
   "en": {
     "title": "What Year Is Your Speech Style?",
     "description": "What era does your speech style belong to?\nDiscover your language style through the speech patterns you use in daily life.",
+    "tags": ["Speech", "Language", "Trends"],
+    "seoKeywords": "speech pattern test, speech style test",
+    "category": "Emotion",
     "questions": [
       {
         "question": "What expression do you often use when talking with friends?",

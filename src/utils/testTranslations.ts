@@ -55,6 +55,9 @@ export function getTranslatedTestData(testCode: string, originalData: any, langu
     ...originalData,
     title: langData.title || originalData.title,
     description: langData.description || originalData.description,
+    tags: langData.tags || originalData.tags,
+    seoKeywords: langData.seoKeywords || originalData.seoKeywords,
+    category: langData.category || originalData.category,
     questions: originalData.questions?.map((question: any, index: number) => ({
       ...question,
       question: langData.questions?.[index]?.question || question.question,

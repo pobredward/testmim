@@ -2,6 +2,9 @@
   "ko": {
     "title": "나의 전생은 무엇이었을까?",
     "description": "당신의 성향과 선호를 통해 전생에 어떤 존재였는지 알아보세요!",
+    "tags": ["전생", "성향", "심리"],
+    "seoKeywords": "전생 테스트, 전생",
+    "category": "운명",
     "questions": [
       {
         "question": "자연에서 가장 끌리는 장소는?",
@@ -115,6 +118,9 @@
   "en": {
     "title": "What Was My Past Life?",
     "description": "Find out what you were in your past life through your tendencies and preferences!",
+    "tags": ["Past Life", "Personality", "Psychology"],
+    "seoKeywords": "past life test, past life",
+    "category": "Destiny",
     "questions": [
       {
         "question": "What place in nature attracts you most?",
@@ -228,6 +234,9 @@
   "zh": {
     "title": "我的前世是什么？",
     "description": "通过你的性向和喜好了解前世是什么样的存在！",
+    "tags": ["前世", "性向", "心理"],
+    "seoKeywords": "前世测试, 前世",
+    "category": "命运",
     "questions": [
       {
         "question": "在自然中最吸引你的地方是？",

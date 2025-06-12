@@ -2,6 +2,9 @@
   "ko": {
     "title": "SNS 없이 1년, 나는 어떤 사람일까?",
     "description": "당신이 SNS를 끊고 1년을 산다면 어떤 자아가 드러날까요? 평소 드러나지 않았던 당신의 진짜 모습, 지금 확인해보세요.",
+    "tags": ["SNS", "디지털디톡스"],
+    "seoKeywords": "SNS 중독, SNS 테스트, 디지털 디톡스",
+    "category": "자아",
     "questions": [
       {
         "question": "1. SNS를 끊은 첫 주, 당신은?",
@@ -130,6 +133,9 @@
   "en": {
     "title": "What Kind of Person Am I Without SNS for a Year?",
     "description": "If you quit SNS and lived for a year, what kind of self would emerge? Check out your true self that wasn't revealed before.",
+    "tags": ["SNS", "Digital Detox"],
+    "seoKeywords": "SNS addiction, SNS test, digital detox",
+    "category": "Self",
     "questions": [
       {
         "question": "1. In the first week of quitting SNS, you:",

@@ -2,6 +2,9 @@
   "ko": {
     "title": "나와 어울리는 롤 라인은?",
     "description": "당신의 성향에 맞는 리그 오브 레전드 라인을 찾아보세요!",
+    "tags": ["LOL", "게임", "라인", "MBTI", "포지션테스트"],
+    "seoKeywords": "롤 라인 테스트, 롤 라인 추천, LOL 라인 종류",
+    "category": "게임",
     "questions": [
       {
         "question": "게임에서 선호하는 플레이 스타일은?",
@@ -115,6 +118,9 @@
   "en": {
     "title": "Which LoL Lane Suits Me?",
     "description": "Find the League of Legends lane that matches your personality!",
+    "tags": ["LOL", "Game", "Lane", "MBTI", "Position Test"],
+    "seoKeywords": "LoL lane test, LoL lane recommendation, LOL lane types",
+    "category": "Game",
     "questions": [
       {
         "question": "What play style do you prefer in games?",

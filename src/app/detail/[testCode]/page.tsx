@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { getTestByCode } from "@/data/tests";
+import { getTranslatedTestData } from "@/utils/testTranslations";
+import { generateTestPageMetadata } from "@/utils/metadata";
 import type { TestResult, TestAnswer } from "@/types/tests";
 import type { Metadata } from "next";
 import TestDetailClient from "./TestDetailClient";
@@ -30,58 +32,16 @@ export type TestMeta = {
 // 동적 메타데이터 생성
 export async function generateMetadata({ params }: { params: Promise<{ testCode: string }> }): Promise<Metadata> {
   const { testCode } = await params;
-  const TEST_DATA = getTestByCode(testCode);
+  const originalData = getTestByCode(testCode);
   
-  if (!TEST_DATA) {
-    return {
-      title: "존재하지 않는 테스트",
-      description: "요청하신 테스트를 찾을 수 없습니다.",
-    };
+  if (!originalData) {
+    return generateTestPageMetadata(null, 'ko');
   }
   
-  const seoTitle = `${TEST_DATA.title} | ${TEST_DATA.tags.join(", ")} 테스트`;
-  const seoDescription = `${TEST_DATA.description} 지금 바로 무료로 ${TEST_DATA.tags.join(", ")} 테스트를 해보세요! 테스트밈에서 제공하는 인기 심리테스트입니다.`;
-  const seoKeywords = TEST_DATA.seoKeywords ? TEST_DATA.seoKeywords : `${TEST_DATA.tags.join(", ")}, 테스트, 무료테스트, 심리테스트, 성향테스트, testmim, 테스트밈`;
-  const seoUrl = `https://www.testmim.com/detail/${TEST_DATA.code}`;
+  // 번역된 테스트 데이터 가져오기 (한국어)
+  const translatedData = getTranslatedTestData(testCode, originalData, 'ko');
   
-  return {
-    title: seoTitle,
-    description: seoDescription,
-    keywords: seoKeywords.split(", "),
-    
-    openGraph: {
-      title: seoTitle,
-      description: seoDescription,
-      url: seoUrl,
-      type: "article",
-      images: [
-        {
-          url: TEST_DATA.thumbnailUrl ? `https://www.testmim.com${TEST_DATA.thumbnailUrl}` : "https://www.testmim.com/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: TEST_DATA.title,
-        },
-      ],
-      siteName: "테스트밈",
-      locale: "ko_KR",
-    },
-    
-    twitter: {
-      card: "summary_large_image",
-      title: seoTitle,
-      description: seoDescription,
-      images: [TEST_DATA.thumbnailUrl ? `https://www.testmim.com${TEST_DATA.thumbnailUrl}` : "https://www.testmim.com/og-image.png"],
-    },
-    
-    alternates: {
-      canonical: seoUrl,
-    },
-    
-    robots: {
-      index: true,
-      follow: true,
-    },
-  };
+  return generateTestPageMetadata(translatedData, 'ko');
 }
 
 export default async function TestDetailPage({ params }: { params: Promise<{ testCode: string }> }) {

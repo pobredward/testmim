@@ -2,6 +2,9 @@
   "ko": {
     "title": "나는 어떤 동물의 본성을 가졌을까?",
     "description": "겉으로는 비슷해 보여도, 당신의 무의식은 분명히 '동물적인 본성'을 지니고 있습니다. 이 테스트를 통해 당신 안의 본성을 동물로 밝혀보세요.",
+    "tags": ["동물", "성향", "심리"],
+    "seoKeywords": "동물 테스트, 동물 심리, 동물 성향",
+    "category": "동물",
     "questions": [
       {
         "question": "당신은 모임에서 어떤 타입인가요?",
@@ -156,6 +159,9 @@
   "en": {
     "title": "What Animal Nature Do I Have?",
     "description": "Though we may seem similar on the surface, your unconscious mind definitely possesses an 'animal nature'. Through this test, discover what animal represents your inner nature.",
+    "tags": ["Animal", "Personality", "Psychology"],
+    "seoKeywords": "animal test, animal psychology, animal personality",
+    "category": "Animal",
     "questions": [
       {
         "question": "What type are you in gatherings?",
@@ -310,6 +316,9 @@
   "zh": {
     "title": "我拥有什么动物的本性？",
     "description": "虽然表面上看起来相似，但你的潜意识中肯定拥有'动物般的本性'。通过这个测试，发现代表你内在本性的动物吧。",
+    "tags": ["动物", "性向", "心理"],
+    "seoKeywords": "动物测试, 动物心理, 动物性向",
+    "category": "动物",
     "questions": [
       {
         "question": "你在聚会中是什么类型？",
@@ -464,6 +473,9 @@
   "ja": {
     "title": "私はどんな動物の本性を持っているか？",
     "description": "表面的には似て見えても、あなたの無意識は確実に「動物的な本性」を持っています。このテストを通じて、あなたの中の本性を動物で明かしてみてください。",
+    "tags": ["動物", "性向", "心理"],
+    "seoKeywords": "動物テスト, 動物心理, 動物性向",
+    "category": "動物",
     "questions": [
       {
         "question": "あなたは集まりではどんなタイプ？",

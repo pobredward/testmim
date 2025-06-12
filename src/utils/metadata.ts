@@ -131,10 +131,15 @@ export function generateTestPageMetadata(testData: any, language: string = 'ko')
     siteName: seoData.main.siteName
   });
 
+  // SEO 키워드 생성 (seoKeywords 우선, 없으면 tags 사용)
+  const seoKeywords = testData.seoKeywords 
+    ? testData.seoKeywords.split(", ").concat(testData.tags || [])
+    : testData.tags || [];
+
   return {
     title: seoTitle,
     description: seoDescription,
-    keywords: testData.tags || [],
+    keywords: seoKeywords,
     authors: [{ name: seoData.main.siteName }],
     creator: seoData.main.siteName,
     publisher: seoData.main.siteName,
