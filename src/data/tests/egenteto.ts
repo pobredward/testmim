@@ -14,7 +14,7 @@ export const EGENTETO_TEST = {
   views: 0,
   likes: 0,
   scraps: 0,
-  category: "연애",
+  category: "밈",
   questions: [
     {
       question: "친구들과의 모임에서 당신의 역할은?",
