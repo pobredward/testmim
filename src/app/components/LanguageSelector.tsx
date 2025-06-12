@@ -38,13 +38,12 @@ export default function LanguageSelector() {
     return (
       <div className="relative">
         <button
-          className="flex items-center gap-2 px-3 py-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 hover:bg-gray-50"
+          className="flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-gray-100 transition-colors"
           aria-label="언어 선택"
         >
-          <span className="text-xl">🇰🇷</span>
-          <span className="text-sm font-medium text-gray-700">한국어</span>
+          <span className="text-lg">🇰🇷</span>
           <svg
-            className="w-4 h-4 text-gray-500 transition-transform duration-200"
+            className="w-3 h-3 text-gray-500"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -60,13 +59,12 @@ export default function LanguageSelector() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 hover:bg-gray-50"
+        className="flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-gray-100 transition-colors"
         aria-label="언어 선택"
       >
-        <span className="text-xl">{currentLanguage.flag}</span>
-        <span className="text-sm font-medium text-gray-700">{currentLanguage.name}</span>
+        <span className="text-lg">{currentLanguage.flag}</span>
         <svg
-          className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
+          className={`w-3 h-3 text-gray-500 transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
           }`}
           fill="none"
