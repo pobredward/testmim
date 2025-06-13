@@ -16,6 +16,7 @@ declare module "next-auth" {
       gender?: string;
       bio?: string;
       onboardingCompleted?: boolean;
+      role?: "admin" | "user";
     };
   }
 
@@ -32,6 +33,7 @@ declare module "next-auth" {
     gender?: string;
     bio?: string;
     onboardingCompleted?: boolean;
+    role?: "admin" | "user";
   }
 }
 

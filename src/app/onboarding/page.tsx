@@ -4,12 +4,24 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback } from "react";
 import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
+import { useTranslation } from "react-i18next";
+import { detectBrowserLanguage } from "@/i18n";
 import { db } from "@/firebase";
 import { validateNickname, checkNicknameDuplicate, suggestAlternativeNicknames } from "@/utils/nickname";
+import { updateUserOnboarding } from "@/utils/userAuth";
 
 export default function OnboardingPage() {
   const { data: session, status, update } = useSession();
   const router = useRouter();
+  const { t, i18n } = useTranslation();
+  
+  // i18n 초기화
+  useEffect(() => {
+    const clientLanguage = detectBrowserLanguage();
+    if (i18n.language !== clientLanguage) {
+      i18n.changeLanguage(clientLanguage);
+    }
+  }, [i18n]);
   
   // 폼 상태
   const [formData, setFormData] = useState({
@@ -78,7 +90,7 @@ export default function OnboardingPage() {
       
       if (isDuplicate) {
         setNicknameStatus('duplicate');
-        setErrors(prev => ({ ...prev, nickname: "이미 사용 중인 닉네임입니다." }));
+        setErrors(prev => ({ ...prev, nickname: t('onboarding.errors.nicknameDuplicate') }));
         
         // 대안 제안
         const suggestions = suggestAlternativeNicknames(nickname);
@@ -94,7 +106,7 @@ export default function OnboardingPage() {
     } finally {
       setIsCheckingNickname(false);
     }
-  }, [session?.user?.id]);
+  }, [session?.user?.id, t]);
 
   // 닉네임 입력 시 디바운싱
   useEffect(() => {
@@ -116,19 +128,19 @@ export default function OnboardingPage() {
     }
     
     if (!formData.nickname.trim()) {
-      newErrors.nickname = "닉네임을 입력해주세요.";
+      newErrors.nickname = t('onboarding.errors.nicknameRequired');
     }
     
     if (!formData.birthDate) {
-      newErrors.birthDate = "생년월일을 선택해주세요.";
+      newErrors.birthDate = t('onboarding.errors.birthDateRequired');
     }
     
     if (!formData.gender) {
-      newErrors.gender = "성별을 선택해주세요.";
+      newErrors.gender = t('onboarding.errors.genderRequired');
     }
     
     if (formData.bio.length > 100) {
-      newErrors.bio = "한줄소개는 100글자 이하여야 합니다.";
+      newErrors.bio = t('onboarding.errors.bioTooLong');
     }
     
     setErrors(newErrors);
@@ -143,15 +155,12 @@ export default function OnboardingPage() {
     setIsSubmitting(true);
     
     try {
-      // Firestore 업데이트
-      const userRef = doc(db, "users", session.user.id);
-      await updateDoc(userRef, {
+      // 새로운 유틸리티 함수 사용
+      await updateUserOnboarding(session.user.id, {
         nickname: formData.nickname.trim(),
         birthDate: formData.birthDate,
         gender: formData.gender,
         bio: formData.bio.trim() || "",
-        onboardingCompleted: true,
-        updatedAt: serverTimestamp(),
       });
       
       // 세션 업데이트
@@ -172,7 +181,7 @@ export default function OnboardingPage() {
       
     } catch (error) {
       console.error("온보딩 저장 오류:", error);
-      alert("정보 저장 중 오류가 발생했습니다. 다시 시도해주세요.");
+      alert(t('onboarding.errors.saveError'));
     } finally {
       setIsSubmitting(false);
     }
@@ -223,7 +232,7 @@ export default function OnboardingPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh]">
         <div className="w-8 h-8 border-2 border-gray-400 border-t-transparent rounded-full animate-spin mb-4"></div>
-        <p className="text-gray-500">로딩 중...</p>
+        <p className="text-gray-500">{t('onboarding.loading')}</p>
       </div>
     );
   }
@@ -237,10 +246,9 @@ export default function OnboardingPage() {
       {/* 헤더 섹션 */}
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-center mb-8 shadow-xl">
         <div className="text-6xl mb-4">🎉</div>
-        <h1 className="text-3xl font-bold text-white mb-3">환영합니다!</h1>
-        <p className="text-blue-100 text-lg">
-          테스트밈에서 더 나은 경험을 위해<br />
-          간단한 정보를 입력해주세요.
+        <h1 className="text-3xl font-bold text-white mb-3">{t('onboarding.header.title')}</h1>
+        <p className="text-blue-100 text-lg whitespace-pre-line">
+          {t('onboarding.header.subtitle')}
         </p>
       </div>
 
@@ -251,7 +259,7 @@ export default function OnboardingPage() {
             {/* 닉네임 */}
             <div className="space-y-3">
               <label htmlFor="nickname" className="block text-sm font-bold text-gray-800">
-                닉네임 <span className="text-red-500">*</span>
+                {t('onboarding.form.nickname.label')} <span className="text-red-500">{t('onboarding.form.nickname.required')}</span>
               </label>
               <div className="relative">
                 <input
@@ -260,116 +268,116 @@ export default function OnboardingPage() {
                   value={formData.nickname}
                   onChange={(e) => handleInputChange("nickname", e.target.value)}
                   className={`w-full px-4 py-4 pr-12 border-2 rounded-xl focus:outline-none transition-all duration-200 text-lg ${getNicknameInputStyle()}`}
-                  placeholder="멋진 닉네임을 입력하세요 ✨"
+                  placeholder={t('onboarding.form.nickname.placeholder')}
                   maxLength={20}
                 />
                 <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                   {getNicknameStatusIcon()}
                 </div>
               </div>
-          
-          {errors.nickname && (
-            <p className="text-red-500 text-xs mt-1">{errors.nickname}</p>
-          )}
-          
-          {nicknameStatus === 'available' && !errors.nickname && (
-            <p className="text-green-600 text-xs mt-1">사용 가능한 닉네임입니다!</p>
-          )}
-          
-          {/* 대안 닉네임 제안 */}
-          {nicknameSuggestions.length > 0 && (
-            <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-              <p className="text-xs text-gray-600 mb-2">추천 닉네임:</p>
-              <div className="flex flex-wrap gap-2">
-                {nicknameSuggestions.map((suggestion, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => handleSuggestionClick(suggestion)}
-                    className="px-2 py-1 text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 rounded transition-colors"
-                  >
-                    {suggestion}
-                  </button>
+              
+              {errors.nickname && (
+                <p className="text-red-500 text-xs mt-1">{errors.nickname}</p>
+              )}
+              
+              {nicknameStatus === 'available' && !errors.nickname && (
+                <p className="text-green-600 text-xs mt-1">{t('onboarding.form.nickname.available')}</p>
+              )}
+              
+              {/* 대안 닉네임 제안 */}
+              {nicknameSuggestions.length > 0 && (
+                <div className="mt-3 p-3 bg-gray-50 rounded-lg">
+                  <p className="text-xs text-gray-600 mb-2">{t('onboarding.form.nickname.suggestions')}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {nicknameSuggestions.map((suggestion, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => handleSuggestionClick(suggestion)}
+                        className="px-2 py-1 text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 rounded transition-colors"
+                      >
+                        {suggestion}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 생년월일 */}
+            <div>
+              <label htmlFor="birthDate" className="block text-sm font-medium text-gray-700 mb-2">
+                {t('onboarding.form.birthDate.label')} <span className="text-red-500">{t('onboarding.form.birthDate.required')}</span>
+              </label>
+              <input
+                type="date"
+                id="birthDate"
+                value={formData.birthDate}
+                onChange={(e) => handleInputChange("birthDate", e.target.value)}
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors.birthDate ? "border-red-500" : "border-gray-300"
+                }`}
+                max={new Date().toISOString().split('T')[0]}
+              />
+              {errors.birthDate && (
+                <p className="text-red-500 text-xs mt-1">{errors.birthDate}</p>
+              )}
+            </div>
+
+            {/* 성별 */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                {t('onboarding.form.gender.label')} <span className="text-red-500">{t('onboarding.form.gender.required')}</span>
+              </label>
+              <div className="flex gap-4">
+                {[
+                  { value: "male", label: t('onboarding.form.gender.options.male') },
+                  { value: "female", label: t('onboarding.form.gender.options.female') },
+                  { value: "other", label: t('onboarding.form.gender.options.other') },
+                ].map((option) => (
+                  <label key={option.value} className="flex items-center">
+                    <input
+                      type="radio"
+                      name="gender"
+                      value={option.value}
+                      checked={formData.gender === option.value}
+                      onChange={(e) => handleInputChange("gender", e.target.value)}
+                      className="mr-2 text-blue-500 focus:ring-blue-500"
+                    />
+                    <span className="text-sm text-gray-700">{option.label}</span>
+                  </label>
                 ))}
               </div>
+              {errors.gender && (
+                <p className="text-red-500 text-xs mt-1">{errors.gender}</p>
+              )}
             </div>
-          )}
-        </div>
 
-        {/* 생년월일 */}
-        <div>
-          <label htmlFor="birthDate" className="block text-sm font-medium text-gray-700 mb-2">
-            생년월일 <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="date"
-            id="birthDate"
-            value={formData.birthDate}
-            onChange={(e) => handleInputChange("birthDate", e.target.value)}
-            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-              errors.birthDate ? "border-red-500" : "border-gray-300"
-            }`}
-            max={new Date().toISOString().split('T')[0]}
-          />
-          {errors.birthDate && (
-            <p className="text-red-500 text-xs mt-1">{errors.birthDate}</p>
-          )}
-        </div>
-
-        {/* 성별 */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            성별 <span className="text-red-500">*</span>
-          </label>
-          <div className="flex gap-4">
-            {[
-              { value: "male", label: "남성" },
-              { value: "female", label: "여성" },
-              { value: "other", label: "기타" },
-            ].map((option) => (
-              <label key={option.value} className="flex items-center">
-                <input
-                  type="radio"
-                  name="gender"
-                  value={option.value}
-                  checked={formData.gender === option.value}
-                  onChange={(e) => handleInputChange("gender", e.target.value)}
-                  className="mr-2 text-blue-500 focus:ring-blue-500"
-                />
-                <span className="text-sm text-gray-700">{option.label}</span>
+            {/* 한줄소개 */}
+            <div>
+              <label htmlFor="bio" className="block text-sm font-medium text-gray-700 mb-2">
+                {t('onboarding.form.bio.label')} <span className="text-gray-400">{t('onboarding.form.bio.optional')}</span>
               </label>
-            ))}
-          </div>
-          {errors.gender && (
-            <p className="text-red-500 text-xs mt-1">{errors.gender}</p>
-          )}
-        </div>
-
-        {/* 한줄소개 */}
-        <div>
-          <label htmlFor="bio" className="block text-sm font-medium text-gray-700 mb-2">
-            한줄소개 <span className="text-gray-400">(선택)</span>
-          </label>
-          <textarea
-            id="bio"
-            value={formData.bio}
-            onChange={(e) => handleInputChange("bio", e.target.value)}
-            rows={3}
-            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-              errors.bio ? "border-red-500" : "border-gray-300"
-            }`}
-            placeholder="자신을 간단히 소개해주세요"
-            maxLength={100}
-          />
-          <div className="flex justify-between items-center mt-1">
-            {errors.bio && (
-              <p className="text-red-500 text-xs">{errors.bio}</p>
-            )}
-            <p className="text-gray-400 text-xs ml-auto">
-              {formData.bio.length}/100
-            </p>
-          </div>
-        </div>
+              <textarea
+                id="bio"
+                value={formData.bio}
+                onChange={(e) => handleInputChange("bio", e.target.value)}
+                rows={3}
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors.bio ? "border-red-500" : "border-gray-300"
+                }`}
+                placeholder={t('onboarding.form.bio.placeholder')}
+                maxLength={100}
+              />
+              <div className="flex justify-between items-center mt-1">
+                {errors.bio && (
+                  <p className="text-red-500 text-xs">{errors.bio}</p>
+                )}
+                <p className="text-gray-400 text-xs ml-auto">
+                  {formData.bio.length}/{t('onboarding.form.bio.maxLength')}
+                </p>
+              </div>
+            </div>
 
             {/* 제출 버튼 */}
             <button
@@ -380,11 +388,11 @@ export default function OnboardingPage() {
               {isSubmitting ? (
                 <div className="flex items-center justify-center gap-3">
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  저장 중...
+                  {t('onboarding.button.submitting')}
                 </div>
               ) : (
                 <div className="flex items-center justify-center gap-2">
-                  시작하기 ✨
+                  {t('onboarding.button.submit')}
                 </div>
               )}
             </button>
@@ -397,10 +405,9 @@ export default function OnboardingPage() {
         <div className="flex items-start gap-3">
           <div className="text-blue-500 text-xl">ℹ️</div>
           <div>
-            <h3 className="font-semibold text-blue-800 mb-2">개인정보 보호</h3>
-            <p className="text-sm text-blue-700 leading-relaxed">
-              입력하신 정보는 더 나은 테스트 추천과 개인화된 경험을 위해 사용됩니다.<br />
-              언제든지 마이페이지에서 수정할 수 있으며, 안전하게 보호됩니다.
+            <h3 className="font-semibold text-blue-800 mb-2">{t('onboarding.privacy.title')}</h3>
+            <p className="text-sm text-blue-700 leading-relaxed whitespace-pre-line">
+              {t('onboarding.privacy.description')}
             </p>
           </div>
         </div>

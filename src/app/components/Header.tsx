@@ -142,6 +142,18 @@ export default function Header() {
                     >
                       {t('header.mypage')}
                     </Link>
+                    {session.user?.role === "admin" && (
+                      <Link
+                        href="/admin"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors border-b border-gray-100"
+                        onClick={() => setIsDropdownOpen(false)}
+                      >
+                        <span className="flex items-center">
+                          <span className="mr-2">🛠️</span>
+                          관리자 페이지
+                        </span>
+                      </Link>
+                    )}
                     <button
                       onClick={handleSignOut}
                       className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"

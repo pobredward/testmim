@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/firebase";
 import { validateNickname, checkNicknameDuplicate } from "@/utils/nickname";
+import { updateUserOnboarding } from "@/utils/userAuth";
 
 interface ProfileEditModalProps {
   isOpen: boolean;
@@ -76,7 +77,7 @@ export default function ProfileEditModal({ isOpen, onClose, onSave }: ProfileEdi
     setIsSubmitting(true);
     
     try {
-      // Firestore 업데이트
+      // 새로운 유틸리티 함수를 사용하여 프로필 업데이트
       const userRef = doc(db, "users", session.user.id);
       await updateDoc(userRef, {
         nickname: formData.nickname.trim(),
@@ -84,6 +85,11 @@ export default function ProfileEditModal({ isOpen, onClose, onSave }: ProfileEdi
         gender: formData.gender,
         bio: formData.bio.trim() || "",
         updatedAt: serverTimestamp(),
+      });
+      
+      console.log("✅ 프로필 수정 완료:", {
+        uid: session.user.id,
+        nickname: formData.nickname.trim()
       });
       
       // 세션 업데이트

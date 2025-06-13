@@ -18,6 +18,7 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
   const [views, setViews] = useState(0);
   const [isImgError, setIsImgError] = useState(false);
   const [translatedData, setTranslatedData] = useState(testData);
+  const [viewsLoading, setViewsLoading] = useState(true);
 
   // 현재 언어에 맞는 번역된 데이터 업데이트
   useEffect(() => {
@@ -44,28 +45,69 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
   
   useEffect(() => {
     async function fetchStats() {
-      if (!docId) return;
-      const ref = doc(db, "testStats", docId);
-      const snap = await getDoc(ref);
-      if (snap.exists()) {
-        const data = snap.data();
-        setViews(data.views ?? 0);
-      } else {
-        // 문서가 없으면 0으로 생성
-        await setDoc(ref, { views: 0, likes: 0, scraps: 0 });
-        setViews(0);
+      if (!docId) {
+        setViewsLoading(false);
+        return;
+      }
+
+      let retryCount = 0;
+      const maxRetries = 3;
+
+      while (retryCount < maxRetries) {
+        try {
+          const ref = doc(db, "testStats", docId);
+          const snap = await getDoc(ref);
+          
+          if (snap.exists()) {
+            const data = snap.data();
+            setViews(data.views ?? 0);
+          } else {
+            // 문서가 없으면 0으로 생성
+            await setDoc(ref, { views: 0, likes: 0, scraps: 0 });
+            setViews(0);
+          }
+          
+          setViewsLoading(false);
+          break; // 성공 시 루프 탈출
+        } catch (error) {
+          console.error(`Firestore 조회 실패 (시도 ${retryCount + 1}/${maxRetries}):`, error);
+          retryCount++;
+          
+          if (retryCount >= maxRetries) {
+            // 최대 재시도 후에도 실패하면 기본값 사용
+            console.warn('Firestore 연결 실패, 기본값 사용');
+            setViews(testData.views || 0); // 테스트 데이터의 기본 views 사용
+            setViewsLoading(false);
+          } else {
+            // 재시도 전 잠시 대기
+            await new Promise(resolve => setTimeout(resolve, 1000 * retryCount));
+          }
+        }
       }
     }
+    
     fetchStats();
-  }, [docId]);
+  }, [docId, testData.views]);
 
   // 페이지 진입 시 조회수 증가 (mount 시 1회만)
   useEffect(() => {
-    if (!docId || hasIncreased.current) return;
-    hasIncreased.current = true;
-    const ref = doc(db, "testStats", docId);
-    updateDoc(ref, { views: increment(1) });
-  }, [docId]);
+    if (!docId || hasIncreased.current || viewsLoading) return;
+    
+    const incrementViews = async () => {
+      try {
+        hasIncreased.current = true;
+        const ref = doc(db, "testStats", docId);
+        await updateDoc(ref, { views: increment(1) });
+        // 증가 후 views 상태도 업데이트
+        setViews(prev => prev + 1);
+      } catch (error) {
+        console.error('조회수 증가 실패:', error);
+        // 실패해도 사용자 경험에는 영향 없음
+      }
+    };
+    
+    incrementViews();
+  }, [docId, viewsLoading]);
 
   return (
     <div className="max-w-md w-full sm:mx-auto mx-2 bg-white rounded-xl shadow p-4 sm:p-10 mt-4 mb-8 flex flex-col items-center">
@@ -82,7 +124,11 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
       </h1>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-500 mb-2 justify-center w-full">
         <span className="flex items-center gap-1">
-          🔥 {formatViews(views)}{t('testDetail.views')}
+          🔥 {viewsLoading ? (
+            <span className="animate-pulse">-</span>
+          ) : (
+            `${formatViews(views)}${t('testDetail.views')}`
+          )}
         </span>
       </div>
       <p className="text-gray-700 mb-4 text-center whitespace-pre-line break-keep text-base sm:text-base text-sm w-full">

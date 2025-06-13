@@ -2,9 +2,9 @@
   "common": {
     "welcome": "테스트밈 방문을 환영합니다",
     "description": "테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.",
-    "views": "명이 진행",
-    "thousand": "천명",
-    "tenThousand": "만명",
+    "views": "명",
+    "thousand": "천",
+    "tenThousand": "만",
     "loading": "로딩 중..."
   },
   "header": {
@@ -69,7 +69,7 @@
   },
   "testDetail": {
     "startTest": "테스트 시작",
-    "views": "이 진행",
+    "views": "이 진행 중",
     "notFound": "존재하지 않는 테스트입니다.",
     "breadcrumb": {
       "home": "홈"
@@ -133,6 +133,121 @@
     "privacy": {
       "title": "개인정보 보호",
       "description": "테스트밈은 사용자의 개인정보를 안전하게 보호합니다. 로그인 정보는 Firebase에 암호화되어 저장되며, 필요 이상의 개인정보는 수집하지 않습니다."
+    }
+  },
+  "onboarding": {
+    "loading": "로딩 중...",
+    "header": {
+      "title": "환영합니다!",
+      "subtitle": "테스트밈에서 더 나은 경험을 위해\n간단한 정보를 입력해주세요."
+    },
+    "form": {
+      "nickname": {
+        "label": "닉네임",
+        "placeholder": "멋진 닉네임을 입력하세요 ✨",
+        "required": "*",
+        "available": "사용 가능한 닉네임입니다!",
+        "checking": "확인 중...",
+        "suggestions": "추천 닉네임:"
+      },
+      "birthDate": {
+        "label": "생년월일",
+        "required": "*"
+      },
+      "gender": {
+        "label": "성별",
+        "required": "*",
+        "options": {
+          "male": "남성",
+          "female": "여성",
+          "other": "기타"
+        }
+      },
+      "bio": {
+        "label": "한줄소개",
+        "optional": "(선택)",
+        "placeholder": "자신을 간단히 소개해주세요",
+        "maxLength": "100"
+      }
+    },
+    "errors": {
+      "nicknameRequired": "닉네임을 입력해주세요.",
+      "nicknameDuplicate": "이미 사용 중인 닉네임입니다.",
+      "birthDateRequired": "생년월일을 선택해주세요.",
+      "genderRequired": "성별을 선택해주세요.",
+      "bioTooLong": "한줄소개는 100글자 이하여야 합니다.",
+      "saveError": "정보 저장 중 오류가 발생했습니다. 다시 시도해주세요."
+    },
+    "button": {
+      "submit": "시작하기 ✨",
+      "submitting": "저장 중..."
+    },
+    "privacy": {
+      "title": "개인정보 보호",
+      "description": "입력하신 정보는 더 나은 테스트 추천과 개인화된 경험을 위해 사용됩니다.\n언제든지 마이페이지에서 수정할 수 있으며, 안전하게 보호됩니다."
+    }
+  },
+  "admin": {
+    "title": "관리자 페이지",
+    "loading": "로딩 중...",
+    "accessDenied": "접근 권한이 없습니다",
+    "accessDeniedMessage": "관리자만 접근할 수 있는 페이지입니다.",
+    "goHome": "홈으로 돌아가기",
+    "dashboard": {
+      "title": "관리자 대시보드",
+      "subtitle": "테스트밈 관리 시스템",
+      "sections": {
+        "users": "사용자 관리",
+        "tests": "테스트 통계",
+        "content": "콘텐츠 관리",
+        "system": "시스템 설정"
+      }
+    },
+    "users": {
+      "title": "사용자 관리",
+      "total": "총 사용자 수",
+      "loading": "사용자 목록을 불러오는 중...",
+      "empty": "사용자가 없습니다",
+      "table": {
+        "nickname": "닉네임",
+        "email": "이메일",
+        "provider": "가입 방법",
+        "joinDate": "가입일",
+        "role": "권한",
+        "status": "상태",
+        "actions": "관리"
+      },
+      "search": "사용자 검색...",
+      "role": {
+        "admin": "관리자",
+        "user": "일반 사용자"
+      },
+      "status": {
+        "active": "활성",
+        "inactive": "비활성"
+      }
+    },
+    "testStats": {
+      "title": "테스트 통계",
+      "totalTests": "전체 테스트 수",
+      "totalResults": "총 결과 수",
+      "loading": "통계를 불러오는 중...",
+      "empty": "통계 데이터가 없습니다",
+      "table": {
+        "testCode": "테스트 코드",
+        "testName": "테스트 이름",
+        "participantCount": "참여자 수",
+        "lastResult": "마지막 결과",
+        "actions": "관리"
+      },
+      "viewDetails": "상세 보기",
+      "exportData": "데이터 내보내기"
+    },
+    "navigation": {
+      "dashboard": "대시보드",
+      "users": "사용자 관리",
+      "testStats": "테스트 통계",
+      "settings": "설정"
     }
   }
 } 

@@ -134,5 +134,57 @@
       "title": "隐私保护",
       "description": "TestMim安全保护用户的个人信息。登录信息经过加密后存储在Firebase中，我们不会收集超出必要的个人信息。"
     }
+  },
+  "onboarding": {
+    "loading": "加载中...",
+    "header": {
+      "title": "欢迎！",
+      "subtitle": "为了在TestMim获得更好的体验\n请输入一些简单信息。"
+    },
+    "form": {
+      "nickname": {
+        "label": "昵称",
+        "placeholder": "输入一个酷炫的昵称 ✨",
+        "required": "*",
+        "available": "此昵称可以使用！",
+        "checking": "检查中...",
+        "suggestions": "推荐昵称："
+      },
+      "birthDate": {
+        "label": "出生日期",
+        "required": "*"
+      },
+      "gender": {
+        "label": "性别",
+        "required": "*",
+        "options": {
+          "male": "男",
+          "female": "女",
+          "other": "其他"
+        }
+      },
+      "bio": {
+        "label": "个人简介",
+        "optional": "（可选）",
+        "placeholder": "简单介绍一下自己",
+        "maxLength": "100"
+      }
+    },
+    "errors": {
+      "nicknameRequired": "请输入昵称。",
+      "nicknameDuplicate": "此昵称已被使用。",
+      "birthDateRequired": "请选择出生日期。",
+      "genderRequired": "请选择性别。",
+      "bioTooLong": "个人简介必须在100字符以内。",
+      "saveError": "保存信息时发生错误。请重试。"
+    },
+    "button": {
+      "submit": "开始使用 ✨",
+      "submitting": "保存中..."
+    },
+    "privacy": {
+      "title": "隐私保护",
+      "description": "您提供的信息用于更好的测试推荐和个性化体验。\n您可以随时在个人页面中修改，我们会安全保护这些信息。"
+    }
   }
 } 

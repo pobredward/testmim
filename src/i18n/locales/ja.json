@@ -134,5 +134,57 @@
       "title": "個人情報保護",
       "description": "TestMimはユーザーの個人情報を安全に保護します。ログイン情報はFirebaseに暗号化されて保存され、必要以上の個人情報は収集しません。"
     }
+  },
+  "onboarding": {
+    "loading": "読み込み中...",
+    "header": {
+      "title": "ようこそ！",
+      "subtitle": "TestMimでより良い体験のために\n簡単な情報を入力してください。"
+    },
+    "form": {
+      "nickname": {
+        "label": "ニックネーム",
+        "placeholder": "素敵なニックネームを入力してください ✨",
+        "required": "*",
+        "available": "使用可能なニックネームです！",
+        "checking": "確認中...",
+        "suggestions": "おすすめニックネーム:"
+      },
+      "birthDate": {
+        "label": "生年月日",
+        "required": "*"
+      },
+      "gender": {
+        "label": "性別",
+        "required": "*",
+        "options": {
+          "male": "男性",
+          "female": "女性",
+          "other": "その他"
+        }
+      },
+      "bio": {
+        "label": "自己紹介",
+        "optional": "（任意）",
+        "placeholder": "簡単に自己紹介をしてください",
+        "maxLength": "100"
+      }
+    },
+    "errors": {
+      "nicknameRequired": "ニックネームを入力してください。",
+      "nicknameDuplicate": "既に使用されているニックネームです。",
+      "birthDateRequired": "生年月日を選択してください。",
+      "genderRequired": "性別を選択してください。",
+      "bioTooLong": "自己紹介は100文字以下にしてください。",
+      "saveError": "情報の保存中にエラーが発生しました。もう一度お試しください。"
+    },
+    "button": {
+      "submit": "開始する ✨",
+      "submitting": "保存中..."
+    },
+    "privacy": {
+      "title": "個人情報保護",
+      "description": "入力された情報は、より良いテスト推奨と個人化された体験のために使用されます。\nマイページでいつでも修正でき、安全に保護されます。"
+    }
   }
 } 

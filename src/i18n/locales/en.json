@@ -134,5 +134,120 @@
       "title": "Privacy Protection",
       "description": "TestMim safely protects users' personal information. Login information is encrypted and stored in Firebase, and we do not collect more personal information than necessary."
     }
+  },
+  "onboarding": {
+    "loading": "Loading...",
+    "header": {
+      "title": "Welcome!",
+      "subtitle": "Please enter some simple information\nfor a better experience on TestMim."
+    },
+    "form": {
+      "nickname": {
+        "label": "Nickname",
+        "placeholder": "Enter a cool nickname ✨",
+        "required": "*",
+        "available": "This nickname is available!",
+        "checking": "Checking...",
+        "suggestions": "Suggested nicknames:"
+      },
+      "birthDate": {
+        "label": "Date of Birth",
+        "required": "*"
+      },
+      "gender": {
+        "label": "Gender",
+        "required": "*",
+        "options": {
+          "male": "Male",
+          "female": "Female",
+          "other": "Other"
+        }
+      },
+      "bio": {
+        "label": "Bio",
+        "optional": "(Optional)",
+        "placeholder": "Tell us about yourself briefly",
+        "maxLength": "100"
+      }
+    },
+    "errors": {
+      "nicknameRequired": "Please enter a nickname.",
+      "nicknameDuplicate": "This nickname is already in use.",
+      "birthDateRequired": "Please select your date of birth.",
+      "genderRequired": "Please select your gender.",
+      "bioTooLong": "Bio must be 100 characters or less.",
+      "saveError": "An error occurred while saving information. Please try again."
+    },
+    "button": {
+      "submit": "Get Started ✨",
+      "submitting": "Saving..."
+    },
+    "privacy": {
+      "title": "Privacy Protection",
+      "description": "The information you provide is used for better test recommendations and personalized experiences.\nYou can modify it anytime in My Page, and it is safely protected."
+    }
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "loading": "Loading...",
+    "accessDenied": "Access Denied",
+    "accessDeniedMessage": "This page is accessible only to administrators.",
+    "goHome": "Go Home",
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "subtitle": "TestMim Management System",
+      "sections": {
+        "users": "User Management",
+        "tests": "Test Statistics",
+        "content": "Content Management",
+        "system": "System Settings"
+      }
+    },
+    "users": {
+      "title": "User Management",
+      "total": "Total Users",
+      "loading": "Loading user list...",
+      "empty": "No users found",
+      "table": {
+        "nickname": "Nickname",
+        "email": "Email",
+        "provider": "Sign-up Method",
+        "joinDate": "Join Date",
+        "role": "Role",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "search": "Search users...",
+      "role": {
+        "admin": "Administrator",
+        "user": "User"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      }
+    },
+    "testStats": {
+      "title": "Test Statistics",
+      "totalTests": "Total Tests",
+      "totalResults": "Total Results",
+      "loading": "Loading statistics...",
+      "empty": "No statistics data",
+      "table": {
+        "testCode": "Test Code",
+        "testName": "Test Name",
+        "participantCount": "Participants",
+        "lastResult": "Last Result",
+        "actions": "Actions"
+      },
+      "viewDetails": "View Details",
+      "exportData": "Export Data"
+    },
+    "navigation": {
+      "dashboard": "Dashboard",
+      "users": "User Management",
+      "testStats": "Test Statistics",
+      "settings": "Settings"
+    }
   }
 } 
