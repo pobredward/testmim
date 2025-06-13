@@ -100,5 +100,39 @@
       "bluesky": "Bluesky"
     },
     "hashtags": "test,psychologytest,funtest"
+  },
+  "mypage": {
+    "title": "My Page",
+    "loading": "Loading...",
+    "profileInfo": "Profile Information",
+    "detailInfo": "Detailed Information",
+    "edit": "Edit",
+    "profileImage": "Profile Image",
+    "socialLogin": "Social Login",
+    "loginWith": "Login",
+    "fields": {
+      "nickname": "Nickname",
+      "age": "Age",
+      "gender": "Gender",
+      "joinDate": "Join Date",
+      "bio": "Bio"
+    },
+    "values": {
+      "notSet": "Not Set",
+      "years": "years old",
+      "noInfo": "No Information",
+      "noName": "No Name"
+    },
+    "gender": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "notSet": "Not Set"
+    },
+    "testResults": "My Test Results",
+    "privacy": {
+      "title": "Privacy Protection",
+      "description": "TestMim safely protects users' personal information. Login information is encrypted and stored in Firebase, and we do not collect more personal information than necessary."
+    }
   }
 } 

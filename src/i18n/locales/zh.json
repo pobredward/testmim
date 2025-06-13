@@ -100,5 +100,39 @@
       "bluesky": "Bluesky"
     },
     "hashtags": "测试,心理测试,有趣测试"
+  },
+  "mypage": {
+    "title": "我的页面",
+    "loading": "加载中...",
+    "profileInfo": "个人资料信息",
+    "detailInfo": "详细信息",
+    "edit": "编辑",
+    "profileImage": "头像",
+    "socialLogin": "社交登录",
+    "loginWith": "登录",
+    "fields": {
+      "nickname": "昵称",
+      "age": "年龄",
+      "gender": "性别",
+      "joinDate": "注册日期",
+      "bio": "个人简介"
+    },
+    "values": {
+      "notSet": "未设置",
+      "years": "岁",
+      "noInfo": "无信息",
+      "noName": "无姓名"
+    },
+    "gender": {
+      "male": "男",
+      "female": "女",
+      "other": "其他",
+      "notSet": "未设置"
+    },
+    "testResults": "我的测试结果",
+    "privacy": {
+      "title": "隐私保护",
+      "description": "TestMim安全保护用户的个人信息。登录信息经过加密后存储在Firebase中，我们不会收集超出必要的个人信息。"
+    }
   }
 } 
