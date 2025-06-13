@@ -115,8 +115,8 @@ export default function TestResultPage() {
           objectType: 'feed',
           content: {
             title: `${result.title}`,
-            description: `${TEST_DATA.title} 테스트 결과입니다! ${result.desc.length > 80 ? result.desc.substring(0, 80) + '...' : result.desc}`,
-            imageUrl: window.location.origin + TEST_DATA.thumbnailUrl,
+            description: result.desc.length > 100 ? result.desc.substring(0, 100) + '...' : result.desc,
+            imageUrl: window.location.origin + '/og-image.png',
             link: {
               mobileWebUrl: shareUrl,
               webUrl: shareUrl,

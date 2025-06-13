@@ -2,9 +2,9 @@
   "common": {
     "welcome": "테스트밈 방문을 환영합니다",
     "description": "테스트들의 집합소! 다양한 심리테스트와 재미있는 테스트를 한 곳에서 즐겨보세요.",
-    "views": "명",
-    "thousand": "천",
-    "tenThousand": "만",
+    "views": "명이 진행",
+    "thousand": "천명",
+    "tenThousand": "만명",
     "loading": "로딩 중..."
   },
   "header": {
@@ -69,7 +69,7 @@
   },
   "testDetail": {
     "startTest": "테스트 시작",
-    "views": "이 진행 중",
+    "views": "",
     "notFound": "존재하지 않는 테스트입니다.",
     "breadcrumb": {
       "home": "홈"
