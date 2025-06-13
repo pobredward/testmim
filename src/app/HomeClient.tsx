@@ -106,15 +106,24 @@ export default function HomeClient() {
     return acc;
   }, {} as Record<string, any[]>);
 
+  // "자아" 카테고리에서 politics를 항상 맨 앞으로 정렬
+  if (testsByCategory["자아"]) {
+    testsByCategory["자아"].sort((a: any, b: any) => {
+      if (a.code === "politics") return -1;
+      if (b.code === "politics") return 1;
+      return 0;
+    });
+  }
+
   console.log('Tests by category:', testsByCategory);
 
   // 카테고리 순서 정의 (밈을 제일 위에)
   const CATEGORY_ORDER = ["밈", "자아", "연애", "게임", "동물", "감성", "운명"];
 
-  // 인기 테스트들을 위한 구조화된 데이터
-  const popularTests = (tests as any[])
-    .sort((a, b) => (stats[b.code]?.views ?? b.views) - (stats[a.code]?.views ?? a.views))
-    .slice(0, 10);
+  // 인기 테스트들을 위한 구조화된 데이터 (제거)
+  // const popularTests = (tests as any[])
+  //   .sort((a, b) => (stats[b.code]?.views ?? b.views) - (stats[a.code]?.views ?? a.views))
+  //   .slice(0, 10);
 
   const testListJsonLd = {
     "@context": "https://schema.org",
@@ -122,8 +131,8 @@ export default function HomeClient() {
     "name": "테스트밈 인기 심리테스트 모음",
     "description": "테스트밈에서 가장 인기 있는 심리테스트, 성향테스트 모음",
     "url": "https://www.testmim.com",
-    "numberOfItems": popularTests.length,
-    "itemListElement": popularTests.map((test, index) => ({
+    "numberOfItems": testsByCategory["밈"]?.length ?? 0,
+    "itemListElement": testsByCategory["밈"]?.map((test: any, index: number) => ({
       "@type": "ListItem",
       "position": index + 1,
       "item": {
@@ -145,7 +154,7 @@ export default function HomeClient() {
           "userInteractionCount": stats[test.code]?.views ?? test.views
         }
       }
-    }))
+    })) ?? []
   };
 
   const faqJsonLd = {
