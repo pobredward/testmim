@@ -8,6 +8,7 @@ import { doc, getDoc, updateDoc, increment, setDoc } from "firebase/firestore";
 import { useTranslation } from 'react-i18next';
 import { getTranslatedTestData } from '@/utils/testTranslations';
 import type { TestMeta } from "./page";
+import CommentsSection from "../../../app/components/CommentsSection";
 
 interface TestDetailClientProps {
   testData: TestMeta;
@@ -125,38 +126,43 @@ export default function TestDetailClient({ testData }: TestDetailClientProps) {
   }
 
   return (
-    <div className="max-w-md w-full sm:mx-auto mx-2 bg-white rounded-xl shadow p-4 sm:p-10 mt-4 mb-8 flex flex-col items-center">
-      {/* 썸네일: 파일 내 경로만 사용, 없으면 아이콘, 로딩 실패 시에도 아이콘 */}
-      <div className="w-full max-w-[220px] aspect-square bg-pink-100 rounded-xl flex items-center justify-center mb-6 overflow-hidden relative">
-        {testData.thumbnailUrl && !isImgError ? (
-          <Image src={testData.thumbnailUrl} alt={translatedData.title} fill className="object-contain" onError={() => setIsImgError(true)} />
-        ) : (
-          <span className="text-6xl">{testData.icon}</span>
-        )}
+    <>
+      <div className="max-w-md w-full sm:mx-auto mx-2 bg-white rounded-xl shadow p-4 sm:p-10 mt-4 mb-8 flex flex-col items-center">
+        {/* 썸네일: 파일 내 경로만 사용, 없으면 아이콘, 로딩 실패 시에도 아이콘 */}
+        <div className="w-full max-w-[220px] aspect-square bg-pink-100 rounded-xl flex items-center justify-center mb-6 overflow-hidden relative">
+          {testData.thumbnailUrl && !isImgError ? (
+            <Image src={testData.thumbnailUrl} alt={translatedData.title} fill className="object-contain" onError={() => setIsImgError(true)} />
+          ) : (
+            <span className="text-6xl">{testData.icon}</span>
+          )}
+        </div>
+        <h1 className="text-2xl font-bold mb-2 text-center break-keep" style={{ color: testData.mainColor }}>
+          {translatedData.title}
+        </h1>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-500 mb-2 justify-center w-full">
+          <span className="flex items-center gap-1">
+            🔥 {views !== null ? formatViews(views) : formatViews(testData.views || 0)}{t('testDetail.views')}
+          </span>
+        </div>
+        <p className="text-gray-700 mb-4 text-center whitespace-pre-line break-keep text-base sm:text-base text-sm w-full">
+          {translatedData.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-6 justify-center w-full">
+          {testData.tags.map((tag) => (
+            <span key={tag} className="bg-gray-100 text-gray-500 text-xs px-3 py-1 rounded-full">#{tag}</span>
+          ))}
+        </div>
+        <Link
+          href={`/t/${testData.code}`}
+          className="w-full block text-center px-8 py-3 rounded-full text-lg font-semibold shadow bg-blue-500 text-white hover:bg-blue-600 transition border-2 border-blue-500"
+          style={{ maxWidth: 320 }}
+        >
+          {t('testDetail.startTest')}
+        </Link>
       </div>
-      <h1 className="text-2xl font-bold mb-2 text-center break-keep" style={{ color: testData.mainColor }}>
-        {translatedData.title}
-      </h1>
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-500 mb-2 justify-center w-full">
-        <span className="flex items-center gap-1">
-          🔥 {views !== null ? formatViews(views) : formatViews(testData.views || 0)}{t('testDetail.views')}
-        </span>
-      </div>
-      <p className="text-gray-700 mb-4 text-center whitespace-pre-line break-keep text-base sm:text-base text-sm w-full">
-        {translatedData.description}
-      </p>
-      <div className="flex flex-wrap gap-2 mb-6 justify-center w-full">
-        {testData.tags.map((tag) => (
-          <span key={tag} className="bg-gray-100 text-gray-500 text-xs px-3 py-1 rounded-full">#{tag}</span>
-        ))}
-      </div>
-      <Link
-        href={`/t/${testData.code}`}
-        className="w-full block text-center px-8 py-3 rounded-full text-lg font-semibold shadow bg-blue-500 text-white hover:bg-blue-600 transition border-2 border-blue-500"
-        style={{ maxWidth: 320 }}
-      >
-        {t('testDetail.startTest')}
-      </Link>
-    </div>
+
+      {/* 댓글 섹션 */}
+      <CommentsSection testCode={testData.code} />
+    </>
   );
 } 

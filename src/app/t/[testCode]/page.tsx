@@ -46,7 +46,7 @@ function Question({
         {options.map((opt, idx) => (
           <button
             key={idx}
-            className="w-full py-2 px-4 rounded-full border-2 text-base font-medium shadow-sm transition disabled:opacity-60"
+            className="w-full py-2 px-4 rounded-full border-2 text-base font-medium shadow-sm transition disabled:opacity-60 hover:shadow-md"
             style={{ borderColor: color, color, background: "#fff" }}
             onClick={() => onSelect(opt.value, opt.score, opt.type)}
             disabled={disabled}
@@ -88,7 +88,8 @@ export default function TestRunPage() {
   if (!translatedTestData) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[40vh] text-gray-400">
-        {t('common.loading')}
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+        <p className="mt-2">{t('common.loading')}</p>
       </div>
     );
   }
@@ -145,7 +146,7 @@ export default function TestRunPage() {
         <h1 className="text-2xl font-bold mb-2" style={{ color: TEST_DATA.mainColor }}>{TEST_DATA.title}</h1>
         <p className="text-gray-700 mb-8 text-center">{TEST_DATA.description}</p>
         <button
-          className="px-8 py-3 rounded-full text-lg font-semibold shadow bg-white border-2"
+          className="px-8 py-3 rounded-full text-lg font-semibold shadow bg-white border-2 hover:shadow-lg transition-shadow"
           style={{ borderColor: TEST_DATA.mainColor, color: TEST_DATA.mainColor }}
           onClick={() => {
             if (analytics) logEvent(analytics, "test_start", { test_code: testCode });

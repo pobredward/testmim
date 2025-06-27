@@ -10,6 +10,7 @@ import AuthProvider from "./components/AuthProvider";
 import OnboardingRedirect from "./components/OnboardingRedirect";
 import I18nProvider from "./components/I18nProvider";
 import { generateMainPageMetadata } from "@/utils/metadata";
+import PerformanceOptimizer from "./components/PerformanceOptimizer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -85,6 +86,12 @@ export default function RootLayout({
         {/* Google Adsense */}
         <meta name="google-adsense-account" content="ca-pub-5100840159526765" />
         
+        {/* 성능 최적화를 위한 리소스 힌트 */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        
         {/* Kakao SDK */}
         <script src="//developers.kakao.com/sdk/js/kakao.min.js" async></script>
         
@@ -103,6 +110,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
+        <PerformanceOptimizer />
         <I18nProvider>
           <AuthProvider>
             <OnboardingRedirect />
