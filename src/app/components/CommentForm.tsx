@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
+import { useTranslation } from 'react-i18next';
 
 interface CommentFormProps {
   onSubmit: (content: string) => Promise<void>;
@@ -15,14 +16,19 @@ interface CommentFormProps {
 export default function CommentForm({ 
   onSubmit, 
   submitting = false, 
-  placeholder = "댓글을 입력해주세요...",
-  buttonText = "댓글 작성",
+  placeholder,
+  buttonText,
   onCancel,
   autoFocus = false
 }: CommentFormProps) {
   const { data: session } = useSession();
+  const { t, ready } = useTranslation();
   const [content, setContent] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+
+  // 기본값 설정 (i18n 준비 상태 확인)
+  const defaultPlaceholder = ready ? (placeholder || t('comments.form.placeholder')) : (placeholder || 'Loading...');
+  const defaultButtonText = ready ? (buttonText || t('comments.form.submitButton')) : (buttonText || 'Loading...');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,7 +55,7 @@ export default function CommentForm({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           onFocus={() => setIsFocused(true)}
-          placeholder={isLoggedIn ? placeholder : "로그인하시면 댓글을 작성할 수 있습니다."}
+          placeholder={isLoggedIn ? defaultPlaceholder : (ready ? t('comments.form.loginRequired') : 'Please log in to comment')}
           disabled={!isLoggedIn || submitting}
           autoFocus={autoFocus}
           rows={isFocused ? 4 : 3}
@@ -62,7 +68,7 @@ export default function CommentForm({
           `}
         />
         <div className="absolute bottom-2 right-2 text-xs text-gray-400">
-          {content.length}/500
+          {ready ? t('comments.form.characterCount', { current: content.length, max: 500 }) : `${content.length}/500`}
         </div>
       </div>
 
@@ -84,7 +90,7 @@ export default function CommentForm({
                 onClick={handleCancel}
                 className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                취소
+                {ready ? t('comments.form.cancel') : 'Cancel'}
               </button>
             )}
             <button
@@ -101,10 +107,10 @@ export default function CommentForm({
               {submitting ? (
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>작성 중...</span>
+                  <span>{ready ? t('comments.form.submitting') : 'Submitting...'}</span>
                 </div>
               ) : (
-                buttonText
+                defaultButtonText
               )}
             </button>
           </div>
@@ -113,13 +119,13 @@ export default function CommentForm({
 
       {!isLoggedIn && (
         <div className="text-center py-4 bg-gray-50 rounded-lg">
-          <p className="text-sm text-gray-600 mb-2">댓글을 작성하려면 로그인해주세요</p>
+          <p className="text-sm text-gray-600 mb-2">{ready ? t('comments.form.loginMessage') : 'Please log in to write comments'}</p>
           <button
             type="button"
             onClick={() => window.location.href = '/signin'}
             className="text-sm text-blue-500 hover:text-blue-700 font-medium"
           >
-            로그인하기
+            {ready ? t('comments.form.loginButton') : 'Sign In'}
           </button>
         </div>
       )}

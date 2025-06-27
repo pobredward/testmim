@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
+import { useTranslation } from 'react-i18next';
 import type { Comment } from '@/types/comments';
 import { 
   voteComment, 
@@ -20,6 +21,7 @@ interface CommentItemProps {
 
 export default function CommentItem({ comment, testCode, isReply = false }: CommentItemProps) {
   const { data: session } = useSession();
+  const { t, ready } = useTranslation();
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [voting, setVoting] = useState(false);
@@ -35,12 +37,21 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
     const now = new Date();
     const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
     
-    if (diffInMinutes < 1) return '방금 전';
-    if (diffInMinutes < 60) return `${diffInMinutes}분 전`;
-    if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}시간 전`;
-    if (diffInMinutes < 10080) return `${Math.floor(diffInMinutes / 1440)}일 전`;
+    if (!ready) {
+      // i18n이 준비되지 않은 경우 기본 포맷 사용
+      if (diffInMinutes < 1) return 'Just now';
+      if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+      if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}h ago`;
+      if (diffInMinutes < 10080) return `${Math.floor(diffInMinutes / 1440)}d ago`;
+      return date.toLocaleDateString();
+    }
     
-    return date.toLocaleDateString('ko-KR');
+    if (diffInMinutes < 1) return t('comments.time.justNow');
+    if (diffInMinutes < 60) return t('comments.time.minutesAgo', { minutes: diffInMinutes });
+    if (diffInMinutes < 1440) return t('comments.time.hoursAgo', { hours: Math.floor(diffInMinutes / 60) });
+    if (diffInMinutes < 10080) return t('comments.time.daysAgo', { days: Math.floor(diffInMinutes / 1440) });
+    
+    return date.toLocaleDateString();
   };
 
   // 좋아요/싫어요 처리
@@ -60,7 +71,7 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
       }
     } catch (error) {
       console.error('투표 오류:', error);
-      alert('투표 중 오류가 발생했습니다.');
+      alert(ready ? t('comments.errors.voteError') : 'An error occurred while voting.');
     } finally {
       setVoting(false);
     }
@@ -86,7 +97,7 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
       setShowReplyForm(false);
     } catch (error) {
       console.error('대댓글 작성 오류:', error);
-      alert('대댓글 작성 중 오류가 발생했습니다.');
+      alert(ready ? t('comments.errors.replyError') : 'An error occurred while posting the reply.');
     } finally {
       setSubmitting(false);
     }
@@ -96,14 +107,14 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
   const handleDelete = async () => {
     if (!userId || !isAuthor) return;
     
-    const confirmed = confirm('정말 이 댓글을 삭제하시겠습니까?');
+    const confirmed = confirm(ready ? t('comments.confirmDelete') : 'Are you sure you want to delete this comment?');
     if (!confirmed) return;
 
     try {
       await deleteComment(comment.id, userId);
     } catch (error) {
       console.error('댓글 삭제 오류:', error);
-      alert('댓글 삭제 중 오류가 발생했습니다.');
+      alert(ready ? t('comments.errors.deleteError') : 'An error occurred while deleting the comment.');
     }
   };
 
@@ -114,10 +125,10 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
     try {
       await reportComment(comment.id, userId, reason);
       setShowReportForm(false);
-      alert('신고가 접수되었습니다.');
+      alert(ready ? t('comments.success.reported') : 'Report has been submitted.');
     } catch (error) {
       console.error('댓글 신고 오류:', error);
-      alert('신고 처리 중 오류가 발생했습니다.');
+      alert(ready ? t('comments.errors.reportError') : 'An error occurred while reporting.');
     }
   };
 
@@ -134,13 +145,13 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
               <div className="font-medium text-gray-900 text-sm">
                 {comment.authorName}
                 {comment.authorId === null && (
-                  <span className="ml-1 text-xs text-gray-500">(익명)</span>
+                  <span className="ml-1 text-xs text-gray-500">{ready ? t('comments.actions.anonymous') : '(Anonymous)'}</span>
                 )}
               </div>
               <div className="text-xs text-gray-500">
                 {formatTime(comment.createdAt)}
                 {comment.updatedAt && (
-                  <span className="ml-1">(수정됨)</span>
+                  <span className="ml-1">{ready ? t('comments.actions.edited') : '(Edited)'}</span>
                 )}
               </div>
             </div>
@@ -153,7 +164,7 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
                 onClick={handleDelete}
                 className="text-xs text-red-500 hover:text-red-700 transition-colors"
               >
-                삭제
+                {ready ? t('comments.actions.delete') : 'Delete'}
               </button>
             )}
             {!isAuthor && userId && (
@@ -161,7 +172,7 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
                 onClick={() => setShowReportForm(!showReportForm)}
                 className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
               >
-                신고
+                {ready ? t('comments.actions.report') : 'Report'}
               </button>
             )}
           </div>
@@ -212,7 +223,7 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
                 onClick={() => setShowReplyForm(!showReplyForm)}
                 className="text-xs text-gray-500 hover:text-blue-600 transition-colors"
               >
-                💬 답글
+                💬 {ready ? t('comments.actions.reply') : 'Reply'}
               </button>
             )}
           </div>
@@ -221,15 +232,20 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
         {/* 신고 폼 */}
         {showReportForm && (
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
-            <h4 className="text-sm font-medium text-gray-800 mb-2">댓글 신고</h4>
+            <h4 className="text-sm font-medium text-gray-800 mb-2">{ready ? t('comments.report.title') : 'Report Comment'}</h4>
             <div className="space-y-2">
-              {['스팸', '욕설/비방', '부적절한 내용', '기타'].map((reason) => (
+              {[
+                { key: 'spam', label: ready ? t('comments.report.reasons.spam') : 'Spam' },
+                { key: 'abuse', label: ready ? t('comments.report.reasons.abuse') : 'Abuse/Harassment' },
+                { key: 'inappropriate', label: ready ? t('comments.report.reasons.inappropriate') : 'Inappropriate Content' },
+                { key: 'other', label: ready ? t('comments.report.reasons.other') : 'Other' }
+              ].map(({ key, label }) => (
                 <button
-                  key={reason}
-                  onClick={() => handleReport(reason)}
+                  key={key}
+                  onClick={() => handleReport(label)}
                   className="block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-200 rounded transition-colors"
                 >
-                  {reason}
+                  {label}
                 </button>
               ))}
             </div>
@@ -237,7 +253,7 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
               onClick={() => setShowReportForm(false)}
               className="mt-2 text-xs text-gray-500 hover:text-gray-700"
             >
-              취소
+              {ready ? t('comments.report.cancel') : 'Cancel'}
             </button>
           </div>
         )}
@@ -248,8 +264,8 @@ export default function CommentItem({ comment, testCode, isReply = false }: Comm
             <CommentForm
               onSubmit={handleReplySubmit}
               submitting={submitting}
-              placeholder={`${comment.authorName}님에게 답글 작성...`}
-              buttonText="답글 작성"
+              placeholder={ready ? t('comments.form.placeholderReply', { authorName: comment.authorName }) : `Reply to ${comment.authorName}...`}
+              buttonText={ready ? t('comments.form.replyButton') : 'Post Reply'}
               onCancel={() => setShowReplyForm(false)}
               autoFocus
             />

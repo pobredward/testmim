@@ -187,6 +187,66 @@
       "description": "입력하신 정보는 더 나은 테스트 추천과 개인화된 경험을 위해 사용됩니다.\n언제든지 마이페이지에서 수정할 수 있으며, 안전하게 보호됩니다."
     }
   },
+  "comments": {
+    "title": "댓글 {{count}}개",
+    "noComments": "아직 댓글이 없어요",
+    "firstComment": "첫 번째 댓글을 남겨보세요!",
+    "form": {
+      "placeholder": "이 테스트에 대한 생각을 남겨주세요...",
+      "placeholderReply": "{{authorName}}님에게 답글 작성...",
+      "loginRequired": "로그인하시면 댓글을 작성할 수 있습니다.",
+      "loginButton": "로그인하기",
+      "loginMessage": "댓글을 작성하려면 로그인해주세요",
+      "submitButton": "댓글 작성",
+      "replyButton": "답글 작성",
+      "submitting": "작성 중...",
+      "cancel": "취소",
+      "characterCount": "{{current}}/{{max}}"
+    },
+    "sorting": {
+      "label": "정렬:",
+      "latest": "최신순",
+      "popular": "인기순"
+    },
+    "actions": {
+      "reply": "답글",
+      "delete": "삭제",
+      "report": "신고",
+      "anonymous": "(익명)",
+      "edited": "(수정됨)"
+    },
+    "voting": {
+      "like": "좋아요",
+      "dislike": "싫어요"
+    },
+    "report": {
+      "title": "댓글 신고",
+      "reasons": {
+        "spam": "스팸",
+        "abuse": "욕설/비방",
+        "inappropriate": "부적절한 내용",
+        "other": "기타"
+      },
+      "cancel": "취소"
+    },
+    "confirmDelete": "정말 이 댓글을 삭제하시겠습니까?",
+    "errors": {
+      "createError": "댓글 작성 중 오류가 발생했습니다.",
+      "replyError": "대댓글 작성 중 오류가 발생했습니다.",
+      "deleteError": "댓글 삭제 중 오류가 발생했습니다.",
+      "voteError": "투표 중 오류가 발생했습니다.",
+      "reportError": "신고 처리 중 오류가 발생했습니다."
+    },
+    "success": {
+      "reported": "신고가 접수되었습니다."
+    },
+    "time": {
+      "justNow": "방금 전",
+      "minutesAgo": "{{minutes}}분 전",
+      "hoursAgo": "{{hours}}시간 전",
+      "daysAgo": "{{days}}일 전"
+    }
+  },
   "admin": {
     "title": "관리자 페이지",
     "loading": "로딩 중...",

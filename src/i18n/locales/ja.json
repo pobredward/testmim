@@ -186,5 +186,65 @@
       "title": "個人情報保護",
       "description": "入力された情報は、より良いテスト推奨と個人化された体験のために使用されます。\nマイページでいつでも修正でき、安全に保護されます。"
     }
+  },
+  "comments": {
+    "title": "コメント{{count}}件",
+    "noComments": "まだコメントがありません",
+    "firstComment": "最初のコメントを投稿してみてください！",
+    "form": {
+      "placeholder": "このテストについての感想をお聞かせください...",
+      "placeholderReply": "{{authorName}}さんに返信...",
+      "loginRequired": "ログインするとコメントを投稿できます。",
+      "loginButton": "ログイン",
+      "loginMessage": "コメントを投稿するにはログインしてください",
+      "submitButton": "コメント投稿",
+      "replyButton": "返信投稿",
+      "submitting": "投稿中...",
+      "cancel": "キャンセル",
+      "characterCount": "{{current}}/{{max}}"
+    },
+    "sorting": {
+      "label": "並び順:",
+      "latest": "最新順",
+      "popular": "人気順"
+    },
+    "actions": {
+      "reply": "返信",
+      "delete": "削除",
+      "report": "報告",
+      "anonymous": "（匿名）",
+      "edited": "（編集済み）"
+    },
+    "voting": {
+      "like": "いいね",
+      "dislike": "良くない"
+    },
+    "report": {
+      "title": "コメント報告",
+      "reasons": {
+        "spam": "スパム",
+        "abuse": "暴言・嫌がらせ",
+        "inappropriate": "不適切な内容",
+        "other": "その他"
+      },
+      "cancel": "キャンセル"
+    },
+    "confirmDelete": "本当にこのコメントを削除しますか？",
+    "errors": {
+      "createError": "コメント投稿中にエラーが発生しました。",
+      "replyError": "返信投稿中にエラーが発生しました。",
+      "deleteError": "コメント削除中にエラーが発生しました。",
+      "voteError": "投票中にエラーが発生しました。",
+      "reportError": "報告処理中にエラーが発生しました。"
+    },
+    "success": {
+      "reported": "報告が受理されました。"
+    },
+    "time": {
+      "justNow": "たった今",
+      "minutesAgo": "{{minutes}}分前",
+      "hoursAgo": "{{hours}}時間前",
+      "daysAgo": "{{days}}日前"
+    }
   }
 } 

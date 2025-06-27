@@ -186,5 +186,65 @@
       "title": "隐私保护",
       "description": "您提供的信息用于更好的测试推荐和个性化体验。\n您可以随时在个人页面中修改，我们会安全保护这些信息。"
     }
+  },
+  "comments": {
+    "title": "{{count}}条评论",
+    "noComments": "还没有评论",
+    "firstComment": "成为第一个评论的人！",
+    "form": {
+      "placeholder": "分享您对这个测试的想法...",
+      "placeholderReply": "回复{{authorName}}...",
+      "loginRequired": "登录后可以发表评论。",
+      "loginButton": "登录",
+      "loginMessage": "请登录后发表评论",
+      "submitButton": "发表评论",
+      "replyButton": "发表回复",
+      "submitting": "发表中...",
+      "cancel": "取消",
+      "characterCount": "{{current}}/{{max}}"
+    },
+    "sorting": {
+      "label": "排序：",
+      "latest": "最新",
+      "popular": "热门"
+    },
+    "actions": {
+      "reply": "回复",
+      "delete": "删除",
+      "report": "举报",
+      "anonymous": "（匿名）",
+      "edited": "（已编辑）"
+    },
+    "voting": {
+      "like": "点赞",
+      "dislike": "点踩"
+    },
+    "report": {
+      "title": "举报评论",
+      "reasons": {
+        "spam": "垃圾信息",
+        "abuse": "辱骂/骚扰",
+        "inappropriate": "不当内容",
+        "other": "其他"
+      },
+      "cancel": "取消"
+    },
+    "confirmDelete": "确定要删除这条评论吗？",
+    "errors": {
+      "createError": "发表评论时发生错误。",
+      "replyError": "发表回复时发生错误。",
+      "deleteError": "删除评论时发生错误。",
+      "voteError": "投票时发生错误。",
+      "reportError": "举报时发生错误。"
+    },
+    "success": {
+      "reported": "举报已提交。"
+    },
+    "time": {
+      "justNow": "刚刚",
+      "minutesAgo": "{{minutes}}分钟前",
+      "hoursAgo": "{{hours}}小时前",
+      "daysAgo": "{{days}}天前"
+    }
   }
 } 

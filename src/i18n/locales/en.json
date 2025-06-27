@@ -187,6 +187,66 @@
       "description": "The information you provide is used for better test recommendations and personalized experiences.\nYou can modify it anytime in My Page, and it is safely protected."
     }
   },
+  "comments": {
+    "title": "{{count}} Comments",
+    "noComments": "No comments yet",
+    "firstComment": "Be the first to comment!",
+    "form": {
+      "placeholder": "Share your thoughts about this test...",
+      "placeholderReply": "Reply to {{authorName}}...",
+      "loginRequired": "You can write comments after logging in.",
+      "loginButton": "Sign In",
+      "loginMessage": "Please log in to write comments",
+      "submitButton": "Post Comment",
+      "replyButton": "Post Reply",
+      "submitting": "Posting...",
+      "cancel": "Cancel",
+      "characterCount": "{{current}}/{{max}}"
+    },
+    "sorting": {
+      "label": "Sort:",
+      "latest": "Latest",
+      "popular": "Popular"
+    },
+    "actions": {
+      "reply": "Reply",
+      "delete": "Delete",
+      "report": "Report",
+      "anonymous": "(Anonymous)",
+      "edited": "(Edited)"
+    },
+    "voting": {
+      "like": "Like",
+      "dislike": "Dislike"
+    },
+    "report": {
+      "title": "Report Comment",
+      "reasons": {
+        "spam": "Spam",
+        "abuse": "Abuse/Harassment",
+        "inappropriate": "Inappropriate Content",
+        "other": "Other"
+      },
+      "cancel": "Cancel"
+    },
+    "confirmDelete": "Are you sure you want to delete this comment?",
+    "errors": {
+      "createError": "An error occurred while posting the comment.",
+      "replyError": "An error occurred while posting the reply.",
+      "deleteError": "An error occurred while deleting the comment.",
+      "voteError": "An error occurred while voting.",
+      "reportError": "An error occurred while reporting."
+    },
+    "success": {
+      "reported": "Report has been submitted."
+    },
+    "time": {
+      "justNow": "Just now",
+      "minutesAgo": "{{minutes}}m ago",
+      "hoursAgo": "{{hours}}h ago",
+      "daysAgo": "{{days}}d ago"
+    }
+  },
   "admin": {
     "title": "Admin Panel",
     "loading": "Loading...",

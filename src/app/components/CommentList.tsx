@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { Comment } from '@/types/comments';
 import CommentItem from './CommentItem';
 
@@ -10,6 +11,7 @@ interface CommentListProps {
 }
 
 export default function CommentList({ comments, testCode }: CommentListProps) {
+  const { t, ready } = useTranslation();
   const [sortBy, setSortBy] = useState<'latest' | 'popular'>('latest');
 
   // 댓글 정렬
@@ -32,7 +34,7 @@ export default function CommentList({ comments, testCode }: CommentListProps) {
     <div className="space-y-6">
       {/* 정렬 옵션 */}
       <div className="flex items-center space-x-4 pb-4 border-b border-gray-100">
-        <span className="text-sm font-medium text-gray-700">정렬:</span>
+        <span className="text-sm font-medium text-gray-700">{ready ? t('comments.sorting.label') : 'Sort:'}</span>
         <div className="flex space-x-2">
           <button
             onClick={() => setSortBy('latest')}
@@ -42,7 +44,7 @@ export default function CommentList({ comments, testCode }: CommentListProps) {
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
-            최신순
+            {ready ? t('comments.sorting.latest') : 'Latest'}
           </button>
           <button
             onClick={() => setSortBy('popular')}
@@ -52,7 +54,7 @@ export default function CommentList({ comments, testCode }: CommentListProps) {
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
-            인기순
+            {ready ? t('comments.sorting.popular') : 'Popular'}
           </button>
         </div>
       </div>
