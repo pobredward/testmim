@@ -15,7 +15,7 @@ export const PASTLIFE_TEST = {
   views: 0,
   likes: 0,
   scraps: 0,
-  category: "운명",
+  category: "자아",
   questions: [
     {
       question: "사람들과 있을 때 당신의 위치는?",

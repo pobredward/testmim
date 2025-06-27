@@ -14,7 +14,7 @@ export const ANIMALPERSONALITY_TEST = {
   views: 0,
   likes: 0,
   scraps: 0,
-  category: "동물",
+  category: "자아",
   questions: [
     {
       question: "당신은 모임에서 어떤 타입인가요?",

@@ -14,7 +14,7 @@ export const SPEECHSTYLE_TEST = {
   views: 0,
   likes: 0,
   scraps: 0,
-  category: "감성",
+  category: "자아",
   questions: [
     {
       question: "친구와의 대화에서 자주 사용하는 표현은?",

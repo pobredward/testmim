@@ -67,9 +67,6 @@ export default function HomeClient() {
     "밈": "bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50",
     "연애": "bg-gradient-to-br from-pink-100 via-orange-50 to-white",
     "게임": "bg-gradient-to-br from-blue-50 via-indigo-50 to-white",
-    "동물": "bg-gradient-to-br from-yellow-50 via-green-50 to-white",
-    "감성": "bg-gradient-to-br from-pink-50 via-yellow-50 to-white",
-    "운명": "bg-gradient-to-br from-purple-50 via-blue-50 to-white",
   };
 
   // 안전한 카테고리 레이블 가져오기
@@ -83,9 +80,6 @@ export default function HomeClient() {
           "밈": "🤪 밈 테스트",
           "연애": "💘 연애 테스트",
           "게임": "🎮 게임 테스트",
-          "동물": "🐶 동물 테스트",
-          "감성": "🌈 감성 테스트",
-          "운명": "🔮 운명 테스트",
         };
         return fallbackLabels[category] || category;
       }
@@ -118,7 +112,7 @@ export default function HomeClient() {
   console.log('Tests by category:', testsByCategory);
 
   // 카테고리 순서 정의 (밈을 제일 위에)
-  const CATEGORY_ORDER = ["밈", "자아", "연애", "게임", "동물", "감성", "운명"];
+  const CATEGORY_ORDER = ["밈", "자아", "연애", "게임"];
 
   // 인기 테스트들을 위한 구조화된 데이터 (제거)
   // const popularTests = (tests as any[])
@@ -241,13 +235,11 @@ export default function HomeClient() {
   // 카드 컴포넌트
   const TestCard = ({ test }: { test: any }) => (
     <Link
-      key={test.code}
       href={`/detail/${test.code}`}
       onClick={() => {
         if (analytics) logEvent(analytics, "test_enter", { test_code: test.code });
       }}
-      className="group relative block rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-gray-100 hover:-translate-y-1 hover:scale-105 duration-200"
-      style={{ minHeight: 210 }}
+      className="group relative block rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-gray-100 hover:-translate-y-1 hover:scale-105 duration-200 h-full"
     >
       {getBadge(test)}
       <div className="flex flex-col h-full">
@@ -315,20 +307,13 @@ export default function HomeClient() {
       {CATEGORY_ORDER.map(category => 
         testsByCategory[category]?.length > 0 && (
           <section key={category} className={`mb-8 py-6 px-4 rounded-xl ${CATEGORY_BG[category] || ''} shadow-sm`}>
-            <h2 className="text-xl sm:text-2xl font-extrabold mb-1 flex items-center gap-2">
+            <h2 className="text-xl sm:text-2xl font-extrabold mb-4 flex items-center gap-2">
               {getCategoryLabel(category)}
             </h2>
-            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-200 -mx-2 px-2 py-4">
-              <div className="flex gap-4 md:gap-6">
-                {(testsByCategory[category] as any[]).map((test) => (
-                  <div
-                    key={test.code}
-                    className="flex-shrink-0 w-[48%] md:w-[32%] max-w-xs min-w-[160px]"
-                  >
-                    <TestCard test={test} />
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+              {(testsByCategory[category] as any[]).map((test) => (
+                <TestCard key={test.code} test={test} />
+              ))}
             </div>
           </section>
         )
