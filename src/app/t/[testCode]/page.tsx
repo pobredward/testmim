@@ -9,6 +9,8 @@ import { db, analytics } from "@/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import type { TestAnswer } from "@/types/tests";
 import { logEvent } from "firebase/analytics";
+import { giveExpForTestCompletion } from "@/utils/expLevel";
+import { getUserFromFirestore } from "@/utils/userAuth";
 
 // 진행률 표시 컴포넌트
 function ProgressBar({ current, total, color }: { current: number; total: number; color: string }) {
@@ -122,7 +124,36 @@ export default function TestRunPage() {
           createdAt: new Date(),
         });
         console.log('[DEBUG] 저장 성공:', docRef.id);
-        router.push(`/t/${testCode}/result/${docRef.id}`);
+        
+        // 경험치 지급 (로그인된 사용자만)
+        if (session?.user?.id) {
+          try {
+            // 현재 사용자 데이터 조회
+            const currentUserData = await getUserFromFirestore(session.user.id);
+            
+            // 테스트 완료 경험치 지급
+            const levelUpResult = await giveExpForTestCompletion(
+              session.user.id, 
+              testCode, 
+              currentUserData || undefined
+            );
+            
+            console.log('✅ 경험치 지급 완료:', levelUpResult);
+            
+            // 레벨업했다면 결과 페이지에서 모달을 띄우기 위해 URL 파라미터 추가
+            if (levelUpResult.leveledUp) {
+              router.push(`/t/${testCode}/result/${docRef.id}?levelUp=true&newLevel=${levelUpResult.newLevel}&expGained=${levelUpResult.expGained}`);
+            } else {
+              router.push(`/t/${testCode}/result/${docRef.id}?expGained=${levelUpResult.expGained}`);
+            }
+          } catch (expError) {
+            console.error('경험치 지급 오류:', expError);
+            // 경험치 지급 실패해도 결과 페이지로는 이동
+            router.push(`/t/${testCode}/result/${docRef.id}`);
+          }
+        } else {
+          router.push(`/t/${testCode}/result/${docRef.id}`);
+        }
       } catch (e) {
         console.error('[DEBUG] 저장 에러:', e);
         setError(t('test.saveError'));

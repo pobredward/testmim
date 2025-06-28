@@ -14,6 +14,9 @@ export interface UserData {
   bio?: string;
   onboardingCompleted?: boolean;
   role?: "admin" | "user";
+  // 경험치 및 레벨 시스템
+  exp?: number;
+  level?: number;
   createdAt?: any;
   updatedAt?: any;
   lastLoginAt?: any;
@@ -44,6 +47,9 @@ export async function createUserInFirestore(userData: Partial<UserData>): Promis
     onboardingCompleted: false,
     // 권한 관련 필드
     role: "user",
+    // 경험치 및 레벨 시스템 초기화
+    exp: 0,
+    level: 1,
     // 시간 필드
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),

@@ -301,6 +301,32 @@ export default function HomeClient() {
       <NeonBanner />
       <p className="text-gray-600 mb-6 text-center text-base">{t('common.description')}</p>
       
+      {/* 미니게임 버튼 */}
+      <section className="mb-8">
+        <Link 
+          href="/games"
+          className="group block w-full"
+        >
+          <div className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="text-4xl animate-bounce">🎮</div>
+                <div>
+                  <h3 className="text-xl font-bold mb-1">미니게임</h3>
+                  <p className="text-purple-100 text-sm">재미있는 게임으로 경험치를 획득하세요!</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-2 text-purple-200">
+                <span className="hidden sm:inline text-sm">지금 플레이</span>
+                <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </section>
+      
       {/* 카카오 애드핏 모바일 배너 */}
       <AdFitBanner />
       

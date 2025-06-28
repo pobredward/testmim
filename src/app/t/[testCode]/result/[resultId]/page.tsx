@@ -8,6 +8,8 @@ import { useParams, useRouter, useSearchParams } from "next/navigation";
 import type { TestAnswer } from "@/types/tests";
 import { logEvent } from "firebase/analytics";
 import { useTranslation } from "react-i18next";
+import LevelUpModal from "@/app/components/LevelUpModal";
+import ExpGainToast from "@/app/components/ExpGainToast";
 
 // 카카오 SDK 타입 선언
 declare global {
@@ -25,6 +27,19 @@ export default function TestResultPage() {
   const [error, setError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<TestAnswer[] | null>(null);
   const [copied, setCopied] = useState(false);
+  
+  // 레벨업 모달 상태
+  const [showLevelUpModal, setShowLevelUpModal] = useState(false);
+  const [levelUpData, setLevelUpData] = useState({
+    oldLevel: 1,
+    newLevel: 1,
+    expGained: 0,
+    totalExp: 0,
+  });
+  
+  // 경험치 토스트 상태
+  const [showExpToast, setShowExpToast] = useState(false);
+  const [expGainedAmount, setExpGainedAmount] = useState(0);
 
   // 공유 링크 여부
   const isShare = searchParams.get("from") === "share";
@@ -35,6 +50,42 @@ export default function TestResultPage() {
   useEffect(() => {
     setTestData(getTestByCode(testCode, i18n.language));
   }, [testCode, i18n.language]);
+
+  // URL 파라미터에서 레벨업 정보 확인
+  useEffect(() => {
+    const levelUp = searchParams.get("levelUp");
+    const newLevel = searchParams.get("newLevel");
+    const expGained = searchParams.get("expGained");
+    
+    if (levelUp === "true" && newLevel && expGained) {
+      // 레벨업한 경우 모달 표시
+      const newLevelNum = parseInt(newLevel);
+      const expGainedNum = parseInt(expGained);
+      
+      setLevelUpData({
+        oldLevel: newLevelNum - 1,
+        newLevel: newLevelNum,
+        expGained: expGainedNum,
+        totalExp: 0, // 실제 총 경험치는 별도로 계산 필요하지만 일단 0으로 설정
+      });
+      
+      // 결과 페이지가 완전히 로드된 후 모달 표시
+      setTimeout(() => {
+        setShowLevelUpModal(true);
+      }, 1000);
+    } else if (expGained && !levelUp) {
+      // 레벨업하지 않았지만 경험치는 획득한 경우 토스트 표시
+      const expGainedNum = parseInt(expGained);
+      if (expGainedNum > 0) {
+        setExpGainedAmount(expGainedNum);
+        
+        // 결과 페이지가 완전히 로드된 후 토스트 표시
+        setTimeout(() => {
+          setShowExpToast(true);
+        }, 1500);
+      }
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     async function fetchResult() {
@@ -238,7 +289,25 @@ ${window.location.origin}/detail/${testCode}
   };
 
   return (
-    <div className={`min-h-[70vh] flex flex-col items-center justify-center bg-gradient-to-b ${TEST_DATA.bgGradient} rounded-xl shadow p-6 sm:p-10 mt-4 mb-8`}>
+    <>
+      {/* 레벨업 모달 */}
+      <LevelUpModal
+        isOpen={showLevelUpModal}
+        onClose={() => setShowLevelUpModal(false)}
+        oldLevel={levelUpData.oldLevel}
+        newLevel={levelUpData.newLevel}
+        expGained={levelUpData.expGained}
+        totalExp={levelUpData.totalExp}
+      />
+      
+      {/* 경험치 획득 토스트 */}
+      <ExpGainToast
+        isVisible={showExpToast}
+        onHide={() => setShowExpToast(false)}
+        expGained={expGainedAmount}
+      />
+      
+      <div className={`min-h-[70vh] flex flex-col items-center justify-center bg-gradient-to-b ${TEST_DATA.bgGradient} rounded-xl shadow p-6 sm:p-10 mt-4 mb-8`}>
       <div className="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-5xl">
         {result.icon}
       </div>
@@ -338,5 +407,6 @@ ${window.location.origin}/detail/${testCode}
       )}
       {copied && <div className="text-green-600 text-sm mt-1">{t('results.linkCopied')}</div>}
     </div>
+    </>
   );
 } 

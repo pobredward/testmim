@@ -8,12 +8,21 @@ import { useTranslation } from "react-i18next";
 import { detectBrowserLanguage } from "@/i18n";
 import ProfileEditModal from "@/app/components/ProfileEditModal";
 import TestResultCards from "@/app/components/TestResultCards";
+import LevelProgressBar from "@/app/components/LevelProgressBar";
+import ExpGuideModal from "@/app/components/ExpGuideModal";
+import { getUserFromFirestore } from "@/utils/userAuth";
 
 export default function MyPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isExpGuideOpen, setIsExpGuideOpen] = useState(false);
   const { t, i18n } = useTranslation();
+  
+  // 경험치/레벨 상태
+  const [userLevel, setUserLevel] = useState(1);
+  const [userExp, setUserExp] = useState(0);
+  const [expLoading, setExpLoading] = useState(true);
 
   // i18n 초기화
   useEffect(() => {
@@ -29,6 +38,30 @@ export default function MyPage() {
       router.push("/signin"); // 로그인하지 않은 경우 로그인 페이지로 이동
     }
   }, [session, status, router]);
+
+  // 사용자 경험치/레벨 정보 로드
+  useEffect(() => {
+    const loadUserExpLevel = async () => {
+      if (!session?.user?.id) {
+        setExpLoading(false);
+        return;
+      }
+
+      try {
+        const userData = await getUserFromFirestore(session.user.id);
+        if (userData) {
+          setUserLevel(userData.level || 1);
+          setUserExp(userData.exp || 0);
+        }
+      } catch (error) {
+        console.error('경험치 정보 로드 오류:', error);
+      } finally {
+        setExpLoading(false);
+      }
+    };
+
+    loadUserExpLevel();
+  }, [session?.user?.id]);
 
   if (status === "loading") {
     return (
@@ -72,6 +105,30 @@ export default function MyPage() {
     <div>
       <h1 className="text-xl font-bold mb-6">{t('mypage.title')}</h1>
       
+      {/* 레벨/경험치 섹션 */}
+      <div className="mb-6">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-lg font-semibold text-gray-800">레벨 & 경험치</h2>
+          <button 
+            onClick={() => setIsExpGuideOpen(true)}
+            className="flex items-center gap-1 px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium hover:bg-purple-200 transition-colors"
+          >
+            <span>💡</span>
+            경험치 가이드
+          </button>
+        </div>
+        {expLoading ? (
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+            <div className="flex items-center justify-center">
+              <div className="w-6 h-6 border-2 border-purple-400 border-t-transparent rounded-full animate-spin mr-2"></div>
+              <span className="text-gray-500">경험치 정보를 불러오는 중...</span>
+            </div>
+          </div>
+        ) : (
+          <LevelProgressBar currentExp={userExp} currentLevel={userLevel} />
+        )}
+      </div>
+
       {/* 기본 프로필 정보 섹션 */}
       <div className="mb-8">
         <h2 className="text-lg font-semibold mb-4 text-gray-800">{t('mypage.profileInfo')}</h2>
@@ -190,7 +247,11 @@ export default function MyPage() {
         }}
       />
 
-
+      {/* 경험치 가이드 모달 */}
+      <ExpGuideModal 
+        isOpen={isExpGuideOpen}
+        onClose={() => setIsExpGuideOpen(false)}
+      />
     </div>
   );
 } 

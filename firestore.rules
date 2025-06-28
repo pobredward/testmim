@@ -72,6 +72,23 @@ service cloud.firestore {
     match /users/{userId} {
       allow read: if true; // 모든 사용자가 조회 가능 (공개 프로필 정보)
       allow write: if request.auth != null && request.auth.uid == userId; // 본인만 수정 가능
+      
+      // 경험치/레벨 업데이트는 인증된 사용자가 본인 계정에만 가능
+      allow update: if request.auth != null && 
+                       request.auth.uid == userId &&
+                       isValidExpLevelUpdate();
+      
+      // 경험치/레벨 업데이트 유효성 검사
+      function isValidExpLevelUpdate() {
+        let data = request.resource.data;
+        let prevData = resource.data;
+        
+        // exp와 level 필드가 있는 경우에만 검증
+        return (!('exp' in data) || (data.exp is number && data.exp >= 0)) &&
+               (!('level' in data) || (data.level is number && data.level >= 1 && data.level <= 100)) &&
+               // 경험치는 증가만 가능 (감소 방지)
+               (!('exp' in data) || !('exp' in prevData) || data.exp >= prevData.exp);
+      }
     }
 
     // 관리자 컬렉션
