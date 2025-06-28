@@ -34,7 +34,9 @@ export const SOCIAL_PROVIDERS: SocialProvider[] = [
     key: "google",
     label: "구글로 로그인",
     href: "/api/auth/google",
-    btn: false,
+    btn: true,
+    bg: "bg-white hover:bg-gray-50 border border-gray-300",
+    text: "text-gray-700",
   },
   {
     name: "페이스북",
