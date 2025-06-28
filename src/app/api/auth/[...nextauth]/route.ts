@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import NaverProvider from "next-auth/providers/naver";
 import KakaoProvider from "next-auth/providers/kakao";
-import AppleProvider from "next-auth/providers/apple";
+// import AppleProvider from "next-auth/providers/apple"; // 임시 비활성화
 import { auth, db } from "@/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc, getDoc, serverTimestamp, query, where, collection, getDocs } from "firebase/firestore";
@@ -34,10 +34,17 @@ const handler = NextAuth({
       clientId: process.env.KAKAO_CLIENT_ID!,
       clientSecret: process.env.KAKAO_CLIENT_SECRET!,
     }),
-    AppleProvider({
-      clientId: process.env.APPLE_CLIENT_ID!,
-      clientSecret: process.env.APPLE_CLIENT_SECRET!,
-    }),
+    // Apple OAuth - 현재 설정 중 (임시 비활성화)
+    // AppleProvider({
+    //   clientId: process.env.APPLE_CLIENT_ID!,
+    //   clientSecret: process.env.APPLE_CLIENT_SECRET!,
+    //   authorization: {
+    //     params: {
+    //       scope: "name email",
+    //       response_mode: "form_post",
+    //     },
+    //   },
+    // }),
   ],
   callbacks: {
     async signIn({ user, account, profile }) {

@@ -6,6 +6,7 @@ export interface SocialProvider {
   btn: boolean;
   bg?: string;
   text?: string;
+  enabled?: boolean;
 }
 
 export const SOCIAL_PROVIDERS: SocialProvider[] = [
@@ -18,15 +19,16 @@ export const SOCIAL_PROVIDERS: SocialProvider[] = [
     bg: "bg-[#FEE500] hover:bg-[#ffe14f] border border-[#FEE500]",
     text: "text-[#392020]",
   },
-  {
-    name: "애플",
-    key: "apple",
-    label: "Apple로 로그인",
-    href: "/api/auth/apple",
-    btn: true,
-    bg: "bg-black hover:bg-gray-900 border border-black",
-    text: "text-white",
-  },
+  // Apple 로그인 - 현재 설정 중
+  // {
+  //   name: "애플",
+  //   key: "apple",
+  //   label: "Apple로 로그인",
+  //   href: "/api/auth/apple",
+  //   btn: true,
+  //   bg: "bg-black hover:bg-gray-900 border border-black",
+  //   text: "text-white",
+  // },
   {
     name: "구글",
     key: "google",
