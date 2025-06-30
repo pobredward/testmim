@@ -19,11 +19,6 @@ export default function GamesPage() {
   }, []);
 
   const handleGameClick = (gameId: string, isAvailable: boolean) => {
-    if (!session) {
-      router.push('/signin?redirect=/games');
-      return;
-    }
-    
     if (isAvailable) {
       router.push(`/games/${gameId}`);
     }
@@ -42,27 +37,18 @@ export default function GamesPage() {
             재미있는 미니게임을 플레이하고 경험치를 획득해보세요!
           </p>
           
-          {/* Leaderboard Button */}
-          <div className="mt-6">
-            <Link
-              href="/games/leaderboard"
-              className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition-colors mr-4"
-            >
-              <span className="text-xl mr-2">🏆</span>
-              랭킹 보기
-            </Link>
-          </div>
+
         </div>
 
         {/* User Status */}
         {!session && (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
             <div className="flex items-center">
-              <div className="text-yellow-600 mr-3">⚠️</div>
+              <div className="text-blue-600 mr-3">💡</div>
               <div>
-                <p className="text-yellow-800 font-medium">로그인이 필요합니다</p>
-                <p className="text-yellow-700 text-sm">
-                  게임을 플레이하고 경험치를 획득하려면 로그인해주세요.
+                <p className="text-blue-800 font-medium">게스트 모드로 플레이 중</p>
+                <p className="text-blue-700 text-sm">
+                  로그인하시면 경험치를 획득하고 랭킹에 참여할 수 있습니다!
                 </p>
               </div>
             </div>

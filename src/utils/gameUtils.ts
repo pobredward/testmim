@@ -121,31 +121,62 @@ export const getUserGameStats = async (userId: string): Promise<UserGameStats | 
 
 export async function getGameLeaderboard(gameId: string, limitCount: number = 10): Promise<any[]> {
   try {
-    const gameResultsRef = collection(db, 'game_results');
-    const q = query(
+    console.log('Fetching leaderboard for gameId:', gameId);
+    const gameResultsRef = collection(db, 'gameResults');
+    
+    // First, try a simple query to see if data exists
+    const simpleQuery = query(
       gameResultsRef,
       where('gameId', '==', gameId),
-      orderBy('score', gameId === 'reaction-time' ? 'asc' : 'desc'), // For reaction time, lower is better
       limit(limitCount)
     );
     
-        const querySnapshot = await getDocs(q);
+    const querySnapshot = await getDocs(simpleQuery);
+    console.log('Found documents:', querySnapshot.size);
+    
+    if (querySnapshot.empty) {
+      console.log('No documents found for gameId:', gameId);
+      return [];
+    }
+    
+    // Get all results and sort them manually
+    const results = querySnapshot.docs.map(doc => {
+      const data = doc.data() as any;
+      return {
+        id: doc.id,
+        ...data
+      };
+    });
+    
+    console.log('Raw results:', results);
+    
+    // Sort results (lower score is better for reaction-time)
+    const sortedResults = results.sort((a, b) => {
+      if (gameId === 'reaction-time') {
+        return a.score - b.score; // Lower is better
+      } else {
+        return b.score - a.score; // Higher is better
+      }
+    });
+    
     const leaderboard = await Promise.all(
-      querySnapshot.docs.map(async (docSnapshot, index) => {
-        const data = docSnapshot.data();
-        
+      sortedResults.slice(0, limitCount).map(async (data, index) => {
         // Get user display name
-        let userName = 'Unknown';
+        let userName = 'Unknown Player';
         if (data.userId) {
           try {
             const userRef = doc(db, 'users', data.userId);
             const userDoc = await getDoc(userRef);
             if (userDoc.exists()) {
               const userData = userDoc.data() as any;
-              userName = userData.displayName || userData.name || userName;
+              userName = userData.displayName || userData.name || `Player ${data.userId.substring(0, 8)}`;
+            } else {
+              // If user doc doesn't exist, create a display name from userId
+              userName = `Player ${data.userId.substring(0, 8)}`;
             }
           } catch (error) {
             console.warn('Failed to get user name:', error);
+            userName = `Player ${data.userId?.substring(0, 8) || 'Unknown'}`;
           }
         }
 
@@ -154,12 +185,13 @@ export async function getGameLeaderboard(gameId: string, limitCount: number = 10
           userName,
           score: data.score,
           details: data.details || {},
-          completedAt: data.completedAt?.toDate?.()?.toISOString() || data.completedAt,
+          completedAt: data.completedAt?.toDate?.()?.toISOString() || data.completedAt || new Date().toISOString(),
           rank: index + 1,
         };
       })
     );
 
+    console.log('Final leaderboard:', leaderboard);
     return leaderboard;
   } catch (error) {
     console.error('Failed to fetch game leaderboard:', error);
