@@ -250,37 +250,21 @@ export async function getGameLeaderboard(gameId: string, limitCount: number = 10
       }
     });
     
-    const leaderboard = await Promise.all(
-      sortedResults.slice(0, limitCount).map(async (data, index) => {
-        // Get user display name
-        let userName = 'Unknown Player';
-        if (data.userId) {
-          try {
-            const userRef = doc(db, 'users', data.userId);
-            const userDoc = await getDoc(userRef);
-            if (userDoc.exists()) {
-              const userData = userDoc.data() as any;
-              userName = userData.displayName || userData.name || `Player ${data.userId.substring(0, 8)}`;
-            } else {
-              // If user doc doesn't exist, create a display name from userId
-              userName = `Player ${data.userId.substring(0, 8)}`;
-            }
-          } catch (error) {
-            console.warn('Failed to get user name:', error);
-            userName = `Player ${data.userId?.substring(0, 8) || 'Unknown'}`;
-          }
-        }
+    const leaderboard = sortedResults.slice(0, limitCount).map((data, index) => {
+      // Use stored userName or fallback to userId-based name
+      const userName = data.userName || 
+                      data.userId?.split('@')[0] || 
+                      `Player ${data.userId?.substring(0, 8) || 'Unknown'}`;
 
-        return {
-          userId: data.userId,
-          userName,
-          score: data.score,
-          details: data.details || {},
-          completedAt: data.completedAt?.toDate?.()?.toISOString() || data.completedAt || new Date().toISOString(),
-          rank: index + 1,
-        };
-      })
-    );
+      return {
+        userId: data.userId,
+        userName,
+        score: data.score,
+        details: data.details || {},
+        completedAt: data.completedAt?.toDate?.()?.toISOString() || data.completedAt || new Date().toISOString(),
+        rank: index + 1,
+      };
+    });
 
     console.log('Final leaderboard:', leaderboard);
     return leaderboard;

@@ -14,6 +14,7 @@ export interface MiniGame {
 export interface GameResult {
   gameId: string;
   userId: string;
+  userName?: string; // user's display name/nickname
   score: number;
   details: Record<string, any>; // game-specific data
   experienceGained: number;

@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { getGameById } from '../../../data/games';
 import { GameResult, ReactionGameResult } from '../../../types/games';
 import { getGameLeaderboard, saveGameResult, getUserDailyPlayCount, incrementUserDailyPlayCount, canUserPlay } from '../../../utils/gameUtils';
+import { db } from '../../../firebase';
+import { doc, getDoc } from 'firebase/firestore';
 // import { getScoreRating } from '../../../utils/gameUtils';
 
 type GameState = 'ready' | 'waiting' | 'react' | 'too-early' | 'result';
@@ -251,9 +253,31 @@ export default function ReactionTimePage() {
         const score = getScoreFromTime(results.reactionTime);
         const expGained = score >= 70 ? 10 : 5;
         
+        // Get user's nickname from users collection
+        let userName = session.user.name || 
+                      session.user.email?.split('@')[0] || 
+                      `Player ${session.user.email?.substring(0, 8)}`;
+        
+        try {
+          const userRef = doc(db, 'users', session.user.email);
+          const userDoc = await getDoc(userRef);
+          if (userDoc.exists()) {
+            const userData = userDoc.data();
+            // Use nickname first, then fallback to displayName, name, etc.
+            userName = userData.nickname || 
+                      userData.displayName || 
+                      userData.name || 
+                      userName;
+          }
+        } catch (error) {
+          console.warn('Failed to get user nickname:', error);
+          // Use fallback userName
+        }
+        
         const gameResult: GameResult = {
           gameId: 'reaction-time',
           userId: session.user.email,
+          userName: userName,
           score: results.reactionTime,
           details: results,
           experienceGained: expGained,
