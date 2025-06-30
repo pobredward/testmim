@@ -39,12 +39,7 @@ export default function ReactionTimePage() {
     }
   }, []);
 
-  // Redirect if not logged in
-  useEffect(() => {
-    if (!session) {
-      router.push('/signin?redirect=/games/reaction-time');
-    }
-  }, [session, router]);
+  // Note: Allow playing without login, encourage login after game
 
   const startGame = useCallback(() => {
     if (gameState !== 'ready') return;
@@ -180,10 +175,10 @@ export default function ReactionTimePage() {
   };
 
   useEffect(() => {
-    if (gameState === 'result' && attempts.length === totalRounds) {
+    if (gameState === 'result' && attempts.length === totalRounds && session) {
       saveResult();
     }
-  }, [gameState, attempts.length, totalRounds]);
+  }, [gameState, attempts.length, totalRounds, session]);
 
   const getGameAreaStyle = () => {
     switch (gameState) {
@@ -287,15 +282,32 @@ export default function ReactionTimePage() {
               </div>
             )}
 
-            {/* Experience Points */}
-            <div className="text-center p-4 bg-purple-50 rounded-lg">
-              <div className="text-lg font-bold text-purple-700">
-                💎 +{getScoreFromAverage(results.averageTime) >= 70 ? 10 : 5} EXP 획득!
+            {/* Experience Points / Login Prompt */}
+            {session ? (
+              <div className="text-center p-4 bg-purple-50 rounded-lg">
+                <div className="text-lg font-bold text-purple-700">
+                  💎 +{getScoreFromAverage(results.averageTime) >= 70 ? 10 : 5} EXP 획득!
+                </div>
+                <div className="text-sm text-purple-600 mt-1">
+                  좋은 기록일수록 더 많은 경험치를 얻어요
+                </div>
               </div>
-              <div className="text-sm text-purple-600 mt-1">
-                좋은 기록일수록 더 많은 경험치를 얻어요
+            ) : (
+              <div className="text-center p-4 bg-amber-50 rounded-lg border border-amber-200">
+                <div className="text-lg font-bold text-amber-700 mb-2">
+                  🔒 게임 기록을 저장하고 경험치를 얻으려면 로그인하세요
+                </div>
+                <div className="text-sm text-amber-600 mb-3">
+                  로그인하면 기록 저장, 경험치 획득, 랭킹 참여가 가능해요!
+                </div>
+                <Link
+                  href="/signin?redirect=/games/reaction-time"
+                  className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+                >
+                  로그인하러 가기
+                </Link>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Action Buttons */}

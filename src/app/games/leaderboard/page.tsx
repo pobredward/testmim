@@ -246,22 +246,11 @@ export default function LeaderboardPage() {
         {/* Play Game Button */}
         <div className="text-center mt-8">
           <Link
-            href={
-              !session 
-                ? '/signin?redirect=/games/leaderboard'
-                : selectedGame?.id === 'reaction-time' 
-                  ? '/games/reaction-time' 
-                  : '/games'
-            }
+            href={selectedGame?.id === 'reaction-time' ? '/games/reaction-time' : '/games'}
             className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors"
           >
             <span className="text-2xl mr-2">{selectedGame?.icon}</span>
-            {!session 
-              ? '로그인하고 플레이하기' 
-              : selectedGame?.isAvailable 
-                ? '게임 플레이하기' 
-                : '게임 목록으로'
-            }
+            {selectedGame?.isAvailable ? '게임 플레이하기' : '게임 목록으로'}
           </Link>
         </div>
       </div>

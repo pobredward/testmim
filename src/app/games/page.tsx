@@ -31,7 +31,7 @@ export default function GamesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 py-8">
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-2xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">🎮</div>
@@ -76,7 +76,7 @@ export default function GamesPage() {
             지금 플레이 가능
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {availableGamesList.map((game) => (
               <div
                 key={game.id}
@@ -124,7 +124,7 @@ export default function GamesPage() {
               곧 출시 예정
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               {comingSoonGamesList.map((game) => (
                 <div
                   key={game.id}
