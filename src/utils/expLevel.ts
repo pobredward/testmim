@@ -157,6 +157,50 @@ export async function giveExpForTestCompletion(
 }
 
 /**
+ * 미니게임 완료 시 경험치 지급
+ */
+export async function giveExpForMiniGameCompletion(
+  uid: string,
+  gameId: string,
+  score: number,
+  isPersonalBest: boolean = false,
+  currentUserData?: UserData
+): Promise<LevelUpResult> {
+  // 게임별 기본 경험치와 성과 보너스 계산
+  let baseExp = 5; // 기본 경험치
+  let bonusExp = 0; // 성과 보너스
+  
+  if (gameId === 'reaction-time') {
+    baseExp = 5;
+    // 반응속도 게임의 경우 점수(반응시간)가 낮을수록 좋음
+    if (score < 300) bonusExp = 5; // 300ms 미만이면 보너스
+    if (score < 250) bonusExp = 10; // 250ms 미만이면 더 큰 보너스
+  }
+  
+  // 개인 최고기록 갱신시 추가 보너스
+  if (isPersonalBest) {
+    bonusExp += 5;
+  }
+  
+  const totalExp = baseExp + bonusExp;
+  
+  const expGainData: ExpGainData = {
+    source: "mini_game",
+    expAmount: totalExp,
+    metadata: {
+      gameId,
+      score,
+      isPersonalBest,
+      baseExp,
+      bonusExp,
+      completedAt: new Date().toISOString(),
+    },
+  };
+
+  return await giveExpToUser(uid, expGainData, currentUserData);
+}
+
+/**
  * 레벨 시스템 통계 정보
  */
 export function getLevelSystemStats() {

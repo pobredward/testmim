@@ -6,7 +6,10 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { getGameById } from '../../../data/games';
 import { GameResult, ReactionGameResult } from '../../../types/games';
-import { getGameLeaderboard, saveGameResult, getUserDailyPlayCount, incrementUserDailyPlayCount, canUserPlay } from '../../../utils/gameUtils';
+import { getGameLeaderboard, saveGameResult, getUserDailyPlayCount, incrementUserDailyPlayCount, canUserPlay, getUserBestScore } from '../../../utils/gameUtils';
+import { giveExpForMiniGameCompletion } from '../../../utils/expLevel';
+import { getUserFromFirestore } from '../../../utils/userAuth';
+import LevelUpModal from '../../components/LevelUpModal';
 import { db } from '../../../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 // import { getScoreRating } from '../../../utils/gameUtils';
@@ -44,6 +47,15 @@ export default function ReactionTimePage() {
   const [dailyPlays, setDailyPlays] = useState(0);
   const [canPlay, setCanPlay] = useState(true);
   
+  // 레벨업 모달 관련 상태
+  const [showLevelUpModal, setShowLevelUpModal] = useState(false);
+  const [levelUpData, setLevelUpData] = useState({
+    oldLevel: 1,
+    newLevel: 1,
+    expGained: 0,
+    totalExp: 0,
+  });
+
   const gameData = getGameById('reaction-time');
   const totalRounds = 1;
   const DAILY_PLAY_LIMIT = 5;
@@ -248,8 +260,8 @@ export default function ReactionTimePage() {
         }
       }
       
-      // Only save to Firebase if user is logged in AND it's a new personal best
-      if (session?.user?.email && isNewPersonalBest && results.isSuccess) {
+      // Save to Firebase if user is logged in (but mark as personal best only if applicable)
+      if (session?.user?.email && results.isSuccess) {
         const score = getScoreFromTime(results.reactionTime);
         const expGained = score >= 70 ? 10 : 5;
         
@@ -285,17 +297,52 @@ export default function ReactionTimePage() {
           duration: 30, // Single round duration
         };
         
-        const saveSuccess = await saveGameResult(gameResult, true); // isPersonalBest = true
+        const saveSuccess = await saveGameResult(gameResult, isNewPersonalBest);
         
         if (saveSuccess) {
-          console.log('New personal best saved to Firebase:', gameResult);
-          // Refresh leaderboard after saving result
+          console.log('Game result saved to Firebase:', gameResult);
+          // Refresh leaderboard after saving result  
           loadLeaderboard();
-        } else {
-          console.error('Failed to save game result:', gameResult);
+        }
+
+        // 미니게임 완료시 경험치 지급 (성공한 경우에만)
+        if (session?.user?.id) {
+          try {
+            // 현재 사용자 데이터 조회
+            const currentUserData = await getUserFromFirestore(session.user.id);
+            
+            // 미니게임 완료 경험치 지급
+            const levelUpResult = await giveExpForMiniGameCompletion(
+              session.user.id,
+              'reaction-time',
+              results.reactionTime,
+              isNewPersonalBest,
+              currentUserData || undefined
+            );
+            
+            console.log('✅ 미니게임 경험치 지급 완료:', levelUpResult);
+            
+            // 레벨업했다면 모달 표시
+            if (levelUpResult.leveledUp) {
+              setLevelUpData({
+                oldLevel: levelUpResult.oldLevel,
+                newLevel: levelUpResult.newLevel,
+                expGained: levelUpResult.expGained,
+                totalExp: levelUpResult.totalExp,
+              });
+              
+              // 결과 페이지가 완전히 로드된 후 모달 표시
+              setTimeout(() => {
+                setShowLevelUpModal(true);
+              }, 1000);
+            }
+          } catch (expError) {
+            console.error('미니게임 경험치 지급 오류:', expError);
+            // 경험치 지급 실패해도 게임 결과는 정상 표시
+          }
         }
       } else {
-        console.log('Result not saved to Firebase - not a new personal best or user not logged in');
+        console.log('Result not saved to Firebase - user not logged in or failed');
       }
       
     } catch (error) {
@@ -341,15 +388,24 @@ export default function ReactionTimePage() {
     }
   };
 
-
-
   if (gameState === 'result') {
     const results = calculateResults();
     if (!results) return null;
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-8">
-        <div className="max-w-2xl mx-auto px-4">
+      <>
+        {/* 레벨업 모달 */}
+        <LevelUpModal
+          isOpen={showLevelUpModal}
+          onClose={() => setShowLevelUpModal(false)}
+          oldLevel={levelUpData.oldLevel}
+          newLevel={levelUpData.newLevel}
+          expGained={levelUpData.expGained}
+          totalExp={levelUpData.totalExp}
+        />
+
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-8">
+          <div className="max-w-2xl mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">⚡</div>
@@ -469,6 +525,7 @@ export default function ReactionTimePage() {
           </div>
         </div>
       </div>
+    </>
     );
   }
 
@@ -559,8 +616,6 @@ export default function ReactionTimePage() {
             </div>
           )}
         </div>
-
-
 
         {/* Best Record */}
         {bestTime && (
