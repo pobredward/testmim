@@ -1,23 +1,23 @@
 import { db } from '../firebase';
 import { collection, doc, setDoc, getDoc, updateDoc, serverTimestamp, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
-import { GameResult, GameStats, UserGameStats } from '../types/games';
+import { GameResult } from '../types/games';
 import { awardExperience } from './expLevel';
 
-export const saveGameResult = async (gameResult: GameResult): Promise<boolean> => {
+export const saveGameResult = async (gameResult: GameResult, isPersonalBest: boolean = false): Promise<boolean> => {
   try {
     const resultRef = doc(collection(db, 'gameResults'));
     const resultWithTimestamp = {
       ...gameResult,
+      isPersonalBest,
       completedAt: serverTimestamp(),
     };
     
     await setDoc(resultRef, resultWithTimestamp);
     
-    // Update user game stats
-    await updateUserGameStats(gameResult);
-    
-    // Award experience points
-    await awardExperience(gameResult.userId, gameResult.experienceGained);
+    // Award experience points only for personal bests
+    if (isPersonalBest) {
+      await awardExperience(gameResult.userId, gameResult.experienceGained);
+    }
     
     return true;
   } catch (error) {
@@ -26,96 +26,70 @@ export const saveGameResult = async (gameResult: GameResult): Promise<boolean> =
   }
 };
 
-export const updateUserGameStats = async (gameResult: GameResult): Promise<void> => {
+// Get user's best score for a specific game
+export const getUserBestScore = async (userId: string, gameId: string): Promise<number | null> => {
   try {
-    const userStatsRef = doc(db, 'userGameStats', gameResult.userId);
-    const userStatsDoc = await getDoc(userStatsRef);
+    const gameResultsRef = collection(db, 'gameResults');
+    const q = query(
+      gameResultsRef,
+      where('userId', '==', userId),
+      where('gameId', '==', gameId),
+      where('isPersonalBest', '==', true),
+      orderBy('score', gameId === 'reaction-time' ? 'asc' : 'desc'),
+      limit(1)
+    );
     
-    if (userStatsDoc.exists()) {
-      const currentStats = userStatsDoc.data() as UserGameStats;
-      const gameStats = currentStats.gameStats[gameResult.gameId] || {
-        gameId: gameResult.gameId,
-        totalPlays: 0,
-        bestScore: 0,
-        averageScore: 0,
-        totalExperienceGained: 0,
-      };
-      
-      // Update game-specific stats
-      const newTotalPlays = gameStats.totalPlays + 1;
-      const newBestScore = Math.max(gameStats.bestScore, gameResult.score);
-      const newTotalExp = gameStats.totalExperienceGained + gameResult.experienceGained;
-      const newAverageScore = ((gameStats.averageScore * gameStats.totalPlays) + gameResult.score) / newTotalPlays;
-      
-      const updatedGameStats = {
-        ...gameStats,
-        totalPlays: newTotalPlays,
-        bestScore: newBestScore,
-        averageScore: Math.round(newAverageScore),
-        totalExperienceGained: newTotalExp,
-        lastPlayedAt: new Date().toISOString(),
-      };
-      
-      // Update overall user stats
-      const updatedUserStats: UserGameStats = {
-        ...currentStats,
-        gameStats: {
-          ...currentStats.gameStats,
-          [gameResult.gameId]: updatedGameStats,
-        },
-        totalGamesPlayed: currentStats.totalGamesPlayed + 1,
-        totalExperienceFromGames: currentStats.totalExperienceFromGames + gameResult.experienceGained,
-      };
-      
-      // Update favorite game if this game has more plays
-      const favoriteGame = Object.entries(updatedUserStats.gameStats)
-        .reduce((prev, [gameId, stats]) => 
-          stats.totalPlays > (updatedUserStats.gameStats[prev]?.totalPlays || 0) ? gameId : prev
-        , gameResult.gameId);
-      
-      updatedUserStats.favoriteGameId = favoriteGame;
-      
-      await updateDoc(userStatsRef, updatedUserStats as any);
-    } else {
-      // Create new user game stats
-      const newUserStats: UserGameStats = {
-        userId: gameResult.userId,
-        gameStats: {
-          [gameResult.gameId]: {
-            gameId: gameResult.gameId,
-            totalPlays: 1,
-            bestScore: gameResult.score,
-            averageScore: gameResult.score,
-            totalExperienceGained: gameResult.experienceGained,
-            lastPlayedAt: new Date().toISOString(),
-          },
-        },
-        totalGamesPlayed: 1,
-        totalExperienceFromGames: gameResult.experienceGained,
-        favoriteGameId: gameResult.gameId,
-      };
-      
-      await setDoc(userStatsRef, newUserStats as any);
+    const querySnapshot = await getDocs(q);
+    
+    if (!querySnapshot.empty) {
+      const bestResult = querySnapshot.docs[0].data();
+      return bestResult.score;
     }
+    
+    return null;
   } catch (error) {
-    console.error('사용자 게임 통계 업데이트 오류:', error);
-    throw error;
+    console.error('사용자 최고 점수 조회 오류:', error);
+    return null;
   }
 };
 
-export const getUserGameStats = async (userId: string): Promise<UserGameStats | null> => {
+// Get user's total play count for a specific game
+export const getUserGamePlayCount = async (userId: string, gameId: string): Promise<number> => {
   try {
-    const userStatsRef = doc(db, 'userGameStats', userId);
-    const userStatsDoc = await getDoc(userStatsRef);
+    const gameResultsRef = collection(db, 'gameResults');
+    const q = query(
+      gameResultsRef,
+      where('userId', '==', userId),
+      where('gameId', '==', gameId)
+    );
     
-    if (userStatsDoc.exists()) {
-      return userStatsDoc.data() as UserGameStats;
-    }
-    
-    return null;
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.size;
   } catch (error) {
-    console.error('사용자 게임 통계 조회 오류:', error);
-    return null;
+    console.error('사용자 게임 플레이 횟수 조회 오류:', error);
+    return 0;
+  }
+};
+
+// Get user's personal best records across all games
+export const getUserPersonalBests = async (userId: string): Promise<any[]> => {
+  try {
+    const gameResultsRef = collection(db, 'gameResults');
+    const q = query(
+      gameResultsRef,
+      where('userId', '==', userId),
+      where('isPersonalBest', '==', true),
+      orderBy('completedAt', 'desc')
+    );
+    
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+  } catch (error) {
+    console.error('사용자 개인 최고 기록 조회 오류:', error);
+    return [];
   }
 };
 
@@ -124,22 +98,23 @@ export async function getGameLeaderboard(gameId: string, limitCount: number = 10
     console.log('Fetching leaderboard for gameId:', gameId);
     const gameResultsRef = collection(db, 'gameResults');
     
-    // First, try a simple query to see if data exists
-    const simpleQuery = query(
+    // Query only personal best records for this game
+    const personalBestQuery = query(
       gameResultsRef,
       where('gameId', '==', gameId),
-      limit(limitCount)
+      where('isPersonalBest', '==', true),
+      limit(limitCount * 2) // Get more results in case we need to filter duplicates
     );
     
-    const querySnapshot = await getDocs(simpleQuery);
-    console.log('Found documents:', querySnapshot.size);
+    const querySnapshot = await getDocs(personalBestQuery);
+    console.log('Found personal best documents:', querySnapshot.size);
     
     if (querySnapshot.empty) {
-      console.log('No documents found for gameId:', gameId);
+      console.log('No personal best documents found for gameId:', gameId);
       return [];
     }
     
-    // Get all results and sort them manually
+    // Get all personal best results
     const results = querySnapshot.docs.map(doc => {
       const data = doc.data() as any;
       return {
@@ -148,10 +123,29 @@ export async function getGameLeaderboard(gameId: string, limitCount: number = 10
       };
     });
     
-    console.log('Raw results:', results);
+    console.log('Raw personal best results:', results);
     
-    // Sort results (lower score is better for reaction-time)
-    const sortedResults = results.sort((a, b) => {
+    // Remove duplicate users (keep the best score for each user)
+    const uniqueResults = new Map();
+    results.forEach(result => {
+      const existingResult = uniqueResults.get(result.userId);
+      if (!existingResult) {
+        uniqueResults.set(result.userId, result);
+      } else {
+        // For reaction-time, lower is better; for others, higher is better
+        const isBetter = gameId === 'reaction-time' 
+          ? result.score < existingResult.score 
+          : result.score > existingResult.score;
+        
+        if (isBetter) {
+          uniqueResults.set(result.userId, result);
+        }
+      }
+    });
+    
+    // Convert back to array and sort
+    const uniqueResultsArray = Array.from(uniqueResults.values());
+    const sortedResults = uniqueResultsArray.sort((a, b) => {
       if (gameId === 'reaction-time') {
         return a.score - b.score; // Lower is better
       } else {

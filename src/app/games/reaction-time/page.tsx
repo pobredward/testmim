@@ -276,7 +276,7 @@ export default function ReactionTimePage() {
           duration: 30, // Single round duration
         };
         
-        const saveSuccess = await saveGameResult(gameResult);
+        const saveSuccess = await saveGameResult(gameResult, true); // isPersonalBest = true
         
         if (saveSuccess) {
           console.log('New personal best saved to Firebase:', gameResult);
