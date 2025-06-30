@@ -191,39 +191,39 @@ export default function HomeClient() {
     </div>
   );
 
-  // 카카오 애드핏 모바일 배너 컴포넌트 (React 방식)
-  const AdFitBanner = () => {
-    useEffect(() => {
-      // 스크립트 동적 로드
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = '//t1.daumcdn.net/kas/static/ba.min.js';
-      script.async = true;
-      document.head.appendChild(script);
+  // 카카오 애드핏 모바일 배너 컴포넌트 (React 방식) - 임시 비활성화
+  // const AdFitBanner = () => {
+  //   useEffect(() => {
+  //     // 스크립트 동적 로드
+  //     const script = document.createElement('script');
+  //     script.type = 'text/javascript';
+  //     script.src = '//t1.daumcdn.net/kas/static/ba.min.js';
+  //     script.async = true;
+  //     document.head.appendChild(script);
 
-      return () => {
-        // 컴포넌트 언마운트 시 스크립트 제거
-        const existingScript = document.querySelector('script[src*="ba.min.js"]');
-        if (existingScript) {
-          existingScript.remove();
-        }
-      };
-    }, []);
+  //     return () => {
+  //       // 컴포넌트 언마운트 시 스크립트 제거
+  //       const existingScript = document.querySelector('script[src*="ba.min.js"]');
+  //       if (existingScript) {
+  //         existingScript.remove();
+  //       }
+  //     };
+  //   }, []);
 
-    return (
-      <div className="w-full mb-8 flex justify-center">
-        <div className="max-w-[320px] w-full">
-          <ins 
-            className="kakao_ad_area" 
-            style={{ display: 'none', width: '100%' }}
-            data-ad-unit="DAN-UqH6IJflvZbmQ5QL"
-            data-ad-width="320"
-            data-ad-height="100"
-          />
-        </div>
-      </div>
-    );
-  };
+  //   return (
+  //     <div className="w-full mb-8 flex justify-center">
+  //       <div className="max-w-[320px] w-full">
+  //         <ins 
+  //           className="kakao_ad_area" 
+  //           style={{ display: 'none', width: '100%' }}
+  //           data-ad-unit="DAN-UqH6IJflvZbmQ5QL"
+  //           data-ad-width="320"
+  //           data-ad-height="100"
+  //         />
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   // 카드 뱃지
   const getBadge = (test: any) => {
@@ -327,8 +327,8 @@ export default function HomeClient() {
         </Link>
       </section>
       
-      {/* 카카오 애드핏 모바일 배너 */}
-      <AdFitBanner />
+      {/* 카카오 애드핏 모바일 배너 - 임시 비활성화 */}
+      {/* <AdFitBanner /> */}
       
       {CATEGORY_ORDER.map(category => 
         testsByCategory[category]?.length > 0 && (
