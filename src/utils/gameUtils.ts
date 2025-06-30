@@ -93,6 +93,103 @@ export const getUserPersonalBests = async (userId: string): Promise<any[]> => {
   }
 };
 
+// Get Korean date in YYYY-MM-DD format
+export const getKoreanDate = (): string => {
+  const now = new Date();
+  const koreanTime = new Date(now.getTime() + (9 * 60 * 60 * 1000)); // UTC+9
+  return koreanTime.toISOString().split('T')[0]; // YYYY-MM-DD
+};
+
+// Get user's daily play count for a specific game
+export const getUserDailyPlayCount = async (userId: string, gameId: string): Promise<number> => {
+  try {
+    const dailyPlayRef = doc(db, 'dailyPlayCounts', userId);
+    const dailyPlayDoc = await getDoc(dailyPlayRef);
+    
+    const today = getKoreanDate();
+    
+    if (dailyPlayDoc.exists()) {
+      const data = dailyPlayDoc.data();
+      const lastPlayDate = data.lastPlayDate;
+      const gamePlayCounts = data.gamePlayCounts || {};
+      
+      // If date has changed, reset count for this game
+      if (lastPlayDate !== today) {
+        return 0;
+      }
+      
+      return gamePlayCounts[gameId] || 0;
+    }
+    
+    return 0;
+  } catch (error) {
+    console.error('일일 플레이 횟수 조회 오류:', error);
+    return 0;
+  }
+};
+
+// Increment user's daily play count for a specific game
+export const incrementUserDailyPlayCount = async (userId: string, gameId: string): Promise<number> => {
+  try {
+    const dailyPlayRef = doc(db, 'dailyPlayCounts', userId);
+    const dailyPlayDoc = await getDoc(dailyPlayRef);
+    
+    const today = getKoreanDate();
+    let newCount = 1;
+    
+    if (dailyPlayDoc.exists()) {
+      const data = dailyPlayDoc.data();
+      const lastPlayDate = data.lastPlayDate;
+      const gamePlayCounts = data.gamePlayCounts || {};
+      
+      if (lastPlayDate === today) {
+        // Same day, increment count
+        newCount = (gamePlayCounts[gameId] || 0) + 1;
+      } else {
+        // New day, reset count to 1
+        newCount = 1;
+      }
+      
+      // Update the document
+      await updateDoc(dailyPlayRef, {
+        lastPlayDate: today,
+        [`gamePlayCounts.${gameId}`]: newCount,
+        updatedAt: serverTimestamp(),
+      });
+    } else {
+      // Create new document
+      await setDoc(dailyPlayRef, {
+        userId,
+        lastPlayDate: today,
+        gamePlayCounts: {
+          [gameId]: newCount,
+        },
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+    }
+    
+    return newCount;
+  } catch (error) {
+    console.error('일일 플레이 횟수 증가 오류:', error);
+    throw error;
+  }
+};
+
+// Check if user can play (hasn't reached daily limit)
+export const canUserPlay = async (userId: string, gameId: string, dailyLimit: number = 5): Promise<{ canPlay: boolean; currentCount: number }> => {
+  try {
+    const currentCount = await getUserDailyPlayCount(userId, gameId);
+    return {
+      canPlay: currentCount < dailyLimit,
+      currentCount,
+    };
+  } catch (error) {
+    console.error('플레이 가능 여부 확인 오류:', error);
+    return { canPlay: true, currentCount: 0 };
+  }
+};
+
 export async function getGameLeaderboard(gameId: string, limitCount: number = 10): Promise<any[]> {
   try {
     console.log('Fetching leaderboard for gameId:', gameId);

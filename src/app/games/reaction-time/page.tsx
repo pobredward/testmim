@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { getGameById } from '../../../data/games';
 import { GameResult, ReactionGameResult } from '../../../types/games';
-import { getGameLeaderboard, saveGameResult } from '../../../utils/gameUtils';
+import { getGameLeaderboard, saveGameResult, getUserDailyPlayCount, incrementUserDailyPlayCount, canUserPlay } from '../../../utils/gameUtils';
 // import { getScoreRating } from '../../../utils/gameUtils';
 
 type GameState = 'ready' | 'waiting' | 'react' | 'too-early' | 'result';
@@ -46,47 +46,34 @@ export default function ReactionTimePage() {
   const totalRounds = 1;
   const DAILY_PLAY_LIMIT = 5;
 
-  // Korean timezone utilities
-  const getKoreanDate = (): string => {
-    const now = new Date();
-    const koreanTime = new Date(now.getTime() + (9 * 60 * 60 * 1000)); // UTC+9
-    return koreanTime.toISOString().split('T')[0]; // YYYY-MM-DD
-  };
-
-  const resetDailyPlaysIfNeeded = (): number => {
-    const today = getKoreanDate();
-    const lastPlayDate = localStorage.getItem('reaction-time-last-play-date');
-    const savedDailyPlays = parseInt(localStorage.getItem('reaction-time-daily-plays') || '0');
-    
-    if (lastPlayDate !== today) {
-      // New day, reset plays
-      localStorage.setItem('reaction-time-last-play-date', today);
-      localStorage.setItem('reaction-time-daily-plays', '0');
-      return 0;
-    }
-    
-    return savedDailyPlays;
-  };
-
-  const incrementDailyPlays = (): number => {
-    const currentPlays = resetDailyPlaysIfNeeded();
-    const newPlays = currentPlays + 1;
-    localStorage.setItem('reaction-time-daily-plays', newPlays.toString());
-    return newPlays;
-  };
-
-  // Load best time and daily plays from localStorage
+  // Load best time and daily plays
   useEffect(() => {
     const saved = localStorage.getItem('reaction-time-best');
     if (saved) {
       setBestTime(parseInt(saved));
     }
     
-    // Check daily plays
-    const currentPlays = resetDailyPlaysIfNeeded();
-    setDailyPlays(currentPlays);
-    setCanPlay(currentPlays < DAILY_PLAY_LIMIT);
-  }, []);
+    // Check daily plays from Firebase (only for logged in users)
+    const loadDailyPlays = async () => {
+      if (session?.user?.email) {
+        try {
+          const currentPlays = await getUserDailyPlayCount(session.user.email, 'reaction-time');
+          setDailyPlays(currentPlays);
+          setCanPlay(currentPlays < DAILY_PLAY_LIMIT);
+        } catch (error) {
+          console.error('Failed to load daily plays:', error);
+          setDailyPlays(0);
+          setCanPlay(true);
+        }
+      } else {
+        // Guest users have no daily limit
+        setDailyPlays(0);
+        setCanPlay(true);
+      }
+    };
+    
+    loadDailyPlays();
+  }, [session]);
 
   // Load leaderboard data
   useEffect(() => {
@@ -107,20 +94,28 @@ export default function ReactionTimePage() {
 
   // Note: Allow playing without login, encourage login after game
 
-  const startGame = useCallback(() => {
+  const startGame = useCallback(async () => {
     if (gameState !== 'ready') return;
     
-    // Check daily play limit
-    const currentPlays = resetDailyPlaysIfNeeded();
-    if (currentPlays >= DAILY_PLAY_LIMIT) {
-      alert(`하루 ${DAILY_PLAY_LIMIT}회 플레이 제한에 도달했습니다. 내일 다시 시도해주세요!`);
-      return;
+    // Check daily play limit (only for logged in users)
+    if (session?.user?.email) {
+      try {
+        const { canPlay: userCanPlay, currentCount } = await canUserPlay(session.user.email, 'reaction-time', DAILY_PLAY_LIMIT);
+        
+        if (!userCanPlay) {
+          alert(`하루 ${DAILY_PLAY_LIMIT}회 플레이 제한에 도달했습니다. 내일 다시 시도해주세요!`);
+          return;
+        }
+
+        // Increment play count
+        const newPlayCount = await incrementUserDailyPlayCount(session.user.email, 'reaction-time');
+        setDailyPlays(newPlayCount);
+        setCanPlay(newPlayCount < DAILY_PLAY_LIMIT);
+      } catch (error) {
+        console.error('Failed to check/update play count:', error);
+        // Continue with game for error cases
+      }
     }
-    
-    // Increment play count
-    const newPlayCount = incrementDailyPlays();
-    setDailyPlays(newPlayCount);
-    setCanPlay(newPlayCount < DAILY_PLAY_LIMIT);
     
     setGameState('waiting');
     const randomDelay = Math.random() * 3000 + 2000; // 2-5 seconds
@@ -129,7 +124,7 @@ export default function ReactionTimePage() {
       startTimeRef.current = Date.now();
       setGameState('react');
     }, randomDelay);
-  }, [gameState]);
+  }, [gameState, session]);
 
   const handleClick = useCallback(() => {
     if (gameState === 'waiting') {
@@ -143,21 +138,11 @@ export default function ReactionTimePage() {
     }
     
     if (gameState === 'too-early') {
-      // Handle retry after too early click - skip this round
-      const failedAttempt: AttemptResult = {
-        time: 999999, // Mark as failed attempt
-        round: currentRound,
-      };
-      
-      setAttempts(prev => [...prev, failedAttempt]);
+      // Handle retry after too early click - start new game immediately
+      setAttempts([]);
       setCurrentTime(null);
-      
-      if (currentRound >= totalRounds) {
-        setGameState('result');
-      } else {
-        setCurrentRound(prev => prev + 1);
-        setGameState('ready');
-      }
+      setCurrentRound(1);
+      setGameState('ready');
       return;
     }
     
@@ -403,30 +388,43 @@ export default function ReactionTimePage() {
             )}
 
             {/* Experience Points / Login Prompt */}
-            {session && results.isSuccess && results.reactionTime === bestTime ? (
-              <div className="text-center p-4 bg-purple-50 rounded-lg">
-                <div className="text-lg font-bold text-purple-700">
-                  💎 +{getScoreFromTime(results.reactionTime) >= 70 ? 10 : 5} EXP 획득!
+            {session ? (
+              results.isSuccess && results.reactionTime === bestTime ? (
+                <div className="text-center p-4 bg-purple-50 rounded-lg">
+                  <div className="text-lg font-bold text-purple-700">
+                    💎 +{getScoreFromTime(results.reactionTime) >= 70 ? 10 : 5} EXP 획득!
+                  </div>
+                  <div className="text-sm text-purple-600 mt-1">
+                    새로운 개인 기록으로 경험치를 획득했어요!
+                  </div>
                 </div>
-                <div className="text-sm text-purple-600 mt-1">
-                  새로운 개인 기록으로 경험치를 획득했어요!
+              ) : results.isSuccess ? (
+                <div className="text-center p-4 bg-blue-50 rounded-lg">
+                  <div className="text-lg font-bold text-blue-700">
+                    개인 기록을 갱신하지 못했습니다
+                  </div>
+                  <div className="text-sm text-blue-600 mt-1">
+                    더 빠른 반응으로 도전해보세요!
+                  </div>
                 </div>
-              </div>
+              ) : null
             ) : (
-              <div className="text-center p-4 bg-amber-50 rounded-lg border border-amber-200">
-                <div className="text-lg font-bold text-amber-700 mb-2">
-                  🔒 게임 기록을 저장하고 경험치를 얻으려면 로그인하세요
+              results.isSuccess && (
+                <div className="text-center p-4 bg-amber-50 rounded-lg border border-amber-200">
+                  <div className="text-lg font-bold text-amber-700 mb-2">
+                    🔒 게임 기록을 저장하고 경험치를 얻으려면 로그인하세요
+                  </div>
+                  <div className="text-sm text-amber-600 mb-3">
+                    로그인하면 기록 저장, 경험치 획득, 랭킹 참여가 가능해요!
+                  </div>
+                  <Link
+                    href="/signin?redirect=/games/reaction-time"
+                    className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+                  >
+                    로그인하러 가기
+                  </Link>
                 </div>
-                <div className="text-sm text-amber-600 mb-3">
-                  로그인하면 기록 저장, 경험치 획득, 랭킹 참여가 가능해요!
-                </div>
-                <Link
-                  href="/signin?redirect=/games/reaction-time"
-                  className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
-                >
-                  로그인하러 가기
-                </Link>
-              </div>
+              )
             )}
           </div>
 
