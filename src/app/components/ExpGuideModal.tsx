@@ -46,8 +46,8 @@ export default function ExpGuideModal({ isOpen, onClose }: ExpGuideModalProps) {
     {
       icon: "🎮",
       title: "미니게임",
-      description: "반응속도 게임 등의 미니게임을 플레이하면 기본 경험치를 획득하고, 좋은 성과를 거둘수록 추가 보너스를 받을 수 있어요!",
-      exp: "5-15",
+      description: "반응속도 게임에서 400ms 이내 반응하면 5 경험치, 300ms 이내 반응하면 20 경험치를 획득해요! 개인 최고기록 갱신시 추가 5 경험치 보너스!",
+      exp: "5-25",
       frequency: "게임당"
     },
     {
@@ -177,7 +177,7 @@ export default function ExpGuideModal({ isOpen, onClose }: ExpGuideModalProps) {
               <ul className="text-blue-700 text-sm space-y-1">
                 <li>• 다양한 테스트에 참여해서 경험치를 모아보세요</li>
                 <li>• 레벨이 올라갈수록 더 많은 기능을 이용할 수 있어요</li>
-                <li>• 미니게임에서 좋은 성과를 거둘수록 더 많은 경험치를 획득해요! 🎮</li>
+                <li>• 반응속도 게임에서 300ms 이내로 반응하면 20 경험치를 획득할 수 있어요! 🎮</li>
                 <li>• 개인 최고 기록을 갱신하면 추가 보너스 경험치를 받을 수 있어요 🏆</li>
               </ul>
             </div>

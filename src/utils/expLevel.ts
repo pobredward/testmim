@@ -167,14 +167,17 @@ export async function giveExpForMiniGameCompletion(
   currentUserData?: UserData
 ): Promise<LevelUpResult> {
   // 게임별 기본 경험치와 성과 보너스 계산
-  let baseExp = 5; // 기본 경험치
+  let baseExp = 0; // 기본 경험치
   let bonusExp = 0; // 성과 보너스
   
   if (gameId === 'reaction-time') {
-    baseExp = 5;
     // 반응속도 게임의 경우 점수(반응시간)가 낮을수록 좋음
-    if (score < 300) bonusExp = 5; // 300ms 미만이면 보너스
-    if (score < 250) bonusExp = 10; // 250ms 미만이면 더 큰 보너스
+    if (score <= 400) {
+      baseExp = 5; // 400ms 이내면 5 경험치
+    }
+    if (score <= 300) {
+      baseExp = 20; // 300ms 이내면 20 경험치 (기본 경험치 자체를 20으로)
+    }
   }
   
   // 개인 최고기록 갱신시 추가 보너스
