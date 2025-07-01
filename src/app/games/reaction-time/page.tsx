@@ -10,6 +10,7 @@ import { getGameLeaderboard, saveGameResult, getUserDailyPlayCount, incrementUse
 import { giveExpForMiniGameCompletion } from '../../../utils/expLevel';
 import { getUserFromFirestore } from '../../../utils/userAuth';
 import LevelUpModal from '../../components/LevelUpModal';
+import ExpGainModal from '../../components/ExpGainModal';
 import { db } from '../../../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 // import { getScoreRating } from '../../../utils/gameUtils';
@@ -47,13 +48,19 @@ export default function ReactionTimePage() {
   const [dailyPlays, setDailyPlays] = useState(0);
   const [canPlay, setCanPlay] = useState(true);
   
-  // 레벨업 모달 관련 상태
+  // 모달 관련 상태
   const [showLevelUpModal, setShowLevelUpModal] = useState(false);
+  const [showExpGainModal, setShowExpGainModal] = useState(false);
   const [levelUpData, setLevelUpData] = useState({
     oldLevel: 1,
     newLevel: 1,
     expGained: 0,
-    totalExp: 0,
+    currentExp: 0,
+  });
+  const [expGainData, setExpGainData] = useState({
+    currentLevel: 1,
+    currentExp: 0,
+    expGained: 0,
   });
 
   const gameData = getGameById('reaction-time');
@@ -322,18 +329,30 @@ export default function ReactionTimePage() {
             
             console.log('✅ 미니게임 경험치 지급 완료:', levelUpResult);
             
-            // 레벨업했다면 모달 표시
+            // 레벨업했다면 레벨업 모달 표시
             if (levelUpResult.leveledUp) {
               setLevelUpData({
                 oldLevel: levelUpResult.oldLevel,
                 newLevel: levelUpResult.newLevel,
                 expGained: levelUpResult.expGained,
-                totalExp: levelUpResult.totalExp,
+                currentExp: levelUpResult.totalExp,
               });
               
               // 결과 페이지가 완전히 로드된 후 모달 표시
               setTimeout(() => {
                 setShowLevelUpModal(true);
+              }, 1000);
+            } else if (levelUpResult.expGained > 0) {
+              // 레벨업은 없지만 경험치를 획득한 경우 경험치 획득 모달 표시
+              setExpGainData({
+                currentLevel: levelUpResult.newLevel,
+                currentExp: levelUpResult.totalExp,
+                expGained: levelUpResult.expGained,
+              });
+              
+              // 결과 페이지가 완전히 로드된 후 모달 표시
+              setTimeout(() => {
+                setShowExpGainModal(true);
               }, 1000);
             }
           } catch (expError) {
@@ -401,7 +420,16 @@ export default function ReactionTimePage() {
           oldLevel={levelUpData.oldLevel}
           newLevel={levelUpData.newLevel}
           expGained={levelUpData.expGained}
-          totalExp={levelUpData.totalExp}
+          currentExp={levelUpData.currentExp}
+        />
+        
+        {/* 경험치 획득 모달 */}
+        <ExpGainModal
+          isOpen={showExpGainModal}
+          onClose={() => setShowExpGainModal(false)}
+          currentLevel={expGainData.currentLevel}
+          currentExp={expGainData.currentExp}
+          expGained={expGainData.expGained}
         />
 
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-8">

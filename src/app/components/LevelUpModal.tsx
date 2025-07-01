@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { getExpToNextLevel, calculateExpProgress } from "@/utils/expLevel";
 
 interface LevelUpModalProps {
   isOpen: boolean;
@@ -9,7 +10,7 @@ interface LevelUpModalProps {
   oldLevel: number;
   newLevel: number;
   expGained: number;
-  totalExp: number;
+  currentExp: number;
 }
 
 export default function LevelUpModal({
@@ -18,7 +19,7 @@ export default function LevelUpModal({
   oldLevel,
   newLevel,
   expGained,
-  totalExp,
+  currentExp,
 }: LevelUpModalProps) {
   const { t } = useTranslation();
   const [showContent, setShowContent] = useState(false);
@@ -152,14 +153,37 @@ export default function LevelUpModal({
 
             {/* 경험치 정보 */}
             <div className="bg-gray-50 rounded-lg p-4">
-              <div className="flex justify-between items-center mb-2">
+              <div className="flex justify-between items-center mb-3">
                 <span className="text-sm text-gray-600">획득 경험치</span>
                 <span className="font-bold text-green-600">+{expGained} EXP</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-600">총 경험치</span>
-                <span className="font-bold text-purple-600">{totalExp} EXP</span>
-              </div>
+              
+              {/* 새 레벨에서의 진행률 바 */}
+              {(() => {
+                const { currentLevelExp, expToNext, nextLevelRequirement } = getExpToNextLevel(currentExp, newLevel);
+                const progress = calculateExpProgress(currentExp, newLevel);
+                
+                return (
+                  <div>
+                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                      <span>{currentLevelExp} EXP</span>
+                      <span>{nextLevelRequirement} EXP</span>
+                    </div>
+                    
+                    <div className="w-full bg-gray-200 rounded-full h-2 mb-2 overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: `${progress}%` }}
+                      />
+                    </div>
+                    
+                    <div className="flex justify-between text-xs text-gray-500">
+                      <span>진행도: {progress.toFixed(1)}%</span>
+                      <span>다음까지: {expToNext} EXP</span>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           </div>
 
