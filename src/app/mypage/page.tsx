@@ -10,6 +10,7 @@ import ProfileEditModal from "@/app/components/ProfileEditModal";
 import TestResultCards from "@/app/components/TestResultCards";
 import LevelProgressBar from "@/app/components/LevelProgressBar";
 import ExpGuideModal from "@/app/components/ExpGuideModal";
+import GameStatsCard from "@/app/components/GameStatsCard";
 import { getUserFromFirestore } from "@/utils/userAuth";
 
 export default function MyPage() {
@@ -128,6 +129,13 @@ export default function MyPage() {
           <LevelProgressBar currentExp={userExp} currentLevel={userLevel} />
         )}
       </div>
+
+      {/* 미니게임 기록 섹션 */}
+      {session?.user?.id && (
+        <div className="mb-6">
+          <GameStatsCard userId={session.user.id} />
+        </div>
+      )}
 
       {/* 기본 프로필 정보 섹션 */}
       <div className="mb-8">

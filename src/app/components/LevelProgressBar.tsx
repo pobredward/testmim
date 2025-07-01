@@ -109,12 +109,7 @@ export default function LevelProgressBar({ currentExp, currentLevel }: LevelProg
         </div>
       </div>
 
-      {/* 레벨 혜택 힌트 */}
-      <div className="p-2 sm:p-3 bg-blue-50 rounded-lg">
-        <p className="text-xs text-blue-700 text-center leading-relaxed">
-          💡 레벨이 올라갈수록 더 많은 테스트와 기능을 이용할 수 있어요!
-        </p>
-      </div>
+
     </div>
   );
 } 
